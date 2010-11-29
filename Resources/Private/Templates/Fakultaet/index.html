@@ -1,0 +1,8 @@
+<f:layout name="defaultLayout" />
+<f:section name="bibos">
+	<ul>
+		<f:for each="{fakultaeten}" as="fakultaet">
+			<li><f:link.action action="list" controller="Bibliothek" arguments="{uid: fakultaet.uid}">{fakultaet.titel}</f:link.action></li>
+		</f:for>
+	</ul>
+</f:section>

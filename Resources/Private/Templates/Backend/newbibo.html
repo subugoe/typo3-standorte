@@ -1,0 +1,15 @@
+<f:layout name="backendLayout" />
+
+<f:section name="backend">
+	<h3>Neue Bibliothek hinzuf&uuml;gen</h3>
+
+	<f:form method="post" name="neueBibliothek" action="createBibo">
+		<label for="titel">Titel</label>
+		<f:form.textbox property="titel" size="25" />
+		<br />
+		<label for="sigel">Sigel</label>
+		<f:form.textbox property="sigel" size="25" />
+		<br />
+		<f:form.submit value="Eintragen" />
+	</f:form>
+</f:section>

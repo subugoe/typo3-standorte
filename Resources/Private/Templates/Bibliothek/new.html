@@ -1,0 +1,51 @@
+<f:layout name="defaultLayout" />
+
+<f:section name="bibos">
+	<h3>Neue Bibliothek hinzuf&uuml;gen</h3>
+
+	<f:form method="post" name="neueBibliothek" action="create">
+		<label for="titel">Titel</label>
+		<f:form.textbox property="titel" size="25" />
+
+		<label for="sigel">Sigel</label>
+		<f:form.textbox property="sigel" size="25" />
+
+		<f:form.submit value="Eintragen" />
+	</f:form>
+
+	<f:for each="{bibos}" as="bibo">
+		<h3>{bibo.titel}</h3>
+		{bibo.fakultaet}
+		<dl>
+			<dt>Bibliothekssigel</dt>
+			<dd>7/{bibo.sigel}</dd>
+		</dl>
+		<div class="clear"></div>
+		<dl>
+			<dt>Anschrift</dt>
+			<dd>{bibo.strasse}<br />{bibo.plz} {bibo.ort}</dd>
+		</dl>
+		<dl>
+			<dt>Kontakt</dt>
+			<dd>{bibo.telefon}</dd>
+		</dl>
+		<dl>
+			<dt>&Ouml;ffnungszeiten</dt>
+			<dd>{bibo.oeffnungszeiten}</dd>
+		</dl>
+		<dl>
+			<dt>Bibliotheksbeauftragte</dt>
+			<dd>{bibo.ansprechpartner}</dd>
+		</dl>
+		<dl>
+			<dt>Best&auml;nde</dt>
+			<dd>{bibo.bestaende}</dd>
+		</dl>
+		<dl>
+			<dt>Katalog</dt>
+			<dd>{bibo.katalog}</dd>
+		</dl>
+	</f:for>
+
+
+</f:section>
