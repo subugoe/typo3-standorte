@@ -28,7 +28,7 @@
  *
  * @author ingop
  */
-class Tx_Standorte_Domain_Model_Fakultaet  extends Tx_Extbase_DomainObject_AbstractEntity{
+class Tx_Standorte_Domain_Model_Fakultaet extends Tx_Extbase_DomainObject_AbstractEntity{
 
 	/**
 	 * Titel der Fakultaet

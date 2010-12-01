@@ -13,47 +13,10 @@ CREATE TABLE tx_standorte_domain_model_fakultaet (
     deleted tinyint(4) DEFAULT '0' NOT NULL,
     hidden tinyint(4) DEFAULT '0' NOT NULL,
     titel varchar(255) DEFAULT '' NOT NULL,
-	bibliothek int(11) DEFAULT '0' NOT NULL,
 
     PRIMARY KEY (uid),
     KEY parent (pid)
 );
-
-
-
-
-#
-# Table structure for table 'tx_standorte_bibliothek_ansprechpartner_mm'
-#
-#
-CREATE TABLE tx_standorte_domain_model_bibliothek_ansprechpartner_mm (
-  uid_local int(11) DEFAULT '0' NOT NULL,
-  uid_foreign int(11) DEFAULT '0' NOT NULL,
-  tablenames varchar(60) DEFAULT '' NOT NULL,
-  sorting int(11) DEFAULT '0' NOT NULL,
-  sorting_foreign int(11) unsigned DEFAULT '0' NOT NULL,
-  KEY uid_local (uid_local),
-  KEY uid_foreign (uid_foreign)
-);
-
-
-
-
-#
-# Table structure for table 'tx_standorte_bibliothek_fakultaet_mm'
-#
-#
-CREATE TABLE tx_standorte_domain_model_bibliothek_fakultaet_mm (
-  uid_local int(11) DEFAULT '0' NOT NULL,
-  uid_foreign int(11) DEFAULT '0' NOT NULL,
-  tablenames varchar(60) DEFAULT '' NOT NULL,
-  sorting int(11) DEFAULT '0' NOT NULL,
-  sorting_foreign int(11) unsigned DEFAULT '0' NOT NULL,
-  KEY uid_local (uid_local),
-  KEY uid_foreign (uid_foreign)
-);
-
-
 
 #
 # Table structure for table 'tx_standorte_bibliothek'
@@ -77,10 +40,10 @@ CREATE TABLE tx_standorte_domain_model_bibliothek (
     strasse varchar(255) DEFAULT '' NOT NULL,
     plz int(11) DEFAULT '0' NOT NULL,
     ort varchar(255) DEFAULT '' NOT NULL,
-    ansprechpartner int(11) DEFAULT '0' NOT NULL,
+    ansprechpartner text,
     zusatzinformationen text,
     bild text,
-    fakultaet int(11) DEFAULT '0' NOT NULL,
+    fakultaet tinytext,
 
     PRIMARY KEY (uid),
     KEY parent (pid)

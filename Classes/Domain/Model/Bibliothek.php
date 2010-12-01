@@ -97,19 +97,24 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	protected $geoeffnet;
 	/**
 	 *
-	 * @var int
+	 * @var Tx_Standorte_Domain_Model_Fakultaet
 	 */
 	protected $fakultaet;
 
 	/**
 	 * Getter fuer Fakultaet
-	 * @return int
+	 * @return Tx_Standorte_Domain_Model_Fakultaet
 	 */
 	public function getFakultaet() {
 		return $this->fakultaet;
 	}
 
-	public function setFakultaet($fakultaet) {
+	/**
+	 *
+	 * @param Tx_Standorte_Domain_Model_Fakultaet $fakultaet 
+	 */
+	public function setFakultaet(Tx_Standorte_Domain_Model_Fakultaet $fakultaet) {
+
 		$this->fakultaet = $fakultaet;
 	}
 

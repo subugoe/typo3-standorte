@@ -30,26 +30,6 @@
  */
 class Tx_Standorte_Domain_Repository_BibliothekRepository extends Tx_Extbase_Persistence_Repository {
 
-	/**
-	 * n:m Abfrage 
-	 * @param Tx_Standorte_Domain_Model_Fakultaet $fakultaet
-	 * @return <type>
-	 */
-	public function fakultaetsliste(int $fakultaet) {
-
-		t3lib_div::debug($fakultaet, 'id');
-
-		$abfrage = 'SELECT DISTINCT(uid_local), uid_foreign FROM tx_standorte_domain_model_bibliothek_fakultaet_mm WHERE uid_local = ' . $fakultaet;
-
-		$query = $this->createQuery()
-						->statement($abfrage)
-						->execute();
-
-		t3lib_div::debug($query);
-
-		return $query;
-	}
-
 }
 
 ?>

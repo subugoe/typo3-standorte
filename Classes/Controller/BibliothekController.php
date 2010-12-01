@@ -36,12 +36,21 @@ class Tx_Standorte_Controller_BibliothekController extends Tx_Extbase_MVC_Contro
 	protected $bibliothekenRepository;
 
 	/**
+	 * @var Tx_Standorte_Domain_Repository_FakultaetRepository
+	 */
+	protected $fakultaetRepository;
+
+
+	/**
 	 * Initializes the current action
 	 *
 	 * @return void
 	 */
 	public function initializeAction() {
 		$this->bibliothekenRepository = & t3lib_div::makeInstance('Tx_Standorte_Domain_Repository_BibliothekRepository');
+
+		//Wir wollen noch die zugehoerige Fakultaet ausgeben. Also das auch noch mal instanzieren
+		$this->fakultaetRepository = & t3lib_div::makeInstance('Tx_Standorte_Domain_Repository_FakultaetRepository');
 	}
 
 	/**
@@ -51,6 +60,7 @@ class Tx_Standorte_Controller_BibliothekController extends Tx_Extbase_MVC_Contro
 	public function indexAction() {
 
 		$bibliotheken = $this->bibliothekenRepository->findAll();
+
 		$this->view->assign('bibos', $bibliotheken);
 	}
 
@@ -81,14 +91,12 @@ class Tx_Standorte_Controller_BibliothekController extends Tx_Extbase_MVC_Contro
 	 * @param int $fakultaetId
 	 */
 	public function listAction(int $fakultaet =NULL) {
-		$fakultaet = 1;
-		$bibliotheken = $this->bibliothekenRepository->fakultaetsliste($fakultaet);
 
-		$bibos = array();
+		$fakultaetId = intval($this->request->getArgument('fakultaetUid'));
 
-		foreach ($bibliotheken as $bibo){
-			$bibos = $this->bibliothekenRepository->findByUid($bibo[]);
-		}
+		$bibliotheken = $this->bibliothekenRepository->findByFakultaet($fakultaetId);
+
+		$this->view->assign('fakultaet', $this->fakultaetRepository->findByUid($fakultaetId));
 
 		$this->view->assign('bibos', $bibliotheken);
 	}

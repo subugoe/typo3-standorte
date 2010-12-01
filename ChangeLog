@@ -1,0 +1,7 @@
+2010-12-01 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
+	* Refactoring
+	* MM Tabellen geloescht
+	* Controller angepasst
+	* Models erweitert
+	* Ansprechpartner nicht mehr aus tt_address
+	* Aufloesung von Abhaengigkeiten

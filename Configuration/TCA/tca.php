@@ -6,7 +6,7 @@ if (!defined('TYPO3_MODE'))
 $TCA['tx_standorte_domain_model_fakultaet'] = array(
 	'ctrl' => $TCA['tx_standorte_domain_model_fakultaet']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid,l10n_parent,l10n_diffsource,hidden,titel,bibliothek'
+		'showRecordFieldList' => 'sys_language_uid,l10n_parent,l10n_diffsource,hidden,titel'
 	),
 	'feInterface' => $TCA['tx_standorte_domain_model_fakultaet']['feInterface'],
 	'columns' => array(
@@ -56,22 +56,6 @@ $TCA['tx_standorte_domain_model_fakultaet'] = array(
 				'type' => 'input',
 				'size' => '30',
 				'eval' => 'required,trim',
-			)
-		),
-		'bibliothek' => array(
-			'exclude' => 0,
-			'label' => 'Bibliotheken',
-			'config' => array(
-				'type' => 'select',
-				'loadingStrategy' => 'proxy',
-				'foreign_class' => 'Tx_Standorte_Domain_Model_Bibliothek',
-				'foreign_table' => 'tx_standorte_domain_model_bibliothek',
-				'MM' => 'tx_standorte_domain_model_bibliothek_fakultaet_mm',
-				'MM_insert_fields' => array('tablenames' => 'tx_standorte_domain_model_fakultaet'),
-				'MM_match_fields' => array('tablenames' => 'tx_standorte_domain_model_fakultaet'),
-				'size' => 5,
-				'minitems' => 0,
-				'maxitems' => 99
 			)
 		),
 	),
@@ -214,16 +198,20 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:standorte/locallang_db.xml:tx_standorte_domain_model_bibliothek.ansprechpartner',
 			'config' => array(
-				'type' => 'select',
-				'foreign_table' => 'tt_address',
-				'foreign_table_where' => ' ORDER BY tt_address.last_name',
-				'size' => 5,
-				'minitems' => 0,
-				'maxitems' => 100,
-				'MM' => 'tx_standorte_domain_model_bibliothek_ansprechpartner_mm',
-				'MM_opposite_field' => 'ansprechpartner',
-				'MM_insert_fields' => array('tablenames' => 'tx_standorte_domain_model_bibliothek'),
-				'MM_match_fields' => array('tablenames' => 'tx_standorte_domain_model_bibliothek'),
+				'type' => 'text',
+				'cols' => '30',
+				'rows' => '5',
+				'wizards' => array(
+					'_PADDING' => 2,
+					'RTE' => array(
+						'notNewRecords' => 1,
+						'RTEonly' => 1,
+						'type' => 'script',
+						'title' => 'Full screen Rich Text Editing|Formatteret redigering i hele vinduet',
+						'icon' => 'wizard_rte2.gif',
+						'script' => 'wizard_rte.php',
+					),
+				),
 			)
 		),
 		'zusatzinformationen' => array(
@@ -266,16 +254,12 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
 			'label' => 'LLL:EXT:standorte/locallang_db.xml:tx_standorte_domain_model_bibliothek.fakultaet',
 			'config' => array(
 				'type' => 'select',
-				'loadingStrategy' => 'proxy',
-				'foreign_class' => 'Tx_Standorte_Domain_Model_Fakultaet',
+				'loadingStrategy' => 'eager',
 				'foreign_table' => 'tx_standorte_domain_model_fakultaet',
-				'MM' => 'tx_standorte_domain_model_bibliothek_fakultaet_mm',
-				'MM_opposite_field' => 'fakultaet',
-				'MM_insert_fields' => array('tablenames' => 'tx_standorte_domain_model_fakultaet'),
-				'MM_match_fields' => array('tablenames' => 'tx_standorte_domain_model_fakultaet'),
-				'size' => 5,
-				'minitems' => 0,
-				'maxitems' => 99
+//				'foreign_field' => 'titel',
+				'size' => 1,
+				'minitems' => 1,
+				'maxitems' => 1
 			)
 		),
 	),
