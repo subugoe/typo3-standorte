@@ -31,6 +31,10 @@
 class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_AbstractEntity {
 
 	/**
+	 * @var int
+	 */
+	protected $uid;
+	/**
 	 *
 	 * @var string
 	 */
@@ -127,11 +131,20 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	}
 
 	public function getOeffnungszeiten() {
-		return $this->oeffnungszeiten;
+
+		$oeffis =& t3lib_div::makeInstance('Tx_Standorte_Domain_Repository_OeffnungszeitenRepository');
+		
+		$ergebnis = $oeffis->findByBibliothek($this->uid);
+
+		return $ergebnis->von;
 	}
 
 	public function setOeffnungszeiten($oeffnungszeiten) {
-		$this->oeffnungszeiten = $oeffnungszeiten;
+
+		t3lib_div::debug('set');
+
+
+		$this->oeffnungszeiten = $oeffis;
 	}
 
 	public function getTitel() {

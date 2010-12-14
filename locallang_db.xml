@@ -1,26 +1,41 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <T3locallang>
-    <meta type="array">
-        <type>database</type>
-        <description>Language labels for database tables/fields belonging to extension 'standorte'</description>
-    </meta>
-    <data type="array">
-        <languageKey index="default" type="array">
-            <label index="tx_standorte_domain_model_fakultaet">Fakultaet</label>
-            <label index="tx_standorte_domain_model_fakultaet.titel">Titel</label>
-            <label index="tx_standorte_domain_model_bibliothek">Bibliotheken</label>
-            <label index="tx_standorte_domain_model_bibliothek.sigel">Sigel</label>
-            <label index="tx_standorte_domain_model_bibliothek.titel">Titel</label>
-            <label index="tx_standorte_domain_model_bibliothek.lat">Latitude</label>
-            <label index="tx_standorte_domain_model_bibliothek.lon">Longitude</label>
-            <label index="tx_standorte_domain_model_bibliothek.bestand">Bestand</label>
-            <label index="tx_standorte_domain_model_bibliothek.strasse">Strasse</label>
-            <label index="tx_standorte_domain_model_bibliothek.plz">PLZ</label>
-            <label index="tx_standorte_domain_model_bibliothek.ort">Ort</label>
-            <label index="tx_standorte_domain_model_bibliothek.ansprechpartner">Ansprechpartner</label>
-            <label index="tx_standorte_domain_model_bibliothek.zusatzinformationen">Zusatzinformationen</label>
-            <label index="tx_standorte_domain_model_bibliothek.bild">Bild</label>
-            <label index="tx_standorte_domain_model_bibliothek.fakultaet">Fakultaet</label>
-        </languageKey>
-    </data>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 'standorte'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tx_standorte_domain_model_fakultaet">Fakultaet</label>
+			<label index="tx_standorte_domain_model_fakultaet.titel">Titel</label>
+			<label index="tx_standorte_domain_model_bibliothek">Bibliotheken</label>
+			<label index="tx_standorte_domain_model_bibliothek.sigel">Sigel</label>
+			<label index="tx_standorte_domain_model_bibliothek.titel">Titel</label>
+			<label index="tx_standorte_domain_model_bibliothek.lat">Latitude</label>
+			<label index="tx_standorte_domain_model_bibliothek.lon">Longitude</label>
+			<label index="tx_standorte_domain_model_bibliothek.bestand">Bestand</label>
+			<label index="tx_standorte_domain_model_bibliothek.strasse">Strasse</label>
+			<label index="tx_standorte_domain_model_bibliothek.plz">PLZ</label>
+			<label index="tx_standorte_domain_model_bibliothek.ort">Ort</label>
+			<label index="tx_standorte_domain_model_bibliothek.ansprechpartner">Ansprechpartner</label>
+			<label index="tx_standorte_domain_model_bibliothek.zusatzinformationen">Zusatzinformationen</label>
+			<label index="tx_standorte_domain_model_bibliothek.bild">Bild</label>
+			<label index="tx_standorte_domain_model_bibliothek.fakultaet">Fakultaet</label>
+			<label index="tx_standorte_domain_model_oeffnungszeiten">Oeffnungszeiten</label>
+			<label index="tx_standorte_domain_model_oeffnungszeiten.wochentag.I.0">Montag</label>
+			<label index="tx_standorte_domain_model_oeffnungszeiten.wochentag.I.1">Dienstag</label>
+			<label index="tx_standorte_domain_model_oeffnungszeiten.wochentag.I.2">Mittwoch</label>
+			<label index="tx_standorte_domain_model_oeffnungszeiten.wochentag.I.3">Donnerstag</label>
+			<label index="tx_standorte_domain_model_oeffnungszeiten.wochentag.I.4">Freitag</label>
+			<label index="tx_standorte_domain_model_oeffnungszeiten.wochentag.I.5">Samstag</label>
+			<label index="tx_standorte_domain_model_oeffnungszeiten.wochentag.I.6">Sonntag</label>
+			<label index="tx_standorte_domain_model_oeffnungszeiten.wochentag.I.7">Montag - Freitag</label>
+			<label index="tx_standorte_domain_model_oeffnungszeiten.wochentag.I.8">Sonstiges (Freitext)</label>
+			<label index="tx_standorte_domain_model_oeffnungszeiten.wochentag">Wochentag</label>
+			<label index="tx_standorte_domain_model_oeffnungszeiten.inhalt">Text</label>
+			<label index="tx_standorte_domain_model_oeffnungszeiten.von">von</label>
+			<label index="tx_standorte_domain_model_oeffnungszeiten.bis">bis</label>
+			<label index="tx_standorte_domain_model_bibliothek.oeffnungszeiten">Oeffnungszeiten</label>
+		</languageKey>
+	</data>
 </T3locallang>
