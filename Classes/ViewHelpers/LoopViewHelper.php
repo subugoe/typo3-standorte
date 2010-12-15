@@ -1,8 +1,6 @@
 <?php
 
-class Tx_Efempty_ViewHelpers_LoopViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractViewHelper {
-
-	
+class Tx_Standorte_ViewHelpers_LoopViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractViewHelper {
 	/**
      * Renders a loop
      *
@@ -17,8 +15,6 @@ class Tx_Efempty_ViewHelpers_LoopViewHelper extends Tx_Fluid_Core_ViewHelper_Abs
       $this->templateVariableContainer->remove($as);
     }
     return $out;
-  }
-
-	
+  }	
 }
 ?>

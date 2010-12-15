@@ -41,7 +41,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	protected $sigel;
 	/**
 	 *
-	 * @var string
+	 * @var array
 	 */
 	protected $oeffnungszeiten;
 	/**
@@ -74,13 +74,11 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	 * @var string
 	 */
 	protected $strasse;
-
 	/**
 	 * Adresszusatz (sowas wie "Juridicum, 4. Stock ...)
 	 * @var string
 	 */
 	protected $adresszusatz;
-
 	/**
 	 *
 	 * @var int
@@ -103,7 +101,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	protected $bild;
 	/**
 	 *
-	 * @var string
+	 * @var boolean
 	 */
 	protected $geoeffnet;
 	/**
@@ -111,25 +109,44 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	 * @var Tx_Standorte_Domain_Model_Fakultaet
 	 */
 	protected $fakultaet;
-	
 	/**
 	 * Link zum Katalog
 	 * @var string
 	 */
 	protected $katalog;
-
 	/**
 	 * Link zum Institutskatalo
 	 * @var string
 	 */
 	protected $institutskatalog;
+	/**
+	 * Falls die Bibliothek nur einen Link nach extern hat (Sonderfall MPI)
+	 * @var string
+	 */
+	protected $extlink;
+
+	/**
+	 * Getter fuer einen link nach Extern
+	 * @return string Link
+	 */
+	public function getExtlink() {
+		return $this->extlink;
+	}
+
+	/**
+	 * Setter fuer einen Link nach Extern
+	 * @param string $extlink
+	 */
+	public function setExtlink($extlink) {
+		$this->extlink = $extlink;
+	}
 
 	/**
 	 * Getter fuer den Institutskatalog
 	 * @return string
 	 */
 	public function getInstitutskatalog() {
-	 return $this->institutskatalog;
+		return $this->institutskatalog;
 	}
 
 	/**
@@ -137,7 +154,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	 * @param string $institutskatalog
 	 */
 	public function setInstitutskatalog($institutskatalog) {
-	 $this->institutskatalog = $institutskatalog;
+		$this->institutskatalog = $institutskatalog;
 	}
 
 	/**
@@ -145,7 +162,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	 * @return string
 	 */
 	public function getAdresszusatz() {
-	 return $this->adresszusatz;
+		return $this->adresszusatz;
 	}
 
 	/**
@@ -153,10 +170,9 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	 * @param string $adresszusatz
 	 */
 	public function setAdresszusatz($adresszusatz) {
-	 $this->adresszusatz = $adresszusatz;
+		$this->adresszusatz = $adresszusatz;
 	}
 
-	
 	/**
 	 *
 	 * @return string
@@ -198,21 +214,35 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 		$this->sigel = $sigel;
 	}
 
+	/**
+	 * Auslesen der Oeffnungszeiten
+	 * @lazy
+	 * @return array
+	 */
 	public function getOeffnungszeiten() {
 
 		$oeffis = & t3lib_div::makeInstance('Tx_Standorte_Domain_Repository_OeffnungszeitenRepository');
 
 		$ergebnis = $oeffis->findByBibliothek($this->uid);
 
-		return $ergebnis->von;
+		$oeffnungszeiten = array();
+
+		foreach ($ergebnis as $resultat) {
+
+			//checken ob es geoffnet ist
+			$this->setGeoeffnet($resultat->von, $resultat->bis, $resultat->wochentag);
+			$oeffnungszeiten[] = $resultat;
+		}
+
+		return $oeffnungszeiten;
 	}
 
+	/**
+	 *
+	 * @param array $oeffnungszeiten
+	 */
 	public function setOeffnungszeiten($oeffnungszeiten) {
-
-		t3lib_div::debug('set');
-
-
-		$this->oeffnungszeiten = $oeffis;
+		$this->oeffnungszeiten = $oeffnungszeiten;
 	}
 
 	public function getTitel() {
@@ -287,19 +317,38 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 		$this->zusatzinformationen = $zusatzinformationen;
 	}
 
+	/**
+	 * Existiert ein Bild fuer die aktuelle Bibliothek?
+	 * @return string
+	 */
 	public function getBild() {
 		return $this->bild;
 	}
 
 	public function setBild($bild) {
-		$this->bild = $bild;
+
+		$this->bild = $image;
 	}
 
 	public function getGeoeffnet() {
+
+
+
 		return $this->geoeffnet;
 	}
 
-	public function setGeoeffnet($geoeffnet) {
+	public function setGeoeffnet($von, $bis, $wochentag) {
+//		t3lib_div::debug($von, 'von');
+//		t3lib_div::debug($bis, 'bis');
+//		t3lib_div::debug($wochentag, 'wochentag');
+
+		$tagJetzt = date('N');
+
+		if ($wochentag === $tagJetzt) {
+			$geoeffnet = true;
+		}
+
+
 		$this->geoeffnet = $geoeffnet;
 	}
 

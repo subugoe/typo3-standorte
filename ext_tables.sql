@@ -49,6 +49,7 @@ CREATE TABLE tx_standorte_domain_model_bibliothek (
     fakultaet tinytext,
     katalog tinytext,
 	institutskatalog tinytext,
+    extlink tinytext,
 
     PRIMARY KEY (uid),
     KEY parent (pid)

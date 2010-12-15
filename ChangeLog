@@ -1,5 +1,13 @@
+2010-12-14 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
+	* Hinzufuegen weiterer Legacy Felder
+	* Optimierung Anpassung im Backend
+	* Fakultaeten koennen nun auch durch einen externen Link repraesentiert werden
+	* Neues Extensionicon
+	* Bibliothek kann einen externen Link haben
+	* Links auf Kataloge und GOK
+
 2010-12-13 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
-	* 
+	* Layouts und Felder geaendert
 
 2010-12-06 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
 	* IRRE Oeffnungszeiten

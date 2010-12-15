@@ -93,7 +93,7 @@ $TCA['tx_standorte_domain_model_fakultaet'] = array(
 $TCA['tx_standorte_domain_model_bibliothek'] = array(
 	'ctrl' => $TCA['tx_standorte_domain_model_bibliothek']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid,l10n_parent,l10n_diffsource,hidden,sigel,titel,lat,lon,bestand,katalog,institutskatalog,strasse,adresszusatz,plz,ort,ansprechpartner,oeffnungszeiten,zusatzinformationen,bild,fakultaet'
+		'showRecordFieldList' => 'sys_language_uid,l10n_parent,l10n_diffsource,hidden,sigel,titel,extlink,lat,lon,bestand,katalog,institutskatalog,strasse,adresszusatz,plz,ort,ansprechpartner,oeffnungszeiten,zusatzinformationen,bild,fakultaet'
 	),
 	'feInterface' => $TCA['tx_standorte_domain_model_bibliothek']['feInterface'],
 	'columns' => array(
@@ -344,9 +344,30 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
 				)
 			)
 		),
+		'extlink' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:standorte/locallang_db.xml:tx_standorte_domain_model_fakultaet.extlink',
+			'config' => array(
+				'type' => 'input',
+				'size' => '15',
+				'max' => '255',
+				'checkbox' => '',
+				'eval' => 'trim',
+				'wizards' => array(
+					'_PADDING' => 2,
+					'link' => array(
+						'type' => 'popup',
+						'title' => 'Link',
+						'icon' => 'link_popup.gif',
+						'script' => 'browse_links.php?mode=wizard',
+						'JSopenParams' => 'height=300,width=500,status=0,menubar=0,scrollbars=1'
+					)
+				)
+			)
+		),
 	),
 	'types' => array(
-		'0' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, sigel, titel, lat, lon, bestand, katalog, institutskatalog, strasse, adresszusatz, plz, ort, ansprechpartner, oeffnungszeiten, zusatzinformationen;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_standorte/rte/], bild, fakultaet')
+		'0' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, sigel, titel, extlink, lat, lon, bestand, katalog, institutskatalog, strasse, adresszusatz, plz, ort, ansprechpartner, oeffnungszeiten, zusatzinformationen;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_standorte/rte/], bild, fakultaet')
 	),
 	'palettes' => array(
 		'1' => array('showitem' => '')

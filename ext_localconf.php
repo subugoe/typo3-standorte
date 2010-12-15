@@ -13,14 +13,12 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 				$_EXTKEY, // The extension name (in UpperCamelCase) or the extension key (in lower_underscore)
 				'Pi1', // A unique name of the plugin in UpperCamelCase
 				array(// An array holding the controller-action-combinations that are accessible
-					'Fakultaet' => 'index,new,create,list',
-					'Bibliothek' => 'index,new,create,list' // The first controller and its first action will be the default
-					
+					'Fakultaet' => 'index,list',
+					'Bibliothek' => 'index,list' // The first controller and its first action will be the default
 				),
 				array(// An array of non-cachable controller-action-combinations (they must already be enabled)
-					'Fakultaet' => 'index,new,create,list',
-					'Bibliothek' => 'index,new,create,list'
-					
+					'Fakultaet' => 'index,list',
+					'Bibliothek' => 'index,list'
 				)
 );
 
@@ -29,6 +27,10 @@ t3lib_extMgm::addUserTSConfig('
 ');
 t3lib_extMgm::addUserTSConfig('
     options.saveDocNew.tx_standorte_domain_model_bibliothek=1
+	options{
+		RTESmallWidth = 500
+		RTESmallHeight = 400
+  }
 ');
 t3lib_extMgm::addPageTSConfig('
 

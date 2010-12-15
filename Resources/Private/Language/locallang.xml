@@ -2,16 +2,22 @@
 <T3locallang>
 	<meta type="array">
 		<type>module</type>
-		<description>Sprachlabels für die Efempty Extension</description>
+		<description>Sprachlabels für Standorte</description>
 	</meta>
 	<data type="array">
 		<languageKey index="default" type="array">
-			<label index="das.ist.der.key">This is the english output</label>
-			<label index="test">TESTAusgabeEN</label>
+			<label index="oeffnung">Öffnungszeiten</label>
+			<label index="tag.1">Montag</label>
+			<label index="tag.2">Dienstag</label>
+			<label index="tag.3">Mittwoch</label>
+			<label index="tag.4">Donnerstag</label>
+			<label index="tag.5">Freitag</label>
+			<label index="tag.6">Samstag</label>
+			<label index="tag.7">Sonntag</label>
+			<label index="tag.8">Montag - Freitag</label>
 		</languageKey>
 		<languageKey index="de" type="array">
-			<label index="das.ist.der.key">Das ist die deutsche Ausgabe</label>
-			<label index="test">TESTAusgabeDE</label>
+			<label index="oeffnung">Öffnungszeiten</label>
 		</languageKey>
 	</data>
 </T3locallang>

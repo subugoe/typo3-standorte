@@ -36,6 +36,29 @@ class Tx_Standorte_Domain_Model_Fakultaet extends Tx_Extbase_DomainObject_Abstra
 	 */
 	protected $titel;
 
+	/**
+	 * Falls die Fakultaet nur einen Link nach Extern hat
+	 * @var string
+	 */
+	protected $extlink;
+
+	/**
+	 * Getter fuer einen externen link
+	 * @return string
+	 */
+	public function getExtlink() {
+	 return $this->extlink;
+	}
+
+	/**
+	 * Setter fuer einen externen Link
+	 * @param string $extlink
+	 */
+	public function setExtlink($extlink) {
+	 $this->extlink = $extlink;
+	}
+
+	
 	public function getTitel() {
 		return $this->titel;
 	}

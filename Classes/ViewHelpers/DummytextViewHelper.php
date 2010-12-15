@@ -6,7 +6,7 @@ class Tx_Efempty_ViewHelpers_DummytextViewHelper extends Tx_Fluid_Core_ViewHelpe
 	/**
 	 * Das ist der Dummytext-ViewHelper
 	 *
-	 * @param int $length LŠnge des Dummy-Textes
+	 * @param int $length Laenge des Dummy-Textes
 	 */
 	public function render($length = 100) {
 		//$dummytext = 'Lorem ipsum dolor sit amet. ';

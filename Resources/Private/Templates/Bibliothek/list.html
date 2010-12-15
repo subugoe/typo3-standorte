@@ -2,9 +2,16 @@
 
 <f:section name="bibos">
 	<f:for each="{bibos}" as="bibo">
-		<div class="list">
 
-			<h2>{bibo.titel}</h2>
+		<div class="list">
+			<f:if condition="{bibo.bild}">
+				<f:then>
+					<div class="bibliotheksbild" style="float:right">
+						<f:image src="uploads/tx_standorte/{bibo.bild}" alt="Bild der {bibo.titel}" maxWidth="220" />
+					</div>
+				</f:then>
+			</f:if>
+			<h2>{bibo.titel} <f:if condition="{bibo.geoeffnet}"><f:then> - geoeffnet</f:then></f:if></h2>
 			<dl>
 				<dt>Bibliothekssigel</dt>
 				<dd>7/{bibo.sigel}</dd>
@@ -21,23 +28,40 @@
 				<dt>Kontakt</dt>
 				<dd>{bibo.telefon}</dd>
 			</dl>
+
+			<!--Oeffnungszeiten-->
 			<dl>
-				<dt>&Ouml;ffnungszeiten</dt>
-				<dd>{bibo.oeffnungszeiten}</dd>
+				<dt><f:translate key="oeffnung" /></dt>
+				<dd>
+				<f:render partial="oeffnungszeiten" arguments="{bob: bibo.oeffnungszeiten}"/>
+				</dd>
 			</dl>
+
+			<!--/Oeffnungszeiten-->
+
 			<dl>
 				<dt>Bibliotheksbeauftragte</dt>
 				<dd><f:format.html>{bibo.ansprechpartner}</f:format.html></dd>
 			</dl>
 			<dl>
 				<dt>Best&auml;nde</dt>
-				<dd>{bibo.bestand}<br />
-				<f:link.external uri="{bibo.institutskatalog}">
-					Institutskatalog
-				</f:link.external><br />
-				<f:link.external uri="{bibo.katalog}">
+				<dd>{bibo.bestand}
+				<f:if condition="{bibo.institutskatalog}">
+					<f:then>
+						<br />
+						<f:link.external uri="{bibo.institutskatalog}">
+							<f:translate key="instituskatalog" />
+						</f:link.external>
+					</f:then>
+				</f:if>
+				<f:if condition="{bibo.katalog}">
+					<f:then>
+						<br />
+						<f:link.external uri="{bibo.katalog}">
 					Katalog
-				</f:link.external>
+						</f:link.external>
+					</f:then>
+				</f:if>
 				</dd>
 			</dl>
 		</div>
