@@ -6,8 +6,9 @@
 	</meta>
 	<data type="array">
 		<languageKey index="default" type="array">
-			<label index="tx_standorte_domain_model_fakultaet">Fakultaet</label>
+			<label index="tx_standorte_domain_model_fakultaet">Fakultät</label>
 			<label index="tx_standorte_domain_model_fakultaet.titel">Titel</label>
+			<label index="tx_standorte_domain_model_fakultaet.extlink">Link zu einer externen Seite?</label>
 			<label index="tx_standorte_domain_model_bibliothek">Bibliotheken</label>
 			<label index="tx_standorte_domain_model_bibliothek.sigel">Sigel</label>
 			<label index="tx_standorte_domain_model_bibliothek.titel">Titel</label>
@@ -20,7 +21,7 @@
 			<label index="tx_standorte_domain_model_bibliothek.ansprechpartner">Ansprechpartner</label>
 			<label index="tx_standorte_domain_model_bibliothek.zusatzinformationen">Zusatzinformationen</label>
 			<label index="tx_standorte_domain_model_bibliothek.bild">Bild</label>
-			<label index="tx_standorte_domain_model_bibliothek.fakultaet">Fakultaet</label>
+			<label index="tx_standorte_domain_model_bibliothek.fakultaet">Fakultät</label>
 			<label index="tx_standorte_domain_model_oeffnungszeiten">Oeffnungszeiten</label>
 			<label index="tx_standorte_domain_model_oeffnungszeiten.wochentag.I.0">Montag</label>
 			<label index="tx_standorte_domain_model_oeffnungszeiten.wochentag.I.1">Dienstag</label>
@@ -35,7 +36,10 @@
 			<label index="tx_standorte_domain_model_oeffnungszeiten.inhalt">Text</label>
 			<label index="tx_standorte_domain_model_oeffnungszeiten.von">von</label>
 			<label index="tx_standorte_domain_model_oeffnungszeiten.bis">bis</label>
-			<label index="tx_standorte_domain_model_bibliothek.oeffnungszeiten">Oeffnungszeiten</label>
+			<label index="tx_standorte_domain_model_bibliothek.oeffnungszeiten">Öffnungszeiten</label>
+			<label index="tx_standorte_domain_model_bibliothek.katalog">Link zum Katalog</label>
+			<label index="tx_standorte_domain_model_bibliothek.institutskatalog">Link zum Institutskatalog</label>
+			<label index="tx_standorte_domain_model_bibliothek.adresszusatz">Adresszusatz (z.B. Juridicum 4. Etage)</label>
 		</languageKey>
 	</data>
 </T3locallang>

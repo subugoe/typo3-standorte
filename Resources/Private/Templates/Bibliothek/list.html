@@ -31,17 +31,17 @@
 			</dl>
 			<dl>
 				<dt>Best&auml;nde</dt>
-				<dd>{bibo.bestaende}</dd>
-			</dl>
-			<dl>
-				<dt>Katalog</dt>
-				<dd>{bibo.katalog}</dd>
+				<dd>{bibo.bestand}<br />
+				<f:link.external uri="{bibo.institutskatalog}">
+					Institutskatalog
+				</f:link.external><br />
+				<f:link.external uri="{bibo.katalog}">
+					Katalog
+				</f:link.external>
+				</dd>
 			</dl>
 		</div>
 
 	</f:for>
 
-	<f:link.action action="new" arguments="{bibliothek : bibliothek}">Neue Bibo</f:link.action>
-
-	<f:link.action action="new" controller="Fakultaet">Neue Fakultaet</f:link.action>
 </f:section>

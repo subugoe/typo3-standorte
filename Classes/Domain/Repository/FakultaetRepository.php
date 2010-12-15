@@ -28,6 +28,6 @@
  * @author ingop
  */
 class Tx_Standorte_Domain_Repository_FakultaetRepository extends Tx_Extbase_Persistence_Repository{
-    //put your code here
+
 }
 ?>

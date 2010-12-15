@@ -13,6 +13,7 @@ CREATE TABLE tx_standorte_domain_model_fakultaet (
     deleted tinyint(4) DEFAULT '0' NOT NULL,
     hidden tinyint(4) DEFAULT '0' NOT NULL,
     titel varchar(255) DEFAULT '' NOT NULL,
+    extlink tinytext,
 
     PRIMARY KEY (uid),
     KEY parent (pid)
@@ -38,6 +39,7 @@ CREATE TABLE tx_standorte_domain_model_bibliothek (
     lon double(11,2) DEFAULT '0.00' NOT NULL,
     bestand tinytext,
     strasse varchar(255) DEFAULT '' NOT NULL,
+	adresszusatz varchar(255) DEFAULT '' NOT NULL,
     plz int(11) DEFAULT '0' NOT NULL,
     ort varchar(255) DEFAULT '' NOT NULL,
     ansprechpartner text,
@@ -45,6 +47,8 @@ CREATE TABLE tx_standorte_domain_model_bibliothek (
     zusatzinformationen text,
     bild text,
     fakultaet tinytext,
+    katalog tinytext,
+	institutskatalog tinytext,
 
     PRIMARY KEY (uid),
     KEY parent (pid)
@@ -65,7 +69,7 @@ CREATE TABLE tx_standorte_domain_model_oeffnungszeiten (
     von varchar(5) DEFAULT '' NOT NULL,
     bis varchar(5) DEFAULT '' NOT NULL,
 	bibliothek int(11) DEFAULT '0' NOT NULL,
-	inhalt tinytext,Pfe
+	inhalt tinytext,
 
     PRIMARY KEY (uid),
     KEY parent (pid)

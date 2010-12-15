@@ -74,6 +74,13 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	 * @var string
 	 */
 	protected $strasse;
+
+	/**
+	 * Adresszusatz (sowas wie "Juridicum, 4. Stock ...)
+	 * @var string
+	 */
+	protected $adresszusatz;
+
 	/**
 	 *
 	 * @var int
@@ -104,6 +111,67 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	 * @var Tx_Standorte_Domain_Model_Fakultaet
 	 */
 	protected $fakultaet;
+	
+	/**
+	 * Link zum Katalog
+	 * @var string
+	 */
+	protected $katalog;
+
+	/**
+	 * Link zum Institutskatalo
+	 * @var string
+	 */
+	protected $institutskatalog;
+
+	/**
+	 * Getter fuer den Institutskatalog
+	 * @return string
+	 */
+	public function getInstitutskatalog() {
+	 return $this->institutskatalog;
+	}
+
+	/**
+	 * Setter fuer den Institutskatalog
+	 * @param string $institutskatalog
+	 */
+	public function setInstitutskatalog($institutskatalog) {
+	 $this->institutskatalog = $institutskatalog;
+	}
+
+	/**
+	 * Simpler Getter fuer den Adresszusatz
+	 * @return string
+	 */
+	public function getAdresszusatz() {
+	 return $this->adresszusatz;
+	}
+
+	/**
+	 * Setter fuer einen Adresszusatz
+	 * @param string $adresszusatz
+	 */
+	public function setAdresszusatz($adresszusatz) {
+	 $this->adresszusatz = $adresszusatz;
+	}
+
+	
+	/**
+	 *
+	 * @return string
+	 */
+	public function getKatalog() {
+		return $this->katalog;
+	}
+
+	/**
+	 * Link zum Katalog
+	 * @param string $katalog
+	 */
+	public function setKatalog($katalog) {
+		$this->katalog = $katalog;
+	}
 
 	/**
 	 * Getter fuer Fakultaet
@@ -132,8 +200,8 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 
 	public function getOeffnungszeiten() {
 
-		$oeffis =& t3lib_div::makeInstance('Tx_Standorte_Domain_Repository_OeffnungszeitenRepository');
-		
+		$oeffis = & t3lib_div::makeInstance('Tx_Standorte_Domain_Repository_OeffnungszeitenRepository');
+
 		$ergebnis = $oeffis->findByBibliothek($this->uid);
 
 		return $ergebnis->von;
