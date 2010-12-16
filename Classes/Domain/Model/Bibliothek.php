@@ -332,8 +332,6 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 
 	public function getGeoeffnet() {
 
-
-
 		return $this->geoeffnet;
 	}
 

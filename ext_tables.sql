@@ -50,6 +50,7 @@ CREATE TABLE tx_standorte_domain_model_bibliothek (
     katalog tinytext,
 	institutskatalog tinytext,
     extlink tinytext,
+	sorttitel varchar(255) DEFAULT '' NOT NULL,
 
     PRIMARY KEY (uid),
     KEY parent (pid)

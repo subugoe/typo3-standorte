@@ -12,13 +12,14 @@
 			<label index="tx_standorte_domain_model_bibliothek">Bibliotheken</label>
 			<label index="tx_standorte_domain_model_bibliothek.sigel">Sigel</label>
 			<label index="tx_standorte_domain_model_bibliothek.titel">Titel</label>
+			<label index="tx_standorte_domain_model_bibliothek.sorttitel">Titel fuer Sortierung</label>
 			<label index="tx_standorte_domain_model_bibliothek.lat">Latitude</label>
 			<label index="tx_standorte_domain_model_bibliothek.lon">Longitude</label>
 			<label index="tx_standorte_domain_model_bibliothek.bestand">Bestand</label>
 			<label index="tx_standorte_domain_model_bibliothek.strasse">Strasse</label>
 			<label index="tx_standorte_domain_model_bibliothek.plz">PLZ</label>
 			<label index="tx_standorte_domain_model_bibliothek.ort">Ort</label>
-			<label index="tx_standorte_domain_model_bibliothek.ansprechpartner">Ansprechpartner</label>
+			<label index="tx_standorte_domain_model_bibliothek.ansprechpartner">Kontakt</label>
 			<label index="tx_standorte_domain_model_bibliothek.zusatzinformationen">Zusatzinformationen</label>
 			<label index="tx_standorte_domain_model_bibliothek.bild">Bild</label>
 			<label index="tx_standorte_domain_model_bibliothek.fakultaet">Fakultät</label>

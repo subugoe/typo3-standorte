@@ -1,0 +1,39 @@
+.tx-standorte-pi1 .list {
+	float:left;
+	clear:both;
+	margin-bottom: 8px;
+}
+
+.tx-standorte-pi1 h3 {
+	margin: 8px 0;
+}
+
+.tx-standorte-pi1 .list dl {
+	margin-bottom:2px;
+	width:auto;
+	border-right: 1px solid #EEEEEE;
+	border-bottom: 1px solid #EEEEEE;
+	border-left: 1px solid #EEEEEE;
+	clear:both;
+	float:left;
+}
+
+.tx-standorte-pi1 .list dd {
+	border-top: 1px solid #EEEEEE;
+	margin-left:160px;
+	width:380px;
+	padding: 3px;
+	border-left: 1px solid #EEEEEE;
+}
+
+.tx-standorte-pi1 .list dt {
+	border-top: 1px solid #EEEEEE;
+	float:left;
+	width:156px;
+	padding: 3px;
+}
+
+.tx-standorte-pi1 .list .wochentag {
+	width:136px;
+	float:left;
+}

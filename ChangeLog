@@ -1,4 +1,11 @@
-2010-12-14 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
+2010-12-16 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
+	* Lokalisierung
+	* Aenderung Icon im Backend
+	* Feld fuer die Sortierung in der Bibliothektstabelle
+	* CSS in Extension statt in Haupttemplate integriert
+	* Ausgabe, Formatierung und Sortierung der Oeffnungszeiten
+
+2010-12-15 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
 	* Hinzufuegen weiterer Legacy Felder
 	* Optimierung Anpassung im Backend
 	* Fakultaeten koennen nun auch durch einen externen Link repraesentiert werden

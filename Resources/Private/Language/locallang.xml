@@ -15,6 +15,15 @@
 			<label index="tag.6">Samstag</label>
 			<label index="tag.7">Sonntag</label>
 			<label index="tag.8">Montag - Freitag</label>
+			<label index="bibliothekssigel">Bibliothekssigel</label>
+			<label index="fakultaet">Fakultät</label>
+			<label index="anschrift">Anschrift</label>
+			<label index="kontakt">Kontakt</label>
+			<label index="zusatzinformationen">Zusatzinformationen</label>
+			<label index="bestand">Bestand</label>
+			<label index="institutskatalog">Institutskatalog</label>
+			<label index="bestandenthalten">Der Bestand ist im</label>
+			<label index="enthalten">enthalten</label>
 		</languageKey>
 		<languageKey index="de" type="array">
 			<label index="oeffnung">Öffnungszeiten</label>

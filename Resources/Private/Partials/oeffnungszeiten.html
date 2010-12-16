@@ -1,7 +1,10 @@
-<f:translate key="tag.{bob.0.wochentag}" /> {bob.0.von} - {bob.0.bis} {bob.0.inhalt}<br />
-<f:translate key="tag.{bob.1.wochentag}" /> {bob.1.von} - {bob.1.bis} {bob.1.inhalt}<br />
-<f:translate key="tag.{bob.2.wochentag}" /> {bob.2.von} - {bob.2.bis} {bob.2.inhalt}<br />
-<f:translate key="tag.{bob.3.wochentag}" /> {bob.3.von} - {bob.3.bis} {bob.3.inhalt}<br />
-<f:translate key="tag.{bob.4.wochentag}" /> {bob.4.von} - {bob.4.bis} {bob.4.inhalt}<br />
-<f:translate key="tag.{bob.5.wochentag}" /> {bob.5.von} - {bob.5.bis} {bob.5.inhalt}<br />
-<f:translate key="tag.{bob.6.wochentag}" /> {bob.6.von} - {bob.6.bis} {bob.6.inhalt}<br />
+<f:if condition="{wochentag}  == 9">
+	<f:then>
+		{inhalt}
+	</f:then>
+	<f:else>
+		<div class="wochentag">
+			<f:translate key="tag.{wochentag}" />
+		</div>{von} - {bis}<br />
+	</f:else>
+</f:if>
