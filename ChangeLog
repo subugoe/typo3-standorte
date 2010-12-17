@@ -1,3 +1,9 @@
+2010-12-17 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
+	* Manual erstellt
+	* Abwaertskompatibilitaet zu TYPO3 v4.4.x
+	* Hartcodierte StoragePID aus dem Backendtemplate entfernt
+	* Icon fuer Oeffnungszeiten
+
 2010-12-16 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
 	* Lokalisierung
 	* Aenderung Icon im Backend

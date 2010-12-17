@@ -54,6 +54,8 @@ class Tx_Standorte_Controller_BackendController extends Tx_Extbase_MVC_Controlle
 
 	public function indexAction() {
 		$this->view->assign('backend', 'Standorte');
+		$this->view->assign('storagePid','');
+
 	}
 
 	/**

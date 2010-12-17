@@ -57,7 +57,7 @@ $TCA['tx_standorte_domain_model_oeffnungszeiten'] = array(
 			'disabled' => 'hidden',
 		),
 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . '/Configuration/TCA/tca.php',
-		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'icon_tx_standorte_domain_model_oeffnungszeiten.gif',
+		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . '/Resources/Public/img/icon_tx_standorte_domain_model_oeffnungszeiten.png',
 	),
 );
 
