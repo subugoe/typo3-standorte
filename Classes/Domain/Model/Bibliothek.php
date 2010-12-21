@@ -50,7 +50,6 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	 */
 	protected $titel;
 	/**
-	 *
 	 * @var string
 	 */
 	protected $lon;
@@ -230,7 +229,6 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 		foreach ($ergebnis as $resultat) {
 
 			//checken ob es geoffnet ist
-			$this->setGeoeffnet($resultat->von, $resultat->bis, $resultat->wochentag);
 			$oeffnungszeiten[] = $resultat;
 		}
 
@@ -238,7 +236,74 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	}
 
 	/**
-	 *
+	 * Ist die betreffende Bibliothek geoeffnet?
+	 * @return boolean 
+	 */
+	public function getGeoeffnet() {
+
+		// Integer Wert des heutigen Tags
+		$tagJetzt = date('N');
+		$zeitJetzt = date('H:i');
+
+
+		//Referenz auf Oeffnungszeiten Objekt
+		$oeffis = & t3lib_div::makeInstance('Tx_Standorte_Domain_Repository_OeffnungszeitenRepository');
+
+		//Oeffnungszeiten nach Bibliothek suchen
+		$ergebnis = $oeffis->findByBibliothek($this->uid);
+
+		foreach ($ergebnis as $resultat) {
+
+			//Unix Timestamp von jetzt
+			$jetzt = time();
+
+			//Wochentag Check
+			if ($resultat->wochentag == $tagJetzt) {
+				$geoeffnet = true;
+			}
+
+			//Option Montag bis Freitag - WOchentag = 8
+			if (($resultat->wochentag === 8) && ($tagJetzt >= 1 && $tagJetzt <= 5)) {
+				$geoeffnet = true;
+			}
+
+
+			//Wenn es sich um den falschen Wochentag handelt - nicht weiterchecken
+			if ($resultat->wochentag != $tagJetzt && $geoeffnet != true) {
+				$geoeffnet = false;
+			}
+
+			//Wenn Wochentag Check ok, dann Uhrzeiten vergleichen
+			if ($geoeffnet && ($resultat->wochentag == $tagJetzt)) {
+
+				try {
+					$vonA = explode(':', $resultat->von);
+					$bisA = explode(':', $resultat->bis);
+
+					$von = mktime($vonA[0], $vonA[1]);
+					$bis = mktime($bisA[0], $bisA[1]);
+
+					($jetzt >= $von) && ($jetzt <= $bis) ? $geoeffnet = true : $geoeffnet = false;
+				} catch (Exception $e) {
+					//@TODO fehlernachricht
+				}
+			}
+		}
+
+
+		return $geoeffnet;
+	}
+
+	/**
+	 * Setter fuer den Oeffnungsstatus
+	 */
+	public function setGeoeffnet() {
+
+		$this->geoeffnet = $geoeffnet;
+	}
+
+	/**
+	 * Setter fuer die Oeffnungszeiten
 	 * @param array $oeffnungszeiten
 	 */
 	public function setOeffnungszeiten($oeffnungszeiten) {
@@ -253,7 +318,12 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 		$this->titel = $titel;
 	}
 
+	/**
+	 * @return <type>
+	 */
 	public function getLon() {
+
+		$this->lon = $this->geoCode('lon');
 		return $this->lon;
 	}
 
@@ -262,6 +332,9 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	}
 
 	public function getLat() {
+
+		$this->lat = $this->geoCode('lat');
+
 		return $this->lat;
 	}
 
@@ -330,24 +403,37 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 		$this->bild = $image;
 	}
 
-	public function getGeoeffnet() {
+	/**
+	 * Geocoding mit der Google Maps Api v3
+	 * @param string $latlon
+	 * @return <type>
+	 */
+	private function geoCode($latlon) {
 
-		return $this->geoeffnet;
-	}
+		$adresse = $this->erzeugeAdresse();
+		$url = 'http://maps.google.com/maps/api/geocode/json?address=' . $adresse . ',germany&sensor=false';
 
-	public function setGeoeffnet($von, $bis, $wochentag) {
-//		t3lib_div::debug($von, 'von');
-//		t3lib_div::debug($bis, 'bis');
-//		t3lib_div::debug($wochentag, 'wochentag');
-
-		$tagJetzt = date('N');
-
-		if ($wochentag === $tagJetzt) {
-			$geoeffnet = true;
+		$rueckgabe = t3lib_div::getURL($url);
+		if (!$rueckgabe) {
+			throw new Exception('Geocoding failed', 2342, $previous);
 		}
 
+		$code = json_decode($rueckgabe);
 
-		$this->geoeffnet = $geoeffnet;
+		$latlon == 'lat' ? $geo = $code->results[0]->geometry->location->lat : $geo = $code->results[0]->geometry->location->lng;
+
+		return $geo;
+	}
+
+	/**
+	 * Adresse zum geokodieren aufbereiten
+	 * @return string
+	 */
+	private function erzeugeAdresse() {
+
+		$concat = $this->strasse . ',' . $this->plz . ' ' . $this->ort;
+
+		return urlencode($concat);
 	}
 
 }

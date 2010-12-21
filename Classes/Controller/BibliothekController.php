@@ -1,4 +1,5 @@
 <?php
+
 /* * *************************************************************
  *  Copyright notice
  *
@@ -33,12 +34,10 @@ class Tx_Standorte_Controller_BibliothekController extends Tx_Extbase_MVC_Contro
 	 * @var Tx_Standorte_Domain_Repository_BibliothekRepository
 	 */
 	protected $bibliothekenRepository;
-
 	/**
 	 * @var Tx_Standorte_Domain_Repository_FakultaetRepository
 	 */
 	protected $fakultaetRepository;
-
 
 	/**
 	 * Initializes the current action
@@ -50,6 +49,12 @@ class Tx_Standorte_Controller_BibliothekController extends Tx_Extbase_MVC_Contro
 
 		//Wir wollen noch die zugehoerige Fakultaet ausgeben. Also das auch noch mal instanzieren
 		$this->fakultaetRepository = & t3lib_div::makeInstance('Tx_Standorte_Domain_Repository_FakultaetRepository');
+
+		$this->response->addAdditionalHeaderData(
+				'<link rel="stylesheet" href="/typo3conf/ext/standorte/Resources/Public/css/standorte.css" />
+				<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+				<script type="text/javascript" src="/typo3conf/ext/standorte/Resources/Public/js/maps.js"></script>');
+
 	}
 
 	/**

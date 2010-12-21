@@ -7,6 +7,8 @@
 	<data type="array">
 		<languageKey index="default" type="array">
 			<label index="oeffnung">Öffnungszeiten</label>
+			<label index="offen">Geöffnet</label>
+			<label index="geschlossen">Geschlossen</label>
 			<label index="tag.1">Montag</label>
 			<label index="tag.2">Dienstag</label>
 			<label index="tag.3">Mittwoch</label>
@@ -24,6 +26,7 @@
 			<label index="institutskatalog">Institutskatalog</label>
 			<label index="bestandenthalten">Der Bestand ist im</label>
 			<label index="enthalten">enthalten</label>
+			<label index="karte">Karte</label>
 		</languageKey>
 		<languageKey index="de" type="array">
 			<label index="oeffnung">Öffnungszeiten</label>

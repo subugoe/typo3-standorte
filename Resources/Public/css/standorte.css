@@ -37,3 +37,21 @@
 	width:136px;
 	float:left;
 }
+
+.tx-standorte-pi1 .list .open {
+	margin-left:3px;
+	color: green;
+}
+
+.tx-standorte-pi1 .list .closed {
+	color: red;
+	margin-left:3px;
+}
+
+.tx-standorte-pi1 .list .karte {
+/*	display:none;*/
+	margin-left:0;
+	float:left;
+	width:380px;
+	height:300px;
+}

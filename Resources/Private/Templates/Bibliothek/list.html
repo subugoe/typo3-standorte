@@ -5,11 +5,30 @@
 
 		<div class="list">
 
+			<!-- Maps -->
+			<f:render partial="maps" arguments="{lon: bibo.lon,lat: bibo.lat}"/>
+			<!-- /Maps -->
+
 			<!-- Bild -->
 			<f:render partial="bild" arguments="{bild: bibo.bild,titel: bibo.titel}"/>
 			<!-- /Bild -->
 
 			<h2>{bibo.titel}</h2>
+
+			<f:if condition="{bibo.geoeffnet}">
+				<f:then>
+					<div class="open"><f:translate key="offen" /></div>
+				</f:then>
+				<f:else>
+					<div class="closed"><f:translate key="geschlossen" /></div>
+				</f:else>
+			</f:if>
+
+			<f:if condition="{bibo.extlink}">
+				<f:then>
+					<f:link.external uri="{bibo.extlink}">Link zur {bibo.titel}</f:link.external>
+				</f:then>
+			</f:if>
 			<dl>
 				<dt><f:translate key="bibliothekssigel" /></dt>
 				<dd>7/{bibo.sigel}</dd>
@@ -46,10 +65,22 @@
 				</dd>
 				<!--/Oeffnungszeiten-->
 
-				<dt><f:translate key="bestand" /></dt>
-				<dd>{bibo.bestand}
-				<f:render partial="bestand" arguments="{institutskatalog:bibo.institutskatalog, katalog:bibo.katalog}"/>
-				</dd>
+				<!-- Bestand -->
+				<f:if condition="{bibo.bestand}">
+					<f:then>
+						<dt><f:translate key="bestand" /></dt>
+						<dd>{bibo.bestand}
+						<f:render partial="bestand" arguments="{institutskatalog:bibo.institutskatalog, katalog:bibo.katalog}"/>
+						</dd>
+					</f:then>
+				</f:if>
+				<!-- /Bestand -->
+				<!-- Karte -->
+
+				<dt><a class="map" id="cl-{bibo.uid}"><f:translate key="karte" /></a></dt>
+				<dd><div id="map-{bibo.uid}" class="karte"></div></dd>
+
+				<!-- /Karte -->
 			</dl>
 		</div>
 	</f:for>
