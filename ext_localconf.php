@@ -48,4 +48,7 @@ RTE.config.tx_standorte_domain_model_bibliothek.zusatzinformationen {
   }
 }
 ');
+
+$TYPO3_CONF_VARS['EXTCONF']['nkwsubmenu']['extendTOC'][$_EXTKEY] = 'EXT:standorte/Classes/user_Tx_Standorte_Classes_Hooks.php:user_Tx_Standorte_Classes_Hooks->hookFunc';
+
 ?>

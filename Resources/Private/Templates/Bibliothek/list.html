@@ -3,7 +3,7 @@
 <f:section name="bibos">
 	<f:for each="{bibos}" as="bibo">
 
-		<div class="list">
+		<div class="list" id="bibliothek-{bibo.uid}">
 
 			<!-- Maps -->
 			<f:render partial="maps" arguments="{lon: bibo.lon,lat: bibo.lat}"/>

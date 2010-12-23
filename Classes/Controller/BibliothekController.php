@@ -54,7 +54,6 @@ class Tx_Standorte_Controller_BibliothekController extends Tx_Extbase_MVC_Contro
 				'<link rel="stylesheet" href="/typo3conf/ext/standorte/Resources/Public/css/standorte.css" />
 				<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 				<script type="text/javascript" src="/typo3conf/ext/standorte/Resources/Public/js/maps.js"></script>');
-
 	}
 
 	/**
@@ -106,5 +105,4 @@ class Tx_Standorte_Controller_BibliothekController extends Tx_Extbase_MVC_Contro
 	}
 
 }
-
 ?>
