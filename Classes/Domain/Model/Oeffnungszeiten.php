@@ -35,31 +35,26 @@ class Tx_Standorte_Domain_Model_Oeffnungszeiten extends Tx_Extbase_DomainObject_
 	 * @var int
 	 */
 	public $uid;
-
 	/**
 	 *
-	 * @var string
+	 * @var int
 	 */
 	public $von;
-
 	/**
 	 *
-	 * @var string
+	 * @var int
 	 */
 	public $bis;
-	
 	/**
 	 *
 	 * @var int
 	 */
 	public $bibliothek;
-
 	/**
 	 *
 	 * @var int
 	 */
 	public $wochentag;
-
 	/**
 	 *
 	 * @var string
@@ -105,8 +100,6 @@ class Tx_Standorte_Domain_Model_Oeffnungszeiten extends Tx_Extbase_DomainObject_
 	public function setInhalt($inhalt) {
 		$this->inhalt = $inhalt;
 	}
-
-
 
 }
 

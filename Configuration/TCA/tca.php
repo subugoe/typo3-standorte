@@ -386,7 +386,8 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
 $TCA['tx_standorte_domain_model_oeffnungszeiten'] = array(
 	'ctrl' => $TCA['tx_standorte_domain_model_oeffnungszeiten']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'wochentag,von,bis,inhalt'
+		'showRecordFieldList' => 'wochentag,von,bis,inhalt',
+		'maxDBListItems' => 0
 	),
 	'feInterface' => $TCA['tx_standorte_domain_model_oeffnungszeiten']['feInterface'],
 	'columns' => array(
@@ -426,7 +427,7 @@ $TCA['tx_standorte_domain_model_oeffnungszeiten'] = array(
 				'type' => 'input',
 				'size' => '5',
 				'max' => '5',
-				'eval' => 'required,trim',
+				'eval' => 'required,trim,time',
 			)
 		),
 		'bis' => array(
@@ -437,7 +438,7 @@ $TCA['tx_standorte_domain_model_oeffnungszeiten'] = array(
 				'type' => 'input',
 				'size' => '5',
 				'max' => '5',
-				'eval' => 'required,trim',
+				'eval' => 'required,trim,time',
 			)
 		),
 		'inhalt' => array(

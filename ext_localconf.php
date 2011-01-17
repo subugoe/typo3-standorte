@@ -49,6 +49,10 @@ RTE.config.tx_standorte_domain_model_bibliothek.zusatzinformationen {
 }
 ');
 
-$TYPO3_CONF_VARS['EXTCONF']['nkwsubmenu']['extendTOC'][$_EXTKEY] = 'EXT:standorte/Classes/user_Tx_Standorte_Classes_Hooks.php:user_Tx_Standorte_Classes_Hooks->hookFunc';
+$TYPO3_CONF_VARS['EXTCONF']['nkwsubmenu']['extendTOC'][$_EXTKEY] = 'EXT:standorte/Classes/Hooks/Sidebar.php:user_Tx_Standorte_Classes_Hooks_Sidebar->hookFunc';
 
+$TYPO3_CONF_VARS['EXTCONF']['cms']['db_layout']['addTables']['tx_standorte_domain_model_bibliothek'][0] = array(
+	'fList' => 'titel;sigel',
+	'icon' => TRUE
+);
 ?>

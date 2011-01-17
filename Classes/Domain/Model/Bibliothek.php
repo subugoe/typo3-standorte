@@ -236,6 +236,19 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	}
 
 	/**
+	 * Formatiert die Zeit in Sekunden seit 00:00 des Tages
+	 * @return int Aktuelle Zeit in Sekunden des Tages
+	 */
+	public function holeZeit() {
+		$stunde = date('H');
+		$minute = date('i');
+
+		$zeit = (($stunde * 60) + $minute) * 60;
+
+		return $zeit;
+	}
+
+	/**
 	 * Ist die betreffende Bibliothek geoeffnet?
 	 * @return boolean 
 	 */
@@ -243,8 +256,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 
 		// Integer Wert des heutigen Tags
 		$tagJetzt = date('N');
-		$zeitJetzt = date('H:i');
-
+		$zeitJetzt = $this->holeZeit();
 
 		//Referenz auf Oeffnungszeiten Objekt
 		$oeffis = & t3lib_div::makeInstance('Tx_Standorte_Domain_Repository_OeffnungszeitenRepository');
@@ -253,9 +265,6 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 		$ergebnis = $oeffis->findByBibliothek($this->uid);
 
 		foreach ($ergebnis as $resultat) {
-
-			//Unix Timestamp von jetzt
-			$jetzt = time();
 
 			//Wochentag Check
 			if ($resultat->wochentag == $tagJetzt) {
@@ -277,13 +286,10 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 			if ($geoeffnet && ($resultat->wochentag == $tagJetzt)) {
 
 				try {
-					$vonA = explode(':', $resultat->von);
-					$bisA = explode(':', $resultat->bis);
+					$von = $resultat->von;
+					$bis = $resultat->bis;
 
-					$von = mktime($vonA[0], $vonA[1]);
-					$bis = mktime($bisA[0], $bisA[1]);
-
-					($jetzt >= $von) && ($jetzt <= $bis) ? $geoeffnet = true : $geoeffnet = false;
+					($zeitJetzt >= $von) && ($zeitJetzt <= $bis) ? $geoeffnet = true : $geoeffnet = false;
 				} catch (Exception $e) {
 					//@TODO fehlernachricht
 				}

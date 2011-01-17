@@ -1,10 +1,12 @@
-<f:if condition="{wochentag}  == 9">
+{namespace standorte=Tx_Standorte_ViewHelpers}
+
+<f:if condition="{wochentag} == 9">
 	<f:then>
 		{inhalt}
 	</f:then>
 	<f:else>
 		<div class="wochentag">
 			<f:translate key="tag.{wochentag}" />
-		</div>{von} - {bis}<br />
+		</div><standorte:timeFormat ts="{von}" /> - <standorte:timeFormat ts="{bis}" /><br />
 	</f:else>
 </f:if>

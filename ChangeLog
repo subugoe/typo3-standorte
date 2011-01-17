@@ -1,3 +1,12 @@
+2010-01-11 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
+	* Korrekte Anzeige TypoLink mit Titel usw. (WWW-510)
+	* Bugfixes Oeffnungszeitendarstellung
+
+2011-01-10 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
+	* Vereinheitlichung Verzeichnisstrukturen
+	* RealUrl Config (WWW-505)
+	* Pflichtangabe der Uhrzeit mit Formatierung durch : (WWW-507)
+
 2010-12-23 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
 	* Darstellung der Bibliotheken in der Infobox inkl. Anker
 	* Platzhalter fuer Maps

@@ -1,17 +1,16 @@
+{namespace standorte=Tx_Standorte_ViewHelpers}
+
 <f:if condition="{institutskatalog}">
 	<f:then>
 		<br />
-		<f:link.external uri="{institutskatalog}">
-			<f:translate key="institutskatalog" />
-		</f:link.external>
+		<standorte:typolink typolink="{institutskatalog}" linktext="<f:translate key='institutskatalog'/>" />
+
 	</f:then>
 </f:if>
 <f:if condition="{katalog}">
 	<f:then>
 		<br /><f:translate key="bestandenthalten" />
-		<f:link.external uri="{katalog}">
-					GUK
-		</f:link.external>
-		<f:translate key="enhalten" />
+		<standorte:typolink typolink="{katalog}" linktext="GUK" />
+		<f:translate key="enthalten" />
 	</f:then>
 </f:if>
