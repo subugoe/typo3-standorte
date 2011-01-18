@@ -55,4 +55,6 @@ $TYPO3_CONF_VARS['EXTCONF']['cms']['db_layout']['addTables']['tx_standorte_domai
 	'fList' => 'titel;sigel',
 	'icon' => TRUE
 );
+
+$TYPO3_CONF_VARS['FE']['eID_include'][$_EXTKEY] = 'EXT:' . $_EXTKEY . '/Resources/Public/eId/maps.php';
 ?>

@@ -1,46 +1,11 @@
 <script type="text/javascript">
-	function HomeControl(controlDiv, map, latlng) {
-		controlDiv.style.padding = '5px';
-		var controlUI = document.createElement('DIV');
-		controlUI.style.backgroundColor = 'white';
-		controlUI.style.borderStyle = 'solid';
-		controlUI.style.padding = '1px';
-		controlUI.style.borderWidth = '1px';
-		controlUI.style.cursor = 'pointer';
-		controlUI.style.textAlign = 'center';
-		controlUI.title = 'Click to set the map to Home';
-		controlDiv.appendChild(controlUI);
-		var controlText = document.createElement('DIV');
-		controlText.style.fontFamily = 'Arial,sans-serif';
-		controlText.style.fontSize = '12px';
-		controlText.style.paddingLeft = '4px';
-		controlText.style.paddingRight = '4px';
-		controlText.innerHTML = '<b>Home</b>';
-		controlUI.appendChild(controlText);
-		google.maps.event.addDomListener(controlUI,'click',function(){map.setCenter(latlng);map.setZoom(14);});}
-	function initialize() {
-		var latlng = new google.maps.LatLng({lat},{lon});
-		var mapDiv = document.getElementById('map-4');
-		var myOptions = {
-			zoom: 14,
-			center: latlng,
-			scaleControl: true,
-			mapTypeControl: true,
-			mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DEFAULT},
-			navigationControl: true,
-			navigationControlOptions: {style: google.maps.NavigationControlStyle.DEFAULT},
-			mapTypeId: google.maps.MapTypeId.ROADMAP
-		};
-		var map = new google.maps.Map(mapDiv, myOptions);
-		var homeControlDiv = document.createElement('DIV');
-		var homeControl = new HomeControl(homeControlDiv,map,latlng);
-		homeControlDiv.index = 1;
-		map.controls[google.maps.ControlPosition.TOP_RIGHT].push(homeControlDiv);
-		var marker = new google.maps.Marker({position: latlng, map: map, title:'Friedrich-Hund-Platz 1, 37077 Goettingen'});
-		var contentString = '';
-		var infowindow = new google.maps.InfoWindow({content:contentString});
-		infowindow.open(map,marker);
-		google.maps.event.addListener(marker,'click',function(){infowindow.open(map,marker);});
-	}
-	initialize();
-</script> 
+  function initialize() {
+    var latlng = new google.maps.LatLng({lat}, {lon});
+    var myOptions = {
+      zoom: 8,
+      center: latlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var map = new google.maps.Map(document.getElementById("map-1"), myOptions);
+  }
+</script>

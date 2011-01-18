@@ -1,3 +1,10 @@
+2010-01-17 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
+	* Google Maps mit Custom Icon
+	* Karte wird erst nach einem Klick dargestellt
+
+2010-01-17 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
+	* Google Maps laden per AJAX
+
 2010-01-11 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
 	* Korrekte Anzeige TypoLink mit Titel usw. (WWW-510)
 	* Bugfixes Oeffnungszeitendarstellung

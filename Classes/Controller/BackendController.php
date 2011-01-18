@@ -48,14 +48,13 @@ class Tx_Standorte_Controller_BackendController extends Tx_Extbase_MVC_Controlle
 	public function initializeAction() {
 
 		$this->bibliothekenRepository = & t3lib_div::makeInstance('Tx_Standorte_Domain_Repository_BibliothekRepository');
-
 		$this->fakultaetRepository = & t3lib_div::makeInstance('Tx_Standorte_Domain_Repository_FakultaetRepository');
 	}
 
 	public function indexAction() {
+		
 		$this->view->assign('backend', 'Standorte');
-		$this->view->assign('storagePid','');
-
+		$this->view->assign('fakultaeten', $this->fakultaetRepository->findAll());
 	}
 
 	/**

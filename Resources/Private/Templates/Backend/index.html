@@ -1,21 +1,23 @@
 <f:layout name="backendLayout" />
 
 <f:section name="backend">
+
+
+
 	<h2>Fakult&auml;ten</h2>
 	<f:be.tableList tableName="tx_standorte_domain_model_fakultaet"
-					fieldList="{0: 'titel'}"
+					fieldList="{0: 'titel'}" storagePid="1184"
 					levels="2" recordsPerPage="10"
-					sortField="titel" sortDescending="true" readOnly="false"
+					sortField="titel" sortDescending="false" readOnly="false"
 					enableClickMenu="true" clickTitleMode="edit"
 					alternateBackgroundColors="true" />
 
 	<h2>Bibliotheken</h2>
 	<f:be.tableList tableName="tx_standorte_domain_model_bibliothek"
-					fieldList="{0: 'titel', 1: 'sigel'}"
-					levels="2" recordsPerPage="10"
-					sortField="titel" sortDescending="true" readOnly="false"
+					fieldList="{0: 'sigel', 1: 'titel', 2: 'fakultaet'}"
+					levels="2" recordsPerPage="100" storagePid="1184"
+					sortField="sigel" sortDescending="false" readOnly="false"
 					enableClickMenu="true" clickTitleMode="edit"
 					alternateBackgroundColors="true" />
-	<p>
-</p>
+
 </f:section>
