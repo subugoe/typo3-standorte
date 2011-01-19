@@ -1,5 +1,4 @@
 plugin.tx_standorte.persistence.storagePid = 1184
 
-plugin.tx_standorte._CSS_DEFAULT_STYLE (
-	
-)
+lib.tx_standorte.storagePid = TEXT
+lib.tx_standorte.storagePid.value < plugin.tx_standorte.persistence.storagePid

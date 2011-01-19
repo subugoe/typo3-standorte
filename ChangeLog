@@ -1,6 +1,10 @@
-2010-01-17 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
+2010-01-19 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
+	* Rewrite Backend Modul
+
+2010-01-18 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
 	* Google Maps mit Custom Icon
 	* Karte wird erst nach einem Klick dargestellt
+	* Loeschen ueberfluessiger Dateien
 
 2010-01-17 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
 	* Google Maps laden per AJAX

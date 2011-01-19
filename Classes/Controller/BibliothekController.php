@@ -96,14 +96,10 @@ class Tx_Standorte_Controller_BibliothekController extends Tx_Extbase_MVC_Contro
 	public function listAction(int $fakultaet =NULL) {
 
 		$fakultaetId = intval($this->request->getArgument('fakultaetUid'));
-	
-		$bibliotheken = $this->bibliothekenRepository->findByFakultaet($fakultaetId);
-	
-		$this->view->assign('fakultaet', $this->fakultaetRepository->findByUid($fakultaetId));
-		xdebug_get_declared_vars();
-		xdebug_break();
-		xdebug_var_dump();
 
+		$bibliotheken = $this->bibliothekenRepository->findByFakultaet($fakultaetId);
+
+		$this->view->assign('fakultaet', $this->fakultaetRepository->findByUid($fakultaetId));
 		$this->view->assign('bibos', $bibliotheken);
 	}
 

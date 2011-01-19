@@ -50,6 +50,11 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	 */
 	protected $titel;
 	/**
+	 * Titel fuer die Sortierung
+	 * @var string
+	 */
+	protected $sorttitel;
+	/**
 	 * @var string
 	 */
 	protected $lon;
@@ -123,6 +128,15 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	 * @var string
 	 */
 	protected $extlink;
+
+
+	public function getSorttitel() {
+		return $this->sorttitel;
+	}
+
+	public function setSorttitel($sorttitel) {
+		$this->sorttitel = $sorttitel;
+	}
 
 	/**
 	 * Getter fuer einen link nach Extern

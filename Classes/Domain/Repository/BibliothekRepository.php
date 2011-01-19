@@ -33,7 +33,7 @@ class Tx_Standorte_Domain_Repository_BibliothekRepository extends Tx_Extbase_Per
 	public function __construct(Tx_Extbase_Object_ObjectManagerInterface $objectManager = NULL) {
 
 
-		// Sortierung nach Tagen
+		// Sortierung nach Titel
 		$defaultOrderings = array(
 			'sorttitel' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING,
 			'titel' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING

@@ -1,4 +1,5 @@
 <?php
+
 /* * *************************************************************
  *  Copyright notice
  *
@@ -27,7 +28,21 @@
  *
  * @author ingop
  */
-class Tx_Standorte_Domain_Repository_FakultaetRepository extends Tx_Extbase_Persistence_Repository{
+class Tx_Standorte_Domain_Repository_FakultaetRepository extends Tx_Extbase_Persistence_Repository {
+
+	public function __construct(Tx_Extbase_Object_ObjectManagerInterface $objectManager = NULL) {
+
+		// Sortierung nach Titel
+		$defaultOrderings = array(
+			'titel' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING
+		);
+
+		if (t3lib_div::int_from_ver(TYPO3_version) >= 4005000) {
+			$this->setDefaultOrderings($defaultOrderings);
+		}
+		parent::__construct($objectManager);
+	}
 
 }
+
 ?>

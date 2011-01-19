@@ -52,53 +52,43 @@ class Tx_Standorte_Controller_BackendController extends Tx_Extbase_MVC_Controlle
 	}
 
 	public function indexAction() {
-		
+
 		$this->view->assign('backend', 'Standorte');
 		$this->view->assign('fakultaeten', $this->fakultaetRepository->findAll());
 	}
 
 	/**
-	 * Fuege neue Bibliothek hinzu
-	 * @param Tx_Standorte_Domain_Model_Bibliothek $bibliothek
-	 * @dontvalidate $bibliothek
+	 * Auflistung aller Fakultaeten
 	 */
-	public function newBiboAction(Tx_Standorte_Domain_Model_Bibliothek $bibliothek = NULL) {
-
-		$this->view->assign('bibos', $bibliothek);
+	public function listFakultaetenAction() {
+		$fakultaeten = $this->fakultaetRepository->findAll();
+		$this->view->assign('fakultaeten', $fakultaeten);
+		$this->view->assign('backend', 'Fakultäten');
 	}
 
 	/**
-	 * Erzeugt einen neuen Eintrag
-	 * @param Tx_Standorte_Domain_Model_Bibliothek $bibliothek
+	 * Auflistung aller Bibliotheken
 	 */
-	public function createBiboAction(Tx_Standorte_Domain_Model_Bibliothek $bibliothek) {
+	public function listBibliothekenAction() {
 
-		debug($bibliothek);
-		$this->bibliothekenRepository->add($bibliothek);
-
-		$this->view->assign('bibo', $bibliothek);
+		$bibliotheken = $this->bibliothekenRepository->findAll();
+		$this->view->assign('bibliotheken', $bibliotheken);
 	}
 
 	/**
-	 * Neue Fakultaet anlegen
-	 * @param Tx_Standorte_Domain_Model_Fakultaet $fakultaet
-	 * @dontvalidate $fakultaet
+	 * Auflistung aller Bibliotheken einer bestimmten Fakultaet
 	 */
-	public function newFakultaetAction(Tx_Standorte_Domain_Model_Fakultaet $fakultaet = NULL) {
+	public function listBibliothekenByFakultaetAction() {
 
-		$this->view->assign('fakultaet', $fakultaet);
-	}
 
-	/**
-	 * Erstellen der Datenbank
-	 * @param Tx_Standorte_Domain_Model_Fakultaet $fakultaet
-	 */
-	public function createFakultaetAction(Tx_Standorte_Domain_Model_Fakultaet $fakultaet) {
 
-		If ($fakultaet === NULL) {
-			$this->redirect('index');
-		}
-		$this->fakultaetRepository->add($fakultaet);
+		$fakultaetId = intval($this->request->getArgument('fakultaetUid'));
+
+		$this->view->assign('fakultaet', $this->fakultaetRepository->findByUid($fakultaetId));
+		$bibliotheken = $this->bibliothekenRepository->findByFakultaet($fakultaetId);
+		$this->view->assign('backend', 'Bibiliotheken');
+
+		$this->view->assign('bibliotheken', $bibliotheken);
 	}
 
 }

@@ -28,14 +28,13 @@
  *
  * @author ingop
  */
-class Tx_Standorte_Domain_Model_Fakultaet extends Tx_Extbase_DomainObject_AbstractEntity{
+class Tx_Standorte_Domain_Model_Fakultaet extends Tx_Extbase_DomainObject_AbstractEntity {
 
 	/**
 	 * Titel der Fakultaet
 	 * @var string
 	 */
 	protected $titel;
-
 	/**
 	 * Falls die Fakultaet nur einen Link nach Extern hat
 	 * @var string
@@ -43,11 +42,29 @@ class Tx_Standorte_Domain_Model_Fakultaet extends Tx_Extbase_DomainObject_Abstra
 	protected $extlink;
 
 	/**
+	 * Anzahl der referenzierten Bibliotheken
+	 * @var int
+	 */
+	protected $anzahlBibliotheken;
+
+	public function getAnzahlBibliotheken() {
+		$bibliothek = & t3lib_div::makeInstance('Tx_Standorte_Domain_Repository_BibliothekRepository');
+
+		$ergebnis = $bibliothek->countByFakultaet($this->uid);
+
+		return $ergebnis;
+	}
+
+	public function setAnzahlBibliotheken($anzahlBibliotheken) {
+		$this->anzahlBibliotheken = $anzahlBibliotheken;
+	}
+
+	/**
 	 * Getter fuer einen externen link
 	 * @return string
 	 */
 	public function getExtlink() {
-	 return $this->extlink;
+		return $this->extlink;
 	}
 
 	/**
@@ -55,10 +72,9 @@ class Tx_Standorte_Domain_Model_Fakultaet extends Tx_Extbase_DomainObject_Abstra
 	 * @param string $extlink
 	 */
 	public function setExtlink($extlink) {
-	 $this->extlink = $extlink;
+		$this->extlink = $extlink;
 	}
 
-	
 	public function getTitel() {
 		return $this->titel;
 	}

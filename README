@@ -69,3 +69,4 @@ jQuery(document).ready(function(){
 * Besonderheiten bei Oeffnungszeiten
 ** Semesterferien
 * IRRE soll nicht immer neu laden
+* Optimierung Backend Modul - aehnlich wie Frontend, nur mit editfunktionen

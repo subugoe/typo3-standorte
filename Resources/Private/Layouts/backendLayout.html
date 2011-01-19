@@ -1,21 +1,21 @@
-
 <f:be.container pageTitle="Standorte">
+	<link href="{f:uri.resource(path:'css/backend.css')}" rel="stylesheet" />
+
 	<div style="padding:10px">
-<!--		<div style="float:right" >
-			<f:be.menus.actionMenu>
-				<f:be.menus.actionMenuItem label="&Uuml;bersicht" controller="Backend"
-										   action="index" />
-				<f:be.menus.actionMenuItem label="Fakult&auml;ten" controller="Backend"
-										   action="newFakultaet" />
-				<f:be.menus.actionMenuItem label="Bibliotheken" controller="Backend"
-										   action="newbibo" />
-			</f:be.menus.actionMenu>
-		</div>-->
 		<div>
 			<f:be.pageInfo /> -
 			<f:be.pagePath />
 		</div>
-		<h1 style="text-align: left">{backend}</h1>
+		<f:render partial="backendJs" />
+
+		<h1 style="text-align: left;margin-bottom:10px">{backend}</h1>
+		<div style="margin-bottom:10px;float:right">
+			<f:be.menus.actionMenu>
+				<f:be.menus.actionMenuItem label="&Uuml;bersicht" controller="Backend" action="index" />
+				<f:be.menus.actionMenuItem label="Fakult&auml;ten" controller="Backend" action="listFakultaeten" />
+				<f:be.menus.actionMenuItem label="Bibliotheken" controller="Backend" action="listBibliotheken" />
+			</f:be.menus.actionMenu>
+		</div>
 		<f:render section="backend" />
 	</div>
 </f:be.container>

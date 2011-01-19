@@ -1,0 +1,8 @@
+#daten td{
+	border: 1px solid #dadada;
+	padding: 2px;
+}
+
+#daten tr:hover{
+	background-color: #dadada;
+}
