@@ -1,14 +1,10 @@
 /* Liefere nur die uid zurueck*/
 function splitte(uid){
-
 	id = uid.split('-')
-
 	return id[1];
 }
 
 jQuery(document).ready(function(){
-
-
 	/*standorte*/
 	jQuery('.map').click(function(){
 
@@ -26,9 +22,6 @@ jQuery(document).ready(function(){
 				});
 			}
 			);
-
-
-
 		return false;
 	});
 });

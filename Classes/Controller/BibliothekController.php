@@ -50,10 +50,39 @@ class Tx_Standorte_Controller_BibliothekController extends Tx_Extbase_MVC_Contro
 		//Wir wollen noch die zugehoerige Fakultaet ausgeben. Also das auch noch mal instanzieren
 		$this->fakultaetRepository = & t3lib_div::makeInstance('Tx_Standorte_Domain_Repository_FakultaetRepository');
 
-		$this->response->addAdditionalHeaderData(
-				'<link rel="stylesheet" href="/typo3conf/ext/standorte/Resources/Public/css/standorte.css" />
-				<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-				<script type="text/javascript" src="/typo3conf/ext/standorte/Resources/Public/js/maps.js"></script>');
+		//CSS und JS in den Header schreiben
+		$this->response->addAdditionalHeaderData($this->addResourcesToHead());
+	}
+
+	/**
+	 * Tagerstellung und Rendering
+	 * @todo Auslagern in den View!!!
+	 * @return string
+	 */
+	private function addResourcesToHead() {
+
+		$mapsTag = t3lib_div::makeInstance('Tx_Fluid_Core_ViewHelper_TagBuilder', 'script');
+		$mapsTag->addAttribute('type', 'text/javascript');
+		$mapsTag->addAttribute('src', "http://maps.google.com/maps/api/js?sensor=true");
+		$mapsTag->forceClosingTag(true);
+
+		$scriptTag = t3lib_div::makeInstance('Tx_Fluid_Core_ViewHelper_TagBuilder', 'script');
+		$scriptTag->addAttribute('type', 'text/javascript');
+		$scriptTag->addAttribute('src', "/typo3conf/ext/standorte/Resources/Public/js/maps.js");
+		$scriptTag->forceClosingTag(true);
+		$this->response->addAdditionalHeaderData($scriptTag->render());
+
+		$cssTag = t3lib_div::makeInstance('Tx_Fluid_Core_ViewHelper_TagBuilder', 'link');
+		$cssTag->addAttribute('rel', 'stylesheet');
+		$cssTag->addAttribute('href', '/typo3conf/ext/standorte/Resources/Public/css/standorte.css');
+		$cssTag->forceClosingTag(true);
+		$this->response->addAdditionalHeaderData($cssTag->render());
+
+		$header = $mapsTag->render();
+		$header .= $scriptTag->render();
+		$header .= $cssTag->render();
+
+		return $header;
 	}
 
 	/**

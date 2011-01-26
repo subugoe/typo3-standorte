@@ -1,8 +1,50 @@
-#daten td{
-	border: 1px solid #dadada;
-	padding: 2px;
-}
-
 #daten tr:hover{
 	background-color: #dadada;
+}
+
+/* tables */
+table#daten {
+	font-family:arial;
+	background-color: #CDCDCD;
+	margin:10px 0pt 15px;
+	font-size: 8pt;
+	width: 100%;
+	text-align: left;
+}
+table#daten thead tr th, table.tablesorter tfoot tr th {
+	background-color: #5B5B5B;
+	color: white;
+	border: 1px solid #FFF;
+	font-size: 8pt;
+	padding: 4px;
+}
+table#daten thead tr .header {
+	background-image: url(/typo3conf/ext/standorte/Resources/Public/img/bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+table#daten tbody td {
+	color: #3D3D3D;
+	padding: 4px;
+	background-color: #FFF;
+	vertical-align: top;
+	border: 1px solid #dadada;
+}
+table#daten tbody tr.odd td {
+	background-color:#F0F0F6;
+}
+table#daten thead tr .headerSortUp {
+	background-image: url(../img/asc.gif);
+	background-color: #dedede;
+	color: black;
+}
+table#daten thead tr .headerSortDown {
+	background-image: url(../img/desc.gif);
+	background-color: #dedede;
+	color: black;
+}
+table#daten thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+	background-color: #dedede;
+	color: black;
 }

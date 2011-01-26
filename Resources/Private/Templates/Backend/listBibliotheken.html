@@ -2,27 +2,22 @@
 <f:section name="backend">
 
 
-	<f:be.buttons.icon uri="/typo3/alt_doc.php?returnUrl=mod.php%3F%26M%3Dweb_list%26id%3D1184&edit[tx_standorte_domain_model_bibliothek][{f:cObject(typoscriptObjectPath:'lib.tx_standorte.storagePid')}]=new" icon="new_el" title="Neue bibliothek anlegen" />
+	<f:be.buttons.icon uri="alt_doc.php?returnUrl=mod.php%3F%26M%3Dweb_list%26id%3D1184&edit[tx_standorte_domain_model_bibliothek][{f:cObject(typoscriptObjectPath:'lib.tx_standorte.storagePid')}]=new" icon="new_el" title="Neue bibliothek anlegen" />
 	Neue Bibliothek anlegen
 	<table cellpadding="2" cellspacing="2" id="daten">
 		<!--head -->
 		<thead>
-
 			<tr>
 				<th></th>
 				<th>Sigel</th>
 				<th>Name</th>
 				<th>Fakult&auml;t</th>
-
 			</tr>
 		</thead>
 		<tbody>
-
-			<!--/head -->
-
 		<f:for each="{bibliotheken}" as="bibliothek">
 			<tr>
-				<td style="border:0"><f:be.buttons.icon uri="http://w3d.local/typo3/alt_doc.php?returnUrl=mod.php%3F%26M%3Dweb_StandorteTxStandorteM1%26id%3D{f:cObject(typoscriptObjectPath:'lib.tx_standorte.storagePid')}&edit[tx_standorte_domain_model_bibliothek][{bibliothek.uid}]=edit&tx_standorte_web_standortetxstandortem1[action]=listbibliotheken&tx_standorte_web_standortetxstandortem1[controller]=Backend" icon="edit2" title="{bibliothek.titel} bearbeiten" />
+				<td style="border:0"><f:be.buttons.icon uri="alt_doc.php?returnUrl=mod.php%3F%26M%3Dweb_StandorteTxStandorteM1%26id%3D{f:cObject(typoscriptObjectPath:'lib.tx_standorte.storagePid')}&edit[tx_standorte_domain_model_bibliothek][{bibliothek.uid}]=edit&tx_standorte_web_standortetxstandortem1[action]=listbibliotheken&tx_standorte_web_standortetxstandortem1[controller]=Backend" icon="edit2" title="{bibliothek.titel} bearbeiten" />
 			<f:be.buttons.icon uri="{f:uri.action(action:'deleteBibliothek')}" icon="deletedok" title="{bibliothek.titel} l&ouml;schen" /></td>
 			<td>{bibliothek.sigel}</td>
 			<td> {bibliothek.titel}</td>
@@ -30,6 +25,5 @@
 			</tr>
 		</f:for>
 		</tbody>
-
 	</table>
 </f:section>
