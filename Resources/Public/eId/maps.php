@@ -18,7 +18,6 @@ $res = $GLOBALS["TYPO3_DB"]->exec_SELECTquery(
 				"1"// LIMIT ...
 );
 
-//t3lib_div::debug($GLOBALS['TYPO3_DB']);
 
 if ($res) {
 	while ($row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res)) {
@@ -30,6 +29,13 @@ if ($res) {
 		$ort = $row['ort'];
 
 		$adresse = generiereAdresse($titel, $strasse, $plz, $ort);
+
+		if ($lat == '') {
+						$geoUrl = 'http://maps.google.com/maps/api/geocode/json?address=' . $strasse . ',' . $plz . '+' . $ort . '&sensor=false';
+
+			$url = t3lib_div::getURL($geoUrl);
+		
+		}
 	}
 }
 
@@ -67,7 +73,8 @@ function generiereAdresse($titel, $strasse, $plz, $ort) {
 	
 
 	//Inhalt
-	var inhalt = '<?php echo $adresse; ?>';
+	var inhalt = "<?php echo $adresse . ' '. $url; ?>";
+
 
 	//Infobubble
 	var infowindow = new google.maps.InfoWindow({

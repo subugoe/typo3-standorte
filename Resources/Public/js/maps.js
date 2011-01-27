@@ -9,7 +9,7 @@ jQuery(document).ready(function(){
 	jQuery('.map').click(function(){
 
 		uid = splitte(jQuery(this).attr('id'));
-
+		jQuery.fx.off = true
 		jQuery("#map-"+uid).toggle(
 			function(){
 				jQuery.ajax({
@@ -17,6 +17,7 @@ jQuery(document).ready(function(){
 					type: "POST",
 					data: "uid="+uid,
 					success: function(data) {
+						
 						$('#map-'+uid).html(data);
 					}
 				});

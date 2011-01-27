@@ -40,7 +40,6 @@ class Tx_Standorte_Domain_Model_Fakultaet extends Tx_Extbase_DomainObject_Abstra
 	 * @var string
 	 */
 	protected $extlink;
-
 	/**
 	 * Anzahl der referenzierten Bibliotheken
 	 * @var int
@@ -49,9 +48,7 @@ class Tx_Standorte_Domain_Model_Fakultaet extends Tx_Extbase_DomainObject_Abstra
 
 	public function getAnzahlBibliotheken() {
 		$bibliothek = & t3lib_div::makeInstance('Tx_Standorte_Domain_Repository_BibliothekRepository');
-
 		$ergebnis = $bibliothek->countByFakultaet($this->uid);
-
 		return $ergebnis;
 	}
 

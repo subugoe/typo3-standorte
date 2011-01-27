@@ -70,13 +70,11 @@ class Tx_Standorte_Controller_BibliothekController extends Tx_Extbase_MVC_Contro
 		$scriptTag->addAttribute('type', 'text/javascript');
 		$scriptTag->addAttribute('src', "/typo3conf/ext/standorte/Resources/Public/js/maps.js");
 		$scriptTag->forceClosingTag(true);
-		$this->response->addAdditionalHeaderData($scriptTag->render());
 
 		$cssTag = t3lib_div::makeInstance('Tx_Fluid_Core_ViewHelper_TagBuilder', 'link');
 		$cssTag->addAttribute('rel', 'stylesheet');
 		$cssTag->addAttribute('href', '/typo3conf/ext/standorte/Resources/Public/css/standorte.css');
 		$cssTag->forceClosingTag(true);
-		$this->response->addAdditionalHeaderData($cssTag->render());
 
 		$header = $mapsTag->render();
 		$header .= $scriptTag->render();
@@ -92,30 +90,7 @@ class Tx_Standorte_Controller_BibliothekController extends Tx_Extbase_MVC_Contro
 	public function indexAction() {
 
 		$bibliotheken = $this->bibliothekenRepository->findAll();
-
 		$this->view->assign('bibos', $bibliotheken);
-	}
-
-	/**
-	 * Fuege neue Bibliothek hinzu
-	 * @param Tx_Standorte_Domain_Model_Bibliothek $bibliothek
-	 * @dontvalidate $bibliothek
-	 */
-	public function newAction(Tx_Standorte_Domain_Model_Bibliothek $bibliothek = NULL) {
-
-		$this->view->assign('bibos', $bibliothek);
-	}
-
-	/**
-	 * Erzeugt einen neuen Eintrag
-	 * @param Tx_Standorte_Domain_Model_Bibliothek $bibliothek
-	 */
-	public function createAction(Tx_Standorte_Domain_Model_Bibliothek $bibliothek) {
-
-		debug($bibliothek);
-		$this->bibliothekenRepository->add($bibliothek);
-
-		$this->view->assign('bibo', $bibliothek);
 	}
 
 	/**
