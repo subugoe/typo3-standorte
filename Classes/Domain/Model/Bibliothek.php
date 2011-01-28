@@ -342,19 +342,22 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	 * @return <type>
 	 */
 	public function getLon() {
-
-		$this->lon = $this->geoCode('lon');
+		if ($this->lon <= '0.00') {
+			$this->lon = $this->geoCode('lon');
+		}
 		return $this->lon;
 	}
 
 	public function setLon($lon) {
+
+
 		$this->lon = $lon;
 	}
 
 	public function getLat() {
-
-		$this->lat = $this->geoCode('lat');
-
+		if ($this->lat <= '0.00') {
+			$this->lat = $this->geoCode('lat');
+		}
 		return $this->lat;
 	}
 
@@ -431,7 +434,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	private function geoCode($latlon) {
 
 		$adresse = $this->erzeugeAdresse();
-		$url = 'http://maps.google.com/maps/api/geocode/json?address=' . $adresse . ',germany&sensor=false';
+		$url = 'http://maps.google.com/maps/api/geocode/json?address=' . $adresse . '&sensor=false';
 
 		$rueckgabe = t3lib_div::getURL($url);
 		if (!$rueckgabe) {

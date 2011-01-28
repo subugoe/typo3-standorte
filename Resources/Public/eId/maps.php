@@ -29,13 +29,6 @@ if ($res) {
 		$ort = $row['ort'];
 
 		$adresse = generiereAdresse($titel, $strasse, $plz, $ort);
-
-		if ($lat == '') {
-						$geoUrl = 'http://maps.google.com/maps/api/geocode/json?address=' . $strasse . ',' . $plz . '+' . $ort . '&sensor=false';
-
-			$url = t3lib_div::getURL($geoUrl);
-		
-		}
 	}
 }
 
@@ -73,7 +66,7 @@ function generiereAdresse($titel, $strasse, $plz, $ort) {
 	
 
 	//Inhalt
-	var inhalt = "<?php echo $adresse . ' '. $url; ?>";
+	var inhalt = "<?php echo $adresse . ' ' . $url; ?>";
 
 
 	//Infobubble

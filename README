@@ -31,4 +31,3 @@
 * IRRE soll nicht immer neu laden
 * Optimierung Backend Modul - aehnlich wie Frontend, nur mit editfunktionen
 ** Delete Funktion
-** 4.4 kompatibel machen

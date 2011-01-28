@@ -23,20 +23,19 @@
  *  This copyright notice MUST APPEAR in all copies of the script!
  * ************************************************************* */
 //Unschoen aber laeuft
-require_once(PATH_typo3conf . 'ext/standorte/Classes/Domain/Repository/BibliothekRepository.php');
+require_once(t3lib_extMgm::extPath('standorte') . 'Classes/Domain/Repository/BibliothekRepository.php');
 
 /**
  * Description of Tx_Standorte_Classes_Hooks
  *
  * @author ingop
  */
-class user_Tx_Standorte_Classes_Hooks_Sidebar extends Tx_Extbase_MVC_Controller_ActionController {
+class user_Tx_Standorte_Classes_Hooks_Sidebar {
 
 	public function hookFunc(&$tmp, $obj) {
 		$bibliothekenRepository = t3lib_div::makeInstance('Tx_Standorte_Domain_Repository_BibliothekRepository');
 
 		$gp = t3lib_div::GPvar('tx_standorte_pi1');
-
 
 		$fakultaetId = intval($gp['fakultaetUid']);
 

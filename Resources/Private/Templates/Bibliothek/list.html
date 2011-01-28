@@ -3,7 +3,7 @@
 <f:section name="bibos">
 	<f:for each="{bibos}" as="bibo">
 
-		<div class="list" id="bibliothek-{bibo.uid}">
+		<div class="list" id="bibliothek-{bibo.uid}" lat="{bibo.lat}" lon="{bibo.lon}">
 
 			<!-- Bild -->
 			<f:render partial="bild" arguments="{bild: bibo.bild,titel: bibo.titel}"/>

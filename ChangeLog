@@ -1,3 +1,14 @@
+2011-01-28 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
+	* Geocoding optimierung
+	* Verbesserung der Performance
+	* Maps funktioniert auch fuer Bibliotheken ausserhalb Deutschlands (Beispiel China)
+	* Aus Kompatibilitaetsgruenden Hook deaktiviert
+
+2011-01-26 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
+	* jQuery Improvements
+	* Update Controller
+	* Update Ajax Funktionen
+
 2011-01-26 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
 	* Optimierung Backend Modul
 	* Tabellensortierung
