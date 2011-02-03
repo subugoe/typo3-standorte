@@ -1,8 +1,8 @@
-<?php
+<!--
 /* * *************************************************************
  *  Copyright notice
  *
- *  (c) 2010 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
+ *  (c) 2011 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -21,27 +21,7 @@
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  * ************************************************************* */
-
-/**
- * View Helper fuer einen TypoLink
- * @todo nicht die alte Api anzapfen
- * @todo Zeitzone einfuegen
- * $Id$
- * @author ingop
- */
-class Tx_Standorte_ViewHelpers_TimeFormatViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractViewHelper {
-
-	/**
-	 * Formats a given timestamp in seconds to a human readable format
-	 *
-	 * @param int $ts The timestamp
-	 * @return string The formated Date/Time
-	 */
-	public function render($ts) {
-		$ts = $ts - 3600;
-		return date('H:i', $ts);
-	}
-
-}
-
-?>
+$Id$
+-->
+{namespace standorte=Tx_Standorte_ViewHelpers}
+<standorte:sigel sigel="{sigel}" />

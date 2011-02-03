@@ -27,7 +27,7 @@
 			</f:if>
 			<dl>
 				<dt><f:translate key="bibliothekssigel" /></dt>
-				<dd>7/{bibo.sigel}<br />
+				<dd><f:render partial="sigel" arguments="{sigel: bibo.sigel}"/><br />
 					{fakultaet.titel}
 				</dd>
 

@@ -141,9 +141,9 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
 			'label' => 'LLL:EXT:standorte/locallang_db.xml:tx_standorte_domain_model_bibliothek.sigel',
 			'config' => array(
 				'type' => 'input',
-				'size' => '5',
-				'max' => '3',
-				'eval' => 'required,trim',
+				'size' => '8',
+				'max' => '20',
+				'eval' => 'trim',
 			)
 		),
 		'titel' => array(

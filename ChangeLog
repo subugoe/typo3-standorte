@@ -3,6 +3,8 @@
 	* Ausgabe externer Links im neuen Fenster
 	* Optimiertes Parsen der Links
 	* Standardmarker fuer Google Maps Einbindung (WWW-524)
+	* Onclick Oeffnung des Maps Infofensters
+	* Sigel generischer gestaltet (WWW-526)
 
 2011-01-28 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
 	* Geocoding optimierung
