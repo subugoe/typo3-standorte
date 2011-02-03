@@ -33,7 +33,7 @@ CREATE TABLE tx_standorte_domain_model_bibliothek (
     l10n_diffsource mediumtext,
     deleted tinyint(4) DEFAULT '0' NOT NULL,
     hidden tinyint(4) DEFAULT '0' NOT NULL,
-    sigel varchar(3) DEFAULT '' NOT NULL,
+    sigel varchar(20) DEFAULT '' NOT NULL,
     titel varchar(255) DEFAULT '' NOT NULL,
     lat double(30,11) DEFAULT '0.00000000000' NOT NULL,
     lon double(30,11) DEFAULT '0.00000000000' NOT NULL,

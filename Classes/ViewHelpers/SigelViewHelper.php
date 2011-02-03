@@ -31,14 +31,21 @@
 class Tx_Standorte_ViewHelpers_SigelViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractViewHelper {
 
 	/**
-	 * Formats a given timestamp in seconds to a human readable format
+	 * Rendert ein Sigel- je nachdem wo es hingehoert
 	 *
 	 * @param sigel $sigel Das zu ueberpruefende Sigel
 	 * @return string Das formatierte Sigel
 	 */
 	public function render($sigel) {
-		
-		return date('H:i', $ts);
+
+		if ((is_numeric($sigel)) && (strlen($sigel) == 3)) {
+
+			//dann nehmen wir mal an, dass es eine goettinger Bibliothek ist ...
+
+			$sigel = '7/' . $sigel;
+		}
+
+		return $sigel;
 	}
 
 }
