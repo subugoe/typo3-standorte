@@ -60,7 +60,6 @@ function generiereAdresse($titel, $strasse, $plz, $ort) {
 		streetViewControl: false
 	};
 	var map = new google.maps.Map(document.getElementById("map-<?php echo $uid; ?>"), myOptions);
-	var image = '/fileadmin/templates/sub/img/favicon.ico';
 	var myLatLng = new google.maps.LatLng(<?php echo $lat . ', ' . $lon; ?>);
 
 	
@@ -78,7 +77,6 @@ function generiereAdresse($titel, $strasse, $plz, $ort) {
 	var marker = new google.maps.Marker({
 		position: myLatLng,
 		map: map,
-		icon: image,
 		title: "<?php echo $titel; ?>"
 	});
 

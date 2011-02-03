@@ -1,3 +1,9 @@
+2011-02-03 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
+	* Frontendausgabe angepasst (WWW-529)
+	* Ausgabe externer Links im neuen Fenster
+	* Optimiertes Parsen der Links
+	* Standardmarker fuer Google Maps Einbindung (WWW-524)
+
 2011-01-28 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
 	* Geocoding optimierung
 	* Verbesserung der Performance

@@ -1,50 +1,46 @@
 <?php
+/* * *************************************************************
+ *  Copyright notice
+ *
+ *  (c) 2010 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
+ *  All rights reserved
+ *
+ *  This script is part of the TYPO3 project. The TYPO3 project is
+ *  free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 2 of the License, or
+ *  (at your option) any later version.
+ *
+ *  The GNU General Public License can be found at
+ *  http://www.gnu.org/copyleft/gpl.html.
+ *
+ *  This script is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  This copyright notice MUST APPEAR in all copies of the script!
+ * ************************************************************* */
 
+/**
+ * View Helper fuer einen TypoLink
+ * @todo nicht die alte Api anzapfen
+ * $Id$
+ * @author ingop
+ */
 class Tx_Standorte_ViewHelpers_TypolinkViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractViewHelper {
-
-	private $url;
 
 	/**
 	 * Renders a Typolink with title etc
-	 *
+	 * 
 	 * @param string $typolink	Typolink to be processes
 	 * @param string $linktext	Text um den Link
 	 */
 	public function render($typolink, $linktext) {
-
-
-		$args = $this->renderArguments($typolink);
-
-		$url = '<a href="' . $this->url . '"' . $args . '>' . $linktext . '</a>';
+		$local_cObj = t3lib_div::makeInstance('tslib_cObj');
+		$url = $local_cObj->typoLink($linktext, array('parameter' => $typolink));
 
 		return $url;
-	}
-
-	/**
-	 * OMFG - Can't believe I really had to do this
-	 * Splitting all arguments
-	 * @param <type> $typolink
-	 * @return string
-	 */
-	private function renderArguments($typolink) {
-
-		$args = '';
-
-		$linksplit = explode(' ', urldecode($typolink));
-
-		$this->url = 'http://' . trim($linksplit[0]);
-
-		$target = trim($linksplit[1]);
-
-		$linksplit[1] != '-' ? $args .= ' target="' . trim($linksplit[1]) . '"' : $args;
-
-		$linksplit[2] != '-' ? $args .= ' class="' . trim($linksplit[2]) . '"' : $args;
-
-		$title = explode('"', $typolink);
-
-		$title[1] != '-' ? $args .= ' title="' . $title[1] . '"' : $args;
-
-		return $args;
 	}
 
 }

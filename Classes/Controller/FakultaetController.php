@@ -25,7 +25,7 @@
 
 /**
  * Description of FakultaetenController
- *
+ * $Id$
  * @author ingop
  */
 class Tx_Standorte_Controller_FakultaetController extends Tx_Extbase_MVC_Controller_ActionController {

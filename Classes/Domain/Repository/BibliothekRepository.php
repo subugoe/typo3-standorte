@@ -25,7 +25,7 @@
 
 /**
  * Description of BibliothekRepository
- *
+ * $Id$
  * @author ingop
  */
 class Tx_Standorte_Domain_Repository_BibliothekRepository extends Tx_Extbase_Persistence_Repository {

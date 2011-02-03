@@ -25,7 +25,7 @@
 
 /**
  * Description of FakultaetRepository
- *
+ * $Id$
  * @author ingop
  */
 class Tx_Standorte_Domain_Repository_FakultaetRepository extends Tx_Extbase_Persistence_Repository {

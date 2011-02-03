@@ -25,6 +25,7 @@
 
 /**
  * Controller
+ * $Id$
  * @author Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
  */
 class Tx_Standorte_Controller_BibliothekController extends Tx_Extbase_MVC_Controller_ActionController {

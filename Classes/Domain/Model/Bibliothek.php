@@ -25,7 +25,7 @@
 
 /**
  * Description of Bibliothek
- *
+ * $Id$
  * @author Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
  */
 class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_AbstractEntity {

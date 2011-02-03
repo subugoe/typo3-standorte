@@ -25,7 +25,7 @@
 
 /**
  * Description of Oeffnungszeiten
- *
+ * $Id$
  * @author ingop
  */
 class Tx_Standorte_Domain_Repository_OeffnungszeitenRepository extends Tx_Extbase_Persistence_Repository {
