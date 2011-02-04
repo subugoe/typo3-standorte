@@ -95,7 +95,7 @@ function generiereAdresse($titel, $strasse, $plz, $ort) {
 	
 
 	//Inhalt
-	var inhalt = "<?php echo $adresse . ' ' . $url; ?>";
+	var inhalt = '<div class="standorte-infobox"><?php echo $adresse . ' ' . $url; ?></div>';
 
 
 	//Infobubble

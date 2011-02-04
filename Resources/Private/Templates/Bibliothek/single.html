@@ -1,0 +1,87 @@
+<f:layout name="defaultLayout" />
+
+<f:section name="bibos">
+
+	<div class="list" id="bibliothek-{bibo.uid}" lat="{bibo.lat}" lon="{bibo.lon}">
+
+		<!-- Bild -->
+		<f:render partial="bild" arguments="{bild: bibo.bild,titel: bibo.titel}"/>
+		<!-- /Bild -->
+
+		<h2>{bibo.titel}</h2>
+
+		<f:if condition="{bibo.geoeffnet}">
+			<f:then>
+				<div class="open"><f:translate key="offen" /></div>
+			</f:then>
+			<f:else>
+				<div class="closed"><f:translate key="geschlossen" /></div>
+			</f:else>
+		</f:if>
+
+		<f:if condition="{bibo.extlink}">
+			<f:then>
+				<f:link.external uri="{bibo.extlink}">Link zur {bibo.titel}</f:link.external>
+			</f:then>
+		</f:if>
+		<dl>
+			<dt><f:translate key="bibliothekssigel" /></dt>
+			<dd><p class="bodytext"><f:render partial="sigel" arguments="{sigel: bibo.sigel}"/><br />
+					{fakultaet.titel}</p>
+			</dd>
+
+			<dt><f:translate key="anschrift" /></dt>
+			<dd><p class="bodytext">{bibo.strasse}<br />
+			<f:if condition="{bibo.adresszusatz}">
+				<f:then>
+						{bibo.adresszusatz}
+					<br />
+				</f:then>
+			</f:if>
+					{bibo.plz} {bibo.ort}</p></dd>
+
+			<dt><f:translate key="kontakt" /></dt>
+			<dd><f:format.html>{bibo.ansprechpartner}</f:format.html></dd>
+
+			<f:if condition="{bibo.zusatzinformationen}">
+				<f:then>
+					<dt><f:translate key="zusatzinformationen" /></dt>
+					<dd><f:format.html>{bibo.zusatzinformationen}</f:format.html></dd>
+				</f:then>
+			</f:if>
+
+			<!--Oeffnungszeiten-->
+			<dt><f:translate key="oeffnung" /></dt>
+			<dd><p class="bodytext">
+			<f:for each="{bibo.oeffnungszeiten}" as="bobo">
+				<f:render partial="oeffnungszeiten" arguments="{von: bobo.von, bis:bobo.bis, wochentag:bobo.wochentag, inhalt:bobo.inhalt}"/>
+			</f:for>
+			</p>
+			</dd>
+			<!--/Oeffnungszeiten-->
+
+			<!-- Bestand -->
+			<f:if condition="{bibo.bestand}">
+				<f:then>
+					<dt><f:translate key="bestand" /></dt>
+					<dd><p class="bodytext">{bibo.bestand}
+					<f:render partial="bestand" arguments="{institutskatalog:bibo.institutskatalog, katalog:bibo.katalog}"/>
+					</p>
+					</dd>
+				</f:then>
+			</f:if>
+			<!-- /Bestand -->
+			<!-- Karte -->
+
+			<dt><a class="map" id="cl-{bibo.uid}"><f:translate key="karte" /></a></dt>
+			<dd><div id="map-{bibo.uid}" class="karte"></div></dd>
+
+			<!-- /Karte -->
+
+			<!-- Singleview -->
+			<dt><f:link.action action="single" controller="Bibliothek" arguments="{bibo:bibo}">Einzelansicht</f:link.action>	</dt>
+			<dd></dd>
+
+		</dl>
+	</div>
+</f:section>

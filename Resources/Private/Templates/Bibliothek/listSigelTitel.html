@@ -1,0 +1,24 @@
+<f:layout name="defaultLayout" />
+
+<f:section name="bibos">
+
+	<table>
+		<thead>
+		<th>Sigel</th>
+		<th>Name</th>
+		</thead>
+		<tbody>
+		<f:for each="{bibos}" as="bibo">
+			<tr>
+				<td>
+					{bibo.sigel}
+				</td>
+				<td>
+					{bibo.titel}
+				</td>
+			</tr>
+
+		</f:for>
+		</tbody>
+	</table>
+</f:section>

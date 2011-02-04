@@ -108,6 +108,24 @@ class Tx_Standorte_Controller_BibliothekController extends Tx_Extbase_MVC_Contro
 		$this->view->assign('bibos', $bibliotheken);
 	}
 
+	/**
+	 * Ausgabe aller Bibliotheken mit anderm View (nur sigel und titel)
+	 */
+	public function listSigelTitelAction() {
+
+		$bibliotheken = $this->bibliothekenRepository->findAll();
+		$this->view->assign('bibos', $bibliotheken);
+	}
+
+	/**
+	 * Single ansicht
+	 * @param Tx_Standorte_Domain_Model_Bibliothek $bibliothek
+	 */
+	public function singleAction(Tx_Standorte_Domain_Model_Bibliothek $bibliothek) {
+
+		$this->view->assign($bibo, $bibliothek);
+	}
+
 }
 
 ?>
