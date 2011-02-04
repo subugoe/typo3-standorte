@@ -1,4 +1,5 @@
 <?php
+
 /* * *************************************************************
  *  Copyright notice
  *
@@ -23,9 +24,7 @@
  * ************************************************************* */
 
 /**
- * View Helper fuer einen TypoLink
- * @todo nicht die alte Api anzapfen
- * @todo Zeitzone einfuegen
+ * View Helper fuer eine Datumsformat - warum auch immer Fluid das nicht automatisch macht
  * $Id$
  * @author ingop
  */
@@ -38,7 +37,7 @@ class Tx_Standorte_ViewHelpers_TimeFormatViewHelper extends Tx_Fluid_Core_ViewHe
 	 * @return string The formated Date/Time
 	 */
 	public function render($ts) {
-		$ts = $ts - 3600;
+
 		return date('H:i', $ts);
 	}
 

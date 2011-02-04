@@ -1,3 +1,7 @@
+2011-02-04 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
+	* Hookaufruf kompatibel zu TYPO3 4.4 gemacht
+	* Content Rendering vereinheitlicht (WWW-530)
+
 2011-02-03 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
 	* Frontendausgabe angepasst (WWW-529)
 	* Ausgabe externer Links im neuen Fenster
@@ -5,6 +9,7 @@
 	* Standardmarker fuer Google Maps Einbindung (WWW-524)
 	* Onclick Oeffnung des Maps Infofensters
 	* Sigel generischer gestaltet (WWW-526)
+	* Zeitzonenhartkodierung entfernt
 
 2011-01-28 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
 	* Geocoding optimierung

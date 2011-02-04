@@ -27,19 +27,19 @@
 			</f:if>
 			<dl>
 				<dt><f:translate key="bibliothekssigel" /></dt>
-				<dd><f:render partial="sigel" arguments="{sigel: bibo.sigel}"/><br />
-					{fakultaet.titel}
+				<dd><p class="bodytext"><f:render partial="sigel" arguments="{sigel: bibo.sigel}"/><br />
+					{fakultaet.titel}</p>
 				</dd>
 
 				<dt><f:translate key="anschrift" /></dt>
-				<dd>{bibo.strasse}<br />
+				<dd><p class="bodytext">{bibo.strasse}<br />
 				<f:if condition="{bibo.adresszusatz}">
 					<f:then>
 						{bibo.adresszusatz}
 						<br />
 					</f:then>
 				</f:if>
-					{bibo.plz} {bibo.ort}</dd>
+					{bibo.plz} {bibo.ort}</p></dd>
 
 				<dt><f:translate key="kontakt" /></dt>
 				<dd><f:format.html>{bibo.ansprechpartner}</f:format.html></dd>
@@ -53,10 +53,11 @@
 
 				<!--Oeffnungszeiten-->
 				<dt><f:translate key="oeffnung" /></dt>
-				<dd>
+				<dd><p class="bodytext">
 				<f:for each="{bibo.oeffnungszeiten}" as="bobo">
 					<f:render partial="oeffnungszeiten" arguments="{von: bobo.von, bis:bobo.bis, wochentag:bobo.wochentag, inhalt:bobo.inhalt}"/>
 				</f:for>
+				</p>
 				</dd>
 				<!--/Oeffnungszeiten-->
 
@@ -64,8 +65,9 @@
 				<f:if condition="{bibo.bestand}">
 					<f:then>
 						<dt><f:translate key="bestand" /></dt>
-						<dd>{bibo.bestand}
+						<dd><p class="bodytext">{bibo.bestand}
 						<f:render partial="bestand" arguments="{institutskatalog:bibo.institutskatalog, katalog:bibo.katalog}"/>
+						</p>
 						</dd>
 					</f:then>
 				</f:if>
