@@ -1,11 +1,14 @@
 <f:layout name="defaultLayout" />
 
 <f:section name="bibos">
+<form id="filter-form"><f:translate key="bibliothek-filter" /> <input name="filter" id="filter" value="" maxlength="30" size="30" type="text"></form><br>
 
-	<table>
+	<table id="daten">
 		<thead>
-		<th>Sigel</th>
-		<th>Name</th>
+			<tr>
+				<th>Sigel</th>
+				<th>Name</th>
+			</tr>
 		</thead>
 		<tbody>
 		<f:for each="{bibos}" as="bibo">

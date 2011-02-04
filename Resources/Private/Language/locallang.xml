@@ -27,6 +27,7 @@
 			<label index="bestandenthalten">Der Bestand ist im</label>
 			<label index="enthalten">enthalten</label>
 			<label index="karte">Karte</label>
+			<label index="bibliothek-filter">Suche</label>
 		</languageKey>
 		<languageKey index="de" type="array">
 			<label index="oeffnung">Öffnungszeiten</label>

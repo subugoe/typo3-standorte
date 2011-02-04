@@ -59,3 +59,43 @@
 .standorte-infobox {
 	font-size: 80%;
 }
+
+/* tables */
+.tx-standorte-pi1 table#daten {
+	font-family:arial;
+	margin:10px 0pt 15px;
+	font-size: 8pt;
+	width: 100%;
+	text-align: left;
+}
+.tx-standorte-pi1 table#daten thead tr th, table.tablesorter tfoot tr th {
+	border: 1px solid #FFF;
+	font-size: 8pt;
+	padding: 4px;
+}
+.tx-standorte-pi1 table#daten thead tr .header {
+	background-image: url(/typo3conf/ext/standorte/Resources/Public/img/bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+.tx-standorte-pi1 table#daten tbody td {
+	padding: 4px;
+	vertical-align: top;
+}
+.tx-standorte-pi1 table#daten tbody tr.odd td {
+}
+.tx-standorte-pi1 table#daten thead tr .headerSortUp {
+	background-image: url(../img/asc.gif);
+	color: black;
+}
+.tx-standorte-pi1 table#daten thead tr .headerSortDown {
+	background-image: url(../img/desc.gif);
+color: black;
+}
+.tx-standorte-pi1 table#daten thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+	color: black;
+}
+.tx-standorte-pi1 table#daten tbody tr:hover{
+	background-color: #dadada;
+}

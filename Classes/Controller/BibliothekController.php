@@ -60,24 +60,43 @@ class Tx_Standorte_Controller_BibliothekController extends Tx_Extbase_MVC_Contro
 	 * @todo Auslagern in den View!!!
 	 * @return string
 	 */
-	private function addResourcesToHead() {
+	private function addResourcesToHead($tablesorter=NULL) {
 
+		//Google Maps Script
 		$mapsTag = t3lib_div::makeInstance('Tx_Fluid_Core_ViewHelper_TagBuilder', 'script');
 		$mapsTag->addAttribute('type', 'text/javascript');
 		$mapsTag->addAttribute('src', "http://maps.google.com/maps/api/js?sensor=true");
 		$mapsTag->forceClosingTag(true);
 
+		//Maps Javascript
 		$scriptTag = t3lib_div::makeInstance('Tx_Fluid_Core_ViewHelper_TagBuilder', 'script');
 		$scriptTag->addAttribute('type', 'text/javascript');
 		$scriptTag->addAttribute('src', "/typo3conf/ext/standorte/Resources/Public/js/maps.js");
 		$scriptTag->forceClosingTag(true);
 
+		//CSS
 		$cssTag = t3lib_div::makeInstance('Tx_Fluid_Core_ViewHelper_TagBuilder', 'link');
 		$cssTag->addAttribute('rel', 'stylesheet');
 		$cssTag->addAttribute('href', '/typo3conf/ext/standorte/Resources/Public/css/standorte.css');
 		$cssTag->forceClosingTag(true);
 
+		//tablesorter
+		$tablesorterTag = t3lib_div::makeInstance('Tx_Fluid_Core_ViewHelper_TagBuilder', 'script');
+		$tablesorterTag->addAttribute('type', 'text/javascript');
+		$tablesorterTag->addAttribute('src', '/typo3conf/ext/standorte/Resources/Public/js/jquery.tablesorter.min.js');
+		$tablesorterTag->forceClosingTag(true);
+
+		//filter
+		$tablefilterTag = t3lib_div::makeInstance('Tx_Fluid_Core_ViewHelper_TagBuilder', 'script');
+		$tablefilterTag->addAttribute('type', 'text/javascript');
+		$tablefilterTag->addAttribute('src', '/typo3conf/ext/standorte/Resources/Public/js/jquery.uitablefilter.js');
+		$tablefilterTag->forceClosingTag(true);
+
+
 		$header = $mapsTag->render();
+		$header .= $tablesorterTag->render();
+		$header .= $tablefilterTag->render();
+
 		$header .= $scriptTag->render();
 		$header .= $cssTag->render();
 
@@ -96,15 +115,15 @@ class Tx_Standorte_Controller_BibliothekController extends Tx_Extbase_MVC_Contro
 
 	/**
 	 * Alle Bibliotheken einer Fakultaet auflisten
-	 * @param int $fakultaetId
+	 * @param Tx_Standorte_Domain_Model_Fakultaet $fakultaetId
 	 */
-	public function listAction(int $fakultaet =NULL) {
+	public function listAction(Tx_Standorte_Domain_Model_Fakultaet $fakultaet =NULL) {
 
-		$fakultaetId = intval($this->request->getArgument('fakultaetUid'));
 
-		$bibliotheken = $this->bibliothekenRepository->findByFakultaet($fakultaetId);
 
-		$this->view->assign('fakultaet', $this->fakultaetRepository->findByUid($fakultaetId));
+		$bibliotheken = $this->bibliothekenRepository->findByFakultaet($fakultaet);
+
+		$this->view->assign('fakultaet', $fakultaet);
 		$this->view->assign('bibos', $bibliotheken);
 	}
 
@@ -123,7 +142,7 @@ class Tx_Standorte_Controller_BibliothekController extends Tx_Extbase_MVC_Contro
 	 */
 	public function singleAction(Tx_Standorte_Domain_Model_Bibliothek $bibliothek) {
 
-		$this->view->assign($bibo, $bibliothek);
+		$this->view->assign('bibo', $bibliothek);
 	}
 
 }

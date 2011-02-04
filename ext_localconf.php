@@ -14,7 +14,7 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 				'Pi1', // A unique name of the plugin in UpperCamelCase
 				array(// An array holding the controller-action-combinations that are accessible
 					'Fakultaet' => 'index,list',
-					'Bibliothek' => 'index,list,listSigelTitel,single' // The first controller and its first action will be the default
+					'Bibliothek' => 'list,listSigelTitel,single' // The first controller and its first action will be the default
 				),
 				array(// An array of non-cachable controller-action-combinations (they must already be enabled)
 					'Fakultaet' => 'index,list',
