@@ -2,6 +2,8 @@
 	* Hookaufruf kompatibel zu TYPO3 4.4 gemacht
 	* Content Rendering vereinheitlicht (WWW-530)
 	* Maps Optik angepasst (Infobox)
+	* Singleansicht (WWW-531)
+	* Ansicht nur Bibliotheken mit Sigel und Titel (WWW-525)
 
 2011-02-03 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
 	* Frontendausgabe angepasst (WWW-529)
