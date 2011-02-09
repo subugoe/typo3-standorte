@@ -78,14 +78,10 @@ class Tx_Standorte_Controller_BackendController extends Tx_Extbase_MVC_Controlle
 	/**
 	 * Auflistung aller Bibliotheken einer bestimmten Fakultaet
 	 */
-	public function listBibliothekenByFakultaetAction() {
+	public function listBibliothekenByFakultaetAction(Tx_Standorte_Domain_Model_Fakultaet $fakultaetUid) {
 
-
-
-		$fakultaetId = intval($this->request->getArgument('fakultaetUid'));
-
-		$this->view->assign('fakultaet', $this->fakultaetRepository->findByUid($fakultaetId));
-		$bibliotheken = $this->bibliothekenRepository->findByFakultaet($fakultaetId);
+		$this->view->assign('fakultaet', $fakultaetUid);
+		$bibliotheken = $this->bibliothekenRepository->findByFakultaet($fakultaetUid);
 		$this->view->assign('backend', 'Bibiliotheken');
 
 		$this->view->assign('bibliotheken', $bibliotheken);

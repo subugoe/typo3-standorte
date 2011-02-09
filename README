@@ -24,10 +24,3 @@
 						'GETvar' => 'tx_standorte_pi1[controller]'
 					),
 				),
-
-==TODO==
-* Besonderheiten bei Oeffnungszeiten
-** Semesterferien
-* IRRE soll nicht immer neu laden
-* Optimierung Backend Modul - aehnlich wie Frontend, nur mit editfunktionen
-** Delete Funktion

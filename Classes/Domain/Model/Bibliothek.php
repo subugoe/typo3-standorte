@@ -40,6 +40,11 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	 */
 	protected $sigel;
 	/**
+	 * Ob andere Oeffnungszeiten in den Semesterferien
+	 * @var int
+	 */
+	protected $semesterferien;
+	/**
 	 *
 	 * @var array
 	 */
@@ -225,6 +230,14 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 
 	public function setSigel($sigel) {
 		$this->sigel = $sigel;
+	}
+
+	public function getSemesterferien() {
+		return $this->semesterferien;
+	}
+
+	public function setSemesterferien($semesterferien) {
+		$this->semesterferien = $semesterferien;
 	}
 
 	/**

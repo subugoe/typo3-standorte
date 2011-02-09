@@ -1,3 +1,9 @@
+/*
+ * JS for Extension standorte
+ * @author Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
+ * $Id$
+ */
+
 /* Liefere nur die uid zurueck*/
 function splitte(uid){
 	id = uid.split('-')

@@ -1,3 +1,5 @@
+<!-- $Id$ -->
+
 <f:layout name="defaultLayout" />
 
 <f:section name="bibos">
@@ -11,15 +13,19 @@
 
 			<h2>{bibo.titel}</h2>
 
-			<f:if condition="{bibo.geoeffnet}">
+			<f:if condition="{bibo.semesterferien} == 0">
 				<f:then>
-					<div class="open"><f:translate key="offen" /></div>
+					<f:if condition="{bibo.geoeffnet}">
+						<f:then>
+							<div class="open"><f:translate key="offen" /></div>
+						</f:then>
+						<f:else>
+							<div class="closed"><f:translate key="geschlossen" /></div>
+						</f:else>
+					</f:if>
 				</f:then>
-				<f:else>
-					<div class="closed"><f:translate key="geschlossen" /></div>
-				</f:else>
-			</f:if>
 
+			</f:if>
 			<f:if condition="{bibo.extlink}">
 				<f:then>
 					<f:link.external uri="{bibo.extlink}">Link zur {bibo.titel}</f:link.external>
