@@ -18,7 +18,7 @@ $TCA['tx_standorte_domain_model_fakultaet'] = array(
 		'enablecolumns' => array(
 			'disabled' => 'hidden',
 		),
-		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . '/Configuration/TCA/tca.php',
+		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . '/Configuration/TCA/tx_standorte_domain_model_fakultaet.php',
 		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . '/Resources/Public/img/icon_tx_standorte_domain_model_fakultaet.png',
 	),
 );
@@ -38,7 +38,7 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
 		'enablecolumns' => array(
 			'disabled' => 'hidden',
 		),
-		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . '/Configuration/TCA/tca.php',
+		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . '/Configuration/TCA/tx_standorte_domain_model_bibliothek.php',
 		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . '/Resources/Public/img/icon_tx_standorte_domain_model_bibliothek.png',
 	),
 );
@@ -56,7 +56,7 @@ $TCA['tx_standorte_domain_model_oeffnungszeiten'] = array(
 		'enablecolumns' => array(
 			'disabled' => 'hidden',
 		),
-		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . '/Configuration/TCA/tca.php',
+		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . '/Configuration/TCA/tx_standorte_domain_model_oeffnungszeiten.php',
 		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . '/Resources/Public/img/icon_tx_standorte_domain_model_oeffnungszeiten.png',
 	),
 );

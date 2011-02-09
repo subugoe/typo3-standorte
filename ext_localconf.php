@@ -50,6 +50,5 @@ RTE.config.tx_standorte_domain_model_bibliothek.zusatzinformationen {
 ');
 
 $TYPO3_CONF_VARS['EXTCONF']['nkwsubmenu']['extendTOC'][$_EXTKEY] = 'EXT:standorte/Classes/Hooks/Sidebar.php:user_Tx_Standorte_Classes_Hooks_Sidebar->hookFunc';
-
 $TYPO3_CONF_VARS['FE']['eID_include'][$_EXTKEY] = 'EXT:' . $_EXTKEY . '/Resources/Public/eId/maps.php';
 ?>

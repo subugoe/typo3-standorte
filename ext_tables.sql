@@ -44,6 +44,7 @@ CREATE TABLE tx_standorte_domain_model_bibliothek (
     ort varchar(255) DEFAULT '' NOT NULL,
     ansprechpartner text,
 	oeffnungszeiten text,
+	semesterferien int(11) DEFAULT '0' NOT NULL,
     zusatzinformationen text,
     bild text,
     fakultaet tinytext,

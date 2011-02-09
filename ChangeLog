@@ -1,3 +1,7 @@
+2011-02-09 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
+	* Codeoptimierung
+	* Pruefung ob in Semesterferien andere Oeffnungszeiten (WWW-527)
+
 2011-02-04 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
 	* Hookaufruf kompatibel zu TYPO3 4.4 gemacht
 	* Content Rendering vereinheitlicht (WWW-530)

@@ -23,6 +23,7 @@
 			<label index="tx_standorte_domain_model_bibliothek.zusatzinformationen">Zusatzinformationen</label>
 			<label index="tx_standorte_domain_model_bibliothek.bild">Bild</label>
 			<label index="tx_standorte_domain_model_bibliothek.fakultaet">Fakultät</label>
+			<label index="tx_standorte_domain_model_bibliothek.semesterferien">Andere Offnungszeiten in den Semesterferien</label>
 			<label index="tx_standorte_domain_model_oeffnungszeiten">Oeffnungszeiten</label>
 			<label index="tx_standorte_domain_model_oeffnungszeiten.wochentag.I.0">Montag</label>
 			<label index="tx_standorte_domain_model_oeffnungszeiten.wochentag.I.1">Dienstag</label>
