@@ -27,7 +27,7 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 				$_EXTKEY, // The extension name (in UpperCamelCase) or the extension key (in lower_underscore)
 				'Pi2', // A unique name of the plugin in UpperCamelCase
 				array(// An array holding the controller-action-combinations that are accessible
-					'Bibliothek' => 'listSigelTitel' // The first controller and its first action will be the default
+					'Bibliothek' => 'listSigelTitel,single' // The first controller and its first action will be the default
 				)
 );
 
