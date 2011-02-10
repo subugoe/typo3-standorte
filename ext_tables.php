@@ -77,7 +77,7 @@ if (TYPO3_MODE === 'BE') {
 					'tx_standorte_m1',
 					'',
 					array(
-						'Backend' => 'index,newBibo,createBibo,newFakultaet,createFakultaet,listFakultaeten,listBibliotheken,listBibliothekenByFakultaet',
+						'Backend' => 'index,newBibo,createBibo,deleteBibliothek,newFakultaet,createFakultaet,listFakultaeten,listBibliotheken,listBibliothekenByFakultaet',
 					),
 					array(
 						'access' => 'user,group',

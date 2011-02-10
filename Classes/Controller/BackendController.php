@@ -87,6 +87,18 @@ class Tx_Standorte_Controller_BackendController extends Tx_Extbase_MVC_Controlle
 		$this->view->assign('bibliotheken', $bibliotheken);
 	}
 
+	/**
+	 * Loeschen einer einzelnen Bibliothek
+	 * @param Tx_Standorte_Domain_Model_Bibliothek $bibliothek 
+	 */
+	public function deleteBibliothekAction(Tx_Standorte_Domain_Model_Bibliothek $bibliothek) {
+		
+		$this->flashMessageContainer->add('Die Bibliothek ' . $bibliothek->getTitel() . ' wurde erfolgreich geloescht.');
+		$this->bibliothekenRepository->remove($bibliothek);
+
+		$this->redirect('listBibliotheken');
+	}
+
 }
 
 ?>
