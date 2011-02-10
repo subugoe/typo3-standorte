@@ -65,6 +65,7 @@ $TCA['tx_standorte_domain_model_oeffnungszeiten'] = array(
 
 
 Tx_Extbase_Utility_Extension::registerPlugin($_EXTKEY, 'Pi1', 'SUB Standorte');
+Tx_Extbase_Utility_Extension::registerPlugin($_EXTKEY, 'Pi2', 'SUB Standorte Sigelliste');
 
 if (TYPO3_MODE === 'BE') {
 	/**
