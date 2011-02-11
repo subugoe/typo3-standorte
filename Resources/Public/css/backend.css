@@ -47,3 +47,11 @@ table#daten thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
 table#daten tbody tr:hover{
 	background-color: #dadada;
 }
+
+table tr.icons, table th.icons{
+	width:10%;
+}
+
+.delete, .edit{
+	display:inline;
+}

@@ -5,6 +5,14 @@
 	$(document).ready(function()
     {
         $("#daten").tablesorter();
+
+
+		$('.icons .delete').click(function(){
+
+			if (confirm('Datensatz loeschen?')) {
+				window.location($(this).children('a').attr('href'));
+			}
+		});
     }
 ); 
 

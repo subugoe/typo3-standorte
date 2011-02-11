@@ -1,14 +1,21 @@
 <f:layout name="backendLayout" />
+<!-- in TYPO3 4.4 alt_doc.php?returnUrl=db_list.php%3Fid%3D{f:cObject(typoscriptObjectPath:'lib.tx_standorte.storagePid')}%26table%3D&edit[tx_standorte_domain_model_bibliothek][{f:cObject(typoscriptObjectPath:'lib.tx_standorte.storagePid')}]=new -->
+<!-- in TYPO3 4.5 alt_doc.php?returnUrl=mod.php%3F%26M%3Dweb_list%26id%3D{f:cObject(typoscriptObjectPath:'lib.tx_standorte.storagePid')}&edit[tx_standorte_domain_model_bibliothek][{f:cObject(typoscriptObjectPath:'lib.tx_standorte.storagePid')}]=new  -->
+
+<!-- Alternativ:
+mod.php?M=web_StandorteTxStandorteM1&id=3&tx_standorte_web_standortetxstandortem1[action]=listBibliotheken&tx_standorte_web_standortetxstandortem1[controller]=Backend
+-->
+
 <f:section name="backend">
 
 
-	<f:be.buttons.icon uri="alt_doc.php?returnUrl=mod.php%3F%26M%3Dweb_list%26id%3D{f:cObject(typoscriptObjectPath:'lib.tx_standorte.storagePid')}&edit[tx_standorte_domain_model_bibliothek][{f:cObject(typoscriptObjectPath:'lib.tx_standorte.storagePid')}]=new" icon="new_el" title="Neue bibliothek anlegen" />
+	<f:be.buttons.icon uri="alt_doc.php?returnUrl=mod.php?M=web_StandorteTxStandorteM1&id={f:cObject(typoscriptObjectPath:'lib.tx_standorte.storagePid')}&tx_standorte_web_standortetxstandortem1[action]=listBibliotheken&tx_standorte_web_standortetxstandortem1[controller]=Backend&edit[tx_standorte_domain_model_bibliothek][{f:cObject(typoscriptObjectPath:'lib.tx_standorte.storagePid')}]=new" icon="new_el" title="Neue Bibliothek anlegen" />
 	Neue Bibliothek anlegen
 	<table cellpadding="2" cellspacing="2" id="daten">
 		<!--head -->
 		<thead>
 			<tr>
-				<th></th>
+				<th class="icons"></th>
 				<th>Sigel</th>
 				<th>Name</th>
 				<th>Fakult&auml;t</th>
@@ -16,12 +23,13 @@
 		</thead>
 		<tbody>
 		<f:for each="{bibliotheken}" as="bibliothek">
-			<tr>
-				<td style="border:0"><f:be.buttons.icon uri="alt_doc.php?returnUrl=mod.php%3F%26M%3Dweb_StandorteTxStandorteM1%26id%3D{f:cObject(typoscriptObjectPath:'lib.tx_standorte.storagePid')}&edit[tx_standorte_domain_model_bibliothek][{bibliothek.uid}]=edit&tx_standorte_web_standortetxstandortem1[action]=listbibliotheken&tx_standorte_web_standortetxstandortem1[controller]=Backend" icon="edit2" title="{bibliothek.titel} bearbeiten" />
-			<f:be.buttons.icon uri="{f:uri.action(action:'deleteBibliothek', arguments:'{bibliothek:bibliothek}')}" icon="deletedok" title="{bibliothek.titel} löschen" /></td>
-			<td>{bibliothek.sigel}</td>
-			<td> {bibliothek.titel}</td>
-			<td>{bibliothek.fakultaet.titel}</td>
+			<tr class="icons">
+				<td style="border:0">
+					<div class="edit"><f:be.buttons.icon uri="alt_doc.php?returnUrl=mod.php?M=web_StandorteTxStandorteM1&id={f:cObject(typoscriptObjectPath:'lib.tx_standorte.storagePid')}&edit[tx_standorte_domain_model_bibliothek][{bibliothek.uid}]=edit&tx_standorte_web_standortetxstandortem1[action]=listbibliotheken&tx_standorte_web_standortetxstandortem1[controller]=Backend" icon="edit2" title="{bibliothek.titel} bearbeiten" /></div>
+					<div class="delete"><f:be.buttons.icon uri="{f:uri.action(action:'deleteBibliothek', arguments:'{bibliothek:bibliothek}')}" icon="deletedok" title="{bibliothek.titel} löschen" /></div></td>
+				<td>{bibliothek.sigel}</td>
+				<td> {bibliothek.titel}</td>
+				<td>{bibliothek.fakultaet.titel}</td>
 			</tr>
 		</f:for>
 		</tbody>
