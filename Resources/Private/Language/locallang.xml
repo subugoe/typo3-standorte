@@ -9,6 +9,8 @@
 			<label index="oeffnung">Öffnungszeiten</label>
 			<label index="offen">Geöffnet</label>
 			<label index="geschlossen">Geschlossen</label>
+			<label index="offen_bild">opened_en</label>
+			<label index="geschlossen_bild">closed_en</label>
 			<label index="tag.1">Montag</label>
 			<label index="tag.2">Dienstag</label>
 			<label index="tag.3">Mittwoch</label>
@@ -30,7 +32,9 @@
 			<label index="bibliothek-filter">Suche</label>
 		</languageKey>
 		<languageKey index="de" type="array">
-			<label index="oeffnung">Öffnungszeiten</label>
+			<label index="oeffnung">Opening hours</label>
+			<label index="offen_bild">opened_de</label>
+			<label index="geschlossen_bild">closed_de</label>
 		</languageKey>
 	</data>
 </T3locallang>

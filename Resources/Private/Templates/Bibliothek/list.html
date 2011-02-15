@@ -17,10 +17,10 @@
 				<f:then>
 					<f:if condition="{bibo.geoeffnet}">
 						<f:then>
-							<div class="open"><f:translate key="offen" /></div>
+							<div class="opened status"><f:image src="typo3conf/ext/standorte/Resources/Public/img/<f:translate key='offen_bild' />.png" alt="<f:translate key='offen' />" maxWidth="220" /></div>
 						</f:then>
 						<f:else>
-							<div class="closed"><f:translate key="geschlossen" /></div>
+							<div class="closed status"><f:image src="typo3conf/ext/standorte/Resources/Public/img/<f:translate key='geschlossen_bild' />.png" alt="<f:translate key='geschlossen' />" maxWidth="220" /></div>
 						</f:else>
 					</f:if>
 				</f:then>

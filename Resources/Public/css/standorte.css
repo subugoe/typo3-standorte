@@ -56,6 +56,10 @@
 	height:300px;
 }
 
+.tx-standorte-pi1 .status {
+	margin-bottom: 4px;
+}
+
 .standorte-infobox {
 	font-size: 80%;
 }
