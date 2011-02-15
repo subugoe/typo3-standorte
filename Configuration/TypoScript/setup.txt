@@ -1,4 +1,5 @@
-plugin.tx_standorte.persistence.storagePid = 1184
+plugin.tx_standorte.persistence.storagePid = 
+module.tx_standorte.persistence.storagePid =
 
 lib.tx_standorte.storagePid = TEXT
 lib.tx_standorte.storagePid.value < plugin.tx_standorte.persistence.storagePid

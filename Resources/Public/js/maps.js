@@ -1,7 +1,7 @@
 /*
  * JS for Extension standorte
  * @author Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
- * $Id$
+ * jQueryId: maps.js 847 2011-02-09 14:19:28Z pfennigstorf jQuery
  */
 
 /* Liefere nur die uid zurueck*/
@@ -26,7 +26,7 @@ jQuery(document).ready(function(){
 					data: "uid="+uid,
 					success: function(data) {
 						
-						$('#map-'+uid).html(data);
+						jQuery('#map-'+uid).html(data);
 					}
 				});
 			}
@@ -35,18 +35,18 @@ jQuery(document).ready(function(){
 	});
 
 	//tablefilter
-	$(function() {
-		var theTable = $('table.#daten')
+	jQuery(function() {
+		var theTable = jQuery('table.#daten')
 
 		theTable.find("tbody > tr").find("td:eq(1)").mousedown(function(){
-			$(this).prev().find(":checkbox").click()
+			jQuery(this).prev().find(":checkbox").click()
 		});
 
-		$("#filter").keyup(function() {
-			$.uiTableFilter( theTable, this.value );
+		jQuery("#filter").keyup(function() {
+			jQuery.uiTableFilter( theTable, this.value );
 		})
 
-		$('#filter-form').submit(function(){
+		jQuery('#filter-form').submit(function(){
 			theTable.find("tbody > tr:visible > td:eq(1)").mousedown();
 			return false;
 		}).focus(); //Give focus to input field
