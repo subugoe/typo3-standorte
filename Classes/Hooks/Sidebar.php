@@ -23,43 +23,41 @@
  *  This copyright notice MUST APPEAR in all copies of the script!
  * ************************************************************* */
 //Unschoen aber laeuft
-//require_once(t3lib_extMgm::extPath('standorte') . 'Classes/Domain/Repository/BibliothekRepository.php');
+require_once(t3lib_extMgm::extPath('standorte') . 'Classes/Domain/Repository/BibliothekRepository.php');
 
 /**
  * Description of Tx_Standorte_Classes_Hooks
- * $Id$
+ * $Id: Sidebar.php 838 2011-02-03 12:48:23Z pfennigstorf $
  * @author ingop
  */
-class user_Tx_Standorte_Classes_Hooks_Sidebar extends Tx_Extbase_MVC_Controller_AbstractController {
+class user_Tx_Standorte_Classes_Hooks_Sidebar extends Tx_Extbase_MVC_Controller_ActionController {
+
+	public $bibliothekenRepository;
+
+	function __construct() {
+		t3lib_div::makeInstance("Tx_Extbase_Dispatcher");
+		$this->bibliothekenRepository = t3lib_div::makeInstance('Tx_Standorte_Domain_Repository_BibliothekRepository');
+	}
 
 	public function hookFunc(&$tmp, $obj) {
 
+
 		$gp = t3lib_div::GPvar('tx_standorte_pi1');
 
-		$fakultaetId = intval($gp['fakultaetUid']);
+		$fakultaetId = intval($gp['fakultaet']);
 
 		if ($fakultaetId >= 1) {
 
-			$res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(
-							'*', //WHAT
-							'tx_standorte_domain_model_bibliothek', //FROM
-							'fakultaet = ' . $fakultaetId, //WHERE
-							'',
-							'sorttitel ASC', //ORDER BY
-							'' //LIMIT
-			);
+			$bibliotheken = $this->bibliothekenRepository->findByFakultaet($fakultaetId);
 
-			$tmp = '';
-
-
-			while ($row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res)) {
-				$tmp .= '<li><a href="#bibliothek-' . $row['uid'] . '">';
-				$tmp .= $row['titel'];
+			$tmp = null;
+			foreach ($bibliotheken as $bibliothek) {
+				$tmp .= '<li><a href="#bibliothek-' . $bibliothek->getUid() . '">';
+				$tmp .= $bibliothek->getTitel();
 				$tmp .= '</a></li>';
 			}
 		}
 	}
 
 }
-
 ?>
