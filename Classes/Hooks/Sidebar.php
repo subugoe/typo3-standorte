@@ -30,13 +30,13 @@ require_once(t3lib_extMgm::extPath('standorte') . 'Classes/Domain/Repository/Bib
  * $Id: Sidebar.php 838 2011-02-03 12:48:23Z pfennigstorf $
  * @author ingop
  */
-class user_Tx_Standorte_Classes_Hooks_Sidebar extends Tx_Extbase_MVC_Controller_ActionController {
+class user_Tx_Standorte_Classes_Hooks_Sidebar {
 
 	/**
 	 * Bibliothekenrepository
 	 * @var Tx_Standorte_Domain_Repository_BibliothekRepository
 	 */
-	public $bibliothekenRepository;
+	public $bibliothekenRepository = null;
 
 	function __construct() {
 		t3lib_div::makeInstance("Tx_Extbase_Dispatcher");
@@ -50,16 +50,14 @@ class user_Tx_Standorte_Classes_Hooks_Sidebar extends Tx_Extbase_MVC_Controller_
 	 */
 	public function hookFunc(&$tmp, $obj) {
 
-
 		$gp = t3lib_div::GPvar('tx_standorte_pi1');
 
 		$fakultaet = intval($gp['fakultaet']);
+		$tmp = null;
+		if ($fakultaet > 0) {
 
-		if ($fakultaet) {
+			$bibliotheken = $this->bibliothekenRepository->findByUidEverywhere($fakultaet);
 
-			$bibliotheken = $this->bibliothekenRepository->findByFakultaet($fakultaet);
-
-			$tmp = null;
 			foreach ($bibliotheken as $bibliothek) {
 				$tmp .= '<li><a href="#bibliothek-' . $bibliothek->getUid() . '">';
 				$tmp .= $bibliothek->getTitel();

@@ -119,8 +119,6 @@ class Tx_Standorte_Controller_BibliothekController extends Tx_Extbase_MVC_Contro
 	 */
 	public function listAction(Tx_Standorte_Domain_Model_Fakultaet $fakultaet =NULL) {
 
-
-
 		$bibliotheken = $this->bibliothekenRepository->findByFakultaet($fakultaet);
 
 		$this->view->assign('fakultaet', $fakultaet);

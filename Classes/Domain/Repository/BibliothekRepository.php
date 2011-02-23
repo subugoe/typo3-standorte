@@ -45,6 +45,28 @@ class Tx_Standorte_Domain_Repository_BibliothekRepository extends Tx_Extbase_Per
 		parent::__construct($objectManager);
 	}
 
+	/**
+	 *
+	 * @param int $fakultaet
+	 * @return Tx_Standorte_Domain_Model_Bibliothek
+	 */
+	public function findByUidEverywhere($fakultaet) {
+
+		$query = $this->createQuery();
+
+		$query->getQuerySettings()->
+				setRespectStoragePage(false)->
+				setRespectEnableFields(true)->
+				setRespectSysLanguage(true)
+		;
+
+		$query->matching($query->equals('fakultaet', $fakultaet));
+
+		$result = $query->execute();
+
+		return $result;
+	}
+
 }
 
 ?>
