@@ -37,16 +37,10 @@ class user_Tx_Standorte_Classes_Hooks_Sidebar extends Tx_Extbase_MVC_Controller_
 	 * @var Tx_Standorte_Domain_Repository_BibliothekRepository
 	 */
 	public $bibliothekenRepository;
-	/**
-	 * Fakultaetsrepository
-	 * @var Tx_Standorte_Domain_Repository_FakultaetRepository
-	 */
-	public $fakultaetRepository;
 
 	function __construct() {
 		t3lib_div::makeInstance("Tx_Extbase_Dispatcher");
-		$this->bibliothekenRepository = new Tx_Standorte_Domain_Repository_BibliothekRepository();
-		$this->fakultaetRepository =  new Tx_Standorte_Domain_Repository_FakultaetRepository();
+		$this->bibliothekenRepository = t3lib_div::makeInstance('Tx_Standorte_Domain_Repository_BibliothekRepository');
 	}
 
 	/**
@@ -59,7 +53,7 @@ class user_Tx_Standorte_Classes_Hooks_Sidebar extends Tx_Extbase_MVC_Controller_
 
 		$gp = t3lib_div::GPvar('tx_standorte_pi1');
 
-		$fakultaet = $this->fakultaetRepository->findByUid(intval($gp['fakultaet']));
+		$fakultaet = intval($gp['fakultaet']);
 
 		if ($fakultaet) {
 
@@ -75,4 +69,5 @@ class user_Tx_Standorte_Classes_Hooks_Sidebar extends Tx_Extbase_MVC_Controller_
 	}
 
 }
+
 ?>
