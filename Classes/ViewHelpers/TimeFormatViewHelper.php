@@ -38,7 +38,8 @@ class Tx_Standorte_ViewHelpers_TimeFormatViewHelper extends Tx_Fluid_Core_ViewHe
 	 */
 	public function render($ts) {
 
-		return date('H:i', $ts);
+		$zeit = $ts - 3600;
+		return date('H:i', $zeit);
 	}
 
 }

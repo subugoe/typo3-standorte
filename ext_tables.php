@@ -73,17 +73,12 @@ if (TYPO3_MODE === 'BE') {
 	 * Backend Modul
 	 */
 	Tx_Extbase_Utility_Extension::registerModule(
-					$_EXTKEY,
-					'web',
-					'tx_standorte_m1',
-					'',
-					array(
-						'Backend' => 'index,newBibo,createBibo,deleteBibliothek,newFakultaet,createFakultaet,deleteFakultaet,listFakultaeten,listBibliotheken,listBibliothekenByFakultaet',
-					),
-					array(
-						'access' => 'user,group',
-						'icon' => 'EXT:' . $_EXTKEY . '/Resources/Public/img/standorte.png',
-						'labels' => 'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang.mod.xml'
+					$_EXTKEY, 'web', 'tx_standorte_m1', '', array(
+				'Backend' => 'index,newBibo,createBibo,deleteBibliothek,newFakultaet,createFakultaet,deleteFakultaet,listFakultaeten,listBibliotheken,listBibliothekenByFakultaet',
+					), array(
+				'access' => 'user,group',
+				'icon' => 'EXT:' . $_EXTKEY . '/Resources/Public/img/standorte.png',
+				'labels' => 'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang.mod.xml'
 			));
 }
 

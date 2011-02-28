@@ -1,3 +1,7 @@
+2011-02-28 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
+	* Inhaltsverzeichnis in der Sidebar wird nicht angezeigt (WWW-581)
+	* Aenderung der Zeitzone
+
 2011-02-23 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
 	* Hook Bugfixing
 
