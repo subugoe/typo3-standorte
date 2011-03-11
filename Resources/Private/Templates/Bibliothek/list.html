@@ -13,30 +13,19 @@
 
 			<h2>{bibo.titel}</h2>
 
-			<f:if condition="{bibo.semesterferien} == 0">
-				<f:then>
-					<f:if condition="{bibo.geoeffnet}">
-						<f:then>
-							<div class="opened status"><f:image src="typo3conf/ext/standorte/Resources/Public/img/<f:translate key='offen_bild' />.png" alt="<f:translate key='offen' />" maxWidth="220" /></div>
-						</f:then>
-						<f:else>
-							<div class="closed status"><f:image src="typo3conf/ext/standorte/Resources/Public/img/<f:translate key='geschlossen_bild' />.png" alt="<f:translate key='geschlossen' />" maxWidth="220" /></div>
-						</f:else>
-					</f:if>
-				</f:then>
-
-			</f:if>
 			<f:if condition="{bibo.extlink}">
 				<f:then>
 					<f:link.external uri="{bibo.extlink}">Link zur {bibo.titel}</f:link.external>
 				</f:then>
 			</f:if>
 			<dl>
+				<!-- Sigel -->
 				<dt><f:translate key="bibliothekssigel" /></dt>
-				<dd><p class="bodytext"><f:render partial="sigel" arguments="{sigel: bibo.sigel}"/><br />
-					{fakultaet.titel}</p>
+				<dd><p class="bodytext"><f:render partial="sigel" arguments="{sigel: bibo.sigel}"/> ({fakultaet.titel})
 				</dd>
+				<!-- /Sigel -->
 
+				<!-- Anschrift -->
 				<dt><f:translate key="anschrift" /></dt>
 				<dd><p class="bodytext">{bibo.strasse}<br />
 				<f:if condition="{bibo.adresszusatz}">
@@ -46,26 +35,19 @@
 					</f:then>
 				</f:if>
 					{bibo.plz} {bibo.ort}</p></dd>
-
-				<dt><f:translate key="kontakt" /></dt>
-				<dd><f:format.html>{bibo.ansprechpartner}</f:format.html></dd>
-
-				<f:if condition="{bibo.zusatzinformationen}">
-					<f:then>
-						<dt><f:translate key="zusatzinformationen" /></dt>
-						<dd><f:format.html>{bibo.zusatzinformationen}</f:format.html></dd>
-					</f:then>
-				</f:if>
+				<!-- /Anschrift -->
 
 				<!--Oeffnungszeiten-->
 				<dt><f:translate key="oeffnung" /></dt>
-				<dd><p class="bodytext">
-				<f:for each="{bibo.oeffnungszeiten}" as="bobo">
-					<f:render partial="oeffnungszeiten" arguments="{von: bobo.von, bis:bobo.bis, wochentag:bobo.wochentag, inhalt:bobo.inhalt}"/>
-				</f:for>
-				</p>
+				<dd>
+					<f:format.html>{bibo.oeffnungszeiten}</f:format.html>
 				</dd>
 				<!--/Oeffnungszeiten-->
+
+				<!-- Kontakt -->
+				<dt><f:translate key="kontakt" /></dt>
+				<dd><f:format.html>{bibo.ansprechpartner}</f:format.html></dd>
+				<!-- /Kontakt -->
 
 				<!-- Bestand -->
 				<f:if condition="{bibo.bestand}">
@@ -78,16 +60,25 @@
 					</f:then>
 				</f:if>
 				<!-- /Bestand -->
+				
+				<!-- Zusatzinformationen -->
+				<f:if condition="{bibo.zusatzinformationen}">
+					<f:then>
+						<dt><f:translate key="zusatzinformationen" /></dt>
+						<dd><f:format.html>{bibo.zusatzinformationen}</f:format.html></dd>
+					</f:then>
+				</f:if>
+				<!-- /Zusatzinformationen -->
+
 				<!-- Karte -->
-
 				<dt><a class="map" id="cl-{bibo.uid}"><f:translate key="karte" /></a></dt>
-				<dd><div id="map-{bibo.uid}" class="karte"></div></dd>
-
+				<dd><div id="map-{bibo.uid}" class="karte"></div>&nbsp;</dd>
 				<!-- /Karte -->
 
 				<!-- Singleview -->
 				<dt><f:link.action action="single" controller="Bibliothek" arguments="{bibliothek:bibo}">Einzelansicht</f:link.action>	</dt>
-				<dd></dd>
+				<dd>&nbsp;</dd>
+				<!-- /Singleview -->
 
 			</dl>
 		</div>
