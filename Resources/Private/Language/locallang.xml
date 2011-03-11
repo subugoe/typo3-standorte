@@ -7,18 +7,6 @@
 	<data type="array">
 		<languageKey index="de" type="array">
 			<label index="oeffnung">Öffnungszeiten</label>
-			<label index="offen">Geöffnet</label>
-			<label index="geschlossen">Geschlossen</label>
-			<label index="offen_bild">opened_en</label>
-			<label index="geschlossen_bild">closed_en</label>
-			<label index="tag.1">Montag</label>
-			<label index="tag.2">Dienstag</label>
-			<label index="tag.3">Mittwoch</label>
-			<label index="tag.4">Donnerstag</label>
-			<label index="tag.5">Freitag</label>
-			<label index="tag.6">Samstag</label>
-			<label index="tag.7">Sonntag</label>
-			<label index="tag.8">Montag - Freitag</label>
 			<label index="bibliothekssigel">Bibliothekssigel</label>
 			<label index="fakultaet">Fakultät</label>
 			<label index="anschrift">Anschrift</label>
@@ -32,9 +20,18 @@
 			<label index="bibliothek-filter">Suche</label>
 		</languageKey>
 		<languageKey index="en" type="array">
-			<label index="oeffnung">Opening hours</label>
-			<label index="offen_bild">opened_de</label>
-			<label index="geschlossen_bild">closed_de</label>
+			<label index="oeffnung">Opening-Hours</label>
+			<label index="bibliothekssigel">Library identifier</label>
+			<label index="fakultaet">Faculty</label>
+			<label index="anschrift">Address</label>
+			<label index="kontakt">Contact</label>
+			<label index="zusatzinformationen">Additional Information</label>
+			<label index="bestand">Asset</label>
+			<label index="institutskatalog">Catalogue</label>
+			<label index="bestandenthalten">The asset is listet in the</label>
+			<label index="enthalten"></label>
+			<label index="karte">Map</label>
+			<label index="bibliothek-filter">Search</label>
 		</languageKey>
 	</data>
 </T3locallang>

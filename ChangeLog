@@ -1,6 +1,8 @@
 2011-03-11 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
 	* Oeffnungszeiten als Freitext - keine Berechnung mehr ob geoeffnet oder geschlossen (WWW-607)
 	* Aenderung der Ausgabereihenfolge im FE (Sigel, Anschrift, Oeffnungszeiten, Kontakt, Bestand, Zusatzinformationen) (WWW-604)
+	* Optimierung Zuweisung Controller->View
+	* Lokalisierung (WWW-606)
 
 2011-03-08 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
 	* Einfuegen der Storage PID ueber Constants
