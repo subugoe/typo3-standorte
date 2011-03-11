@@ -190,17 +190,20 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:standorte/locallang_db.xml:tx_standorte_domain_model_bibliothek.oeffnungszeiten',
 			'config' => array(
-				'type' => 'inline',
-				'foreign_table' => 'tx_standorte_domain_model_oeffnungszeiten',
-				'foreign_field' => 'bibliothek',
-				'maxitems' => 9999
-			),
-		),
-		'semesterferien' => array(
-			'exclude' => 0,
-			'label' => 'LLL:EXT:standorte/locallang_db.xml:tx_standorte_domain_model_bibliothek.semesterferien',
-			'config' => array(
-				'type' => 'check',
+				'type' => 'text',
+				'cols' => '30',
+				'rows' => '5',
+				'wizards' => array(
+					'_PADDING' => 2,
+					'RTE' => array(
+						'notNewRecords' => 1,
+						'RTEonly' => 1,
+						'type' => 'script',
+						'title' => 'Full screen Rich Text Editing|Formatteret redigering i hele vinduet',
+						'icon' => 'wizard_rte2.gif',
+						'script' => 'wizard_rte.php',
+					),
+				),
 			)
 		),
 		'bild' => array(
@@ -296,7 +299,7 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
 		),
 	),
 	'types' => array(
-		'0' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, sigel, titel, sorttitel, extlink, lat, lon, bestand, katalog, institutskatalog, strasse, adresszusatz, plz, ort, ansprechpartner, semesterferien, oeffnungszeiten, zusatzinformationen;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_standorte/rte/], bild, fakultaet'),
+		'0' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, sigel, titel, sorttitel, extlink, lat, lon, bestand, katalog, institutskatalog, strasse, adresszusatz, plz, ort, ansprechpartner, semesterferien, oeffnungszeiten;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_standorte/rte/], zusatzinformationen;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_standorte/rte/], bild, fakultaet'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => '')

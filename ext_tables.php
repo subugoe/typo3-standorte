@@ -46,25 +46,6 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
 	),
 );
 
-$TCA['tx_standorte_domain_model_oeffnungszeiten'] = array(
-	'ctrl' => array(
-		'title' => 'Oeffnungszeiten',
-		'requestUpdate' => 'wochentag',
-		'label' => 'wochentag',
-		'tstamp' => 'tstamp',
-		'crdate' => 'crdate',
-		'cruser_id' => 'cruser_id',
-		'default_sortby' => 'ORDER BY wochentag',
-		'delete' => 'deleted',
-		'enablecolumns' => array(
-			'disabled' => 'hidden',
-		),
-		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . '/Configuration/TCA/tx_standorte_domain_model_oeffnungszeiten.php',
-		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . '/Resources/Public/img/icon_tx_standorte_domain_model_oeffnungszeiten.png',
-	),
-);
-
-
 Tx_Extbase_Utility_Extension::registerPlugin($_EXTKEY, 'Pi1', 'SUB Standorte');
 Tx_Extbase_Utility_Extension::registerPlugin($_EXTKEY, 'Pi2', 'SUB Standorte Sigelliste');
 
@@ -83,5 +64,4 @@ if (TYPO3_MODE === 'BE') {
 }
 
 t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Standorte');
-$TCA['tt_content']['ctrl']['requestUpdate'] = $TCA['tt_content']['ctrl']['requestUpdate'] ? $TCA['tt_content']['ctrl']['requestUpdate'] . ',wochentag' : 'wochentag';
 ?>

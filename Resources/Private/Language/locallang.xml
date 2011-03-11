@@ -5,7 +5,7 @@
 		<description>Sprachlabels für Standorte</description>
 	</meta>
 	<data type="array">
-		<languageKey index="default" type="array">
+		<languageKey index="de" type="array">
 			<label index="oeffnung">Öffnungszeiten</label>
 			<label index="offen">Geöffnet</label>
 			<label index="geschlossen">Geschlossen</label>
@@ -31,7 +31,7 @@
 			<label index="karte">Karte</label>
 			<label index="bibliothek-filter">Suche</label>
 		</languageKey>
-		<languageKey index="de" type="array">
+		<languageKey index="en" type="array">
 			<label index="oeffnung">Opening hours</label>
 			<label index="offen_bild">opened_de</label>
 			<label index="geschlossen_bild">closed_de</label>

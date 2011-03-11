@@ -26,3 +26,10 @@ Eingabe der Standorte im Backend
 						'GETvar' => 'tx_standorte_pi1[controller]'
 					),
 				),
+
+==TypoScript==
+
+* Storage Folder anlegen
+* In Constants des TS:
+	tx_schulungen.persistence.storagePid = 
+* Im Setup das mitgelieferte TypoScript einbinden

@@ -2,11 +2,11 @@
 <T3locallang>
 	<meta type="array">
 		<type>module</type>
-		<description>Sprachlabels für die Efempty Extension</description>
+		<description>Sprachlabels für die Standorte Extension</description>
 	</meta>
 	<data type="array">
 		<languageKey index="default" type="array">
-			<label index="mlang_tabs_tab">Places</label>
+			<label index="mlang_tabs_tab">Locations</label>
 		</languageKey>
 		<languageKey index="de" type="array">
 			<label index="mlang_tabs_tab">Standorte</label>

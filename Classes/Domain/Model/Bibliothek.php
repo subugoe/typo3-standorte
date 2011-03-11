@@ -40,13 +40,8 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	 */
 	protected $sigel;
 	/**
-	 * Ob andere Oeffnungszeiten in den Semesterferien
-	 * @var int
-	 */
-	protected $semesterferien;
-	/**
 	 *
-	 * @var array
+	 * @var string
 	 */
 	protected $oeffnungszeiten;
 	/**
@@ -108,11 +103,6 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	 * @var string
 	 */
 	protected $bild;
-	/**
-	 *
-	 * @var boolean
-	 */
-	protected $geoeffnet;
 	/**
 	 *
 	 * @var Tx_Standorte_Domain_Model_Fakultaet
@@ -247,92 +237,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	 */
 	public function getOeffnungszeiten() {
 
-		$oeffis = & t3lib_div::makeInstance('Tx_Standorte_Domain_Repository_OeffnungszeitenRepository');
-
-		$ergebnis = $oeffis->findByBibliothek($this->uid);
-
-		$oeffnungszeiten = array();
-
-		foreach ($ergebnis as $resultat) {
-
-			//checken ob es geoffnet ist
-			$oeffnungszeiten[] = $resultat;
-		}
-
-		return $oeffnungszeiten;
-	}
-
-	/**
-	 * Formatiert die Zeit in Sekunden seit 00:00 des Tages
-	 * @return int Aktuelle Zeit in Sekunden des Tages
-	 */
-	public function holeZeit() {
-		$stunde = date('H');
-		$minute = date('i');
-
-		$zeit = (($stunde * 60) + $minute) * 60;
-
-		return $zeit;
-	}
-
-	/**
-	 * Ist die betreffende Bibliothek geoeffnet?
-	 * @return boolean 
-	 */
-	public function getGeoeffnet() {
-
-		// Integer Wert des heutigen Tags
-		$tagJetzt = date('N');
-		$zeitJetzt = $this->holeZeit();
-
-		//Referenz auf Oeffnungszeiten Objekt
-		$oeffis = & t3lib_div::makeInstance('Tx_Standorte_Domain_Repository_OeffnungszeitenRepository');
-
-		//Oeffnungszeiten nach Bibliothek suchen
-		$ergebnis = $oeffis->findByBibliothek($this->uid);
-
-		foreach ($ergebnis as $resultat) {
-
-			//Wochentag Check
-			if ($resultat->wochentag == $tagJetzt) {
-				$geoeffnet = true;
-			}
-
-			//Option Montag bis Freitag - WOchentag = 8
-			if (($resultat->wochentag === 8) && ($tagJetzt >= 1 && $tagJetzt <= 5)) {
-				$geoeffnet = true;
-			}
-
-
-			//Wenn es sich um den falschen Wochentag handelt - nicht weiterchecken
-			if ($resultat->wochentag != $tagJetzt && $geoeffnet != true) {
-				$geoeffnet = false;
-			}
-
-			//Wenn Wochentag Check ok, dann Uhrzeiten vergleichen
-			if ($geoeffnet && ($resultat->wochentag == $tagJetzt)) {
-
-				try {
-					$von = $resultat->von;
-					$bis = $resultat->bis;
-
-					($zeitJetzt >= $von) && ($zeitJetzt <= $bis) ? $geoeffnet = true : $geoeffnet = false;
-				} catch (Exception $e) {
-					//@TODO fehlernachricht
-				}
-			}
-		}
-
-
-		return $geoeffnet;
-	}
-
-	/**
-	 * Setter fuer den Oeffnungsstatus
-	 */
-	public function setGeoeffnet() {
-
-		$this->geoeffnet = $geoeffnet;
+		return $this->oeffnungszeiten;
 	}
 
 	/**

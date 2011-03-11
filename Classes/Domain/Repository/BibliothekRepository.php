@@ -57,8 +57,7 @@ class Tx_Standorte_Domain_Repository_BibliothekRepository extends Tx_Extbase_Per
 		$query->getQuerySettings()->
 				setRespectStoragePage(false)->
 				setRespectEnableFields(true)->
-				setRespectSysLanguage(true)
-		;
+				setRespectSysLanguage(true);
 
 		$query->matching($query->equals('fakultaet', $fakultaet));
 
