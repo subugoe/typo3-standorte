@@ -15,6 +15,7 @@
 			<label index="bestand">Bestand</label>
 			<label index="institutskatalog">Institutskatalog</label>
 			<label index="bestandenthalten">Der Bestand ist im</label>
+			<label index="katalogteilweise">Der Bestand ist teilweise im</label>
 			<label index="enthalten">enthalten</label>
 			<label index="karte">Karte</label>
 			<label index="bibliothek-filter">Suche</label>
@@ -29,6 +30,7 @@
 			<label index="bestand">Asset</label>
 			<label index="institutskatalog">Catalogue</label>
 			<label index="bestandenthalten">The asset is listet in the</label>
+			<label index="katalogteilweise">The asset is partially listed in the</label>
 			<label index="enthalten"></label>
 			<label index="karte">Map</label>
 			<label index="bibliothek-filter">Search</label>

@@ -41,7 +41,6 @@ class Tx_Standorte_ViewHelpers_SigelViewHelper extends Tx_Fluid_Core_ViewHelper_
 		if ((is_numeric($sigel)) && (strlen($sigel) == 3)) {
 
 			//dann nehmen wir mal an, dass es eine goettinger Bibliothek ist ...
-
 			$sigel = '7/' . $sigel;
 		}
 

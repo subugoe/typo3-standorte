@@ -23,7 +23,7 @@
 			<label index="tx_standorte_domain_model_bibliothek.zusatzinformationen">Zusatzinformationen</label>
 			<label index="tx_standorte_domain_model_bibliothek.bild">Bild</label>
 			<label index="tx_standorte_domain_model_bibliothek.fakultaet">Fakultät</label>
-			<label index="tx_standorte_domain_model_bibliothek.semesterferien">Andere Offnungszeiten in den Semesterferien</label>
+			<label index="tx_standorte_domain_model_bibliothek.katalogteilweise">Teilweise im GUK</label>
 			<label index="tx_standorte_domain_model_bibliothek.oeffnungszeiten">Öffnungszeiten</label>
 			<label index="tx_standorte_domain_model_bibliothek.katalog">Link zum Katalog</label>
 			<label index="tx_standorte_domain_model_bibliothek.institutskatalog">Link zum Institutskatalog</label>

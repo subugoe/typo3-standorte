@@ -9,7 +9,15 @@
 </f:if>
 <f:if condition="{katalog}">
 	<f:then>
-		<br /><f:translate key="bestandenthalten" />
+		<br />
+		<f:if condition="{katalogteilweise}">
+			<f:then>
+				<f:translate key="katalogteilweise" />
+			</f:then>
+			<f:else>
+				<f:translate key="bestandenthalten" />
+			</f:else>
+		</f:if>
 		<standorte:typolink typolink="{katalog}" linktext="GUK" />
 		<f:translate key="enthalten" />
 	</f:then>

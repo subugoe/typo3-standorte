@@ -114,6 +114,11 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	 */
 	protected $katalog;
 	/**
+	 * Wenn der Bestand nur teilweise im GUK enthalten ist
+	 * @var boolean
+	 */
+	protected $katalogteilweise;
+	/**
 	 * Link zum Institutskatalo
 	 * @var string
 	 */
@@ -124,6 +129,14 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	 */
 	protected $extlink;
 
+
+	public function getKatalogteilweise() {
+		return $this->katalogteilweise;
+	}
+
+	public function setKatalogteilweise($katalogteilweise) {
+		$this->katalogteilweise = $katalogteilweise;
+	}
 
 	public function getSorttitel() {
 		return $this->sorttitel;

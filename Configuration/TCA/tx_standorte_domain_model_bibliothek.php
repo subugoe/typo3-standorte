@@ -6,7 +6,7 @@ if (!defined('TYPO3_MODE'))
 $TCA['tx_standorte_domain_model_bibliothek'] = array(
 	'ctrl' => $TCA['tx_standorte_domain_model_bibliothek']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid,l10n_parent,l10n_diffsource,hidden,sigel,titel,sorttitel,extlink,lat,lon,bestand,katalog,institutskatalog,strasse,adresszusatz,plz,ort,ansprechpartner,semesterferien,oeffnungszeiten,zusatzinformationen,bild,fakultaet'
+		'showRecordFieldList' => 'sys_language_uid,l10n_parent,l10n_diffsource,hidden,sigel,titel,sorttitel,extlink,lat,lon,bestand,katalog,katalogteilweiseinstitutskatalog,strasse,adresszusatz,plz,ort,ansprechpartner,semesterferien,oeffnungszeiten,zusatzinformationen,bild,fakultaet'
 	),
 	'feInterface' => $TCA['tx_standorte_domain_model_bibliothek']['feInterface'],
 	'columns' => array(
@@ -255,6 +255,14 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
 				)
 			)
 		),
+		'katalogteilweise' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:standorte/locallang_db.xml:tx_standorte_domain_model_bibliothek.katalogteilweise',
+			'config' => array(
+				'type' => 'check',
+				'cols' => 1
+			)
+		),
 		'institutskatalog' => array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:standorte/locallang_db.xml:tx_standorte_domain_model_bibliothek.institutskatalog',
@@ -299,7 +307,7 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
 		),
 	),
 	'types' => array(
-		'0' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, sigel, titel, sorttitel, extlink, lat, lon, bestand, katalog, institutskatalog, strasse, adresszusatz, plz, ort, ansprechpartner, semesterferien, oeffnungszeiten;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_standorte/rte/], zusatzinformationen;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_standorte/rte/], bild, fakultaet'),
+		'0' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1,sigel, titel, sorttitel, extlink, lat, lon, bestand, katalog,katalogteilweise, institutskatalog, strasse, adresszusatz, plz, ort, ansprechpartner, semesterferien, oeffnungszeiten;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_standorte/rte/], zusatzinformationen;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_standorte/rte/], bild, fakultaet'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => '')

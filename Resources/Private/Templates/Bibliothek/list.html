@@ -11,7 +11,7 @@
 			<f:render partial="bild" arguments="{bild: bibo.bild,titel: bibo.titel}"/>
 			<!-- /Bild -->
 
-			<h2>{bibo.titel}</h2>
+			<h2><f:link.action action="single" controller="Bibliothek" arguments="{bibliothek:bibo}">{bibo.titel}</f:link.action></h2>
 
 			<f:if condition="{bibo.extlink}">
 				<f:then>
@@ -54,7 +54,7 @@
 					<f:then>
 						<dt><f:translate key="bestand" /></dt>
 						<dd><p class="bodytext">{bibo.bestand}
-						<f:render partial="bestand" arguments="{institutskatalog:bibo.institutskatalog, katalog:bibo.katalog}"/>
+						<f:render partial="bestand" arguments="{institutskatalog:bibo.institutskatalog, katalog:bibo.katalog, katalogteilweise:bibo.katalogteilweise}"/>
 						</p>
 						</dd>
 					</f:then>
@@ -74,12 +74,6 @@
 				<dt><a class="map" id="cl-{bibo.uid}"><f:translate key="karte" /></a></dt>
 				<dd><div id="map-{bibo.uid}" class="karte"></div>&nbsp;</dd>
 				<!-- /Karte -->
-
-				<!-- Singleview -->
-				<dt><f:link.action action="single" controller="Bibliothek" arguments="{bibliothek:bibo}">Einzelansicht</f:link.action>	</dt>
-				<dd>&nbsp;</dd>
-				<!-- /Singleview -->
-
 			</dl>
 		</div>
 	</f:for>

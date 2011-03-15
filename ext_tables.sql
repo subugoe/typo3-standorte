@@ -48,6 +48,7 @@ CREATE TABLE tx_standorte_domain_model_bibliothek (
     bild text,
     fakultaet tinytext,
     katalog tinytext,
+	katalogteilweise int(11),
 	institutskatalog tinytext,
     extlink tinytext,
 	sorttitel varchar(255) DEFAULT '' NOT NULL,
