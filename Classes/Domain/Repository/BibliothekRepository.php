@@ -39,9 +39,7 @@ class Tx_Standorte_Domain_Repository_BibliothekRepository extends Tx_Extbase_Per
 			'titel' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING
 		);
 
-		if (t3lib_div::int_from_ver(TYPO3_version) >= 4005000) {
-			$this->setDefaultOrderings($defaultOrderings);
-		}
+		$this->setDefaultOrderings($defaultOrderings);
 		parent::__construct($objectManager);
 	}
 
