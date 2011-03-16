@@ -2,6 +2,7 @@
 	* Layout der Bibliotheken optimiert
 	* CSS und JS angepasst
 	* Korrektur der Sortierreihenfolge (WWW-605)
+	* Bugfix in Singleansicht (mehr als 100 Funktionen aufgerufen)
 
 2011-03-15 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
 	* Der Bestand ist teilweise im GUK enthalten (WWW-596)
