@@ -19,6 +19,7 @@
 			<label index="enthalten">enthalten</label>
 			<label index="karte">Karte</label>
 			<label index="bibliothek-filter">Suche</label>
+			<label index="header">Standorte</label>
 		</languageKey>
 		<languageKey index="en" type="array">
 			<label index="oeffnung">Opening-Hours</label>
@@ -34,6 +35,7 @@
 			<label index="enthalten"></label>
 			<label index="karte">Map</label>
 			<label index="bibliothek-filter">Search</label>
+			<label index="header">Locations</label>
 		</languageKey>
 	</data>
 </T3locallang>

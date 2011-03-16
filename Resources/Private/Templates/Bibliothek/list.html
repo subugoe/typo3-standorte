@@ -1,80 +1,86 @@
 <!-- $Id$ -->
 
 <f:layout name="defaultLayout" />
-
 <f:section name="bibos">
+	<h1><f:translate key="header" /> ({fakultaet.titel})</h1>
+
 	<f:for each="{bibos}" as="bibo">
 
 		<div class="list" id="bibliothek-{bibo.uid}" lat="{bibo.lat}" lon="{bibo.lon}">
 
-			<!-- Bild -->
-			<f:render partial="bild" arguments="{bild: bibo.bild,titel: bibo.titel}"/>
-			<!-- /Bild -->
+			<div class="bibhead">
+				<h2><f:link.action action="single" controller="Bibliothek" arguments="{bibliothek:bibo}">{bibo.titel}</f:link.action></h2>
+				<div class="sigel"><f:render partial="sigel" arguments="{sigel: bibo.sigel}"/></div>
+			</div>
 
-			<h2><f:link.action action="single" controller="Bibliothek" arguments="{bibliothek:bibo}">{bibo.titel}</f:link.action></h2>
+			<div class="details">
+				<!-- Bild -->
+				<!--<f:render partial="bild" arguments="{bild: bibo.bild,titel: bibo.titel}"/>-->
+				<!-- /Bild -->
 
-			<f:if condition="{bibo.extlink}">
-				<f:then>
-					<f:link.external uri="{bibo.extlink}">Link zur {bibo.titel}</f:link.external>
-				</f:then>
-			</f:if>
-			<dl>
-				<!-- Sigel -->
-				<dt><f:translate key="bibliothekssigel" /></dt>
-				<dd><p class="bodytext"><f:render partial="sigel" arguments="{sigel: bibo.sigel}"/> ({bibo.fakultaet.titel})
-				</dd>
-				<!-- /Sigel -->
-
-				<!-- Anschrift -->
-				<dt><f:translate key="anschrift" /></dt>
-				<dd><p class="bodytext">{bibo.strasse}<br />
-				<f:if condition="{bibo.adresszusatz}">
+				<f:if condition="{bibo.extlink}">
 					<f:then>
+						<f:link.external uri="{bibo.extlink}">Link zur {bibo.titel}</f:link.external>
+					</f:then>
+				</f:if>
+
+
+				<dl>
+					<!-- Sigel -->
+					<dt><f:translate key="bibliothekssigel" /></dt>
+					<dd><p class="bodytext"><f:render partial="sigel" arguments="{sigel: bibo.sigel}"/>
+					</dd>
+					<!-- /Sigel -->
+
+					<!-- Anschrift -->
+					<dt><f:translate key="anschrift" /></dt>
+					<dd><p class="bodytext">{bibo.strasse}<br />
+					<f:if condition="{bibo.adresszusatz}">
+						<f:then>
 						{bibo.adresszusatz}
-						<br />
-					</f:then>
-				</f:if>
-					{bibo.plz} {bibo.ort}</p></dd>
-				<!-- /Anschrift -->
+							<br />
+						</f:then>
+					</f:if>
+					{bibo.plz} {bibo.ort}</p>
+					<a class="map" id="cl-{bibo.uid}"><f:translate key="karte" /></a>
+					<div id="map-{bibo.uid}" class="karte"></div>
+					</dd>
+					<!-- /Anschrift -->
 
-				<!--Oeffnungszeiten-->
-				<dt><f:translate key="oeffnung" /></dt>
-				<dd>
+					<!--Oeffnungszeiten-->
+					<dt><f:translate key="oeffnung" /></dt>
+					<dd>
 					<f:format.html>{bibo.oeffnungszeiten}</f:format.html>
-				</dd>
-				<!--/Oeffnungszeiten-->
+					</dd>
+					<!--/Oeffnungszeiten-->
 
-				<!-- Kontakt -->
-				<dt><f:translate key="kontakt" /></dt>
-				<dd><f:format.html>{bibo.ansprechpartner}</f:format.html></dd>
-				<!-- /Kontakt -->
+					<!-- Kontakt -->
+					<dt><f:translate key="kontakt" /></dt>
+					<dd><f:format.html>{bibo.ansprechpartner}</f:format.html></dd>
+					<!-- /Kontakt -->
 
-				<!-- Bestand -->
-				<f:if condition="{bibo.bestand}">
-					<f:then>
-						<dt><f:translate key="bestand" /></dt>
-						<dd><p class="bodytext">{bibo.bestand}
-						<f:render partial="bestand" arguments="{institutskatalog:bibo.institutskatalog, katalog:bibo.katalog, katalogteilweise:bibo.katalogteilweise}"/>
-						</p>
-						</dd>
-					</f:then>
-				</f:if>
-				<!-- /Bestand -->
-				
-				<!-- Zusatzinformationen -->
-				<f:if condition="{bibo.zusatzinformationen}">
-					<f:then>
-						<dt><f:translate key="zusatzinformationen" /></dt>
-						<dd><f:format.html>{bibo.zusatzinformationen}</f:format.html></dd>
-					</f:then>
-				</f:if>
-				<!-- /Zusatzinformationen -->
+					<!-- Bestand -->
+					<f:if condition="{bibo.bestand}">
+						<f:then>
+							<dt><f:translate key="bestand" /></dt>
+							<dd><p class="bodytext">{bibo.bestand}
+							<f:render partial="bestand" arguments="{institutskatalog:bibo.institutskatalog, katalog:bibo.katalog, katalogteilweise:bibo.katalogteilweise}"/>
+							</p>
+							</dd>
+						</f:then>
+					</f:if>
+					<!-- /Bestand -->
 
-				<!-- Karte -->
-				<dt><a class="map" id="cl-{bibo.uid}"><f:translate key="karte" /></a></dt>
-				<dd><div id="map-{bibo.uid}" class="karte"></div>&nbsp;</dd>
-				<!-- /Karte -->
-			</dl>
+					<!-- Zusatzinformationen -->
+					<f:if condition="{bibo.zusatzinformationen}">
+						<f:then>
+							<dt><f:translate key="zusatzinformationen" /></dt>
+							<dd><f:format.html>{bibo.zusatzinformationen}</f:format.html></dd>
+						</f:then>
+					</f:if>
+					<!-- /Zusatzinformationen -->
+				</dl>
+			</div>
 		</div>
 	</f:for>
 </f:section>

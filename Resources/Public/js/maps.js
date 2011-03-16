@@ -10,7 +10,30 @@ function splitte(uid){
 	return id[1];
 }
 jQuery(document).ready(function(){
+	jQuery('.tx-standorte-pi1 .list .bibhead h2 a').addClass('closed');
+	jQuery('.tx-standorte-pi1 .list:first .bibhead h2 a').addClass('opened').removeClass('closed');
 
+	
+	jQuery('.tx-standorte-pi1 .list .details').css('display','none');
+	jQuery('.tx-standorte-pi1 .list:first .details').attr('style','display:block');
+
+
+	/* Klick auf Titel*/
+	jQuery('.tx-standorte-pi1 .bibhead').click(function(){
+
+		jQuery(this).next('.details').toggle();
+
+		if (jQuery("a", this).attr('class') == 'opened'){
+			jQuery("a", this).addClass('closed').removeClass('opened');
+		}
+		else{
+			jQuery("a", this).addClass('opened').removeClass('closed');
+
+		}
+		
+		
+		return false;
+	});
 	
 	jQuery('table#daten').tablesorter();
 	/*standorte*/
@@ -50,7 +73,7 @@ jQuery(document).ready(function(){
 			theTable.find("tbody > tr:visible > td:eq(1)").mousedown();
 			return false;
 		}).focus(); //Give focus to input field
-	});  
+	});
 
 
 });
