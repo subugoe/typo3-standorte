@@ -45,7 +45,7 @@ class Tx_Standorte_Domain_Repository_BibliothekRepository extends Tx_Extbase_Per
 	}
 
 	/**
-	 *
+	 * Spezialmethode fuer den Hook
 	 * @param int $fakultaet
 	 * @return Tx_Standorte_Domain_Model_Bibliothek
 	 */
