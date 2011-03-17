@@ -38,9 +38,10 @@ class Tx_Standorte_Domain_Repository_BibliothekRepository extends Tx_Extbase_Per
 			'sorttitel' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING,
 			'titel' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING
 		);
-
-		$this->setDefaultOrderings($defaultOrderings);
-		parent::__construct($objectManager);
+		//Workaround fuer 4.4.x
+		if (t3lib_div::int_from_ver(TYPO3_version) >= 4005000) {
+			$this->setDefaultOrderings($defaultOrderings);
+		} parent::__construct($objectManager);
 	}
 
 	/**
