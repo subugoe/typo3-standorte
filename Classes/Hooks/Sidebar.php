@@ -50,14 +50,14 @@ class user_Tx_Standorte_Classes_Hooks_Sidebar {
 	 */
 	public function hookFunc(&$tmp, $obj) {
 
-		$gp = t3lib_div::GPvar('tx_standorte_pi1');
+		$gp = t3lib_div::_GP('tx_standorte_pi1');
 
 		$fakultaet = intval($gp['fakultaet']);
 
 		if ($fakultaet > 0) {
 			//leeren der Sidebar
 			$tmp = null;
-			
+
 			$bibliotheken = $this->bibliothekenRepository->findByUidEverywhere($fakultaet);
 
 			foreach ($bibliotheken as $bibliothek) {

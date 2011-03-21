@@ -1,3 +1,6 @@
+2011-03-21 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
+	* Deprecated Funktion entfernt im Hook
+
 2011-03-17 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
 	* Workaround fuer TYPO3 4.4 (Repository)
 

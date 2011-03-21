@@ -31,7 +31,6 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
 		'title' => 'Bibliotheken',
 		'label' => 'titel',
 		'tstamp' => 'tstamp',
-		'dividers2tabs'=>1,
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
 		'languageField' => 'sys_language_uid',
