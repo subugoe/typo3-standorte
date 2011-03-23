@@ -1,3 +1,8 @@
+2011-03-23 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
+	* UpperCamelCase bei Templates
+	* Einbindung aktuellerer jQuery Bibliothek im Backend
+	* Optimierung Nachfrage beim Loeschen der Bibliothek
+
 2011-03-21 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
 	* Deprecated Funktion entfernt im Hook
 
