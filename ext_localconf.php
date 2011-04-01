@@ -30,14 +30,7 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 				)
 );
 
-t3lib_extMgm::addUserTSConfig('
-    options.saveDocNew.tx_standorte_domain_model_bibliothek=1
-    options.saveDocNew.tx_standorte_domain_model_fakultaet=1
-	options{
-		RTESmallWidth = 500
-		RTESmallHeight = 300
-  }
-');
+
 t3lib_extMgm::addPageTSConfig('
 
     # ***************************************************************************************

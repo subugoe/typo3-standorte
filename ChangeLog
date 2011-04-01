@@ -1,3 +1,6 @@
+2011-04-01 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
+	* RTE Einstellungen gefixt (WWW-621)
+
 2011-03-23 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
 	* UpperCamelCase bei Templates
 	* Einbindung aktuellerer jQuery Bibliothek im Backend
