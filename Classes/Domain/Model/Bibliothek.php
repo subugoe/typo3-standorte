@@ -128,8 +128,22 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	 * @var string
 	 */
 	protected $extlink;
+	
+	/**
+	 * Wenn die Bibliothek versteckt ist
+	 * @var boolean
+	 */
+	protected $hidden;
 
+	public function getHidden() {
+		return $this->hidden;
+	}
 
+	public function setHidden($hidden) {
+		$this->hidden = $hidden;
+	}
+
+	
 	public function getKatalogteilweise() {
 		return $this->katalogteilweise;
 	}
