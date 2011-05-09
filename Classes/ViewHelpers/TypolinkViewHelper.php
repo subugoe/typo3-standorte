@@ -36,10 +36,17 @@ class Tx_Standorte_ViewHelpers_TypolinkViewHelper extends Tx_Fluid_Core_ViewHelp
 	 * 
 	 * @param string $typolink	Typolink to be processes
 	 * @param string $linktext	Text um den Link
+	 * @param string $title	Linktitel
 	 */
-	public function render($typolink, $linktext) {
+	public function render($typolink, $linktext, $title='') {
 		$local_cObj = t3lib_div::makeInstance('tslib_cObj');
-		$url = $local_cObj->typoLink($linktext, array('parameter' => $typolink));
+		
+		$url = $local_cObj->typoLink(
+				$linktext, array(
+					'parameter' => $typolink,
+					'title' => $title
+					)
+				);
 
 		return $url;
 	}

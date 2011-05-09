@@ -20,6 +20,10 @@
 			<label index="karte">Karte</label>
 			<label index="bibliothek-filter">Suche</label>
 			<label index="header">Standorte</label>
+			<label index="maptitle">Lageplan der Bibliothek</label>
+			<label index="mailtitle">Kontakt per E-Mail</label>
+			<label index="institutstitle">Katalog der Bibliothek</label>
+			<label index="guktitle">Göttinger Universitätskatalog</label>
 		</languageKey>
 		<languageKey index="en" type="array">
 			<label index="oeffnung">Opening-Hours</label>
@@ -35,7 +39,10 @@
 			<label index="enthalten"></label>
 			<label index="karte">Map</label>
 			<label index="bibliothek-filter">Search</label>
-			<label index="header">Locations</label>
+			<label index="maptitle">Lageplan der Bibliothek</label>
+			<label index="mailtitle">Kontakt per E-Mail</label>
+			<label index="institutstitle">Katalog der Bibliothek</label>
+			<label index="guktitle">Göttinger Universitätskatalog</label>
 		</languageKey>
 	</data>
 </T3locallang>

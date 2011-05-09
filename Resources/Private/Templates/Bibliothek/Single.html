@@ -35,7 +35,7 @@
 					</f:then>
 				</f:if>
 					{bibo.plz} {bibo.ort}</p>
-				<a class="map" id="cl-{bibo.uid}"><f:translate key="karte" />
+				<a class="map" id="cl-{bibo.uid}" title="{f:translate(key:'maptitle')}"><f:translate key="karte" />
 					<div id="map-{bibo.uid}" class="karte"></div></a>
 				</dd>
 			</f:if>
@@ -58,32 +58,8 @@
 				<f:then>
 					<dt><f:translate key="bestand" /></dt>
 					<dd><p class="bodytext">{bibo.bestand}
-					{namespace standorte=Tx_Standorte_ViewHelpers}
-
-					<f:if condition="{bibo.institutskatalog}">
-						<f:then>
-							<br />
-							<standorte:typolink typolink="{bibo.institutskatalog}" linktext="<f:translate key='institutskatalog'/>" />
-
-						</f:then>
-					</f:if>
-					<f:if condition="{bibo.katalog}">
-						<f:then>
-							<br />
-							<f:if condition="{bibo.katalogteilweise}">
-								<f:then>
-									<f:translate key="katalogteilweise" />
-								</f:then>
-								<f:else>
-									<f:translate key="bestandenthalten" />
-								</f:else>
-							</f:if>
-							<standorte:typolink typolink="{bibo.katalog}" linktext="GUK" />
-							<f:translate key="enthalten" />
-						</f:then>
-					</f:if>
-					</p>
-					</dd>
+					<f:render partial="bestand" arguments="{institutskatalog:bibo.institutskatalog, katalog:bibo.katalog, katalogteilweise:bibo.katalogteilweise}"/>
+					</p></dd>
 				</f:then>
 			</f:if>
 			<!-- /Bestand -->

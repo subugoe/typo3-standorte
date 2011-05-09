@@ -1,3 +1,7 @@
+2011-05-09 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
+	* Anpassung ViewHelper an Title Tag
+	* Aenderung Ausgaben bezueglich der Linktitel(WWW-667)
+
 2011-04-01 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
 	* RTE Einstellungen gefixt (WWW-621)
 
