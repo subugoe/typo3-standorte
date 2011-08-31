@@ -65,10 +65,6 @@ class Tx_Standorte_Domain_Repository_BibliothekRepository extends Tx_Extbase_Per
 		return $result;
 	}
 	
-	public function findAlsoHiddenBibliotheken(){
-		
-	}
-
 }
 
 ?>
