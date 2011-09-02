@@ -50,57 +50,6 @@ class Tx_Standorte_Controller_BibliothekController extends Tx_Extbase_MVC_Contro
 
 		//Wir wollen noch die zugehoerige Fakultaet ausgeben. Also das auch noch mal instanzieren
 		$this->fakultaetRepository = & t3lib_div::makeInstance('Tx_Standorte_Domain_Repository_FakultaetRepository');
-
-		//CSS und JS in den Header schreiben
-		$this->response->addAdditionalHeaderData($this->addResourcesToHead());
-	}
-
-	/**
-	 * Tagerstellung und Rendering
-	 * @todo Auslagern in den View!!!
-	 * @return string
-	 */
-	private function addResourcesToHead($tablesorter=NULL) {
-
-		//Google Maps Script
-		$mapsTag = t3lib_div::makeInstance('Tx_Fluid_Core_ViewHelper_TagBuilder', 'script');
-		$mapsTag->addAttribute('type', 'text/javascript');
-		$mapsTag->addAttribute('src', "http://maps.google.com/maps/api/js?sensor=true");
-		$mapsTag->forceClosingTag(true);
-
-		//Maps Javascript
-		$scriptTag = t3lib_div::makeInstance('Tx_Fluid_Core_ViewHelper_TagBuilder', 'script');
-		$scriptTag->addAttribute('type', 'text/javascript');
-		$scriptTag->addAttribute('src', "/typo3conf/ext/standorte/Resources/Public/js/maps.js");
-		$scriptTag->forceClosingTag(true);
-
-		//CSS
-		$cssTag = t3lib_div::makeInstance('Tx_Fluid_Core_ViewHelper_TagBuilder', 'link');
-		$cssTag->addAttribute('rel', 'stylesheet');
-		$cssTag->addAttribute('href', '/typo3conf/ext/standorte/Resources/Public/css/standorte.css');
-		$cssTag->forceClosingTag(true);
-
-		//tablesorter
-		$tablesorterTag = t3lib_div::makeInstance('Tx_Fluid_Core_ViewHelper_TagBuilder', 'script');
-		$tablesorterTag->addAttribute('type', 'text/javascript');
-		$tablesorterTag->addAttribute('src', '/typo3conf/ext/standorte/Resources/Public/js/jquery.tablesorter.min.js');
-		$tablesorterTag->forceClosingTag(true);
-
-		//filter
-		$tablefilterTag = t3lib_div::makeInstance('Tx_Fluid_Core_ViewHelper_TagBuilder', 'script');
-		$tablefilterTag->addAttribute('type', 'text/javascript');
-		$tablefilterTag->addAttribute('src', '/typo3conf/ext/standorte/Resources/Public/js/jquery.uitablefilter.js');
-		$tablefilterTag->forceClosingTag(true);
-
-
-		$header = $mapsTag->render();
-		$header .= $tablesorterTag->render();
-		$header .= $tablefilterTag->render();
-
-		$header .= $scriptTag->render();
-		$header .= $cssTag->render();
-
-		return $header;
 	}
 
 	/**

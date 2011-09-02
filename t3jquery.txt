@@ -1,2 +1,2 @@
-script=Resources/Public/Javascript/pz2-client.js
+script=Resources/Public/Js/maps.js
 components=jQuery,Core

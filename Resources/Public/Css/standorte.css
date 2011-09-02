@@ -120,6 +120,10 @@
 	font-size: 8pt;
 	padding: 4px;
 }
+.tx-standorte-pi1 table thead>tr>th {
+	width: 60px;
+}
+
 .tx-standorte-pi1 table#daten thead tr .header {
 	background-image: url(/typo3conf/ext/standorte/Resources/Public/img/bg.gif);
 	background-repeat: no-repeat;
