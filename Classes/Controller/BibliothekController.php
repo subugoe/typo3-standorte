@@ -41,19 +41,25 @@ class Tx_Standorte_Controller_BibliothekController extends Tx_Extbase_MVC_Contro
 	protected $fakultaetRepository;
 
 	/**
-	 * Initializes the current action
+	 * DI fuer die Bibliotheken
 	 *
-	 * @return void
+	 * @param Tx_Standorte_Domain_Repository_BibliothekRepository $bibliothekenRepository
 	 */
-	public function initializeAction() {
-		$this->bibliothekenRepository = & t3lib_div::makeInstance('Tx_Standorte_Domain_Repository_BibliothekRepository');
-
-		//Wir wollen noch die zugehoerige Fakultaet ausgeben. Also das auch noch mal instanzieren
-		$this->fakultaetRepository = & t3lib_div::makeInstance('Tx_Standorte_Domain_Repository_FakultaetRepository');
+	public function injectBibliothekRepository(Tx_Standorte_Domain_Repository_BibliothekRepository $bibliothekenRepository){
+		$this->bibliothekenRepository = $bibliothekenRepository;
 	}
 
 	/**
-	 * Index action for this controller.
+	 * DI fuer die Fakultaeten
+	 *
+	 * @param Tx_Standorte_Domain_Repository_FakultaetRepository $fakultaetRepository
+	 */
+	public function injectFakultaetRepository(Tx_Standorte_Domain_Repository_FakultaetRepository $fakultaetRepository){
+		$this->fakultaetRepository = $fakultaetRepository;
+	}
+
+	/**
+	 * Index action mit Auflistung aller Bibliotheken.
 	 *
 	 */
 	public function indexAction() {
@@ -90,6 +96,14 @@ class Tx_Standorte_Controller_BibliothekController extends Tx_Extbase_MVC_Contro
 	public function singleAction(Tx_Standorte_Domain_Model_Bibliothek $bibliothek) {
 
 		$this->view->assign('bibo', $bibliothek);
+	}
+
+	/**
+	 * Ausgabe einer Liste mit allen Bibliotheken und den entsprechenden Links dazu
+	 */
+	public function listBibMitLinkAction(){
+		$bibliotheken = $this->bibliothekenRepository->findAll();
+		$this->view->assign('bibos', $bibliotheken);
 	}
 
 }

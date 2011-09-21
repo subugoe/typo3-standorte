@@ -1,3 +1,6 @@
+2011-09-21 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
+	* Neue Action listBibMitLink zur einfachen Ausgabe der Links und Titel der Bibliotheken (WWW-657)
+
 2011-09-02 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
 	* Optimierung der CSS Einbindung
 	* Optimierung der Js Einbindung

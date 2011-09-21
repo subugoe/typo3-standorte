@@ -1,0 +1,23 @@
+<table>
+	<thead>
+	<th>
+		Titel
+	</th>
+	<th>
+		Link
+	</th>
+	</thead>
+	<f:for each="{bibos}" as="bibo">
+		<tr>
+
+			<td>
+				{bibo.titel}
+			</td>
+			<td>
+				<f:uri.action absolute="true" controller="Bibliothek" action="single"
+							  arguments="{bibliothek: '{bibo.uid}'}" noCacheHash="true"/>
+			</td>
+		</tr>
+
+	</f:for>
+</table>
