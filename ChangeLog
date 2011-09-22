@@ -1,5 +1,6 @@
 2011-09-22 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
 	* Anpassung der Bibliotheksliste an die Vorgaben aus dem CSV (WWW-657)
+	* Optimierungen im Code
 
 2011-09-21 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
 	* Neue Action listBibMitLink zur einfachen Ausgabe der Links und Titel der Bibliotheken (WWW-657)

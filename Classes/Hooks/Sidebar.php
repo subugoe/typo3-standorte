@@ -50,9 +50,9 @@ class user_Tx_Standorte_Classes_Hooks_Sidebar {
 	 */
 	public function hookFunc(&$tmp, $obj) {
 
-		$gp = t3lib_div::_GP('tx_standorte_pi1');
+		$getPostVar = t3lib_div::_GP('tx_standorte_pi1');
 
-		$fakultaet = intval($gp['fakultaet']);
+		$fakultaet = intval($getPostVar['fakultaet']);
 
 		if ($fakultaet > 0) {
 			//leeren der Sidebar

@@ -368,7 +368,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 
 	public function setBild($bild) {
 
-		$this->bild = $image;
+		$this->bild = $bild;
 	}
 
 	/**
@@ -383,7 +383,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 
 		$rueckgabe = t3lib_div::getURL($url);
 		if (!$rueckgabe) {
-			throw new Exception('Geocoding failed', 2342, $previous);
+			throw new Exception('Geocoding failed', 2342);
 		}
 
 		$code = json_decode($rueckgabe);
@@ -405,5 +405,4 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	}
 
 }
-
 ?>
