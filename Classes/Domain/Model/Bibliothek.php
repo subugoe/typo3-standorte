@@ -26,11 +26,13 @@
 /**
  * Description of Bibliothek
  * $Id$
+ * 
  * @author Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
  */
 class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_AbstractEntity {
 
 	/**
+	 * 
 	 * @var int
 	 */
 	protected $uid;
@@ -51,10 +53,12 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	protected $titel;
 	/**
 	 * Titel fuer die Sortierung
+	 *
 	 * @var string
 	 */
 	protected $sorttitel;
 	/**
+	 *
 	 * @var string
 	 */
 	protected $lon;
@@ -80,6 +84,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	protected $strasse;
 	/**
 	 * Adresszusatz (sowas wie "Juridicum, 4. Stock ...)
+	 *
 	 * @var string
 	 */
 	protected $adresszusatz;
@@ -110,32 +115,38 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	protected $fakultaet;
 	/**
 	 * Link zum Katalog
+	 *
 	 * @var string
 	 */
 	protected $katalog;
 	/**
 	 * Wenn der Bestand nur teilweise im GUK enthalten ist
+	 *
 	 * @var boolean
 	 */
 	protected $katalogteilweise;
 	/**
-	 * Link zum Institutskatalo
+	 * Link zum Institutskatalog
+	 *
 	 * @var string
 	 */
 	protected $institutskatalog;
 	/**
 	 * Falls die Bibliothek nur einen Link nach extern hat (Sonderfall MPI)
+	 *
 	 * @var string
 	 */
 	protected $extlink;
 	
 	/**
+	 *
 	 * Wenn die Bibliothek versteckt ist
 	 * @var boolean
 	 */
 	protected $hidden;
 
 	/**
+	 *
 	 * @return bool
 	 * @return void
 	 */
@@ -144,6 +155,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	}
 
 	/**
+	 *
 	 * @param $hidden
 	 * @return void
 	 */
@@ -152,6 +164,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	}
 
 	/**
+	 *
 	 * @return bool
 	 */
 	public function getKatalogteilweise() {
@@ -159,6 +172,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	}
 
 	/**
+	 *
 	 * @param $katalogteilweise
 	 * @return void
 	 */
@@ -167,6 +181,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	}
 
 	/**
+	 *
 	 * @return string
 	 */
 	public function getSorttitel() {
@@ -174,6 +189,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	}
 
 	/**
+	 *
 	 * @param $sorttitel
 	 * @return void
 	 */
@@ -278,6 +294,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	}
 
 	/**
+	 *
 	 * @return string
 	 */
 	public function getSigel() {
@@ -285,6 +302,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	}
 
 	/**
+	 *
 	 * @param $sigel
 	 * @return void
 	 */
@@ -313,6 +331,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	}
 
 	/**
+	 *
 	 * @return string
 	 */
 	public function getTitel() {
@@ -320,6 +339,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	}
 
 	/**
+	 *
 	 * @param $titel
 	 * @return void
 	 */
@@ -328,6 +348,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	}
 
 	/**
+	 *
 	 * @return string
 	 */
 	public function getLon() {
@@ -338,6 +359,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	}
 
 	/**
+	 *
 	 * @param $lon
 	 * @return void
 	 */
@@ -346,6 +368,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	}
 
 	/**
+	 *
 	 * @return string
 	 */
 	public function getLat() {
@@ -356,6 +379,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	}
 
 	/**
+	 *
 	 * @param $lat
 	 * @return voi
 	 */
@@ -364,6 +388,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	}
 
 	/**
+	 *
 	 * @return string
 	 */
 	public function getAnsprechpartner() {
@@ -371,6 +396,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	}
 
 	/**
+	 *
 	 * @param $ansprechpartner
 	 * @return void
 	 */
@@ -379,6 +405,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	}
 
 	/**
+	 *
 	 * @return string
 	 */
 	public function getBestand() {
@@ -386,6 +413,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	}
 
 	/**
+	 *
 	 * @param $bestand
 	 * @return void
 	 */
@@ -394,6 +422,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	}
 
 	/**
+	 * 
 	 * @return string
 	 */
 	public function getStrasse() {
@@ -401,6 +430,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	}
 
 	/**
+	 * 
 	 * @param $strasse
 	 * @return void
 	 */
@@ -409,6 +439,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	}
 
 	/**
+	 *
 	 * @return int
 	 */
 	public function getPlz() {
@@ -416,6 +447,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	}
 
 	/**
+	 *
 	 * @param $plz
 	 * @return void
 	 */
@@ -424,6 +456,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	}
 
 	/**
+	 *
 	 * @return string
 	 */
 	public function getOrt() {
@@ -431,6 +464,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	}
 
 	/**
+	 *
 	 * @param string $ort
 	 * @return void
 	 */
@@ -439,6 +473,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	}
 
 	/**
+	 *
 	 * @return string
 	 */
 	public function getZusatzinformationen() {
@@ -446,6 +481,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	}
 
 	/**
+	 *
 	 * @param string $zusatzinformationen
 	 * @return void
 	 */
@@ -455,6 +491,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 
 	/**
 	 * Existiert ein Bild fuer die aktuelle Bibliothek?
+	 *
 	 * @return string
 	 */
 	public function getBild() {
@@ -462,6 +499,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	}
 
 	/**
+	 *
 	 * @param $bild
 	 * @return void
 	 */
@@ -497,11 +535,8 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	 * @return string
 	 */
 	private function erzeugeAdresse() {
-
 		$concat = $this->strasse . ',' . $this->plz . ' ' . $this->ort;
-
 		return urlencode($concat);
 	}
-
 }
 ?>
