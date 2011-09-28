@@ -135,34 +135,57 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	 */
 	protected $hidden;
 
+	/**
+	 * @return bool
+	 * @return void
+	 */
 	public function getHidden() {
 		return $this->hidden;
 	}
 
+	/**
+	 * @param $hidden
+	 * @return void
+	 */
 	public function setHidden($hidden) {
 		$this->hidden = $hidden;
 	}
 
-	
+	/**
+	 * @return bool
+	 */
 	public function getKatalogteilweise() {
 		return $this->katalogteilweise;
 	}
 
+	/**
+	 * @param $katalogteilweise
+	 * @return void
+	 */
 	public function setKatalogteilweise($katalogteilweise) {
 		$this->katalogteilweise = $katalogteilweise;
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getSorttitel() {
 		return $this->sorttitel;
 	}
 
+	/**
+	 * @param $sorttitel
+	 * @return void
+	 */
 	public function setSorttitel($sorttitel) {
 		$this->sorttitel = $sorttitel;
 	}
 
 	/**
 	 * Getter fuer einen link nach Extern
+	 *
 	 * @return string Link
+	 * @return string
 	 */
 	public function getExtlink() {
 		return $this->extlink;
@@ -170,7 +193,9 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 
 	/**
 	 * Setter fuer einen Link nach Extern
+	 *
 	 * @param string $extlink
+	 * @return void
 	 */
 	public function setExtlink($extlink) {
 		$this->extlink = $extlink;
@@ -178,6 +203,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 
 	/**
 	 * Getter fuer den Institutskatalog
+	 *
 	 * @return string
 	 */
 	public function getInstitutskatalog() {
@@ -186,7 +212,9 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 
 	/**
 	 * Setter fuer den Institutskatalog
+	 *
 	 * @param string $institutskatalog
+	 * @return void
 	 */
 	public function setInstitutskatalog($institutskatalog) {
 		$this->institutskatalog = $institutskatalog;
@@ -194,7 +222,9 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 
 	/**
 	 * Simpler Getter fuer den Adresszusatz
+	 *
 	 * @return string
+	 * @return void
 	 */
 	public function getAdresszusatz() {
 		return $this->adresszusatz;
@@ -202,13 +232,16 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 
 	/**
 	 * Setter fuer einen Adresszusatz
+	 *
 	 * @param string $adresszusatz
+	 * @return void
 	 */
 	public function setAdresszusatz($adresszusatz) {
 		$this->adresszusatz = $adresszusatz;
 	}
 
 	/**
+	 * Getter fuer den Katalog
 	 *
 	 * @return string
 	 */
@@ -218,7 +251,9 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 
 	/**
 	 * Link zum Katalog
+	 *
 	 * @param string $katalog
+	 * @return void
 	 */
 	public function setKatalog($katalog) {
 		$this->katalog = $katalog;
@@ -226,6 +261,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 
 	/**
 	 * Getter fuer Fakultaet
+	 * 
 	 * @return Tx_Standorte_Domain_Model_Fakultaet
 	 */
 	public function getFakultaet() {
@@ -233,58 +269,66 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	}
 
 	/**
+	 * Fakultaet der die Bibliothek angehoert
 	 *
 	 * @param Tx_Standorte_Domain_Model_Fakultaet $fakultaet 
 	 */
 	public function setFakultaet(Tx_Standorte_Domain_Model_Fakultaet $fakultaet) {
-
 		$this->fakultaet = $fakultaet;
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getSigel() {
 		return $this->sigel;
 	}
 
+	/**
+	 * @param $sigel
+	 * @return void
+	 */
 	public function setSigel($sigel) {
 		$this->sigel = $sigel;
 	}
 
-	public function getSemesterferien() {
-		return $this->semesterferien;
-	}
-
-	public function setSemesterferien($semesterferien) {
-		$this->semesterferien = $semesterferien;
-	}
-
 	/**
 	 * Auslesen der Oeffnungszeiten
+	 * 
 	 * @lazy
 	 * @return array
 	 */
 	public function getOeffnungszeiten() {
-
 		return $this->oeffnungszeiten;
 	}
 
 	/**
 	 * Setter fuer die Oeffnungszeiten
+	 *
 	 * @param array $oeffnungszeiten
+	 * @return void
 	 */
 	public function setOeffnungszeiten($oeffnungszeiten) {
 		$this->oeffnungszeiten = $oeffnungszeiten;
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getTitel() {
 		return $this->titel;
 	}
 
+	/**
+	 * @param $titel
+	 * @return void
+	 */
 	public function setTitel($titel) {
 		$this->titel = $titel;
 	}
 
 	/**
-	 * @return <type>
+	 * @return string
 	 */
 	public function getLon() {
 		if ($this->lon <= '0.00') {
@@ -293,12 +337,17 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 		return $this->lon;
 	}
 
+	/**
+	 * @param $lon
+	 * @return void
+	 */
 	public function setLon($lon) {
-
-
 		$this->lon = $lon;
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getLat() {
 		if ($this->lat <= '0.00') {
 			$this->lat = $this->geoCode('lat');
@@ -306,54 +355,100 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 		return $this->lat;
 	}
 
+	/**
+	 * @param $lat
+	 * @return voi
+	 */
 	public function setLat($lat) {
 		$this->lat = $lat;
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getAnsprechpartner() {
 		return $this->ansprechpartner;
 	}
 
+	/**
+	 * @param $ansprechpartner
+	 * @return void
+	 */
 	public function setAnsprechpartner($ansprechpartner) {
 		$this->ansprechpartner = $ansprechpartner;
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getBestand() {
 		return $this->bestand;
 	}
 
+	/**
+	 * @param $bestand
+	 * @return void
+	 */
 	public function setBestand($bestand) {
 		$this->bestand = $bestand;
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getStrasse() {
 		return $this->strasse;
 	}
 
+	/**
+	 * @param $strasse
+	 * @return void
+	 */
 	public function setStrasse($strasse) {
 		$this->strasse = $strasse;
 	}
 
+	/**
+	 * @return int
+	 */
 	public function getPlz() {
 		return $this->plz;
 	}
 
+	/**
+	 * @param $plz
+	 * @return void
+	 */
 	public function setPlz($plz) {
 		$this->plz = $plz;
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getOrt() {
 		return $this->ort;
 	}
 
+	/**
+	 * @param string $ort
+	 * @return void
+	 */
 	public function setOrt($ort) {
 		$this->ort = $ort;
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getZusatzinformationen() {
 		return $this->zusatzinformationen;
 	}
 
+	/**
+	 * @param string $zusatzinformationen
+	 * @return void
+	 */
 	public function setZusatzinformationen($zusatzinformationen) {
 		$this->zusatzinformationen = $zusatzinformationen;
 	}
@@ -366,6 +461,10 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 		return $this->bild;
 	}
 
+	/**
+	 * @param $bild
+	 * @return void
+	 */
 	public function setBild($bild) {
 
 		$this->bild = $bild;
@@ -373,8 +472,9 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 
 	/**
 	 * Geocoding mit der Google Maps Api v3
+	 *
 	 * @param string $latlon
-	 * @return <type>
+	 * @return string
 	 */
 	private function geoCode($latlon) {
 
@@ -385,9 +485,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 		if (!$rueckgabe) {
 			throw new Exception('Geocoding failed', 2342);
 		}
-
 		$code = json_decode($rueckgabe);
-
 		$latlon == 'lat' ? $geo = $code->results[0]->geometry->location->lat : $geo = $code->results[0]->geometry->location->lng;
 
 		return $geo;
@@ -395,6 +493,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 
 	/**
 	 * Adresse zum geokodieren aufbereiten
+	 * 
 	 * @return string
 	 */
 	private function erzeugeAdresse() {
