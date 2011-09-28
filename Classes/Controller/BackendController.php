@@ -26,6 +26,7 @@
 /**
  * Steuerung des Backendss
  * $Id$
+ * 
  * @author ingop
  */
 class Tx_Standorte_Controller_BackendController extends Tx_Extbase_MVC_Controller_ActionController {
@@ -44,6 +45,8 @@ class Tx_Standorte_Controller_BackendController extends Tx_Extbase_MVC_Controlle
 	/**
 	 * Initialisierungsaktion des Controllers
 	 * Erzeugung von Objektreferenzen
+	 *
+	 * @return void
 	 */
 	public function initializeAction() {
 
@@ -51,6 +54,11 @@ class Tx_Standorte_Controller_BackendController extends Tx_Extbase_MVC_Controlle
 		$this->fakultaetRepository = & t3lib_div::makeInstance('Tx_Standorte_Domain_Repository_FakultaetRepository');
 	}
 
+	/**
+	 * Index Action des Controllers
+	 *
+	 * @return void
+	 */
 	public function indexAction() {
 
 		$this->view->assign('backend', 'Standorte');
@@ -59,6 +67,8 @@ class Tx_Standorte_Controller_BackendController extends Tx_Extbase_MVC_Controlle
 
 	/**
 	 * Auflistung aller Fakultaeten
+	 *
+	 * @return void
 	 */
 	public function listFakultaetenAction() {
 		$fakultaeten = $this->fakultaetRepository->findAll();
@@ -68,15 +78,19 @@ class Tx_Standorte_Controller_BackendController extends Tx_Extbase_MVC_Controlle
 
 	/**
 	 * Auflistung aller Bibliotheken
+	 *
+	 * @return void
 	 */
 	public function listBibliothekenAction() {
-
 		$bibliotheken = $this->bibliothekenRepository->findAll();
 		$this->view->assign('bibliotheken', $bibliotheken);
 	}
 
 	/**
 	 * Auflistung aller Bibliotheken einer bestimmten Fakultaet
+	 *
+	 * @param Tx_Standorte_Domain_Model_Fakultaet $fakultaetUid
+	 * @return void
 	 */
 	public function listBibliothekenByFakultaetAction(Tx_Standorte_Domain_Model_Fakultaet $fakultaetUid) {
 
@@ -89,7 +103,9 @@ class Tx_Standorte_Controller_BackendController extends Tx_Extbase_MVC_Controlle
 
 	/**
 	 * Loeschen einer einzelnen Bibliothek
-	 * @param Tx_Standorte_Domain_Model_Bibliothek $bibliothek 
+	 *
+	 * @param Tx_Standorte_Domain_Model_Bibliothek $bibliothek
+	 * @return void
 	 */
 	public function deleteBibliothekAction(Tx_Standorte_Domain_Model_Bibliothek $bibliothek) {
 
@@ -101,7 +117,9 @@ class Tx_Standorte_Controller_BackendController extends Tx_Extbase_MVC_Controlle
 
 	/**
 	 * Loeschen einer Fakultaet
-	 * @param Tx_Standorte_Domain_Model_Fakultaet $fakultaet 
+	 *
+	 * @param Tx_Standorte_Domain_Model_Fakultaet $fakultaet
+	 * @return voi
 	 */
 	public function deleteFakultaetAction(Tx_Standorte_Domain_Model_Fakultaet $fakultaet) {
 		$this->flashMessageContainer->add('Die Fakultaet ' . $fakultaet->getTitel() . ' wurde erfolgreich geloescht.');
@@ -109,7 +127,5 @@ class Tx_Standorte_Controller_BackendController extends Tx_Extbase_MVC_Controlle
 
 		$this->redirect('listFakultaeten');
 	}
-
 }
-
 ?>
