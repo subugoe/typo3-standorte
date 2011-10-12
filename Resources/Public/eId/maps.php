@@ -53,7 +53,7 @@ if ($res) {
 	while ($row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res)) {
 		$lat = $row['lat'];
 		$lon = $row['lon'];
-		$titel = $row ['titel'];
+		$titel = $row['titel'];
 		$strasse = $row['strasse'];
 		$plz = $row['plz'];
 		$ort = $row['ort'];
