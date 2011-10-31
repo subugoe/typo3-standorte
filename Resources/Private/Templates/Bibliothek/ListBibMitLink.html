@@ -1,25 +1,10 @@
 {namespace fed=Tx_Fed_ViewHelpers}
 
-<table>
-	<thead>
-	<th>
-		Sigel
-	</th>
-	<th>
-		Link
-	</th>
-	</thead>
+"Sigel"; "Link"
 	<f:for each="{bibos}" as="bibo">
-		<tr>
-			<td>
-				"{bibo.sigel}"
-			</td>
-			<td>
+		"7/{bibo.sigel}";<td>
 				<f:escape>
 					"\<a ref=\"{f:uri.action(absolute:"true",controller:"Bibliothek",action:"single",arguments:"{bibliothek:
 					'{bibo.uid}'}",noCacheHash:"true")}" target=_blank \>{bibo.titel}\</a\>",
 				</f:escape>
-			</td>
-		</tr>
 	</f:for>
-</table>
