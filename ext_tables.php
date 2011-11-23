@@ -23,6 +23,7 @@ $TCA['tx_standorte_domain_model_fakultaet'] = array(
 		),
 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . '/Configuration/TCA/tx_standorte_domain_model_fakultaet.php',
 		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . '/Resources/Public/img/icon_tx_standorte_domain_model_fakultaet.png',
+		'searchFields' => 'titel'
 	),
 );
 
@@ -43,6 +44,7 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
 		),
 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . '/Configuration/TCA/tx_standorte_domain_model_bibliothek.php',
 		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . '/Resources/Public/img/icon_tx_standorte_domain_model_bibliothek.png',
+		'searchFields' => 'titel, sigel'
 	),
 );
 
