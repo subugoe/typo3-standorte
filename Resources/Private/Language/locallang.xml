@@ -24,6 +24,7 @@
 			<label index="mailtitle">Kontakt per E-Mail</label>
 			<label index="institutstitle">Katalog der Bibliothek</label>
 			<label index="guktitle">Göttinger Universitätskatalog</label>
+			<label index="biblink">Link zu</label>
 		</languageKey>
 		<languageKey index="en" type="array">
 			<label index="oeffnung">Opening-Hours</label>
@@ -43,6 +44,7 @@
 			<label index="mailtitle">Kontakt per E-Mail</label>
 			<label index="institutstitle">Katalog der Bibliothek</label>
 			<label index="guktitle">Göttinger Universitätskatalog</label>
+			<label index="biblink">Link to</label>
 		</languageKey>
 	</data>
 </T3locallang>

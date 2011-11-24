@@ -18,12 +18,6 @@
 				<!--<f:render partial="bild" arguments="{bild: bibo.bild,titel: bibo.titel}"/>-->
 				<!-- /Bild -->
 
-				<f:if condition="{bibo.extlink}">
-					<f:then>
-						<f:link.external uri="{bibo.extlink}">Link zur {bibo.titel}</f:link.external>
-					</f:then>
-				</f:if>
-
 
 				<dl>
 					<!-- Sigel -->
@@ -46,6 +40,11 @@
 					{bibo.plz} {bibo.ort}</p>
 						<a class="map" id="cl-{bibo.uid}" title="{f:translate(key:'maptitle')}"><f:translate key="karte" /></a>
 						<div id="map-{bibo.uid}" class="karte"></div>
+							<f:if condition="{bibo.extlink}">
+								<f:then>
+									<f:link.external uri="{bibo.extlink}"><f:translate key="biblink" /> {bibo.titel}</f:link.external>
+								</f:then>
+							</f:if>
 						</dd>
 					</f:if>
 					<!-- /Anschrift -->
