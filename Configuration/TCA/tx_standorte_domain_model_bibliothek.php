@@ -41,6 +41,14 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
 				'type' => 'passthrough'
 			)
 		),
+		't3ver_label' => array (
+			'label' => 'LLL:EXT:lang/locallang_general.xml:LGL.versionLabel',
+			'config' => array (
+				'type' => 'input',
+				'size' => '30',
+				'max' => '30',
+			)
+		),
 		'hidden' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xml:LGL.hidden',
