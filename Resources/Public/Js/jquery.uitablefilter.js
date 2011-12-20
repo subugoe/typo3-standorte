@@ -26,9 +26,9 @@
     var words = phrase.toLowerCase().split(" ");
 
     // these function pointers may change
-    var matches = function(elem) { elem.show() }
-    var noMatch = function(elem) { elem.hide(); new_hidden = true }
-    var getText = function(elem) { return elem.text() }
+    var matches = function(elem) { elem.show(); }
+    var noMatch = function(elem) { elem.hide(); new_hidden = true; }
+    var getText = function(elem) { return elem.text(); }
 
     if( column ) {
       var index = null;
@@ -37,7 +37,7 @@
           index = i; return false;
         }
       });
-      if( index == null ) throw("given column: " + column + " not found")
+      if( index === null ) throw("given column: " + column + " not found")
 
       getText = function(elem){ return $(elem.find(
         ("td:eq(" + index + ")")  )).text()
@@ -75,7 +75,7 @@
   };
 
   // caching for speedup
-  $.uiTableFilter.last_phrase = ""
+  $.uiTableFilter.last_phrase = "";
 
   // not jQuery dependent
   // "" [""] -> Boolean
@@ -83,7 +83,7 @@
   $.uiTableFilter.has_words = function( str, words, caseSensitive )
   {
     var text = caseSensitive ? str : str.toLowerCase();
-    for (var i=0; i < words.length; i++) {
+    for (var i = 0; i < words.length; i++) {
       if (text.indexOf(words[i]) === -1) return false;
     }
     return true;
