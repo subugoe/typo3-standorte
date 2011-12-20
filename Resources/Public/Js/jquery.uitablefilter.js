@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2008 Greg Weber greg at gregweber.info
+ * Additions 2011 by Ingo Pfennigstorf <i.pfennigstorf@gmail.com>
  * Dual licensed under the MIT and GPLv2 licenses just as jQuery is:
  * http://jquery.org/license
  *
