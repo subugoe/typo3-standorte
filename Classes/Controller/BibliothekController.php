@@ -72,7 +72,7 @@ class Tx_Standorte_Controller_BibliothekController extends Tx_Extbase_MVC_Contro
 	 * Alle Bibliotheken einer Fakultaet auflisten
 	 * @param Tx_Standorte_Domain_Model_Fakultaet $fakultaetId
 	 */
-	public function listAction(Tx_Standorte_Domain_Model_Fakultaet $fakultaet =NULL) {
+	public function listAction(Tx_Standorte_Domain_Model_Fakultaet $fakultaet = NULL) {
 
 		$bibliotheken = $this->bibliothekenRepository->findByFakultaet($fakultaet);
 
@@ -94,7 +94,9 @@ class Tx_Standorte_Controller_BibliothekController extends Tx_Extbase_MVC_Contro
 	 * @param Tx_Standorte_Domain_Model_Bibliothek $bibliothek
 	 */
 	public function singleAction(Tx_Standorte_Domain_Model_Bibliothek $bibliothek) {
-
+		$newHeader = $bibliothek->getTitel() . ' - ' . $this->configurationManager->getContentObject()->data['header'];
+					// Assign new pageTitle
+		$GLOBALS['TSFE']->page['title'] = $newHeader;
 		$this->view->assign('bibo', $bibliothek);
 	}
 

@@ -38,9 +38,11 @@ class Tx_Standorte_Controller_FakultaetController extends Tx_Extbase_MVC_Control
 
 	/**
 	 * Initialisiert das Repository
+	 *
+	 * @param Tx_Standorte_Domain_Repository_FakultaetRepository $fakultaetRepository
 	 */
-	public function initializeAction() {
-		$this->fakultaetRepository = & t3lib_div::makeInstance('Tx_Standorte_Domain_Repository_FakultaetRepository');
+	public function injectFakultaetRepository(Tx_Standorte_Domain_Repository_FakultaetRepository $fakultaetRepository) {
+		$this->fakultaetRepository = $fakultaetRepository;
 	}
 
 	/**
