@@ -1,31 +1,27 @@
 <!-- $Id$ -->
+{namespace sub=Tx_TmplSub_ViewHelpers}
 
 <f:layout name="defaultLayout" />
 <f:section name="bibos">
-	<h1><f:translate key="header" /> ({fakultaet.titel})</h1>
+
+	<h1>{fakultaet.titel}</h1>
 
 	<f:for each="{bibos}" as="bibo">
 
 		<div class="list" id="bibliothek-{bibo.uid}" lat="{bibo.lat}" lon="{bibo.lon}">
 
-			<div class="bibhead">
-				<h2><f:link.action action="single" controller="Bibliothek" arguments="{bibliothek:bibo}">{bibo.titel}</f:link.action></h2>
-				<div class="sigel"><f:render partial="sigel" arguments="{sigel: bibo.sigel}"/></div>
-			</div>
+				<h2>{bibo.titel}</h2>
 
 			<div class="details">
-				<!-- Bild -->
-				<!--<f:render partial="bild" arguments="{bild: bibo.bild,titel: bibo.titel}"/>-->
-				<!-- /Bild -->
-
 
 				<dl>
-					<!-- Sigel -->
-					<dt><f:translate key="bibliothekssigel" /></dt>
-					<dd><p class="bodytext"><f:render partial="sigel" arguments="{sigel: bibo.sigel}"/>
-					</dd>
-					<!-- /Sigel -->
-
+					<f:if condition="{bibo.sigel}">
+						<!-- Sigel -->
+						<dt><f:translate key="bibliothekssigel" /></dt>
+						<dd><p class="bodytext"><f:render partial="sigel" arguments="{sigel: bibo.sigel}"/>
+						</dd>
+						<!-- /Sigel -->
+					</f:if>
 					<!-- Anschrift -->
 					<f:if condition="{bibo.strasse}">
 
@@ -40,11 +36,7 @@
 					{bibo.plz} {bibo.ort}</p>
 						<a class="map" id="cl-{bibo.uid}" title="{f:translate(key:'maptitle')}"><f:translate key="karte" /></a>
 						<div id="map-{bibo.uid}" class="karte"></div>
-							<f:if condition="{bibo.extlink}">
-								<f:then>
-									<br /><f:link.external uri="{bibo.extlink}"><f:translate key="biblink" /> {bibo.titel}</f:link.external>
-								</f:then>
-							</f:if>
+
 						</dd>
 					</f:if>
 					<!-- /Anschrift -->
@@ -58,7 +50,13 @@
 
 					<!-- Kontakt -->
 					<dt><f:translate key="kontakt" /></dt>
-					<dd><f:format.html>{bibo.ansprechpartner}</f:format.html></dd>
+					<dd><f:format.html>{bibo.ansprechpartner}</f:format.html>
+					<f:if condition="{bibo.extlink}">
+													<f:then>
+														<br /><f:link.external uri="{bibo.extlink}"><f:translate key="biblink" /> {bibo.titel}</f:link.external>
+													</f:then>
+												</f:if>
+					</dd>
 					<!-- /Kontakt -->
 
 					<!-- Bestand -->

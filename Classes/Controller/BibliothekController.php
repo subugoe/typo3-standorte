@@ -25,7 +25,7 @@
 
 /**
  * Controller
- * $Id$
+ * $Id: BibliothekController.php 1730 2012-03-05 07:16:10Z pfennigstorf $
  * @author Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
  */
 class Tx_Standorte_Controller_BibliothekController extends Tx_Extbase_MVC_Controller_ActionController {
@@ -76,6 +76,9 @@ class Tx_Standorte_Controller_BibliothekController extends Tx_Extbase_MVC_Contro
 
 		$bibliotheken = $this->bibliothekenRepository->findByFakultaet($fakultaet);
 
+			// Neuer Seitentitel
+		$GLOBALS['TSFE']->page['title'] = $fakultaet->getTitel();
+
 		$this->view->assign('fakultaet', $fakultaet);
 		$this->view->assign('bibos', $bibliotheken);
 	}
@@ -94,7 +97,7 @@ class Tx_Standorte_Controller_BibliothekController extends Tx_Extbase_MVC_Contro
 	 * @param Tx_Standorte_Domain_Model_Bibliothek $bibliothek
 	 */
 	public function singleAction(Tx_Standorte_Domain_Model_Bibliothek $bibliothek) {
-					// Assign new pageTitle
+			// Neuer Seitentitel
 		$GLOBALS['TSFE']->page['title'] = $bibliothek->getTitel();
 		$this->view->assign('bibo', $bibliothek);
 	}

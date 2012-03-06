@@ -5,6 +5,27 @@
 		<description>Sprachlabels für Standorte</description>
 	</meta>
 	<data type="array">
+		<languageKey index="en" type="array">
+			<label index="oeffnung">Opening-Hours</label>
+			<label index="bibliothekssigel">Library identifier</label>
+			<label index="fakultaet">Faculty</label>
+			<label index="anschrift">Address</label>
+			<label index="kontakt">Contact</label>
+			<label index="zusatzinformationen">Additional Information</label>
+			<label index="bestand">Asset</label>
+			<label index="institutskatalog">Catalogue</label>
+			<label index="bestandenthalten">The asset is listet in the</label>
+			<label index="katalogteilweise">The asset is partially listed in the</label>
+			<label index="enthalten"></label>
+			<label index="karte">Map</label>
+			<label index="bibliothek-filter">Search</label>
+			<label index="maptitle">Lageplan der Bibliothek</label>
+			<label index="mailtitle">Kontakt per E-Mail</label>
+			<label index="institutstitle">Katalog der Bibliothek</label>
+			<label index="guktitle">Göttinger Universitätskatalog</label>
+			<label index="biblink">Link</label>
+			<label index="facultyTitle">Libraries in Göttingen</label>
+		</languageKey>
 		<languageKey index="de" type="array">
 			<label index="oeffnung">Öffnungszeiten</label>
 			<label index="bibliothekssigel">Bibliothekssigel</label>
@@ -25,26 +46,7 @@
 			<label index="institutstitle">Katalog der Bibliothek</label>
 			<label index="guktitle">Göttinger Universitätskatalog</label>
 			<label index="biblink">Link</label>
-		</languageKey>
-		<languageKey index="en" type="array">
-			<label index="oeffnung">Opening-Hours</label>
-			<label index="bibliothekssigel">Library identifier</label>
-			<label index="fakultaet">Faculty</label>
-			<label index="anschrift">Address</label>
-			<label index="kontakt">Contact</label>
-			<label index="zusatzinformationen">Additional Information</label>
-			<label index="bestand">Asset</label>
-			<label index="institutskatalog">Catalogue</label>
-			<label index="bestandenthalten">The asset is listet in the</label>
-			<label index="katalogteilweise">The asset is partially listed in the</label>
-			<label index="enthalten"></label>
-			<label index="karte">Map</label>
-			<label index="bibliothek-filter">Search</label>
-			<label index="maptitle">Lageplan der Bibliothek</label>
-			<label index="mailtitle">Kontakt per E-Mail</label>
-			<label index="institutstitle">Katalog der Bibliothek</label>
-			<label index="guktitle">Göttinger Universitätskatalog</label>
-			<label index="biblink">Link</label>
+			<label index="facultyTitle">Bibliotheken in Göttingen</label>
 		</languageKey>
 	</data>
 </T3locallang>

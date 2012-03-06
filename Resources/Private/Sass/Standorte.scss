@@ -1,0 +1,90 @@
+$backgroundImage: '/typo3conf/ext/standorte/Resources/Public/img/bg.gif';
+$borderColor: #EEEEEE;
+
+.tx-standorte-pi1 {
+	table thead>tr>th {
+		width: 60px;
+	}
+	table#daten {
+		font-family:arial;
+		margin:10px 0pt 15px;
+		font-size: 8pt;
+		width: 100%;
+		text-align: left;
+		thead tr th, table.tablesorter tfoot tr th {
+			border: 1px solid #FFF;
+			font-size: 8pt;
+			padding: 4px;
+		}
+		thead tr .header {
+			background-image: url($backgroundImage);
+			background-repeat: no-repeat;
+			background-position: center right;
+			cursor: pointer;
+		}
+		tbody td {
+			padding: 4px;
+			vertical-align: top;
+		}
+		thead tr .headerSortUp {
+			background-image: url(../img/asc.gif);
+			color: black;
+		}
+		thead tr .headerSortDown {
+			background-image: url(../img/desc.gif);
+			color: black;
+		}
+		thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+			color: black;
+		}
+		tbody tr:hover{
+			background-color: #dadada;
+		}
+	}
+	.list {
+		float:left;
+		clear:both;
+		margin-bottom: 8px;
+		dt {
+			float:left;
+			width:156px;
+			padding: 3px 3px 3px 0;
+		}
+		dd {
+			margin-left:160px;
+			width:380px;
+			padding: 3px;
+		}
+		dl {
+			margin-bottom:2px;
+			width:auto;
+			clear:both;
+			float:left;
+		 }
+		.open {
+			margin-left:3px;
+			color: green;
+		}
+		 .closed {
+			color: red;
+			margin-left:3px;
+		 }
+		.wochentag {
+			width:136px;
+			float:left;
+		}
+		.karte {
+			display:none;
+			margin-left:0;
+			float:left;
+			width:380px;
+			height:300px;
+		}
+		.status {
+			margin-bottom: 4px;
+		}
+	}
+	.standorte-infobox {
+		font-size: 80%;
+	}
+}

@@ -25,7 +25,7 @@
 
 /**
  * Description of FakultaetenController
- * $Id$
+ * $Id: FakultaetController.php 1728 2012-03-05 07:04:11Z pfennigstorf $
  * @author ingop
  */
 class Tx_Standorte_Controller_FakultaetController extends Tx_Extbase_MVC_Controller_ActionController {
