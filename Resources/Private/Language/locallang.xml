@@ -25,6 +25,7 @@
 			<label index="guktitle">Göttinger Universitätskatalog</label>
 			<label index="biblink">Link</label>
 			<label index="facultyTitle">Libraries in Göttingen</label>
+			<label index="sigelListe">Institution code list</label>
 		</languageKey>
 		<languageKey index="de" type="array">
 			<label index="oeffnung">Öffnungszeiten</label>
@@ -47,6 +48,7 @@
 			<label index="guktitle">Göttinger Universitätskatalog</label>
 			<label index="biblink">Link</label>
 			<label index="facultyTitle">Bibliotheken in Göttingen</label>
+			<label index="sigelListe">Sigelliste</label>
 		</languageKey>
 	</data>
 </T3locallang>
