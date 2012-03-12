@@ -32,16 +32,13 @@ class Tx_Standorte_Domain_Repository_BibliothekRepository extends Tx_Extbase_Per
 
 	public function __construct(Tx_Extbase_Object_ObjectManagerInterface $objectManager = NULL) {
 
-
-		// Sortierung nach Titel
+		// Sortierung nach sigel
 		$defaultOrderings = array(
-			'sorttitel' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING,
+			'sigel' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING,
 			'titel' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING
 		);
-		//Workaround fuer 4.4.x
-		if (t3lib_div::int_from_ver(TYPO3_version) >= 4005000) {
-			$this->setDefaultOrderings($defaultOrderings);
-		} parent::__construct($objectManager);
+
+		parent::__construct($objectManager);
 	}
 
 	/**

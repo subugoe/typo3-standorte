@@ -76,15 +76,6 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
 				'eval' => 'required,trim',
 			)
 		),
-		'sorttitel' => array(
-			'exclude' => 0,
-			'label' => 'LLL:EXT:standorte/locallang_db.xml:tx_standorte_domain_model_bibliothek.sorttitel',
-			'config' => array(
-				'type' => 'input',
-				'size' => '30',
-				'eval' => 'required,trim',
-			)
-		),
 		'lat' => array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:standorte/locallang_db.xml:tx_standorte_domain_model_bibliothek.lat',

@@ -25,7 +25,7 @@
 
 /**
  * Controller
- * $Id: BibliothekController.php 1730 2012-03-05 07:16:10Z pfennigstorf $
+ * $Id$
  * @author Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
  */
 class Tx_Standorte_Controller_BibliothekController extends Tx_Extbase_MVC_Controller_ActionController {

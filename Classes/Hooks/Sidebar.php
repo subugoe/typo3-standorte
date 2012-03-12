@@ -27,7 +27,7 @@ require_once(t3lib_extMgm::extPath('standorte') . 'Classes/Domain/Repository/Bib
 
 /**
  * Description of Tx_Standorte_Classes_Hooks
- * $Id: Sidebar.php 838 2011-02-03 12:48:23Z pfennigstorf $
+ * $Id$
  * @author ingop
  */
 class user_Tx_Standorte_Classes_Hooks_Sidebar {

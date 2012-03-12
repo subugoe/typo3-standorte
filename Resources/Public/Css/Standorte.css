@@ -1,0 +1,66 @@
+.tx-standorte-pi1 table thead > tr > th {
+  width: 60px; }
+.tx-standorte-pi1 table#daten {
+  font-family: arial;
+  margin: 10px 0pt 15px;
+  font-size: 8pt;
+  width: 100%;
+  text-align: left; }
+  .tx-standorte-pi1 table#daten thead tr th, .tx-standorte-pi1 table#daten table.tablesorter tfoot tr th {
+    border: 1px solid #FFF;
+    font-size: 8pt;
+    padding: 4px; }
+  .tx-standorte-pi1 table#daten thead tr .header {
+    background-image: url("/typo3conf/ext/standorte/Resources/Public/img/bg.gif");
+    background-repeat: no-repeat;
+    background-position: center right;
+    cursor: pointer; }
+  .tx-standorte-pi1 table#daten tbody td {
+    padding: 4px;
+    vertical-align: top; }
+  .tx-standorte-pi1 table#daten thead tr .headerSortUp {
+    background-image: url(../img/asc.gif);
+    color: black; }
+  .tx-standorte-pi1 table#daten thead tr .headerSortDown {
+    background-image: url(../img/desc.gif);
+    color: black; }
+  .tx-standorte-pi1 table#daten thead tr .headerSortDown, .tx-standorte-pi1 table#daten table.tablesorter thead tr .headerSortUp {
+    color: black; }
+  .tx-standorte-pi1 table#daten tbody tr:hover {
+    background-color: #dadada; }
+.tx-standorte-pi1 .list {
+  float: left;
+  clear: both;
+  margin-bottom: 8px; }
+  .tx-standorte-pi1 .list dt {
+    float: left;
+    width: 156px;
+    padding: 3px 3px 3px 0; }
+  .tx-standorte-pi1 .list dd {
+    margin-left: 160px;
+    width: 380px;
+    padding: 3px; }
+  .tx-standorte-pi1 .list dl {
+    margin-bottom: 2px;
+    width: auto;
+    clear: both;
+    float: left; }
+  .tx-standorte-pi1 .list .open {
+    margin-left: 3px;
+    color: green; }
+  .tx-standorte-pi1 .list .closed {
+    color: red;
+    margin-left: 3px; }
+  .tx-standorte-pi1 .list .wochentag {
+    width: 136px;
+    float: left; }
+  .tx-standorte-pi1 .list .karte {
+    display: none;
+    margin-left: 0;
+    float: left;
+    width: 380px;
+    height: 300px; }
+  .tx-standorte-pi1 .list .status {
+    margin-bottom: 4px; }
+.tx-standorte-pi1 .standorte-infobox {
+  font-size: 80%; }

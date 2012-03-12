@@ -51,12 +51,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	 * @var string
 	 */
 	protected $titel;
-	/**
-	 * Titel fuer die Sortierung
-	 *
-	 * @var string
-	 */
-	protected $sorttitel;
+
 	/**
 	 *
 	 * @var string
@@ -178,23 +173,6 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	 */
 	public function setKatalogteilweise($katalogteilweise) {
 		$this->katalogteilweise = $katalogteilweise;
-	}
-
-	/**
-	 *
-	 * @return string
-	 */
-	public function getSorttitel() {
-		return $this->sorttitel;
-	}
-
-	/**
-	 *
-	 * @param $sorttitel
-	 * @return void
-	 */
-	public function setSorttitel($sorttitel) {
-		$this->sorttitel = $sorttitel;
 	}
 
 	/**

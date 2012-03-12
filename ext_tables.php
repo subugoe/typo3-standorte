@@ -39,7 +39,7 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
 		'languageField' => 'sys_language_uid',
 		'transOrigPointerField' => 'l10n_parent',
 		'transOrigDiffSourceField' => 'l10n_diffsource',
-		'default_sortby' => 'ORDER BY crdate',
+		'default_sortby' => 'ORDER BY sigel',
 		'delete' => 'deleted',
 		'enablecolumns' => array(
 			'disabled' => 'hidden',
@@ -60,13 +60,19 @@ if (TYPO3_MODE === 'BE') {
 	 * Backend Modul
 	 */
 	Tx_Extbase_Utility_Extension::registerModule(
-					$_EXTKEY, 'web', 'tx_standorte_m1', '', array(
-				'Backend' => 'index,newBibo,createBibo,deleteBibliothek,newFakultaet,createFakultaet,deleteFakultaet,listFakultaeten,listBibliotheken,listBibliothekenByFakultaet',
-					), array(
-				'access' => 'user,group',
-				'icon' => 'EXT:' . $_EXTKEY . '/Resources/Public/img/standorte.png',
-				'labels' => 'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang.mod.xml'
-			));
+		$_EXTKEY,
+		'web',
+		'tx_standorte_m1',
+		'',
+		array(
+			'Backend' => 'index,newBibo,createBibo,deleteBibliothek,newFakultaet,createFakultaet,deleteFakultaet,listFakultaeten,listBibliotheken,listBibliothekenByFakultaet',
+		),
+		array(
+			'access' => 'user,group',
+			'icon' => 'EXT:' . $_EXTKEY . '/Resources/Public/img/standorte.png',
+			'labels' => 'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang.mod.xml'
+		)
+	);
 }
 
 t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Standorte');
