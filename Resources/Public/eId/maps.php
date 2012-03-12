@@ -94,23 +94,23 @@ function generiereAdresse($titel, $strasse, $plz, $ort) {
 
 	
 
-	//Inhalt
+		//Inhalt
 	var inhalt = '<div class="standorte-infobox"><?php echo $adresse . ' ' . $url; ?></div>';
 
 
-	//Infobubble
+		//Infobubble
 	var infowindow = new google.maps.InfoWindow({
 		content: inhalt
 	});
 
-	//marker
+		//marker
 	var marker = new google.maps.Marker({
 		position: myLatLng,
 		map: map,
 		title: "<?php echo $titel; ?>"
 	});
 
-	//Click Listener
+		//Click Listener
 	google.maps.event.addListener(marker, 'click', function() {
 		infowindow.open(map,marker);
 	});

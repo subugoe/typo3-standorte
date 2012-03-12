@@ -10,23 +10,22 @@ if (!defined('TYPO3_MODE')) {
  * the user input (default settings, FlexForm, URL etc.)
  */
 Tx_Extbase_Utility_Extension::configurePlugin(
-				$_EXTKEY, // The extension name (in UpperCamelCase) or the extension key (in lower_underscore)
-				'Pi1', // A unique name of the plugin in UpperCamelCase
-				array(// An array holding the controller-action-combinations that are accessible
-					'Fakultaet' => 'index,list',
-					'Bibliothek' => 'list,listSigelTitel,single,listBibMitLink' // The first controller and its first action will be the default
-				)
+	$_EXTKEY, // The extension name (in UpperCamelCase) or the extension key (in lower_underscore)
+	'Pi1', // A unique name of the plugin in UpperCamelCase
+	array(// An array holding the controller-action-combinations that are accessible
+		'Fakultaet' => 'index,list',
+		'Bibliothek' => 'list,listSigelTitel,single,listBibMitLink' // The first controller and its first action will be the default
+	)
 );
 
 
 Tx_Extbase_Utility_Extension::configurePlugin(
-				$_EXTKEY, // The extension name (in UpperCamelCase) or the extension key (in lower_underscore)
-				'Pi2', // A unique name of the plugin in UpperCamelCase
-				array(// An array holding the controller-action-combinations that are accessible
-					'Bibliothek' => 'listSigelTitel,single' // The first controller and its first action will be the default
-				)
+	$_EXTKEY, // The extension name (in UpperCamelCase) or the extension key (in lower_underscore)
+	'Pi2', // A unique name of the plugin in UpperCamelCase
+	array(// An array holding the controller-action-combinations that are accessible
+		'Bibliothek' => 'listSigelTitel,single' // The first controller and its first action will be the default
+	)
 );
-
 
 t3lib_extMgm::addPageTSConfig('
 

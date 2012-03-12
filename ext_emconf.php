@@ -15,7 +15,7 @@ $EM_CONF[$_EXTKEY] = array(
 	'description' => 'Anzeige der Standorte der SUB Goettingen inkl. Google Maps usw',
 	'category' => 'plugin',
 	'shy' => 0,
-	'version' => '0.20.0',
+	'version' => '2.0.0',
 	'dependencies' => 'extbase,fluid',
 	'conflicts' => '',
 	'priority' => '',
@@ -34,8 +34,6 @@ $EM_CONF[$_EXTKEY] = array(
 	'CGLcompliance_note' => '',
 	'constraints' => array(
 		'depends' => array(
-			'php' => '5.2.0-0.0.0',
-			'typo3' => '4.4.0-4.9.99',
 			'extbase' => '0.0.0-0.0.0',
 			'fluid' => '0.0.0-0.0.0',
 		),
