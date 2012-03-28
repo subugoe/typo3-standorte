@@ -1,3 +1,7 @@
+.tx-standorte-pi1 form fieldset {
+  border: 0; }
+  .tx-standorte-pi1 form fieldset legend {
+    display: none; }
 .tx-standorte-pi1 table thead > tr > th {
   width: 60px; }
 .tx-standorte-pi1 table#daten {
@@ -64,3 +68,5 @@
     margin-bottom: 4px; }
 .tx-standorte-pi1 .standorte-infobox {
   font-size: 80%; }
+.tx-standorte-pi1 .highlight {
+  background-color: #dee1e7; }

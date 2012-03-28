@@ -19,7 +19,7 @@
 			<label index="enthalten"></label>
 			<label index="karte">Place of location</label>
 			<label index="bibliothek-filter">Search</label>
-			<label index="maptitle">Lageplan der Bibliothek</label>
+			<label index="maptitle">Location of the library</label>
 			<label index="mailtitle">Kontakt per E-Mail</label>
 			<label index="institutstitle">Katalog der Bibliothek</label>
 			<label index="guktitle">Göttinger Universitätskatalog</label>
@@ -42,7 +42,7 @@
 			<label index="karte">Standort der Bibliothek</label>
 			<label index="bibliothek-filter">Suche</label>
 			<label index="header">Standorte</label>
-			<label index="maptitle">Lageplan der Bibliothek</label>
+			<label index="maptitle">Standort der Bibliothek</label>
 			<label index="mailtitle">Kontakt per E-Mail</label>
 			<label index="institutstitle">Katalog der Bibliothek</label>
 			<label index="guktitle">Göttinger Universitätskatalog</label>

@@ -1,7 +1,16 @@
 $backgroundImage: '/typo3conf/ext/standorte/Resources/Public/img/bg.gif';
 $borderColor: #EEEEEE;
+$highlightColor: #dee1e7;
 
 .tx-standorte-pi1 {
+	form {
+		fieldset {
+			border: 0;
+			legend {
+				display: none;
+			}
+		}
+	}
 	table thead>tr>th {
 		width: 60px;
 	}
@@ -86,5 +95,8 @@ $borderColor: #EEEEEE;
 	}
 	.standorte-infobox {
 		font-size: 80%;
+	}
+	.highlight {
+		background-color: $highlightColor;
 	}
 }

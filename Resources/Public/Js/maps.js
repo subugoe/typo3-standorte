@@ -24,7 +24,9 @@ jQuery(document).ready(function(){
 					type: "POST",
 					data: "uid="+uid,
 					success: function(data) {
-						
+						if (typeof(piwikTracker) != 'undefined') {
+							piwikTracker.trackPageView('Map/Standorte');
+						}
 						jQuery('#map-'+uid).html(data);
 					}
 				});
