@@ -107,7 +107,7 @@ function generiereAdresse($titel, $strasse, $plz, $ort) {
 	var marker = new google.maps.Marker({
 		position: myLatLng,
 		map: map,
-		title: "<?php echo $titel; ?>"
+		title: <?php echo json_encode($titel); ?>
 	});
 
 		//Click Listener
