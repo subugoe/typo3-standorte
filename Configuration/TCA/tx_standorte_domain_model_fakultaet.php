@@ -59,7 +59,7 @@ $TCA['tx_standorte_domain_model_fakultaet'] = array(
 		),
 		'titel' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:standorte/locallang_db.xml:tx_standorte_domain_model_fakultaet.titel',
+			'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_fakultaet.titel',
 			'config' => array(
 				'type' => 'input',
 				'size' => '30',
@@ -68,7 +68,7 @@ $TCA['tx_standorte_domain_model_fakultaet'] = array(
 		),
 		'extlink' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:standorte/locallang_db.xml:tx_standorte_domain_model_fakultaet.extlink',
+			'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_fakultaet.extlink',
 			'config' => array(
 				'type' => 'input',
 				'size' => '15',

@@ -47,7 +47,6 @@ class Tx_Standorte_ViewHelpers_TypolinkViewHelper extends Tx_Fluid_Core_ViewHelp
 					'title' => $title
 					)
 				);
-
 		return $url;
 	}
 

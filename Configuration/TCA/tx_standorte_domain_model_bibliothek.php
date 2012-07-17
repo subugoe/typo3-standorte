@@ -6,7 +6,7 @@ if (!defined('TYPO3_MODE'))
 $TCA['tx_standorte_domain_model_bibliothek'] = array(
 	'ctrl' => $TCA['tx_standorte_domain_model_bibliothek']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid,l10n_parent,l10n_diffsource,hidden,sigel,titel,extlink,lat,lon,bestand,katalog,katalogteilweiseinstitutskatalog,strasse,adresszusatz,plz,ort,ansprechpartner,semesterferien,oeffnungszeiten,zusatzinformationen,bild,fakultaet'
+		'showRecordFieldList' => 'sys_language_uid,l10n_parent,l10n_diffsource,hidden,sigel,titel,extlink,lat,lon,bestand,katalog,katalogteilweiseinstitutskatalog,strasse,adresszusatz,plz,ort,ansprechpartner,semesterferien,oeffnungszeiten,zusatzinformationen,bild,fakultaet,piz_nr'
 	),
 	'feInterface' => $TCA['tx_standorte_domain_model_bibliothek']['feInterface'],
 	'columns' => array(
@@ -59,7 +59,7 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
 		),
 		'sigel' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:standorte/locallang_db.xml:tx_standorte_domain_model_bibliothek.sigel',
+			'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.sigel',
 			'config' => array(
 				'type' => 'input',
 				'size' => '8',
@@ -69,7 +69,7 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
 		),
 		'titel' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:standorte/locallang_db.xml:tx_standorte_domain_model_bibliothek.titel',
+			'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.titel',
 			'config' => array(
 				'type' => 'input',
 				'size' => '30',
@@ -78,7 +78,7 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
 		),
 		'lat' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:standorte/locallang_db.xml:tx_standorte_domain_model_bibliothek.lat',
+			'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.lat',
 			'config' => array(
 				'type' => 'none',
 				'size' => '30',
@@ -87,7 +87,7 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
 		),
 		'lon' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:standorte/locallang_db.xml:tx_standorte_domain_model_bibliothek.lon',
+			'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.lon',
 			'config' => array(
 				'type' => 'none',
 				'size' => '30',
@@ -96,7 +96,7 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
 		),
 		'bestand' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:standorte/locallang_db.xml:tx_standorte_domain_model_bibliothek.bestand',
+			'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.bestand',
 			'config' => array(
 				'type' => 'input',
 				'size' => '30',
@@ -104,7 +104,7 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
 		),
 		'strasse' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:standorte/locallang_db.xml:tx_standorte_domain_model_bibliothek.strasse',
+			'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.strasse',
 			'config' => array(
 				'type' => 'input',
 				'size' => '30',
@@ -113,7 +113,7 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
 		),
 		'adresszusatz' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:standorte/locallang_db.xml:tx_standorte_domain_model_bibliothek.adresszusatz',
+			'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.adresszusatz',
 			'config' => array(
 				'type' => 'input',
 				'size' => '30',
@@ -122,7 +122,7 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
 		),
 		'plz' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:standorte/locallang_db.xml:tx_standorte_domain_model_bibliothek.plz',
+			'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.plz',
 			'config' => array(
 				'type' => 'input',
 				'size' => '5',
@@ -138,7 +138,7 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
 		),
 		'ort' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:standorte/locallang_db.xml:tx_standorte_domain_model_bibliothek.ort',
+			'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.ort',
 			'config' => array(
 				'type' => 'input',
 				'size' => '30',
@@ -147,7 +147,7 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
 		),
 		'ansprechpartner' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:standorte/locallang_db.xml:tx_standorte_domain_model_bibliothek.ansprechpartner',
+			'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.ansprechpartner',
 			'config' => array(
 				'type' => 'text',
 				'cols' => '30',
@@ -167,7 +167,7 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
 		),
 		'zusatzinformationen' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:standorte/locallang_db.xml:tx_standorte_domain_model_bibliothek.zusatzinformationen',
+			'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.zusatzinformationen',
 			'config' => array(
 				'type' => 'text',
 				'cols' => '30',
@@ -187,7 +187,7 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
 		),
 		'oeffnungszeiten' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:standorte/locallang_db.xml:tx_standorte_domain_model_bibliothek.oeffnungszeiten',
+			'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.oeffnungszeiten',
 			'config' => array(
 				'type' => 'text',
 				'cols' => '30',
@@ -207,7 +207,7 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
 		),
 		'bild' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:standorte/locallang_db.xml:tx_standorte_domain_model_bibliothek.bild',
+			'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.bild',
 			'config' => array(
 				'type' => 'group',
 				'internal_type' => 'file',
@@ -222,7 +222,7 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
 		),
 		'fakultaet' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:standorte/locallang_db.xml:tx_standorte_domain_model_bibliothek.fakultaet',
+			'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.fakultaet',
 			'config' => array(
 				'type' => 'select',
 				'loadingStrategy' => 'eager',
@@ -235,7 +235,7 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
 		),
 		'katalog' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:standorte/locallang_db.xml:tx_standorte_domain_model_bibliothek.katalog',
+			'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.katalog',
 			'config' => array(
 				'type' => 'input',
 				'size' => '15',
@@ -256,7 +256,7 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
 		),
 		'katalogteilweise' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:standorte/locallang_db.xml:tx_standorte_domain_model_bibliothek.katalogteilweise',
+			'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.katalogteilweise',
 			'config' => array(
 				'type' => 'check',
 				'cols' => 1
@@ -264,7 +264,7 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
 		),
 		'institutskatalog' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:standorte/locallang_db.xml:tx_standorte_domain_model_bibliothek.institutskatalog',
+			'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.institutskatalog',
 			'config' => array(
 				'type' => 'input',
 				'size' => '15',
@@ -285,7 +285,7 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
 		),
 		'extlink' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:standorte/locallang_db.xml:tx_standorte_domain_model_fakultaet.extlink',
+			'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_fakultaet.extlink',
 			'config' => array(
 				'type' => 'input',
 				'size' => '15',
@@ -304,9 +304,18 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
 				)
 			)
 		),
+		'piz_nr' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.pizNr',
+			'config' => array(
+				'type' => 'input',
+				'size' => '10',
+				'eval' => 'trim',
+			)
+		),
 	),
 	'types' => array(
-		'0' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1,sigel, titel, extlink, lat, lon, bestand, katalog,katalogteilweise, institutskatalog, strasse, adresszusatz, plz, ort, ansprechpartner;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_standorte/rte/], semesterferien, oeffnungszeiten;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_standorte/rte/], zusatzinformationen;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_standorte/rte/], bild, fakultaet'),
+		'0' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1,sigel, titel, extlink, lat, lon, bestand, katalog,katalogteilweise, institutskatalog, strasse, adresszusatz, plz, ort, ansprechpartner;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_standorte/rte/], semesterferien, oeffnungszeiten;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_standorte/rte/], zusatzinformationen;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_standorte/rte/], bild, fakultaet, piz_nr'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => '')

@@ -69,6 +69,7 @@ CREATE TABLE tx_standorte_domain_model_bibliothek (
 	katalogteilweise int(11) DEFAULT '0',
 	institutskatalog tinytext,
 	extlink tinytext,
+	piz_nr int(11) DEFAULT '0' NOT NULL,
 
 	PRIMARY KEY (uid),
 	KEY parent (pid)

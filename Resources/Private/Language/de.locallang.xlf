@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2012-03-13T07:08:10Z" product-name="standorte">
+		<header/>
+		<body>
+			<trans-unit id="oeffnung" approved="yes">
+				<source>Opening-Hours</source>
+				<target>Öffnungszeiten</target>
+			</trans-unit>
+			<trans-unit id="bibliothekssigel" approved="yes">
+				<source>Library identifier</source>
+				<target>Bibliothekssigel</target>
+			</trans-unit>
+			<trans-unit id="fakultaet" approved="yes">
+				<source>Faculty</source>
+				<target>Fakultät</target>
+			</trans-unit>
+			<trans-unit id="anschrift" approved="yes">
+				<source>Address</source>
+				<target>Anschrift</target>
+			</trans-unit>
+			<trans-unit id="kontakt" approved="yes">
+				<source>Contact</source>
+				<target>Kontakt</target>
+			</trans-unit>
+			<trans-unit id="zusatzinformationen" approved="yes">
+				<source>Additional Information</source>
+				<target>Zusatzinformationen</target>
+			</trans-unit>
+			<trans-unit id="bestand" approved="yes">
+				<source>Asset</source>
+				<target>Bestand</target>
+			</trans-unit>
+			<trans-unit id="institutskatalog" approved="yes">
+				<source>Catalogue</source>
+				<target>Institutskatalog</target>
+			</trans-unit>
+			<trans-unit id="bestandenthalten" approved="yes">
+				<source>The asset is listet in the</source>
+				<target>Der Bestand ist im</target>
+			</trans-unit>
+			<trans-unit id="katalogteilweise" approved="yes">
+				<source>The asset is partially listed in the</source>
+				<target>Der Bestand ist teilweise im</target>
+			</trans-unit>
+			<trans-unit id="enthalten" approved="yes">
+				<source></source>
+				<target>enthalten</target>
+			</trans-unit>
+			<trans-unit id="karte" approved="yes">
+				<source>Place of location</source>
+				<target>Standort der Bibliothek</target>
+			</trans-unit>
+			<trans-unit id="bibliothek-filter" approved="yes">
+				<source>Search</source>
+				<target>Suche</target>
+			</trans-unit>
+			<trans-unit id="maptitle" approved="yes">
+				<source>Location of the library</source>
+				<target>Standort der Bibliothek</target>
+			</trans-unit>
+			<trans-unit id="mailtitle" approved="yes">
+				<source>Kontakt per E-Mail</source>
+				<target>Kontakt per E-Mail</target>
+			</trans-unit>
+			<trans-unit id="institutstitle" approved="yes">
+				<source>Katalog der Bibliothek</source>
+				<target>Katalog der Bibliothek</target>
+			</trans-unit>
+			<trans-unit id="guktitle" approved="yes">
+				<source>Göttinger Universitätskatalog</source>
+				<target>Göttinger Universitätskatalog</target>
+			</trans-unit>
+			<trans-unit id="biblink" approved="yes">
+				<source>Link</source>
+				<target>Link</target>
+			</trans-unit>
+			<trans-unit id="facultyTitle" approved="yes">
+				<source>Libraries in Göttingen</source>
+				<target>Bibliotheken in Göttingen</target>
+			</trans-unit>
+			<trans-unit id="sigelListe" approved="yes">
+				<source>Institution code list</source>
+				<target>Sigelliste</target>
+			</trans-unit>
+			<trans-unit id="header" approved="yes">
+				<source></source>
+				<target>Standorte</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

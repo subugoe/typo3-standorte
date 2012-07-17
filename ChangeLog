@@ -1,3 +1,6 @@
+2012-07-17 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
+	* Added pizNr for buildings
+
 2012-03-12 Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
 	* Titel fuer die Sortierung entfernt und Sortierung nach Sigeln vorgenommen (WWW-1144)
 	* Layout der Single Ansicht optimiert (WWW-1102)

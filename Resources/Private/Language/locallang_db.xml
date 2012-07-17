@@ -28,6 +28,7 @@
 			<label index="tx_standorte_domain_model_bibliothek.katalog">Link zum Katalog</label>
 			<label index="tx_standorte_domain_model_bibliothek.institutskatalog">Link zum Institutskatalog</label>
 			<label index="tx_standorte_domain_model_bibliothek.adresszusatz">Adresszusatz (z.B. Juridicum 4. Etage)</label>
+			<label index="tx_standorte_domain_model_bibliothek.pizNr">PIZ Nr.</label>
 		</languageKey>
 	</data>
 </T3locallang>

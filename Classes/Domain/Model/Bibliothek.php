@@ -141,6 +141,13 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	protected $hidden;
 
 	/**
+	 * PizNr for internal use and linking to other services
+	 *
+	 * @var int
+	 */
+	protected $pizNr;
+
+	/**
 	 *
 	 * @return bool
 	 * @return void
@@ -499,7 +506,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 
 		$rueckgabe = t3lib_div::getURL($url);
 		if (!$rueckgabe) {
-			throw new Exception('Geocoding failed', 2342);
+			throw new Exception('Geocoding failed', 1342516484);
 		}
 		$code = json_decode($rueckgabe);
 		$latlon == 'lat' ? $geo = $code->results[0]->geometry->location->lat : $geo = $code->results[0]->geometry->location->lng;
@@ -515,6 +522,20 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	private function erzeugeAdresse() {
 		$concat = $this->strasse . ',' . $this->plz . ' ' . $this->ort;
 		return urlencode($concat);
+	}
+
+	/**
+	 * @param int $pizNr
+	 */
+	public function setPizNr($pizNr) {
+		$this->pizNr = $pizNr;
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getPizNr() {
+		return $this->pizNr;
 	}
 }
 ?>
