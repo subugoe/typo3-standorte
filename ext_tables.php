@@ -46,7 +46,7 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
 		),
 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . '/Configuration/TCA/tx_standorte_domain_model_bibliothek.php',
 		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . '/Resources/Public/img/icon_tx_standorte_domain_model_bibliothek.png',
-		'searchFields' => 'titel, sigel',
+		'searchFields' => 'titel, sigel, strasse',
 		'versioningWS' => TRUE,
 		'origUid' => 't3_origuid',
 	),

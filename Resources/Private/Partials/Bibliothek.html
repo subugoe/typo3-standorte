@@ -1,68 +1,44 @@
 {namespace sub=Tx_TmplSub_ViewHelpers}
 
-<div class="list" id="bibliothek-{bibo.uid}" lat="{bibo.lat}" lon="{bibo.lon}">
+<article class="list details" id="bibliothek-{bibo.uid}" lat="{bibo.lat}" lon="{bibo.lon}">
 
-	<h2>{bibo.titel}</h2>
+	<h2>{bibo.titel}<f:if condition="{bibo.sigel}"> <span class="sigel" title="{f:translate(key:'bibliothekssigel')}"><f:render partial="sigel" arguments="{sigel: bibo.sigel}"/></span></f:if></h2>
 
-	<div class="details">
-
-		<dl>
-			<f:if condition="{bibo.sigel}">
-				<!-- Sigel -->
-				<dt><f:translate key="bibliothekssigel" /></dt>
-				<dd><p class="bodytext"><f:render partial="sigel" arguments="{sigel: bibo.sigel}"/>
-				</dd>
-				<!-- /Sigel -->
-			</f:if>
 			<!-- Anschrift -->
 			<f:if condition="{bibo.strasse}">
-
-				<dt><f:translate key="anschrift" /></dt>
-				<dd><f:format.html>{bibo.strasse}<br /><f:if condition="{bibo.adresszusatz}"><f:then>{bibo.adresszusatz}<br /></f:then></f:if>{bibo.plz} {bibo.ort}</f:format.html>
+				<f:format.html>{bibo.strasse}<br /><f:if condition="{bibo.adresszusatz}"><f:then>{bibo.adresszusatz}<br /></f:then></f:if>{bibo.plz} {bibo.ort}</f:format.html>
 					<f:format.html><a class="map" id="cl-{bibo.uid}" title="{f:translate(key:'maptitle')}"><f:translate key="karte" /></a></f:format.html>
 				<div id="map-{bibo.uid}" class="karte"></div>
 				<f:if condition="{bibo.extlink}">
-					<f:then>
-						<f:format.html><f:link.external uri="{bibo.extlink}" title="{f:translate(key:'biblink')} {bibo.titel}">{bibo.titel}</f:link.external></f:format.html>
-					</f:then>
+					<f:format.html><f:link.external uri="{bibo.extlink}" title="{f:translate(key:'biblink')} {bibo.titel}">{bibo.titel}</f:link.external></f:format.html>
 				</f:if>
-				</dd>
 			</f:if>
 			<!-- /Anschrift -->
 
 			<!--Oeffnungszeiten-->
-			<dt><f:translate key="oeffnung" /></dt>
-			<dd>
+			<h3><f:translate key="oeffnung" /></h3>
 			<f:format.html>{bibo.oeffnungszeiten}</f:format.html>
-			</dd>
 			<!--/Oeffnungszeiten-->
 
 			<!-- Kontakt -->
-			<dt><f:translate key="kontakt" /></dt>
-			<dd><f:format.html>{bibo.ansprechpartner}</f:format.html></dd>
+			<h3><f:translate key="kontakt" /></h3>
+			<f:format.html>{bibo.ansprechpartner}</f:format.html>
 			<!-- /Kontakt -->
 
 			<!-- Bestand -->
 			<f:if condition="{bibo.bestand}">
-				<f:then>
-					<dt><f:translate key="bestand" /></dt>
-					<dd><p class="bodytext">{bibo.bestand}
-					<f:render partial="bestand" arguments="{institutskatalog:bibo.institutskatalog, katalog:bibo.katalog, katalogteilweise:bibo.katalogteilweise}"/>
-					</p>
-					</dd>
-				</f:then>
+				<h3><f:translate key="bestand" /></h3>
+				<p class="bodytext">{bibo.bestand}
+				<f:render partial="bestand" arguments="{institutskatalog:bibo.institutskatalog, katalog:bibo.katalog, katalogteilweise:bibo.katalogteilweise}"/>
+				</p>
 			</f:if>
 			<!-- /Bestand -->
 
 			<!-- Zusatzinformationen -->
 			<f:if condition="{bibo.zusatzinformationen}">
-				<f:then>
-					<dt><f:translate key="zusatzinformationen" /></dt>
-					<dd><f:format.html>{bibo.zusatzinformationen}</f:format.html></dd>
-				</f:then>
+				<h3><f:translate key="zusatzinformationen" /></h3>
+				<f:format.html>{bibo.zusatzinformationen}</f:format.html>
 			</f:if>
 			<!-- /Zusatzinformationen -->
-		</dl>
-<!--		<f:link.action action="single" controller="Bibliothek" arguments="{bibliothek:bibo}">{bibo.titel}</f:link.action>-->
-	</div>
-</div>
+
+</article>

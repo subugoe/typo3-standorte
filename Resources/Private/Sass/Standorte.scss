@@ -1,5 +1,4 @@
 $backgroundImage: '/typo3conf/ext/standorte/Resources/Public/img/bg.gif';
-$borderColor: #EEEEEE;
 $highlightColor: #dee1e7;
 
 .tx-standorte-pi1 {
@@ -51,9 +50,11 @@ $highlightColor: #dee1e7;
 		}
 	}
 	.list {
+		border-bottom: 1px solid $highlightColor;
 		float:left;
 		clear:both;
-		margin-bottom: 8px;
+		margin: 0 0 8px 0;
+		width: 100.01%;
 		dt {
 			float:left;
 			width:156px;
@@ -70,6 +71,10 @@ $highlightColor: #dee1e7;
 			clear:both;
 			float:left;
 		 }
+		.sigel {
+			float: right;
+			font-size: 70%;
+		}
 		.open {
 			margin-left:3px;
 			color: green;
@@ -86,7 +91,7 @@ $highlightColor: #dee1e7;
 			display:none;
 			margin-left:0;
 			float:left;
-			width:380px;
+			width:100.01%;
 			height:300px;
 		}
 		.status {

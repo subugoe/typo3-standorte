@@ -37,7 +37,7 @@ jQuery(document).ready(function(){
 
 	//tablefilter
 	jQuery(function() {
-		var theTable = jQuery('table.#daten')
+		var theTable = jQuery('table#daten');
 
 		theTable.find('tbody > tr').find('td:eq(1)').mousedown(function(){
 			jQuery(this).prev().find(':checkbox').click();
