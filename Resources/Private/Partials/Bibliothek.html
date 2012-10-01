@@ -1,6 +1,6 @@
 {namespace sub=Tx_TmplSub_ViewHelpers}
 
-<article class="list details" id="bibliothek-{bibo.uid}" lat="{bibo.lat}" lon="{bibo.lon}">
+<article class="list details" id="c{bibo.uid}" lat="{bibo.lat}" lon="{bibo.lon}">
 
 	<h2>{bibo.titel}<f:if condition="{bibo.sigel}"> <span class="sigel" title="{f:translate(key:'bibliothekssigel')}"><f:render partial="sigel" arguments="{sigel: bibo.sigel}"/></span></f:if></h2>
 

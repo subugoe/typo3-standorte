@@ -71,7 +71,6 @@ if ($res) {
  * @return string 
  */
 function generiereAdresse($titel, $strasse, $plz, $ort) {
-
 	$adresse = '<strong>' . $titel . '</strong><br />' . $strasse . '<br />' . $plz . ' ' . $ort;
 	return $adresse;
 }

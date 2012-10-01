@@ -93,7 +93,8 @@
   margin-bottom: 4px;
 }
 .tx-standorte-pi1 .standorte-infobox {
-  font-size: 80%;
+  font-size: 0.8em;
+  line-height: 1.5em;
 }
 .tx-standorte-pi1 .highlight {
   background-color: #dee1e7;

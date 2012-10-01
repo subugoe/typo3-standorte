@@ -31,36 +31,25 @@
 class Tx_Standorte_Controller_BibliothekController extends Tx_Extbase_MVC_Controller_ActionController {
 
 	/**
-	 *
 	 * @var Tx_Standorte_Domain_Repository_BibliothekRepository
+	 * @inject
 	 */
 	protected $bibliothekenRepository;
+
 	/**
 	 * @var Tx_Standorte_Domain_Repository_FakultaetRepository
+	 * @inject
 	 */
 	protected $fakultaetRepository;
 
 	/**
-	 * DI fuer die Bibliotheken
-	 *
-	 * @param Tx_Standorte_Domain_Repository_BibliothekRepository $bibliothekenRepository
+	 * @var Tx_Extbase_SignalSlot_Dispatcher
+	 * @inject
 	 */
-	public function injectBibliothekRepository(Tx_Standorte_Domain_Repository_BibliothekRepository $bibliothekenRepository){
-		$this->bibliothekenRepository = $bibliothekenRepository;
-	}
+	protected $signalSlotDispatcher;
 
 	/**
-	 * DI fuer die Fakultaeten
-	 *
-	 * @param Tx_Standorte_Domain_Repository_FakultaetRepository $fakultaetRepository
-	 */
-	public function injectFakultaetRepository(Tx_Standorte_Domain_Repository_FakultaetRepository $fakultaetRepository){
-		$this->fakultaetRepository = $fakultaetRepository;
-	}
-
-	/**
-	 * Index action mit Auflistung aller Bibliotheken.
-	 *
+	 * Index action to list all libraries
 	 */
 	public function indexAction() {
 
@@ -69,14 +58,14 @@ class Tx_Standorte_Controller_BibliothekController extends Tx_Extbase_MVC_Contro
 	}
 
 	/**
-	 * Alle Bibliotheken einer Fakultaet auflisten
+	 * List all libraries by faculty
 	 * @param Tx_Standorte_Domain_Model_Fakultaet $fakultaetId
 	 */
 	public function listAction(Tx_Standorte_Domain_Model_Fakultaet $fakultaet = NULL) {
 
 		$bibliotheken = $this->bibliothekenRepository->findByFakultaet($fakultaet);
 
-			// Neuer Seitentitel
+			// new pagetitle
 		$GLOBALS['TSFE']->page['title'] = $fakultaet->getTitel();
 
 		$this->view->assign('fakultaet', $fakultaet);
@@ -84,7 +73,7 @@ class Tx_Standorte_Controller_BibliothekController extends Tx_Extbase_MVC_Contro
 	}
 
 	/**
-	 * Ausgabe aller Bibliotheken mit anderm View (nur sigel und titel)
+	 * get all libraries in other view (only sigel and title)
 	 */
 	public function listSigelTitelAction() {
 
@@ -93,7 +82,7 @@ class Tx_Standorte_Controller_BibliothekController extends Tx_Extbase_MVC_Contro
 	}
 
 	/**
-	 * Single ansicht
+	 * Single view
 	 * @param Tx_Standorte_Domain_Model_Bibliothek $bibliothek
 	 */
 	public function singleAction(Tx_Standorte_Domain_Model_Bibliothek $bibliothek) {
@@ -103,7 +92,7 @@ class Tx_Standorte_Controller_BibliothekController extends Tx_Extbase_MVC_Contro
 	}
 
 	/**
-	 * Ausgabe einer Liste mit allen Bibliotheken und den entsprechenden Links dazu
+	 * Renders a list of all libraries with links
 	 */
 	public function listBibMitLinkAction(){
 		$bibliotheken = $this->bibliothekenRepository->findAll();
