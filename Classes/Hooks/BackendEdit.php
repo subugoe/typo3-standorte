@@ -46,23 +46,24 @@ class user_Tx_Standorte_Classes_Hooks_BackendEdit {
 	public function processDatamap_preProcessFieldArray(&$incomingFieldArray, $table, $id, &$pObj) {
 
 		$nkwlib = new tx_nkwlib();
-		t3lib_div::devLog('preProcessDatamap: Backend change ...' , 'standorte', -1, array($incomingFieldArray));
+		t3lib_div::devLog('preProcessDatamap: Backend change ...' , 'standorte', -1, array($table,$incomingFieldArray));
 
-		$address = $incomingFieldArray["strasse"] . ", " . $incomingFieldArray["plz"] . ", " . $incomingFieldArray["ort"];
-		$geo = $nkwlib->geocodeAddress($address);
-		t3lib_div::devLog('preProcessDatamap: Request coordinates from Google Maps API' , 'standorte', -1, array($geo));
-		if ($geo["status"] == "OK")	{
-			t3lib_div::devLog('preProcessDatamap: Status OK' , 'standorte', -1, array());
-			// If values differ take new ones ...
-			if ( $incomingFieldArray['lat'] != ($lat = floatval($geo["results"][0]["geometry"]["location"]["lat"])) ) 	{
-				$incomingFieldArray['lat'] = tx_standorte_double11::evaluateFieldValue($lat, '', $pObj);
-			}
-			if ( $incomingFieldArray['lon'] != ($lon = floatval($geo["results"][0]["geometry"]["location"]["lng"])) ) 	{
-				$incomingFieldArray['lon'] = tx_standorte_double11::evaluateFieldValue($lon, '', $pObj);
-			}
-			t3lib_div::devLog('preProcessDatamap: Actualized FieldArray' , 'standorte', -1, array($incomingFieldArray));
-		}	
-
+		if($table == 'tx_standorte_domain_model_bibliothek')	{
+			$address = $incomingFieldArray["strasse"] . ", " . $incomingFieldArray["plz"] . ", " . $incomingFieldArray["ort"];
+			$geo = $nkwlib->geocodeAddress($address);
+			t3lib_div::devLog('preProcessDatamap: Request coordinates from Google Maps API' , 'standorte', -1, array($geo));
+			if ($geo["status"] == "OK")	{
+				t3lib_div::devLog('preProcessDatamap: Status OK' , 'standorte', -1, array());
+				// If values differ take new ones ...
+				if ( $incomingFieldArray['lat'] != ($lat = floatval($geo["results"][0]["geometry"]["location"]["lat"])) ) 	{
+					$incomingFieldArray['lat'] = tx_standorte_double11::evaluateFieldValue($lat, '', $pObj);
+				}
+				if ( $incomingFieldArray['lon'] != ($lon = floatval($geo["results"][0]["geometry"]["location"]["lng"])) ) 	{
+					$incomingFieldArray['lon'] = tx_standorte_double11::evaluateFieldValue($lon, '', $pObj);
+				}
+				t3lib_div::devLog('preProcessDatamap: Actualized FieldArray' , 'standorte', -1, array($incomingFieldArray));
+			}	
+		}
 	}
 
 }
