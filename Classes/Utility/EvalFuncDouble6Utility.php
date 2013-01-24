@@ -1,0 +1,70 @@
+<?php
+
+/* * *************************************************************
+ *  Copyright notice
+ *
+ *  (c) 2013 Dominic Simm <dominic.simm@sub.uni-goettingen.de>, Goettingen State Library
+ *  	
+ *  All rights reserved
+ *
+ *  This script is part of the TYPO3 project. The TYPO3 project is
+ *  free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  The GNU General Public License can be found at
+ *  http://www.gnu.org/copyleft/gpl.html.
+ *
+ *  This script is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  This copyright notice MUST APPEAR in all copies of the script!
+ * ************************************************************* */
+
+/**
+ * Helper-Class add eval-function for double with precision 6
+ *
+ * @version $Id: EvalFuncDouble11Utility.php 0.0.1 2013-01-24 13:23:00Z simm $
+ * @author dsim
+ * @copyright Copyright belongs to the respective authors
+ * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
+ */
+class tx_standorte_double6 {
+    
+    function returnFieldJS() {
+        return "
+            var theVal = ''+value;
+            var dec=0;
+            if (!value)    return 0;
+            for (var a=theVal.length; a>0; a--)    {
+                if (theVal.substr(a-1,1)=='.' || theVal.substr(a-1,1)==',')    {
+                    dec = theVal.substr(a);
+                    theVal = theVal.substr(0,a-1);
+                    break;
+                }
+            }
+            dec = evalFunc.getNumChars(dec)+'000000';
+            theVal=evalFunc.parseInt(evalFunc.noSpace(theVal))+TS.decimalSign+dec.substr(0,6);
+            return theVal;
+        ";
+    }
+
+    function evaluateFieldValue($value, $is_in, &$set) {
+        $theDec = 0;
+        for ($a=strlen($value); $a>0; $a--)    {
+            // Search for the dot '.'|',' 
+            if (substr($value,$a-1,1)=='.' || substr($value,$a-1,1)==',')    {
+                $theDec = substr($value,$a);		// Float part
+                $value = substr($value,0,$a-1);		// Integer
+                break;
+            }
+        }
+        $theDec = ereg_replace('[^0-9]','',$theDec).'000000';					// Remove all "not" Decimals, append 6*'0'
+        $value = intval(str_replace(' ','',$value)).'.'.substr($theDec,0,6);	// Remove all blanks in Integer-part, cut to float precision=6
+        return $value;
+    }
+}
+?>

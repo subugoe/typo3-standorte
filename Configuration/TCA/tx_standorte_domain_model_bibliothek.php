@@ -79,20 +79,32 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
 		'lat' => array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.lat',
-			'config' => array(
-				'type' => 'none',
+			// 'config' => array(
+			// 	'type' => 'input',
+			// 	'size' => '30',
+			// 	'eval' => 'tx_standorte_double11, nospace', //'double2, nospace'
+			// )
+			'config' => array (
+				'type' => 'user',
 				'size' => '30',
-				'eval' => 'double2,nospace',
-			)
+				'userFunc' => 'EXT:standorte/Classes/Utility/DisabledInputFieldUtility.php:Tx_Standorte_Utility_DisabledInputFieldUtility->disabledInputField',
+				'parameters' => array(
+					'disabled' => 'true'
+				),
+			)	
 		),
 		'lon' => array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.lon',
-			'config' => array(
-				'type' => 'none',
+			'config' => array (
+				'type' => 'user',
 				'size' => '30',
-				'eval' => 'double2,nospace',
-			)
+				'eval' => 'tx_standorte_double11, nospace', //double2,
+				'userFunc' => 'EXT:standorte/Classes/Utility/DisabledInputFieldUtility.php:Tx_Standorte_Utility_DisabledInputFieldUtility->disabledInputField',
+				'parameters' => array(
+					'disabled' => 'true'
+				),
+			)	
 		),
 		'bestand' => array(
 			'exclude' => 0,
