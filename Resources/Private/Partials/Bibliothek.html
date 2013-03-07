@@ -15,10 +15,12 @@
 			</f:if>
 			<!-- /Anschrift -->
 
-			<!--Oeffnungszeiten-->
-			<h3><f:translate key="oeffnung" /></h3>
-			<f:format.html>{bibo.oeffnungszeiten}</f:format.html>
-			<!--/Oeffnungszeiten-->
+			<f:if condition="{bibo.oeffnungszeiten}">
+				<!--Oeffnungszeiten-->
+				<h3><f:translate key="oeffnung" /></h3>
+				<f:format.html>{bibo.oeffnungszeiten}</f:format.html>
+				<!--/Oeffnungszeiten-->
+			</f:if>
 
 			<!-- Kontakt -->
 			<h3><f:translate key="kontakt" /></h3>
