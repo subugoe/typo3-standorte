@@ -92,9 +92,6 @@
 .tx-standorte .highlight {
   background-color: #dee1e7;
 }
-.tx-standorte .singleLibrary {
-  width: 102%;
-}
 .tx-standorte .singleLibrary .details {
   float: left;
   width: 74%;
@@ -107,10 +104,4 @@
 }
 .tx-standorte .singleLibrary .details a.map:hover {
   cursor: pointer;
-}
-.tx-standorte .singleLibrary .infocontent {
-  width: 26%;
-}
-.tx-standorte .singleLibrary .infocontent p {
-  padding: 0.5em 0.75em;
 }

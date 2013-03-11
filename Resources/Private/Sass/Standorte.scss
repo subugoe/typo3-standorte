@@ -99,15 +99,14 @@ $highlightColor: #dee1e7;
 		background-color: $highlightColor;
 	}
 	.singleLibrary {
-		width: 102%;
 		.details {
 			float: left;
 			width: 74%;
 			.karte {
-				display:none;
-				margin-left:0;
-				width:80%;
-				height:18em;
+				display: none;
+				margin-left: 0;
+				width: 80%;
+				height: 18em;
 			}
 			a {
 				&.map {
@@ -115,12 +114,6 @@ $highlightColor: #dee1e7;
 						cursor: pointer;
 					}
 				}
-			}
-		}
-		.infocontent {
-			width: 26%;
-			p {
-				padding: 0.5em 0.75em;
 			}
 		}
 	}
