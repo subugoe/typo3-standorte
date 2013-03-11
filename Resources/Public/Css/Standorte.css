@@ -102,6 +102,9 @@
   width: 80%;
   height: 18em;
 }
+.tx-standorte .singleLibrary .details a.map {
+  text-decoration: underline;
+}
 .tx-standorte .singleLibrary .details a.map:hover {
   cursor: pointer;
 }

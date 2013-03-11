@@ -110,6 +110,7 @@ $highlightColor: #dee1e7;
 			}
 			a {
 				&.map {
+					text-decoration: underline;
 					&:hover {
 						cursor: pointer;
 					}
