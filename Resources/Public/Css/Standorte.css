@@ -1,101 +1,116 @@
-.tx-standorte-pi1 form fieldset {
+.tx-standorte form fieldset {
   border: 0;
 }
-.tx-standorte-pi1 form fieldset legend {
+.tx-standorte form fieldset legend {
   display: none;
 }
-.tx-standorte-pi1 table thead > tr > th {
+.tx-standorte table thead > tr > th {
   width: 60px;
 }
-.tx-standorte-pi1 table#daten {
+.tx-standorte table#daten {
   font-family: arial;
   margin: 10px 0pt 15px;
   font-size: 8pt;
   width: 100%;
   text-align: left;
 }
-.tx-standorte-pi1 table#daten thead tr th, .tx-standorte-pi1 table#daten table.tablesorter tfoot tr th {
+.tx-standorte table#daten thead tr th, .tx-standorte table#daten table.tablesorter tfoot tr th {
   border: 1px solid #FFF;
   font-size: 8pt;
   padding: 4px;
 }
-.tx-standorte-pi1 table#daten thead tr .header {
+.tx-standorte table#daten thead tr .header {
   background-image: url("/typo3conf/ext/standorte/Resources/Public/img/bg.gif");
   background-repeat: no-repeat;
   background-position: center right;
   cursor: pointer;
 }
-.tx-standorte-pi1 table#daten tbody td {
+.tx-standorte table#daten tbody td {
   padding: 4px;
   vertical-align: top;
 }
-.tx-standorte-pi1 table#daten thead tr .headerSortUp {
+.tx-standorte table#daten thead tr .headerSortUp {
   background-image: url(../img/asc.gif);
   color: black;
 }
-.tx-standorte-pi1 table#daten thead tr .headerSortDown {
+.tx-standorte table#daten thead tr .headerSortDown {
   background-image: url(../img/desc.gif);
   color: black;
 }
-.tx-standorte-pi1 table#daten thead tr .headerSortDown, .tx-standorte-pi1 table#daten table.tablesorter thead tr .headerSortUp {
+.tx-standorte table#daten thead tr .headerSortDown, .tx-standorte table#daten table.tablesorter thead tr .headerSortUp {
   color: black;
 }
-.tx-standorte-pi1 table#daten tbody tr:hover {
+.tx-standorte table#daten tbody tr:hover {
   background-color: #dadada;
 }
-.tx-standorte-pi1 .list {
+.tx-standorte .list {
   border-bottom: 1px solid #dee1e7;
   float: left;
   clear: both;
   margin: 0 0 8px 0;
   width: 100.01%;
 }
-.tx-standorte-pi1 .list dt {
+.tx-standorte .list dt {
   float: left;
   width: 156px;
   padding: 3px 3px 3px 0;
 }
-.tx-standorte-pi1 .list dd {
+.tx-standorte .list dd {
   margin-left: 160px;
   width: 380px;
   padding: 3px;
 }
-.tx-standorte-pi1 .list dl {
+.tx-standorte .list dl {
   margin-bottom: 2px;
   width: auto;
   clear: both;
   float: left;
 }
-.tx-standorte-pi1 .list .sigel {
+.tx-standorte .list .sigel {
   float: right;
   font-size: 70%;
 }
-.tx-standorte-pi1 .list .open {
+.tx-standorte .list .open {
   margin-left: 3px;
   color: green;
 }
-.tx-standorte-pi1 .list .closed {
+.tx-standorte .list .closed {
   color: red;
   margin-left: 3px;
 }
-.tx-standorte-pi1 .list .wochentag {
+.tx-standorte .list .wochentag {
   width: 136px;
   float: left;
 }
-.tx-standorte-pi1 .list .karte {
-  display: none;
-  margin-left: 0;
-  float: left;
-  width: 100.01%;
-  height: 300px;
-}
-.tx-standorte-pi1 .list .status {
+.tx-standorte .list .status {
   margin-bottom: 4px;
 }
-.tx-standorte-pi1 .standorte-infobox {
+.tx-standorte .standorte-infobox {
   font-size: 0.8em;
   line-height: 1.5em;
 }
-.tx-standorte-pi1 .highlight {
+.tx-standorte .highlight {
   background-color: #dee1e7;
+}
+.tx-standorte .singleLibrary {
+  width: 102%;
+}
+.tx-standorte .singleLibrary .details {
+  float: left;
+  width: 74%;
+}
+.tx-standorte .singleLibrary .details .karte {
+  display: none;
+  margin-left: 0;
+  width: 80%;
+  height: 18em;
+}
+.tx-standorte .singleLibrary .details a.map:hover {
+  cursor: pointer;
+}
+.tx-standorte .singleLibrary .infocontent {
+  width: 26%;
+}
+.tx-standorte .singleLibrary .infocontent p {
+  padding: 0.5em 0.75em;
 }

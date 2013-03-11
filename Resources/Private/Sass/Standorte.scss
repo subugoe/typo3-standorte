@@ -1,7 +1,7 @@
 $backgroundImage: '/typo3conf/ext/standorte/Resources/Public/img/bg.gif';
 $highlightColor: #dee1e7;
 
-.tx-standorte-pi1 {
+.tx-standorte {
 	form {
 		fieldset {
 			border: 0;
@@ -87,13 +87,6 @@ $highlightColor: #dee1e7;
 			width:136px;
 			float:left;
 		}
-		.karte {
-			display:none;
-			margin-left:0;
-			float:left;
-			width:100.01%;
-			height:300px;
-		}
 		.status {
 			margin-bottom: 4px;
 		}
@@ -104,5 +97,31 @@ $highlightColor: #dee1e7;
 	}
 	.highlight {
 		background-color: $highlightColor;
+	}
+	.singleLibrary {
+		width: 102%;
+		.details {
+			float: left;
+			width: 74%;
+			.karte {
+				display:none;
+				margin-left:0;
+				width:80%;
+				height:18em;
+			}
+			a {
+				&.map {
+					&:hover {
+						cursor: pointer;
+					}
+				}
+			}
+		}
+		.infocontent {
+			width: 26%;
+			p {
+				padding: 0.5em 0.75em;
+			}
+		}
 	}
 }
