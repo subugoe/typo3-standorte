@@ -51,10 +51,6 @@ $highlightColor: #dee1e7;
 	}
 	.list {
 		border-bottom: 1px solid $highlightColor;
-		float:left;
-		clear:both;
-		margin: 0 0 8px 0;
-		width: 100.01%;
 		dt {
 			float:left;
 			width:156px;
@@ -114,6 +110,23 @@ $highlightColor: #dee1e7;
 					&:hover {
 						cursor: pointer;
 					}
+				}
+			}
+		}
+		.list {
+			border-bottom: 1px solid $highlightColor;
+			padding-bottom: 1.5em;
+			margin-bottom: 1.5em;
+			.metainfo {
+				display: table;
+				.businesshours {
+					display: table-cell;
+					width: 50%;
+				}
+				.contact {
+					display: table-cell;
+					width: 50%;
+					padding-left: 2em;
 				}
 			}
 		}

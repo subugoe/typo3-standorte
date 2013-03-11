@@ -1,0 +1,33 @@
+{namespace sub=Tx_TmplSub_ViewHelpers}
+<div class="singleLibrary">
+	<article class="details list" id="c{bibo.uid}" lat="{bibo.lat}" lon="{bibo.lon}">
+
+		<h2>{bibo.titel}</h2>
+
+		<!-- Anschrift -->
+		<f:if condition="{bibo.strasse}">
+			<f:format.html>{bibo.strasse}<br /><f:if condition="{bibo.adresszusatz}"><f:then>{bibo.adresszusatz}<br /></f:then></f:if>{bibo.plz} {bibo.ort}</f:format.html>
+			<f:if condition="{bibo.extlink}">
+				<f:format.html><f:link.external uri="{bibo.extlink}" title="{f:translate(key:'biblink')} {bibo.titel}">{bibo.titel}</f:link.external></f:format.html>
+			</f:if>
+		</f:if>
+		<!-- /Anschrift -->
+
+		<div class="metainfo">
+			<f:if condition="{bibo.oeffnungszeiten}">
+				<div class="businesshours">
+					<h3><f:translate key="oeffnung" /></h3>
+					<f:format.html>{bibo.oeffnungszeiten}</f:format.html>
+				</div>
+			</f:if>
+
+			<!-- Kontakt -->
+			<div class="contact">
+					<h3><f:translate key="kontakt" /></h3>
+				<f:format.html>{bibo.ansprechpartner}</f:format.html>
+			</div>
+		</div>
+
+		<f:link.action pluginName="showLibrary" arguments="{bibliothek:bibo}">mehr ...</f:link.action>
+	</article>
+</div>
