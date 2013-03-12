@@ -46,23 +46,37 @@ class user_Tx_Standorte_Classes_Hooks_BackendEdit {
 	public function processDatamap_preProcessFieldArray(&$incomingFieldArray, $table, $id, &$pObj) {
 
 		$nkwlib = new tx_nkwlib();
-		t3lib_div::devLog('preProcessDatamap: Backend change ...' , 'standorte', -1, array($table,$incomingFieldArray));
+		// t3lib_div::devLog('preProcessDatamap: Backend change ...' , 'standorte', 0, array($table,$incomingFieldArray));
 
 		if($table == 'tx_standorte_domain_model_bibliothek')	{
-			$address = $incomingFieldArray["strasse"] . ", " . $incomingFieldArray["plz"] . ", " . $incomingFieldArray["ort"];
-			$geo = $nkwlib->geocodeAddress($address);
-			t3lib_div::devLog('preProcessDatamap: Request coordinates from Google Maps API' , 'standorte', -1, array($geo));
-			if ($geo["status"] == "OK")	{
-				t3lib_div::devLog('preProcessDatamap: Status OK' , 'standorte', -1, array());
-				// If values differ take new ones ...
-				if ( $incomingFieldArray['lat'] != ($lat = floatval($geo["results"][0]["geometry"]["location"]["lat"])) ) 	{
-					$incomingFieldArray['lat'] = tx_standorte_double11::evaluateFieldValue($lat, '', $pObj);
+			// Check modified fields of interest
+			$field_list = array('strasse', 'plz', 'ort');
+			$fields = array();
+			foreach (array_keys($incomingFieldArray) as $field) {
+				if (in_array($field, $field_list)) {
+					$fields[] = $field;
 				}
-				if ( $incomingFieldArray['lon'] != ($lon = floatval($geo["results"][0]["geometry"]["location"]["lng"])) ) 	{
-					$incomingFieldArray['lon'] = tx_standorte_double11::evaluateFieldValue($lon, '', $pObj);
+			}
+			if (count($fields) > 0) {
+				$address = $incomingFieldArray["strasse"] . ", " . $incomingFieldArray["plz"] . ", " . $incomingFieldArray["ort"];
+				$geo = $nkwlib->geocodeAddress($address);
+				t3lib_div::devLog('processDatamap: Request coordinates from Google Maps API' , 'standorte', -1, array($geo));
+				if ($geo["status"] == "OK")	{
+					t3lib_div::devLog('processDatamap: Status OK' , 'standorte', -1, array());
+					// If values differ take new ones ...
+					if ( $incomingFieldArray['lat'] != ($lat = floatval($geo["results"][0]["geometry"]["location"]["lat"])) ) 	{
+						$incomingFieldArray['lat'] = tx_standorte_double11::evaluateFieldValue($lat, '', $pObj);
+					}
+					if ( $incomingFieldArray['lon'] != ($lon = floatval($geo["results"][0]["geometry"]["location"]["lng"])) ) 	{
+						$incomingFieldArray['lon'] = tx_standorte_double11::evaluateFieldValue($lon, '', $pObj);
+					}
+					t3lib_div::devLog('processDatamap: Actualized FieldArray' , 'standorte', -1, array($incomingFieldArray));
+				}	else 	{
+					t3lib_div::devLog('processDatamap: Request failed' , 'standorte', 3, array($geo));
 				}
-				t3lib_div::devLog('preProcessDatamap: Actualized FieldArray' , 'standorte', -1, array($incomingFieldArray));
-			}	
+			}	else 	{
+				t3lib_div::devLog('processDatamap: No address field was modified' , 'standorte', 0, array($geo));
+			}
 		}
 	}
 
