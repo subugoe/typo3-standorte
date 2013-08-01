@@ -10,15 +10,19 @@ $highlightColor: #dee1e7;
 			}
 		}
 	}
-	table thead>tr>th {
-		width: 60px;
-	}
 	table#daten {
 		font-family:arial;
 		margin:10px 0pt 15px;
 		font-size: 8pt;
 		width: 100%;
 		text-align: left;
+		thead {
+			th {
+				&:first-child {
+					width: 15%;
+				}
+			}
+		}
 		thead tr th, table.tablesorter tfoot tr th {
 			border: 1px solid #FFF;
 			font-size: 8pt;

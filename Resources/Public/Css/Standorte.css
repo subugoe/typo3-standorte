@@ -4,15 +4,15 @@
 .tx-standorte form fieldset legend {
   display: none;
 }
-.tx-standorte table thead > tr > th {
-  width: 60px;
-}
 .tx-standorte table#daten {
   font-family: arial;
   margin: 10px 0pt 15px;
   font-size: 8pt;
   width: 100%;
   text-align: left;
+}
+.tx-standorte table#daten thead th:first-child {
+  width: 15%;
 }
 .tx-standorte table#daten thead tr th, .tx-standorte table#daten table.tablesorter tfoot tr th {
   border: 1px solid #FFF;
