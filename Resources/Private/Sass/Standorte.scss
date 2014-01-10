@@ -10,9 +10,9 @@ $highlightColor: #dee1e7;
 			}
 		}
 	}
-	table thead>tr>th {
-		width: 60px;
-	}
+	// table thead>tr>th {
+	//	width: 60px;
+	// }
 	table#daten {
 		font-family:arial;
 		margin:10px 0pt 15px;
@@ -23,6 +23,9 @@ $highlightColor: #dee1e7;
 			border: 1px solid #FFF;
 			font-size: 8pt;
 			padding: 4px;
+		}
+		thead th:first-child {
+			width: 15%;
 		}
 		thead tr .header {
 			background-image: url($backgroundImage);

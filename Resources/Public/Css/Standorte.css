@@ -4,9 +4,6 @@
 .tx-standorte-pi1 form fieldset legend {
   display: none;
 }
-.tx-standorte-pi1 table thead > tr > th {
-  width: 60px;
-}
 .tx-standorte-pi1 table#daten {
   font-family: arial;
   margin: 10px 0pt 15px;
@@ -18,6 +15,9 @@
   border: 1px solid #FFF;
   font-size: 8pt;
   padding: 4px;
+}
+.tx-standorte-pi1 table#daten thead th:first-child {
+  width: 15%;
 }
 .tx-standorte-pi1 table#daten thead tr .header {
   background-image: url("/typo3conf/ext/standorte/Resources/Public/img/bg.gif");
