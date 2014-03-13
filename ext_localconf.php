@@ -15,6 +15,10 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	array(// An array holding the controller-action-combinations that are accessible
 		'Fakultaet' => 'index,list',
 		'Bibliothek' => 'list,listSigelTitel,single,listBibMitLink' // The first controller and its first action will be the default
+	),
+	array (
+		'Fakultaet' => 'index,list',
+		'Bibliothek' => 'list,listSigelTitel,single,listBibMitLink'
 	)
 );
 
@@ -24,6 +28,9 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	'Pi2', // A unique name of the plugin in UpperCamelCase
 	array(// An array holding the controller-action-combinations that are accessible
 		'Bibliothek' => 'listSigelTitel,single' // The first controller and its first action will be the default
+	),
+	array(
+		'Bibliothek' => 'listSigelTitel,single'
 	)
 );
 
