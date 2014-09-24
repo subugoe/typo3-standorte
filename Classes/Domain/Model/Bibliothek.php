@@ -1,5 +1,5 @@
 <?php
-
+namespace Subugoe\Standorte\Domain\Model;
 /* * *************************************************************
  *  Copyright notice
  *
@@ -24,12 +24,9 @@
  * ************************************************************* */
 
 /**
- * Description of Bibliothek
- * $Id$
- * 
- * @author Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
+ * Bibliothek
  */
-class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_AbstractEntity {
+class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * 
@@ -105,7 +102,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	protected $bild;
 	/**
 	 *
-	 * @var Tx_Standorte_Domain_Model_Fakultaet
+	 * @var \Subugoe\Standorte\Domain\Model\Fakultaet
 	 */
 	protected $fakultaet;
 	/**
@@ -263,7 +260,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	/**
 	 * Getter fuer Fakultaet
 	 * 
-	 * @return Tx_Standorte_Domain_Model_Fakultaet
+	 * @return \Subugoe\Standorte\Domain\Model\Fakultaet
 	 */
 	public function getFakultaet() {
 		return $this->fakultaet;
@@ -272,9 +269,9 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	/**
 	 * Fakultaet der die Bibliothek angehoert
 	 *
-	 * @param Tx_Standorte_Domain_Model_Fakultaet $fakultaet 
+	 * @param \Subugoe\Standorte\Domain\Model\Fakultaet $fakultaet
 	 */
-	public function setFakultaet(Tx_Standorte_Domain_Model_Fakultaet $fakultaet) {
+	public function setFakultaet(\Subugoe\Standorte\Domain\Model\Fakultaet $fakultaet) {
 		$this->fakultaet = $fakultaet;
 	}
 
@@ -366,7 +363,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	/**
 	 *
 	 * @param $lat
-	 * @return voi
+	 * @return void
 	 */
 	public function setLat($lat) {
 		$this->lat = $lat;
@@ -538,4 +535,3 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 		return $this->pizNr;
 	}
 }
-?>

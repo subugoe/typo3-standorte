@@ -1,4 +1,5 @@
 <?php
+namespace Subugoe\Standorte\Domain\Repository;
 
 /* * *************************************************************
  *  Copyright notice
@@ -25,26 +26,18 @@
 
 /**
  * Description of BibliothekRepository
- * $Id$
- * @author ingop
  */
-class Tx_Standorte_Domain_Repository_BibliothekRepository extends Tx_Extbase_Persistence_Repository {
+class BibliothekRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 
-	public function __construct(Tx_Extbase_Object_ObjectManagerInterface $objectManager = NULL) {
-
-		// Sortierung nach sigel
-		$defaultOrderings = array(
-			'sigel' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING,
-			'titel' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING
-		);
-
-		parent::__construct($objectManager);
-	}
+	public $defaultOrderings = array(
+		'sigel' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING,
+		'titel' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
+	);
 
 	/**
 	 * Spezialmethode fuer den Hook
 	 * @param int $fakultaet
-	 * @return Tx_Standorte_Domain_Model_Bibliothek
+	 * @return \Subugoe\Standorte\Domain\Model\Bibliothek
 	 */
 	public function findByUidEverywhere($fakultaet) {
 
@@ -63,5 +56,3 @@ class Tx_Standorte_Domain_Repository_BibliothekRepository extends Tx_Extbase_Per
 	}
 	
 }
-
-?>

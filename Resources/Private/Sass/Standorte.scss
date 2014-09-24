@@ -10,48 +10,10 @@ $highlightColor: #dee1e7;
 			}
 		}
 	}
-	table#daten {
-		font-family:arial;
-		margin:10px 0pt 15px;
-		font-size: 8pt;
+	.datahead {
+		float: left;
+		margin-bottom: 10px;
 		width: 100%;
-		text-align: left;
-		thead {
-			th {
-				&:first-child {
-					width: 15%;
-				}
-			}
-		}
-		thead tr th, table.tablesorter tfoot tr th {
-			border: 1px solid #FFF;
-			font-size: 8pt;
-			padding: 4px;
-		}
-		thead tr .header {
-			background-image: url($backgroundImage);
-			background-repeat: no-repeat;
-			background-position: center right;
-			cursor: pointer;
-		}
-		tbody td {
-			padding: 4px;
-			vertical-align: top;
-		}
-		thead tr .headerSortUp {
-			background-image: url(../img/asc.gif);
-			color: black;
-		}
-		thead tr .headerSortDown {
-			background-image: url(../img/desc.gif);
-			color: black;
-		}
-		thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
-			color: black;
-		}
-		tbody tr:hover{
-			background-color: #dadada;
-		}
 	}
 	.list {
 		border-bottom: 1px solid $highlightColor;
@@ -100,8 +62,12 @@ $highlightColor: #dee1e7;
 	}
 	.singleLibrary {
 		.details {
+			#map {
+				height: 300px;
+				width: 486px;
+			}
 			float: left;
-			width: 74%;
+			width: 70%;
 			.karte {
 				display: none;
 				margin-left: 0;

@@ -1,4 +1,5 @@
 <?php
+namespace Subugoe\Standorte\Domain\Repository;
 
 /* * *************************************************************
  *  Copyright notice
@@ -24,22 +25,12 @@
  * ************************************************************* */
 
 /**
- * Description of FakultaetRepository
- * $Id$
- * @author ingop
+ * FakultaetRepository
  */
-class Tx_Standorte_Domain_Repository_FakultaetRepository extends Tx_Extbase_Persistence_Repository {
+class FakultaetRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 
-	public function __construct(Tx_Extbase_Object_ObjectManagerInterface $objectManager = NULL) {
-
-		// Sortierung nach Titel
-		$defaultOrderings = array(
-			'titel' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING
-		);
-
-		parent::__construct($objectManager);
-	}
+	public $defaultOrderings = array(
+		'titel' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
+	);
 
 }
-
-?>

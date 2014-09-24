@@ -9,8 +9,8 @@ if (!defined('TYPO3_MODE')) {
  * right combination of Controller and Action according to
  * the user input (default settings, FlexForm, URL etc.)
  */
-Tx_Extbase_Utility_Extension::configurePlugin(
-	$_EXTKEY, // The extension name (in UpperCamelCase) or the extension key (in lower_underscore)
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+	'Subugoe.' . $_EXTKEY, // The extension name (in UpperCamelCase) or the extension key (in lower_underscore)
 	'Pi1', // A unique name of the plugin in UpperCamelCase
 	array(// An array holding the controller-action-combinations that are accessible
 		'Fakultaet' => 'index,list',
@@ -23,8 +23,8 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 );
 
 
-Tx_Extbase_Utility_Extension::configurePlugin(
-	$_EXTKEY, // The extension name (in UpperCamelCase) or the extension key (in lower_underscore)
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+	'Subugoe.' . $_EXTKEY, // The extension name (in UpperCamelCase) or the extension key (in lower_underscore)
 	'Pi2', // A unique name of the plugin in UpperCamelCase
 	array(// An array holding the controller-action-combinations that are accessible
 		'Bibliothek' => 'listSigelTitel,single' // The first controller and its first action will be the default
@@ -34,15 +34,15 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	)
 );
 
-Tx_Extbase_Utility_Extension::configurePlugin(
-	$_EXTKEY, // The extension name (in UpperCamelCase) or the extension key (in lower_underscore)
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+	'Subugoe.' . $_EXTKEY, // The extension name (in UpperCamelCase) or the extension key (in lower_underscore)
 	'showLibrary', // A unique name of the plugin in UpperCamelCase
 	array(// An array holding the controller-action-combinations that are accessible
 		'Bibliothek' => 'single' // The first controller and its first action will be the default
 	)
 );
 
-t3lib_extMgm::addPageTSConfig('
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('
 
     # ***************************************************************************************
     # CONFIGURATION of RTE in table "tx_standorte_domain_model_bibliothek"
@@ -76,4 +76,3 @@ $TYPO3_CONF_VARS['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapC
 $TYPO3_CONF_VARS['SC_OPTIONS']['tce']['formevals']['tx_standorte_double6'] = 'EXT:standorte/Classes/Utility/EvalFuncDouble6Utility.php';
 $TYPO3_CONF_VARS['SC_OPTIONS']['tce']['formevals']['tx_standorte_double11'] = 'EXT:standorte/Classes/Utility/EvalFuncDouble11Utility.php';
 $TYPO3_CONF_VARS['FE']['eID_include'][$_EXTKEY] = 'EXT:' . $_EXTKEY . '/Resources/Public/eId/maps.php';
-?>

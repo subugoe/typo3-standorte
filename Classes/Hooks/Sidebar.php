@@ -23,34 +23,34 @@
  *  This copyright notice MUST APPEAR in all copies of the script!
  * ************************************************************* */
 //Unschoen aber laeuft
-require_once(t3lib_extMgm::extPath('standorte') . 'Classes/Domain/Repository/BibliothekRepository.php');
+require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('standorte') . 'Classes/Domain/Repository/BibliothekRepository.php');
 
 /**
  * Description of Tx_Standorte_Classes_Hooks
- * $Id$
  * @author ingop
  */
 class user_Tx_Standorte_Classes_Hooks_Sidebar {
 
 	/**
 	 * Bibliothekenrepository
-	 * @var Tx_Standorte_Domain_Repository_BibliothekRepository
+	 * @var \Subugoe\Standorte\Domain\Repository\BibliothekRepository
+	 * @inject
 	 */
-	public $bibliothekenRepository = null;
+	public $bibliothekenRepository = NULL;
 
 	function __construct() {
-		t3lib_div::makeInstance("Tx_Extbase_Dispatcher");
-		$this->bibliothekenRepository = t3lib_div::makeInstance('Tx_Standorte_Domain_Repository_BibliothekRepository');
+		/** @var \TYPO3\CMS\Extbase\Object\ObjectManager $objectManager */
+		$objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance("TYPO3\\CMS\\Extbase\\Object\\ObjectManager");
 	}
 
 	/**
 	 * Hook fuer die Ausgabe der Seiteninhalte in der Sidebar
 	 * @param string $tmp
-	 * @param objet $obj
+	 * @param object $obj
 	 */
 	public function hookFunc(&$tmp, $obj) {
 
-		$getPostVar = t3lib_div::_GP('tx_standorte_pi1');
+		$getPostVar = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('tx_standorte_pi1');
 
 		$fakultaet = intval($getPostVar['fakultaet']);
 

@@ -33,12 +33,12 @@
 class Tx_Standorte_Controller_BibliothekControllerTest extends Tx_Phpunit_TestCase {
 
 	/**
-	 * @var Tx_Standorte_Controller_BibliothekController
+	 * @var \Subugoe\Standorte\Controller\BibliothekController
 	 */
 	private $fixture = NULL;
 
 	/**
-	 * @var Tx_Standorte_Domain_Repository_BibliothekRepository
+	 * @var \Subugoe\Standorte\Domain\Repository\BibliothekRepository
 	 */
 	private $newsRepository = NULL;
 
@@ -48,12 +48,11 @@ class Tx_Standorte_Controller_BibliothekControllerTest extends Tx_Phpunit_TestCa
 	 * @return void
 	 */
 	public function setUp() {
-		$this->fixture = new Tx_Standorte_Controller_BibliothekController();
+		$this->fixture = new \Subugoe\Standorte\Controller\BibliothekController();
 
 		$this->newsRepository = $this->getMock(
-			'Tx_Standorte_Domain_Repository_BibliothekRepository', array(), array(), '', FALSE
+			'Subugoe\\Standorte\\Domain\\Repository\\BibliothekRepository', array(), array(), '', FALSE
 		);
-		$this->fixture->injectBibliothekRepository($this->newsRepository);
 	}
 
 	/**

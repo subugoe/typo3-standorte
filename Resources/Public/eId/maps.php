@@ -37,15 +37,13 @@ $uid = intval(t3lib_div::_GP('uid'));
 
 $datenbankname = 'tx_standorte_domain_model_bibliothek';
 
-$db = tslib_eidtools::connectDB();
-
 $res = $GLOBALS["TYPO3_DB"]->exec_SELECTquery(
-				"lat,lon, titel, strasse, plz, ort", // SELECT ...
-				$datenbankname, // FROM ...
-				"uid=" . $uid, // WHERE...
-				"", // GROUP BY...
-				"", // ORDER BY...
-				"1"// LIMIT ...
+		"lat,lon, titel, strasse, plz, ort", // SELECT ...
+		$datenbankname, // FROM ...
+		"uid=" . $uid, // WHERE...
+		"", // GROUP BY...
+		"", // ORDER BY...
+		"1"// LIMIT ...
 );
 
 
@@ -68,16 +66,17 @@ if ($res) {
  * @param <type> $strasse
  * @param <type> $plz
  * @param <type> $ort
- * @return string 
+ * @return string
  */
 function generiereAdresse($titel, $strasse, $plz, $ort) {
 	$adresse = '<strong>' . $titel . '</strong><br />' . $strasse . '<br />' . $plz . ' ' . $ort;
 	return $adresse;
 }
+
 ?>
 
 <script type="text/javascript">
-	
+
 	var latlng = new google.maps.LatLng(<?php echo $lat . ', ' . $lon; ?>);
 	var myOptions = {
 		zoom: 17,
@@ -91,26 +90,25 @@ function generiereAdresse($titel, $strasse, $plz, $ort) {
 	var map = new google.maps.Map(document.getElementById("map-<?php echo $uid; ?>"), myOptions);
 	var myLatLng = new google.maps.LatLng(<?php echo $lat . ', ' . $lon; ?>);
 
-	
 
-		//Inhalt
+	//Inhalt
 	var inhalt = '<div class="standorte-infobox"><?php echo $adresse . ' ' . $url; ?></div>';
 
 
-		//Infobubble
+	//Infobubble
 	var infowindow = new google.maps.InfoWindow({
-		content: inhalt
-	});
+		                                            content: inhalt
+	                                            });
 
-		//marker
+	//marker
 	var marker = new google.maps.Marker({
-		position: myLatLng,
-		map: map,
-		title: <?php echo json_encode($titel); ?>
-	});
+			position: myLatLng,
+			map: map,
+			title: <?php echo json_encode($titel); ?>
+		});
 
-		//Click Listener
+	//Click Listener
 	google.maps.event.addListener(marker, 'click', function() {
-		infowindow.open(map,marker);
+		infowindow.open(map, marker);
 	});
 </script>

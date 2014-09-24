@@ -1,4 +1,5 @@
 <?php
+namespace Subugoe\Standorte\Controller;
 
 /* * *************************************************************
  *  Copyright notice
@@ -22,23 +23,21 @@
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  * ************************************************************* */
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * Steuerung des Backendss
- * $Id$
- * 
- * @author ingop
  */
-class Tx_Standorte_Controller_BackendController extends Tx_Extbase_MVC_Controller_ActionController {
+class BackendController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 
 	/**
 	 *
-	 * @var Tx_Standorte_Domain_Repository_BibliothekRepository
+	 * @var \Subugoe\Standorte\Domain\Repository\BibliothekRepository
 	 */
 	protected $bibliothekenRepository;
 	/**
 	 *
-	 * @var Tx_Standorte_Domain_Repository_FakultaetRepository
+	 * @var \Subugoe\Standorte\Domain\Repository\FakultaetRepository
 	 */
 	protected $fakultaetRepository;
 
@@ -50,8 +49,8 @@ class Tx_Standorte_Controller_BackendController extends Tx_Extbase_MVC_Controlle
 	 */
 	public function initializeAction() {
 
-		$this->bibliothekenRepository = & t3lib_div::makeInstance('Tx_Standorte_Domain_Repository_BibliothekRepository');
-		$this->fakultaetRepository = & t3lib_div::makeInstance('Tx_Standorte_Domain_Repository_FakultaetRepository');
+		$this->bibliothekenRepository = GeneralUtility::makeInstance('Subugoe\\Standorte\\Domain\\Repository\\BibliothekRepository');
+		$this->fakultaetRepository = GeneralUtility::makeInstance('Subugoe\\Standorte\\Domain\\Repository\\FakultaetRepository');
 	}
 
 	/**
@@ -89,10 +88,10 @@ class Tx_Standorte_Controller_BackendController extends Tx_Extbase_MVC_Controlle
 	/**
 	 * Auflistung aller Bibliotheken einer bestimmten Fakultaet
 	 *
-	 * @param Tx_Standorte_Domain_Model_Fakultaet $fakultaetUid
+	 * @param \Subugoe\Standorte\Domain\Model\Fakultaet $fakultaetUid
 	 * @return void
 	 */
-	public function listBibliothekenByFakultaetAction(Tx_Standorte_Domain_Model_Fakultaet $fakultaetUid) {
+	public function listBibliothekenByFakultaetAction(\Subugoe\Standorte\Domain\Model\Fakultaet $fakultaetUid) {
 
 		$this->view->assign('fakultaet', $fakultaetUid);
 		$bibliotheken = $this->bibliothekenRepository->findByFakultaet($fakultaetUid);
@@ -104,28 +103,26 @@ class Tx_Standorte_Controller_BackendController extends Tx_Extbase_MVC_Controlle
 	/**
 	 * Loeschen einer einzelnen Bibliothek
 	 *
-	 * @param Tx_Standorte_Domain_Model_Bibliothek $bibliothek
+	 * @param \Subugoe\Standorte\Domain\Model\Bibliothek $bibliothek
 	 * @return void
 	 */
-	public function deleteBibliothekAction(Tx_Standorte_Domain_Model_Bibliothek $bibliothek) {
-
-		$this->flashMessageContainer->add('Die Bibliothek ' . $bibliothek->getTitel() . ' wurde erfolgreich geloescht.');
+	public function deleteBibliothekAction(\Subugoe\Standorte\Domain\Model\Bibliothek $bibliothek) {
 		$this->bibliothekenRepository->remove($bibliothek);
-
+		$this->addFlashMessage('Die Bibliothek ' . $bibliothek->getTitel() . ' wurde erfolgreich geloescht.');
 		$this->redirect('listBibliotheken');
 	}
 
 	/**
 	 * Loeschen einer Fakultaet
 	 *
-	 * @param Tx_Standorte_Domain_Model_Fakultaet $fakultaet
+	 * @param \Subugoe\Standorte\Domain\Model\Fakultaet $fakultaet
 	 * @return voi
 	 */
-	public function deleteFakultaetAction(Tx_Standorte_Domain_Model_Fakultaet $fakultaet) {
-		$this->flashMessageContainer->add('Die Fakultaet ' . $fakultaet->getTitel() . ' wurde erfolgreich geloescht.');
+	public function deleteFakultaetAction(\Subugoe\Standorte\Domain\Model\Fakultaet $fakultaet) {
 		$this->fakultaetRepository->remove($fakultaet);
-
+		$this->addFlashMessage('Die Fakultaet ' . $fakultaet->getTitel() . ' wurde erfolgreich geloescht.');
 		$this->redirect('listFakultaeten');
 	}
 }
+
 ?>

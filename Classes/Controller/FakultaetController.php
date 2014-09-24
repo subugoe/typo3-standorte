@@ -1,4 +1,5 @@
 <?php
+namespace Subugoe\Standorte\Controller;
 
 /* * *************************************************************
  *  Copyright notice
@@ -24,24 +25,22 @@
  * ************************************************************* */
 
 /**
- * Description of FakultaetenController
- * $Id$
- * @author ingop
+ * FakultaetenController
  */
-class Tx_Standorte_Controller_FakultaetController extends Tx_Extbase_MVC_Controller_ActionController {
+class FakultaetController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 
 	/**
 	 *
-	 * @var Tx_Standorte_Domain_Repository_FakultaetRepository
+	 * @var \Subugoe\Standorte\Domain\Repository\FakultaetRepository
 	 */
 	protected $fakultaetRepository;
 
 	/**
 	 * Initialisiert das Repository
 	 *
-	 * @param Tx_Standorte_Domain_Repository_FakultaetRepository $fakultaetRepository
+	 * @param \Subugoe\Standorte\Domain\Repository\FakultaetRepository $fakultaetRepository
 	 */
-	public function injectFakultaetRepository(Tx_Standorte_Domain_Repository_FakultaetRepository $fakultaetRepository) {
+	public function injectFakultaetRepository(\Subugoe\Standorte\Domain\Repository\FakultaetRepository $fakultaetRepository) {
 		$this->fakultaetRepository = $fakultaetRepository;
 	}
 
@@ -56,21 +55,20 @@ class Tx_Standorte_Controller_FakultaetController extends Tx_Extbase_MVC_Control
 
 	/**
 	 * Neue Fakultaet anlegen
-	 * @param Tx_Standorte_Domain_Model_Fakultaet $fakultaet
+	 * @param \Subugoe\Standorte\Domain\Model\Fakultaet $fakultaet
 	 * @dontvalidate $fakultaet
 	 */
-	public function newAction(Tx_Standorte_Domain_Model_Fakultaet $fakultaet = NULL) {
-
+	public function newAction(\Subugoe\Standorte\Domain\Model\Fakultaet $fakultaet = NULL) {
 		$this->view->assign('fakultaet', $fakultaet);
 	}
 
 	/**
 	 * Erstellen der Datenbank
-	 * @param Tx_Standorte_Domain_Model_Fakultaet $fakultaet 
+	 * @param \Subugoe\Standorte\Domain\Model\Fakultaet $fakultaet 
 	 */
-	public function createAction(Tx_Standorte_Domain_Model_Fakultaet $fakultaet) {
+	public function createAction(\Subugoe\Standorte\Domain\Model\Fakultaet $fakultaet) {
 
-		If ($fakultaet === NULL) {
+		if ($fakultaet === NULL) {
 			$this->redirect('index');
 		}
 		$this->fakultaetRepository->add($fakultaet);
@@ -80,10 +78,7 @@ class Tx_Standorte_Controller_FakultaetController extends Tx_Extbase_MVC_Control
 	 * Detailansicht einer Fakultaet
 	 */
 	public function detailAction() {
-
 		$this->view->assign('titel', $this->fakultaetRepository);
 	}
 
 }
-
-?>

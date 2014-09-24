@@ -1,4 +1,4 @@
-{namespace sub=Tx_TmplSub_ViewHelpers}
+{namespace sub=Subugoe\TmplSub\ViewHelpers}
 <div class="singleLibrary">
 	<article class="details list" id="c{bibo.uid}" lat="{bibo.lat}" lon="{bibo.lon}">
 
@@ -28,6 +28,6 @@
 			</div>
 		</div>
 
-		<f:link.action pluginName="showLibrary" arguments="{bibliothek:bibo}">mehr ...</f:link.action>
+		<f:link.action action="single" controller="Bibliothek" arguments="{bibliothek:bibo}">mehr ...</f:link.action>
 	</article>
 </div>
