@@ -22,6 +22,7 @@ namespace Subugoe\Standorte\Domain\Model;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  * ************************************************************* */
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * Bibliothek
@@ -29,7 +30,7 @@ namespace Subugoe\Standorte\Domain\Model;
 class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
-	 * 
+	 *
 	 * @var int
 	 */
 	protected $uid;
@@ -259,7 +260,7 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Getter fuer Fakultaet
-	 * 
+	 *
 	 * @return \Subugoe\Standorte\Domain\Model\Fakultaet
 	 */
 	public function getFakultaet() {
@@ -294,7 +295,7 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Auslesen der Oeffnungszeiten
-	 * 
+	 *
 	 * @lazy
 	 * @return array
 	 */
@@ -404,7 +405,7 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 
 	/**
-	 * 
+	 *
 	 * @return string
 	 */
 	public function getStrasse() {
@@ -412,7 +413,7 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param $strasse
 	 * @return void
 	 */
@@ -486,7 +487,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @return void
 	 */
 	public function setBild($bild) {
-
 		$this->bild = $bild;
 	}
 
@@ -501,9 +501,9 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		$adresse = $this->erzeugeAdresse();
 		$url = 'http://maps.google.com/maps/api/geocode/json?address=' . $adresse . '&sensor=false';
 
-		$rueckgabe = t3lib_div::getURL($url);
+		$rueckgabe = GeneralUtility::getURL($url);
 		if (!$rueckgabe) {
-			throw new Exception('Geocoding failed', 1342516484);
+			throw new \Exception('Geocoding failed', 1342516484);
 		}
 		$code = json_decode($rueckgabe);
 		$latlon == 'lat' ? $geo = $code->results[0]->geometry->location->lat : $geo = $code->results[0]->geometry->location->lng;
@@ -513,7 +513,7 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Adresse zum geokodieren aufbereiten
-	 * 
+	 *
 	 * @return string
 	 */
 	private function erzeugeAdresse() {

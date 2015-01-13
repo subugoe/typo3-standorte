@@ -1,4 +1,5 @@
 <?php
+namespace Subugoe\Standorte\Tests\Unit\Controller;
 /***************************************************************
 * Copyright notice
 *
@@ -21,6 +22,7 @@
 *
 * This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
+use TYPO3\CMS\Core\Tests\BaseTestCase;
 
 /**
  * Testcase for the Tx_Standorte_Controller_BibliothekController class.
@@ -30,7 +32,7 @@
  *
  * @author Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
  */
-class Tx_Standorte_Controller_BibliothekControllerTest extends Tx_Phpunit_TestCase {
+class BibliothekControllerTest extends BaseTestCase {
 
 	/**
 	 * @var \Subugoe\Standorte\Controller\BibliothekController
@@ -40,7 +42,7 @@ class Tx_Standorte_Controller_BibliothekControllerTest extends Tx_Phpunit_TestCa
 	/**
 	 * @var \Subugoe\Standorte\Domain\Repository\BibliothekRepository
 	 */
-	private $newsRepository = NULL;
+	private $bibliothekRepository = NULL;
 
 	/**
 	 * Set up framework
@@ -50,28 +52,9 @@ class Tx_Standorte_Controller_BibliothekControllerTest extends Tx_Phpunit_TestCa
 	public function setUp() {
 		$this->fixture = new \Subugoe\Standorte\Controller\BibliothekController();
 
-		$this->newsRepository = $this->getMock(
+		$this->bibliothekRepository = $this->getMock(
 			'Subugoe\\Standorte\\Domain\\Repository\\BibliothekRepository', array(), array(), '', FALSE
 		);
 	}
 
-	/**
-	 * Tear down framework
-	 *
-	 * @return void
-	 */
-	public function tearDown() {
-		unset($this->fixture, $this->newsRepository);
-	}
-
-	/**
-	 * Test for creating correct demand call
-	 *
-	 * @test
-	 * @return void
-	 */
-	public function listActionFindsDemandedBibliothekByDemandFromSettings() {
-
-	}
 }
-?>

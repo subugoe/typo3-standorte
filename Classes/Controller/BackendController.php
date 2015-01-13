@@ -33,25 +33,15 @@ class BackendController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 	/**
 	 *
 	 * @var \Subugoe\Standorte\Domain\Repository\BibliothekRepository
+     * @inject
 	 */
 	protected $bibliothekenRepository;
 	/**
 	 *
 	 * @var \Subugoe\Standorte\Domain\Repository\FakultaetRepository
+     * @inject
 	 */
 	protected $fakultaetRepository;
-
-	/**
-	 * Initialisierungsaktion des Controllers
-	 * Erzeugung von Objektreferenzen
-	 *
-	 * @return void
-	 */
-	public function initializeAction() {
-
-		$this->bibliothekenRepository = GeneralUtility::makeInstance('Subugoe\\Standorte\\Domain\\Repository\\BibliothekRepository');
-		$this->fakultaetRepository = GeneralUtility::makeInstance('Subugoe\\Standorte\\Domain\\Repository\\FakultaetRepository');
-	}
 
 	/**
 	 * Index Action des Controllers
@@ -124,5 +114,3 @@ class BackendController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 		$this->redirect('listFakultaeten');
 	}
 }
-
-?>

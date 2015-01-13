@@ -26,15 +26,13 @@ namespace Subugoe\Standorte\ViewHelpers;
 
 /**
  * Description of SigelViewHelper
- * $Id$
- * @author Ingo Pfennigstorf
  */
 class SigelViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
 
 	/**
 	 * Rendert ein Sigel- je nachdem wo es hingehoert
 	 *
-	 * @param string sigel $sigel Das zu ueberpruefende Sigel
+	 * @param string $sigel $sigel Das zu ueberpruefende Sigel
 	 * @return string Das formatierte Sigel
 	 */
 	public function render($sigel) {
@@ -49,5 +47,3 @@ class SigelViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelpe
 	}
 
 }
-
-?>

@@ -33,14 +33,15 @@ class TypolinkViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHe
 
 	/**
 	 * Renders a Typolink with title etc
-	 * 
+	 *
 	 * @param string $typolink	Typolink to be processes
 	 * @param string $linktext	Text um den Link
 	 * @param string $title	Linktitel
+     * @return string
 	 */
 	public function render($typolink, $linktext, $title='') {
 		$local_cObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('tslib_cObj');
-		
+
 		$url = $local_cObj->typoLink(
 				$linktext, array(
 					'parameter' => $typolink,
@@ -51,5 +52,3 @@ class TypolinkViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHe
 	}
 
 }
-
-?>

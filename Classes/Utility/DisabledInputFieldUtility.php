@@ -4,7 +4,7 @@
  *  Copyright notice
  *
  *  (c) 2013 Dominic Simm <dominic.simm@sub.uni-goettingen.de>, Goettingen State Library
- *  	
+ *
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -26,20 +26,13 @@
 
 /**
  * Helper-Class to provide disabled HTML input field in Backend edit-module
- *
- * @version $Id: DisabledInputFieldUtility.php 0.0.1 2013-01-24 12:15:00Z simm $
- * @author dsim
- * @copyright Copyright belongs to the respective authors
- * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
 class Tx_Standorte_Utility_DisabledInputFieldUtility {
-    
+
 	function disabledInputField($PA, $fObj) {
 
-		// t3lib_div::devLog('DisabledInputField: Backend Edit load ...' , 'standorte', -1, array($PA));
-
 		$disabled = (isset($PA['parameters']['disabled']) && $PA['parameters']['disabled'] == 'true') ? ' disabled="disabled"' : '';
-		$formField  = '<span class="t3-tceforms-input-wrapper">';
+		$formField = '<span class="t3-tceforms-input-wrapper">';
 		$formField .= '<span tag="a" class="t3-icon t3-icon-actions t3-icon-actions-input t3-icon-input-clear t3-tceforms-input-clearer">&nbsp;</span>';
 		$formField .= '<input type="text" name="' . $PA['itemFormElName'] . '"';
 		$formField .= ' value="' . htmlspecialchars($PA['itemFormElValue']) . '"';
@@ -55,4 +48,3 @@ class Tx_Standorte_Utility_DisabledInputFieldUtility {
 	}
 
 }
-?>
