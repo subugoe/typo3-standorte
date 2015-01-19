@@ -40,7 +40,8 @@ class user_Tx_Standorte_Classes_Hooks_Sidebar {
 
 	function __construct() {
 		/** @var \TYPO3\CMS\Extbase\Object\ObjectManager $objectManager */
-		$objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance("TYPO3\\CMS\\Extbase\\Object\\ObjectManager");
+		$objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
+		$this->bibliothekenRepository = $objectManager->get('Subugoe\\Standorte\\Domain\\Repository\\BibliothekRepository');
 	}
 
 	/**
