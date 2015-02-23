@@ -25,10 +25,6 @@
 //Unschoen aber laeuft
 require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('standorte') . 'Classes/Domain/Repository/BibliothekRepository.php');
 
-/**
- * Description of Tx_Standorte_Classes_Hooks
- * @author ingop
- */
 class user_Tx_Standorte_Classes_Hooks_Sidebar {
 
 	/**

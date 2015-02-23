@@ -43,6 +43,10 @@ class BackendController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 	 */
 	protected $fakultaetRepository;
 
+	public function initializeAction() {
+		$GLOBALS['TT'] = new \TYPO3\CMS\Core\TimeTracker\NullTimeTracker;
+	}
+
 	/**
 	 * Index Action des Controllers
 	 *
@@ -106,7 +110,7 @@ class BackendController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 	 * Loeschen einer Fakultaet
 	 *
 	 * @param \Subugoe\Standorte\Domain\Model\Fakultaet $fakultaet
-	 * @return voi
+	 * @return void
 	 */
 	public function deleteFakultaetAction(\Subugoe\Standorte\Domain\Model\Fakultaet $fakultaet) {
 		$this->fakultaetRepository->remove($fakultaet);
