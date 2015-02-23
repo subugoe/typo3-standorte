@@ -67,7 +67,7 @@ if (TYPO3_MODE === 'BE') {
 		),
 		array(
 			'access' => 'user,group',
-			'icon' => 'EXT:' . $_EXTKEY . '/Resources/Public/img/standorte.png',
+			'icon' => 'EXT:' . $_EXTKEY . '/Resources/Public/Images/standorte.png',
 			'labels' => 'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang.mod.xml'
 		)
 	);
