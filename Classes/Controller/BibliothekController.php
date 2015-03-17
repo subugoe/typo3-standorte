@@ -23,6 +23,7 @@ namespace Subugoe\Standorte\Controller;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  * ************************************************************* */
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 /**
  * Library Controller
@@ -54,7 +55,7 @@ class BibliothekController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContr
 
 	public function initializeAction() {
 		$this->pageRenderer = $GLOBALS['TSFE']->getPageRenderer();
-		$this->pageRenderer->addCssFile('typo3conf/ext/standorte/Resources/Public/Css/Standorte.css');
+		$this->pageRenderer->addCssFile(ExtensionManagementUtility::extRelPath('standorte') . '/Resources/Public/Css/Standorte.css');
 	}
 
 	/**
@@ -85,9 +86,9 @@ class BibliothekController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContr
 	 */
 	public function listSigelTitelAction() {
 
-		$this->pageRenderer->addJsFile('typo3conf/ext/standorte/Resources/Public/JavaScript/jquery.dataTables.min.js');
-		$this->pageRenderer->addCssFile('typo3conf/ext/standorte/Resources/Public/Css/dataTables.css');
-		$this->pageRenderer->addJsFile('typo3conf/ext/standorte/Resources/Public/JavaScript/Table.js');
+		$this->pageRenderer->addJsFile(ExtensionManagementUtility::extRelPath('standorte') . '/Resources/Public/JavaScript/jquery.dataTables.min.js');
+		$this->pageRenderer->addCssFile(ExtensionManagementUtility::extRelPath('standorte') . '/Resources/Public/Css/dataTables.css');
+		$this->pageRenderer->addJsFile(ExtensionManagementUtility::extRelPath('standorte') . '/Resources/Public/JavaScript/Table.js');
 
 		$bibliotheken = $this->bibliothekenRepository->findAll();
 		$this->view->assign('bibos', $bibliotheken);
@@ -98,9 +99,9 @@ class BibliothekController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContr
 	 * @param \Subugoe\Standorte\Domain\Model\Bibliothek $bibliothek
 	 */
 	public function singleAction(\Subugoe\Standorte\Domain\Model\Bibliothek $bibliothek) {
-		$this->pageRenderer->addJsFile('typo3conf/ext/standorte/Resources/Public/JavaScript/leaflet.js');
-		$this->pageRenderer->addCssFile('typo3conf/ext/standorte/Resources/Public/Css/leaflet.css');
-		$this->pageRenderer->addJsFile('typo3conf/ext/standorte/Resources/Public/JavaScript/Map.js');
+		$this->pageRenderer->addJsFile(ExtensionManagementUtility::extRelPath('standorte') . '/Resources/Public/JavaScript/leaflet.js');
+		$this->pageRenderer->addCssFile(ExtensionManagementUtility::extRelPath('standorte') . '/Resources/Public/Css/leaflet.css');
+		$this->pageRenderer->addJsFile(ExtensionManagementUtility::extRelPath('standorte') . '/Resources/Public/JavaScript/Map.js');
 
 		// Neuer Seitentitel
 		$GLOBALS['TSFE']->page['title'] = $bibliothek->getTitel();

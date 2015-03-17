@@ -4,13 +4,51 @@
 .tx-standorte form fieldset legend {
   display: none;
 }
-.tx-standorte .datahead {
-  float: left;
-  margin-bottom: 10px;
+.tx-standorte table#daten {
+  font-family: arial;
+  margin: 10px 0pt 15px;
+  font-size: 8pt;
   width: 100%;
+  text-align: left;
+}
+.tx-standorte table#daten thead tr th, .tx-standorte table#daten table.tablesorter tfoot tr th {
+  border: 1px solid #FFF;
+  font-size: 8pt;
+  padding: 4px;
+}
+.tx-standorte table#daten thead th:first-child {
+  width: 15%;
+}
+.tx-standorte table#daten thead tr .header {
+  background-image: url("/typo3conf/ext/standorte/Resources/Public/img/bg.gif");
+  background-repeat: no-repeat;
+  background-position: center right;
+  cursor: pointer;
+}
+.tx-standorte table#daten tbody td {
+  padding: 4px;
+  vertical-align: top;
+}
+.tx-standorte table#daten thead tr .headerSortUp {
+  background-image: url(../img/asc.gif);
+  color: black;
+}
+.tx-standorte table#daten thead tr .headerSortDown {
+  background-image: url(../img/desc.gif);
+  color: black;
+}
+.tx-standorte table#daten thead tr .headerSortDown, .tx-standorte table#daten table.tablesorter thead tr .headerSortUp {
+  color: black;
+}
+.tx-standorte table#daten tbody tr:hover {
+  background-color: #dadada;
 }
 .tx-standorte .list {
   border-bottom: 1px solid #dee1e7;
+  float: left;
+  clear: both;
+  margin: 0 0 8px 0;
+  width: 100.01%;
 }
 .tx-standorte .list dt {
   float: left;
@@ -44,6 +82,13 @@
   width: 136px;
   float: left;
 }
+.tx-standorte .list .karte {
+  display: none;
+  margin-left: 0;
+  float: left;
+  width: 100.01%;
+  height: 300px;
+}
 .tx-standorte .list .status {
   margin-bottom: 4px;
 }
@@ -53,41 +98,4 @@
 }
 .tx-standorte .highlight {
   background-color: #dee1e7;
-}
-.tx-standorte .singleLibrary .details {
-  float: left;
-  width: 70%;
-}
-.tx-standorte .singleLibrary .details #map {
-  height: 300px;
-  width: 486px;
-}
-.tx-standorte .singleLibrary .details .karte {
-  display: none;
-  margin-left: 0;
-  width: 80%;
-  height: 18em;
-}
-.tx-standorte .singleLibrary .details a.map {
-  text-decoration: underline;
-}
-.tx-standorte .singleLibrary .details a.map:hover {
-  cursor: pointer;
-}
-.tx-standorte .singleLibrary .list {
-  border-bottom: 1px solid #dee1e7;
-  padding-bottom: 1.5em;
-  margin-bottom: 1.5em;
-}
-.tx-standorte .singleLibrary .list .metainfo {
-  display: table;
-}
-.tx-standorte .singleLibrary .list .metainfo .businesshours {
-  display: table-cell;
-  width: 50%;
-}
-.tx-standorte .singleLibrary .list .metainfo .contact {
-  display: table-cell;
-  width: 50%;
-  padding-left: 2em;
 }
