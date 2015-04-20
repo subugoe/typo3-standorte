@@ -1,4 +1,5 @@
 <?php
+namespace Subugoe\Standorte\Tests\Unit\Controller;
 /***************************************************************
 * Copyright notice
 *
@@ -21,6 +22,7 @@
 *
 * This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
+use TYPO3\CMS\Core\Tests\BaseTestCase;
 
 /**
  * Testcase for the Tx_Standorte_Controller_BibliothekController class.
@@ -30,17 +32,17 @@
  *
  * @author Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
  */
-class Tx_Standorte_Controller_BibliothekControllerTest extends Tx_Phpunit_TestCase {
+class BibliothekControllerTest extends BaseTestCase {
 
 	/**
-	 * @var Tx_Standorte_Controller_BibliothekController
+	 * @var \Subugoe\Standorte\Controller\BibliothekController
 	 */
 	private $fixture = NULL;
 
 	/**
-	 * @var Tx_Standorte_Domain_Repository_BibliothekRepository
+	 * @var \Subugoe\Standorte\Domain\Repository\BibliothekRepository
 	 */
-	private $newsRepository = NULL;
+	private $bibliothekRepository = NULL;
 
 	/**
 	 * Set up framework
@@ -48,31 +50,11 @@ class Tx_Standorte_Controller_BibliothekControllerTest extends Tx_Phpunit_TestCa
 	 * @return void
 	 */
 	public function setUp() {
-		$this->fixture = new Tx_Standorte_Controller_BibliothekController();
+		$this->fixture = new \Subugoe\Standorte\Controller\BibliothekController();
 
-		$this->newsRepository = $this->getMock(
-			'Tx_Standorte_Domain_Repository_BibliothekRepository', array(), array(), '', FALSE
+		$this->bibliothekRepository = $this->getMock(
+			'Subugoe\\Standorte\\Domain\\Repository\\BibliothekRepository', array(), array(), '', FALSE
 		);
-		$this->fixture->injectBibliothekRepository($this->newsRepository);
 	}
 
-	/**
-	 * Tear down framework
-	 *
-	 * @return void
-	 */
-	public function tearDown() {
-		unset($this->fixture, $this->newsRepository);
-	}
-
-	/**
-	 * Test for creating correct demand call
-	 *
-	 * @test
-	 * @return void
-	 */
-	public function listActionFindsDemandedBibliothekByDemandFromSettings() {
-
-	}
 }
-?>

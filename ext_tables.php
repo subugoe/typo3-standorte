@@ -1,8 +1,5 @@
 <?php
 
-// $Id$
-
-
 if (!defined('TYPO3_MODE')) {
 	die('Access denied.');
 }
@@ -21,8 +18,8 @@ $TCA['tx_standorte_domain_model_fakultaet'] = array(
 		'enablecolumns' => array(
 			'disabled' => 'hidden',
 		),
-		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . '/Configuration/TCA/tx_standorte_domain_model_fakultaet.php',
-		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . '/Resources/Public/img/icon_tx_standorte_domain_model_fakultaet.png',
+		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . '/Configuration/TCA/tx_standorte_domain_model_fakultaet.php',
+		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . '/Resources/Public/img/icon_tx_standorte_domain_model_fakultaet.png',
 		'searchFields' => 'titel',
 		'versioningWS' => TRUE,
 		'origUid' => 't3_origuid',
@@ -44,23 +41,24 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
 		'enablecolumns' => array(
 			'disabled' => 'hidden',
 		),
-		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . '/Configuration/TCA/tx_standorte_domain_model_bibliothek.php',
-		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . '/Resources/Public/img/icon_tx_standorte_domain_model_bibliothek.png',
+		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . '/Configuration/TCA/tx_standorte_domain_model_bibliothek.php',
+		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . '/Resources/Public/img/icon_tx_standorte_domain_model_bibliothek.png',
 		'searchFields' => 'titel, sigel, strasse',
 		'versioningWS' => TRUE,
 		'origUid' => 't3_origuid',
 	),
 );
 
-Tx_Extbase_Utility_Extension::registerPlugin($_EXTKEY, 'Pi1', 'SUB Standorte');
-Tx_Extbase_Utility_Extension::registerPlugin($_EXTKEY, 'Pi2', 'SUB Standorte Sigelliste');
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin($_EXTKEY, 'Pi1', 'SUB Standorte');
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin($_EXTKEY, 'Pi2', 'SUB Standorte Sigelliste');
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin($_EXTKEY, 'showLibrary', 'SUB Standorte Bibliothek Single View');
 
 if (TYPO3_MODE === 'BE') {
 	/**
 	 * Backend Modul
 	 */
-	Tx_Extbase_Utility_Extension::registerModule(
-		$_EXTKEY,
+	\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
+		'Subugoe.' . $_EXTKEY,
 		'web',
 		'tx_standorte_m1',
 		'',
@@ -69,11 +67,10 @@ if (TYPO3_MODE === 'BE') {
 		),
 		array(
 			'access' => 'user,group',
-			'icon' => 'EXT:' . $_EXTKEY . '/Resources/Public/img/standorte.png',
+			'icon' => 'EXT:' . $_EXTKEY . '/Resources/Public/Images/standorte.png',
 			'labels' => 'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang.mod.xml'
 		)
 	);
 }
 
-t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Standorte');
-?>
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Standorte');

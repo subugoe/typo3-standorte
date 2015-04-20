@@ -1,5 +1,5 @@
 <?php
-
+namespace Subugoe\Standorte\Hooks;
 /* * *************************************************************
  *  Copyright notice
  *
@@ -23,16 +23,11 @@
  *  This copyright notice MUST APPEAR in all copies of the script!
  * ************************************************************* */
 
-require_once(t3lib_extMgm::extPath('nkwlib')."class.tx_nkwlib.php");
-require_once(t3lib_extMgm::extPath('standorte')."/Classes/Utility/EvalFuncDouble11Utility.php");
+require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('nkwlib'). 'class.tx_nkwlib.php');
+require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('standorte') . '/Classes/Utility/EvalFuncDouble11Utility.php');
 
 /**
- * Description of Tx_Standorte_Classes_Hooks
- *
- * @version $Id: BackendEdit.php 0.0.1 2013-01-24 10:36:00Z dsim $
- * @author dsim
- * @copyright Copyright belongs to the respective authors
- * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
+ * Hooks
  */
 class user_Tx_Standorte_Classes_Hooks_BackendEdit {
 
@@ -46,18 +41,15 @@ class user_Tx_Standorte_Classes_Hooks_BackendEdit {
 	public function processDatamap_preProcessFieldArray(&$incomingFieldArray, $table, $id, &$pObj) {
 
 		$modified = false;
-		$nkwlib = new tx_nkwlib();
-		// t3lib_div::devLog('preProcessDatamap: Backend change ...' , 'standorte', -1, array($table,$incomingFieldArray));
+		$nkwlib = new \tx_nkwlib();
 
 		if($table == 'tx_standorte_domain_model_bibliothek')	{
-			$address = $incomingFieldArray["strasse"] . ", " . $incomingFieldArray["plz"] . ", " . $incomingFieldArray["ort"];
-			$geo = $nkwlib->geocodeAddress($address);
-			t3lib_div::devLog('processDatamap: Request coordinates from Google Maps API' , 'standorte', -1, array($geo));
-			if ($geo["status"] == "OK")	{
-				t3lib_div::devLog('processDatamap: Status OK' , 'standorte', -1, array());
-				// If values differ take new ones ...
-				if ( $incomingFieldArray['lat'] != ($lat = floatval($geo["results"][0]["geometry"]["location"]["lat"])) ) 	{
-					$incomingFieldArray['lat'] = tx_standorte_double11::evaluateFieldValue($lat, '', $pObj);
+			// Check modified fields of interest
+			$field_list = array('strasse', 'plz', 'ort');
+			$fields = array();
+			foreach (array_keys($incomingFieldArray) as $field) {
+				if (in_array($field, $field_list)) {
+					$fields[] = $field;
 				}
 			}
 			if (count($fields) > 0) {
@@ -70,27 +62,25 @@ class user_Tx_Standorte_Classes_Hooks_BackendEdit {
 				if($modified)	{
 					$address = $incomingFieldArray["strasse"] . ", " . $incomingFieldArray["plz"] . ", " . $incomingFieldArray["ort"];
 					$geo = $nkwlib->geocodeAddress($address);
-					t3lib_div::devLog('processDatamap: Request coordinates from Google Maps API' , 'standorte', -1, array($geo));
+					\TYPO3\CMS\Core\Utility\GeneralUtility::devLog('processDatamap: Request coordinates from Google Maps API' , 'standorte', -1, array($geo));
 					if ($geo["status"] == "OK")	{
-						t3lib_div::devLog('processDatamap: Status OK' , 'standorte', -1, array());
+						\TYPO3\CMS\Core\Utility\GeneralUtility::devLog('processDatamap: Status OK' , 'standorte', -1, array());
 						// If values differ take new ones ...
 						if ( $incomingFieldArray['lat'] != ($lat = floatval($geo["results"][0]["geometry"]["location"]["lat"])) ) 	{
-							$incomingFieldArray['lat'] = tx_standorte_double11::evaluateFieldValue($lat, '', $pObj);
+							$incomingFieldArray['lat'] = \tx_standorte_double11::evaluateFieldValue($lat, '', $pObj);
 						}
 						if ( $incomingFieldArray['lon'] != ($lon = floatval($geo["results"][0]["geometry"]["location"]["lng"])) ) 	{
-							$incomingFieldArray['lon'] = tx_standorte_double11::evaluateFieldValue($lon, '', $pObj);
+							$incomingFieldArray['lon'] = \tx_standorte_double11::evaluateFieldValue($lon, '', $pObj);
 						}
-						t3lib_div::devLog('processDatamap: Actualized FieldArray' , 'standorte', -1, array($incomingFieldArray));
+						\TYPO3\CMS\Core\Utility\GeneralUtility::devLog('processDatamap: Actualized FieldArray' , 'standorte', -1, array($incomingFieldArray));
 					}	else 	{
-						t3lib_div::devLog('processDatamap: Request failed' , 'standorte', 3, array($geo));
+						\TYPO3\CMS\Core\Utility\GeneralUtility::devLog('processDatamap: Request failed' , 'standorte', 3, array($geo));
 					}
 				}	else 	{
-					t3lib_div::devLog('processDatamap: No address field was modified' , 'standorte', 0, array($geo));
+					\TYPO3\CMS\Core\Utility\GeneralUtility::devLog('processDatamap: No address field was modified' , 'standorte', 0, array($geo));
 				}
 			}
 		}
 	}
 
 }
-
-?>

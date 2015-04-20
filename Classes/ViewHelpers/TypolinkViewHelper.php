@@ -1,5 +1,5 @@
 <?php
-
+namespace Subugoe\Standorte\ViewHelpers;
 /* * *************************************************************
  *  Copyright notice
  *
@@ -29,18 +29,19 @@
  * $Id$
  * @author ingop
  */
-class Tx_Standorte_ViewHelpers_TypolinkViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractViewHelper {
+class TypolinkViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
 
 	/**
 	 * Renders a Typolink with title etc
-	 * 
+	 *
 	 * @param string $typolink	Typolink to be processes
 	 * @param string $linktext	Text um den Link
 	 * @param string $title	Linktitel
+     * @return string
 	 */
 	public function render($typolink, $linktext, $title='') {
-		$local_cObj = t3lib_div::makeInstance('tslib_cObj');
-		
+		$local_cObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('tslib_cObj');
+
 		$url = $local_cObj->typoLink(
 				$linktext, array(
 					'parameter' => $typolink,
@@ -51,5 +52,3 @@ class Tx_Standorte_ViewHelpers_TypolinkViewHelper extends Tx_Fluid_Core_ViewHelp
 	}
 
 }
-
-?>

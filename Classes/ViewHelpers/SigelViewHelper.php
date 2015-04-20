@@ -1,4 +1,5 @@
 <?php
+namespace Subugoe\Standorte\ViewHelpers;
 
 /* * *************************************************************
  *  Copyright notice
@@ -25,15 +26,13 @@
 
 /**
  * Description of SigelViewHelper
- * $Id$
- * @author Ingo Pfennigstorf
  */
-class Tx_Standorte_ViewHelpers_SigelViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractViewHelper {
+class SigelViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
 
 	/**
 	 * Rendert ein Sigel- je nachdem wo es hingehoert
 	 *
-	 * @param sigel $sigel Das zu ueberpruefende Sigel
+	 * @param string $sigel $sigel Das zu ueberpruefende Sigel
 	 * @return string Das formatierte Sigel
 	 */
 	public function render($sigel) {
@@ -48,5 +47,3 @@ class Tx_Standorte_ViewHelpers_SigelViewHelper extends Tx_Fluid_Core_ViewHelper_
 	}
 
 }
-
-?>

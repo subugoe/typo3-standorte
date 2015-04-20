@@ -1,5 +1,5 @@
 <?php
-
+namespace Subugoe\Standorte\Domain\Model;
 /* * *************************************************************
  *  Copyright notice
  *
@@ -22,17 +22,15 @@
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  * ************************************************************* */
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
- * Description of Bibliothek
- * $Id$
- * 
- * @author Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
+ * Bibliothek
  */
-class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_AbstractEntity {
+class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
-	 * 
+	 *
 	 * @var int
 	 */
 	protected $uid;
@@ -105,7 +103,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	protected $bild;
 	/**
 	 *
-	 * @var Tx_Standorte_Domain_Model_Fakultaet
+	 * @var \Subugoe\Standorte\Domain\Model\Fakultaet
 	 */
 	protected $fakultaet;
 	/**
@@ -262,8 +260,8 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 
 	/**
 	 * Getter fuer Fakultaet
-	 * 
-	 * @return Tx_Standorte_Domain_Model_Fakultaet
+	 *
+	 * @return \Subugoe\Standorte\Domain\Model\Fakultaet
 	 */
 	public function getFakultaet() {
 		return $this->fakultaet;
@@ -272,9 +270,9 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	/**
 	 * Fakultaet der die Bibliothek angehoert
 	 *
-	 * @param Tx_Standorte_Domain_Model_Fakultaet $fakultaet 
+	 * @param \Subugoe\Standorte\Domain\Model\Fakultaet $fakultaet
 	 */
-	public function setFakultaet(Tx_Standorte_Domain_Model_Fakultaet $fakultaet) {
+	public function setFakultaet(\Subugoe\Standorte\Domain\Model\Fakultaet $fakultaet) {
 		$this->fakultaet = $fakultaet;
 	}
 
@@ -297,7 +295,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 
 	/**
 	 * Auslesen der Oeffnungszeiten
-	 * 
+	 *
 	 * @lazy
 	 * @return array
 	 */
@@ -366,7 +364,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	/**
 	 *
 	 * @param $lat
-	 * @return voi
+	 * @return void
 	 */
 	public function setLat($lat) {
 		$this->lat = $lat;
@@ -407,7 +405,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	}
 
 	/**
-	 * 
+	 *
 	 * @return string
 	 */
 	public function getStrasse() {
@@ -415,7 +413,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	}
 
 	/**
-	 * 
+	 *
 	 * @param $strasse
 	 * @return void
 	 */
@@ -489,7 +487,6 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 	 * @return void
 	 */
 	public function setBild($bild) {
-
 		$this->bild = $bild;
 	}
 
@@ -504,9 +501,9 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 		$adresse = $this->erzeugeAdresse();
 		$url = 'http://maps.google.com/maps/api/geocode/json?address=' . $adresse . '&sensor=false';
 
-		$rueckgabe = t3lib_div::getURL($url);
+		$rueckgabe = GeneralUtility::getURL($url);
 		if (!$rueckgabe) {
-			throw new Exception('Geocoding failed', 1342516484);
+			throw new \Exception('Geocoding failed', 1342516484);
 		}
 		$code = json_decode($rueckgabe);
 		$latlon == 'lat' ? $geo = $code->results[0]->geometry->location->lat : $geo = $code->results[0]->geometry->location->lng;
@@ -516,7 +513,7 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 
 	/**
 	 * Adresse zum geokodieren aufbereiten
-	 * 
+	 *
 	 * @return string
 	 */
 	private function erzeugeAdresse() {
@@ -538,4 +535,3 @@ class Tx_Standorte_Domain_Model_Bibliothek extends Tx_Extbase_DomainObject_Abstr
 		return $this->pizNr;
 	}
 }
-?>

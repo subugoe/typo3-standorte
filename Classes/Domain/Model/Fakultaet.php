@@ -1,4 +1,5 @@
 <?php
+namespace Subugoe\Standorte\Domain\Model;
 
 /* * *************************************************************
  *  Copyright notice
@@ -22,13 +23,14 @@
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  * ************************************************************* */
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * Description of Fakultaet
  * $Id$
  * @author ingop
  */
-class Tx_Standorte_Domain_Model_Fakultaet extends Tx_Extbase_DomainObject_AbstractEntity {
+class Fakultaet extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Titel der Fakultaet
@@ -47,7 +49,7 @@ class Tx_Standorte_Domain_Model_Fakultaet extends Tx_Extbase_DomainObject_Abstra
 	protected $anzahlBibliotheken;
 
 	public function getAnzahlBibliotheken() {
-		$bibliothek = & t3lib_div::makeInstance('Tx_Standorte_Domain_Repository_BibliothekRepository');
+		$bibliothek = GeneralUtility::makeInstance('Subugoe\\Standorte\\Domain\\Repository\\BibliothekRepository');
 		$ergebnis = $bibliothek->countByFakultaet($this->uid);
 		return $ergebnis;
 	}
@@ -81,5 +83,3 @@ class Tx_Standorte_Domain_Model_Fakultaet extends Tx_Extbase_DomainObject_Abstra
 	}
 
 }
-
-?>

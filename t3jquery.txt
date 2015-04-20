@@ -1,2 +1,2 @@
-script=Resources/Public/Js/maps.js
+script=Resources/Public/Js/Map.js
 components=jQuery,Core

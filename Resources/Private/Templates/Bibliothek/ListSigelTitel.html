@@ -1,20 +1,7 @@
-{namespace fed=Tx_Fed_ViewHelpers}
-
-<fed:script src="typo3conf/ext/standorte/Resources/Public/Js/*.js" />
-
-<f:layout name="defaultLayout" />
+<f:layout name="Default" />
 
 <f:section name="bibos">
-	<h1><f:translate key="sigelListe" /></h1>
-	<form id="filter-form">
-		<fieldset>
-			<legend><f:translate key="bibliothek-filter" /></legend>
-			<label for="filter"><f:translate key="bibliothek-filter" /></label> <input name="filter" id="filter" value="" maxlength="30" size="30" type="search">
-		</fieldset>
-	</form>
-	<br />
-
-	<table id="daten">
+	<table id="daten" class="daten">
 		<thead>
 			<tr>
 				<th><f:translate key="bibliothekssigel" /></th>
@@ -32,10 +19,9 @@
 					</f:if>
 				</td>
 				<td>
-					<f:link.action action="single" controller="Bibliothek" pluginName="pi1" arguments="{bibliothek:bibo}">{bibo.titel}</f:link.action>
+					<f:link.action pluginName="Pi1" action="single" arguments="{bibliothek:bibo}">{bibo.titel}</f:link.action>
 				</td>
 			</tr>
-
 		</f:for>
 		</tbody>
 	</table>

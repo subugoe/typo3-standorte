@@ -1,4 +1,5 @@
 <?php
+namespace Subugoe\Standorte\Controller;
 
 /* * *************************************************************
  *  Copyright notice
@@ -22,50 +23,58 @@
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  * ************************************************************* */
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 /**
- * Controller
- * $Id$
- * @author Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
+ * Library Controller
  */
-class Tx_Standorte_Controller_BibliothekController extends Tx_Extbase_MVC_Controller_ActionController {
+class BibliothekController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 
 	/**
-	 * @var Tx_Standorte_Domain_Repository_BibliothekRepository
+	 * @var \Subugoe\Standorte\Domain\Repository\BibliothekRepository
 	 * @inject
 	 */
 	protected $bibliothekenRepository;
 
 	/**
-	 * @var Tx_Standorte_Domain_Repository_FakultaetRepository
+	 * @var \Subugoe\Standorte\Domain\Repository\FakultaetRepository
 	 * @inject
 	 */
 	protected $fakultaetRepository;
 
 	/**
-	 * @var Tx_Extbase_SignalSlot_Dispatcher
+	 * @var \TYPO3\CMS\Core\Page\PageRenderer $pageRenderer
+	 */
+	protected $pageRenderer;
+
+	/**
+	 * @var \TYPO3\CMS\Extbase\SignalSlot\Dispatcher
 	 * @inject
 	 */
 	protected $signalSlotDispatcher;
+
+	public function initializeAction() {
+		$this->pageRenderer = $GLOBALS['TSFE']->getPageRenderer();
+		$this->pageRenderer->addCssFile(ExtensionManagementUtility::siteRelPath('standorte') . '/Resources/Public/Css/Standorte.css');
+	}
 
 	/**
 	 * Index action to list all libraries
 	 */
 	public function indexAction() {
-
 		$bibliotheken = $this->bibliothekenRepository->findAll();
 		$this->view->assign('bibos', $bibliotheken);
 	}
 
 	/**
 	 * List all libraries by faculty
-	 * @param Tx_Standorte_Domain_Model_Fakultaet $fakultaetId
+	 * @param \Subugoe\Standorte\Domain\Model\Fakultaet $fakultaetId
 	 */
-	public function listAction(Tx_Standorte_Domain_Model_Fakultaet $fakultaet = NULL) {
+	public function listAction(\Subugoe\Standorte\Domain\Model\Fakultaet $fakultaet = NULL) {
 
 		$bibliotheken = $this->bibliothekenRepository->findByFakultaet($fakultaet);
 
-			// new pagetitle
+		// new pagetitle
 		$GLOBALS['TSFE']->page['title'] = $fakultaet->getTitel();
 
 		$this->view->assign('fakultaet', $fakultaet);
@@ -77,16 +86,24 @@ class Tx_Standorte_Controller_BibliothekController extends Tx_Extbase_MVC_Contro
 	 */
 	public function listSigelTitelAction() {
 
+		$this->pageRenderer->addJsFile(ExtensionManagementUtility::siteRelPath('standorte') . '/Resources/Public/JavaScript/jquery.dataTables.min.js');
+		$this->pageRenderer->addCssFile(ExtensionManagementUtility::siteRelPath('standorte') . '/Resources/Public/Css/dataTables.css');
+		$this->pageRenderer->addJsFile(ExtensionManagementUtility::siteRelPath('standorte') . '/Resources/Public/JavaScript/Table.js');
+
 		$bibliotheken = $this->bibliothekenRepository->findAll();
 		$this->view->assign('bibos', $bibliotheken);
 	}
 
 	/**
 	 * Single view
-	 * @param Tx_Standorte_Domain_Model_Bibliothek $bibliothek
+	 * @param \Subugoe\Standorte\Domain\Model\Bibliothek $bibliothek
 	 */
-	public function singleAction(Tx_Standorte_Domain_Model_Bibliothek $bibliothek) {
-			// Neuer Seitentitel
+	public function singleAction(\Subugoe\Standorte\Domain\Model\Bibliothek $bibliothek) {
+		$this->pageRenderer->addJsFile(ExtensionManagementUtility::siteRelPath('standorte') . '/Resources/Public/JavaScript/leaflet.js');
+		$this->pageRenderer->addCssFile(ExtensionManagementUtility::siteRelPath('standorte') . '/Resources/Public/Css/leaflet.css');
+		$this->pageRenderer->addJsFile(ExtensionManagementUtility::siteRelPath('standorte') . '/Resources/Public/JavaScript/Map.js');
+
+		// Neuer Seitentitel
 		$GLOBALS['TSFE']->page['title'] = $bibliothek->getTitel();
 		$this->view->assign('bibo', $bibliothek);
 	}
@@ -94,11 +111,9 @@ class Tx_Standorte_Controller_BibliothekController extends Tx_Extbase_MVC_Contro
 	/**
 	 * Renders a list of all libraries with links
 	 */
-	public function listBibMitLinkAction(){
+	public function listBibMitLinkAction() {
 		$bibliotheken = $this->bibliothekenRepository->findAll();
 		$this->view->assign('bibos', $bibliotheken);
 	}
 
 }
-
-?>
