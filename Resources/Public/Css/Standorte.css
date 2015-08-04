@@ -1,3 +1,6 @@
+.tx-standorte .map {
+  cursor: pointer;
+}
 .tx-standorte form fieldset {
   border: 0;
 }

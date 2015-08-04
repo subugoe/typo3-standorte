@@ -2,6 +2,11 @@ $backgroundImage: '/typo3conf/ext/standorte/Resources/Public/img/bg.gif';
 $highlightColor: #dee1e7;
 
 .tx-standorte {
+
+	.map {
+		cursor: pointer;
+	}
+
 	form {
 		fieldset {
 			border: 0;

@@ -15,7 +15,7 @@ $(document).ready(function() {
 			mapid = this.id,
 			mapcontainer = mapid.replace('cl-', 'map-');
 
-		$('#' + mapcontainer + '.karte').show();
+		$('#' + mapcontainer + '.karte').toggle();
 
 		var map = L.map(mapcontainer).setView([lat, lng], zoom);
 		L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
