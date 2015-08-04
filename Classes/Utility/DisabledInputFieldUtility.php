@@ -27,24 +27,26 @@
 /**
  * Helper-Class to provide disabled HTML input field in Backend edit-module
  */
-class Tx_Standorte_Utility_DisabledInputFieldUtility {
+class Tx_Standorte_Utility_DisabledInputFieldUtility
+{
 
-	function disabledInputField($PA, $fObj) {
+    function disabledInputField($PA, $fObj)
+    {
 
-		$disabled = (isset($PA['parameters']['disabled']) && $PA['parameters']['disabled'] == 'true') ? ' disabled="disabled"' : '';
-		$formField = '<span class="t3-tceforms-input-wrapper">';
-		$formField .= '<span tag="a" class="t3-icon t3-icon-actions t3-icon-actions-input t3-icon-input-clear t3-tceforms-input-clearer">&nbsp;</span>';
-		$formField .= '<input type="text" name="' . $PA['itemFormElName'] . '"';
-		$formField .= ' value="' . htmlspecialchars($PA['itemFormElValue']) . '"';
-		$formField .= ' onchange="' . htmlspecialchars(implode('', $PA['fieldChangeFunc'])) . '"';
-		$formField .= ' class="formField1 tceforms-textfield hasDefaultValue"';
-		$formField .= ' size="' . htmlspecialchars($PA['fieldConf']['config']['size']) . '"';
-		$formField .= $PA['onFocus'];
-		$formField .= $disabled . ' />';
-		$formField .= '<input type="hidden" name="' . $PA['itemFormElName'] . '" value="' . htmlspecialchars($PA['itemFormElValue']) . '">';
-		$formField .= '</span>';
+        $disabled = (isset($PA['parameters']['disabled']) && $PA['parameters']['disabled'] == 'true') ? ' disabled="disabled"' : '';
+        $formField = '<span class="t3-tceforms-input-wrapper">';
+        $formField .= '<span tag="a" class="t3-icon t3-icon-actions t3-icon-actions-input t3-icon-input-clear t3-tceforms-input-clearer">&nbsp;</span>';
+        $formField .= '<input type="text" name="' . $PA['itemFormElName'] . '"';
+        $formField .= ' value="' . htmlspecialchars($PA['itemFormElValue']) . '"';
+        $formField .= ' onchange="' . htmlspecialchars(implode('', $PA['fieldChangeFunc'])) . '"';
+        $formField .= ' class="formField1 tceforms-textfield hasDefaultValue"';
+        $formField .= ' size="' . htmlspecialchars($PA['fieldConf']['config']['size']) . '"';
+        $formField .= $PA['onFocus'];
+        $formField .= $disabled . ' />';
+        $formField .= '<input type="hidden" name="' . $PA['itemFormElName'] . '" value="' . htmlspecialchars($PA['itemFormElValue']) . '">';
+        $formField .= '</span>';
 
-		return $formField;
-	}
+        return $formField;
+    }
 
 }

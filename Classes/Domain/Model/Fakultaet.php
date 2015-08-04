@@ -30,56 +30,63 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  * $Id$
  * @author ingop
  */
-class Fakultaet extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
+class Fakultaet extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+{
 
-	/**
-	 * Titel der Fakultaet
-	 * @var string
-	 */
-	protected $titel;
-	/**
-	 * Falls die Fakultaet nur einen Link nach Extern hat
-	 * @var string
-	 */
-	protected $extlink;
-	/**
-	 * Anzahl der referenzierten Bibliotheken
-	 * @var int
-	 */
-	protected $anzahlBibliotheken;
+    /**
+     * Titel der Fakultaet
+     * @var string
+     */
+    protected $titel;
+    /**
+     * Falls die Fakultaet nur einen Link nach Extern hat
+     * @var string
+     */
+    protected $extlink;
+    /**
+     * Anzahl der referenzierten Bibliotheken
+     * @var int
+     */
+    protected $anzahlBibliotheken;
 
-	public function getAnzahlBibliotheken() {
-		$bibliothek = GeneralUtility::makeInstance('Subugoe\\Standorte\\Domain\\Repository\\BibliothekRepository');
-		$ergebnis = $bibliothek->countByFakultaet($this->uid);
-		return $ergebnis;
-	}
+    public function getAnzahlBibliotheken()
+    {
+        $bibliothek = GeneralUtility::makeInstance('Subugoe\\Standorte\\Domain\\Repository\\BibliothekRepository');
+        $ergebnis = $bibliothek->countByFakultaet($this->uid);
+        return $ergebnis;
+    }
 
-	public function setAnzahlBibliotheken($anzahlBibliotheken) {
-		$this->anzahlBibliotheken = $anzahlBibliotheken;
-	}
+    public function setAnzahlBibliotheken($anzahlBibliotheken)
+    {
+        $this->anzahlBibliotheken = $anzahlBibliotheken;
+    }
 
-	/**
-	 * Getter fuer einen externen link
-	 * @return string
-	 */
-	public function getExtlink() {
-		return $this->extlink;
-	}
+    /**
+     * Getter fuer einen externen link
+     * @return string
+     */
+    public function getExtlink()
+    {
+        return $this->extlink;
+    }
 
-	/**
-	 * Setter fuer einen externen Link
-	 * @param string $extlink
-	 */
-	public function setExtlink($extlink) {
-		$this->extlink = $extlink;
-	}
+    /**
+     * Setter fuer einen externen Link
+     * @param string $extlink
+     */
+    public function setExtlink($extlink)
+    {
+        $this->extlink = $extlink;
+    }
 
-	public function getTitel() {
-		return $this->titel;
-	}
+    public function getTitel()
+    {
+        return $this->titel;
+    }
 
-	public function setTitel($titel) {
-		$this->titel = $titel;
-	}
+    public function setTitel($titel)
+    {
+        $this->titel = $titel;
+    }
 
 }

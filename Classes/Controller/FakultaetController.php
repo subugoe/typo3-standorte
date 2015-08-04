@@ -27,58 +27,65 @@ namespace Subugoe\Standorte\Controller;
 /**
  * FakultaetenController
  */
-class FakultaetController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
+class FakultaetController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+{
 
-	/**
-	 *
-	 * @var \Subugoe\Standorte\Domain\Repository\FakultaetRepository
-	 */
-	protected $fakultaetRepository;
+    /**
+     *
+     * @var \Subugoe\Standorte\Domain\Repository\FakultaetRepository
+     */
+    protected $fakultaetRepository;
 
-	/**
-	 * Initialisiert das Repository
-	 *
-	 * @param \Subugoe\Standorte\Domain\Repository\FakultaetRepository $fakultaetRepository
-	 */
-	public function injectFakultaetRepository(\Subugoe\Standorte\Domain\Repository\FakultaetRepository $fakultaetRepository) {
-		$this->fakultaetRepository = $fakultaetRepository;
-	}
+    /**
+     * Initialisiert das Repository
+     *
+     * @param \Subugoe\Standorte\Domain\Repository\FakultaetRepository $fakultaetRepository
+     */
+    public function injectFakultaetRepository(
+        \Subugoe\Standorte\Domain\Repository\FakultaetRepository $fakultaetRepository
+    ) {
+        $this->fakultaetRepository = $fakultaetRepository;
+    }
 
-	/**
-	 * Listet alle Fakultaeten auf und verlinkt diese
-	 */
-	public function indexAction() {
+    /**
+     * Listet alle Fakultaeten auf und verlinkt diese
+     */
+    public function indexAction()
+    {
 
-		$fakultaeten = $this->fakultaetRepository->findAll();
-		$this->view->assign('fakultaeten', $fakultaeten);
-	}
+        $fakultaeten = $this->fakultaetRepository->findAll();
+        $this->view->assign('fakultaeten', $fakultaeten);
+    }
 
-	/**
-	 * Neue Fakultaet anlegen
-	 * @param \Subugoe\Standorte\Domain\Model\Fakultaet $fakultaet
-	 * @dontvalidate $fakultaet
-	 */
-	public function newAction(\Subugoe\Standorte\Domain\Model\Fakultaet $fakultaet = NULL) {
-		$this->view->assign('fakultaet', $fakultaet);
-	}
+    /**
+     * Neue Fakultaet anlegen
+     * @param \Subugoe\Standorte\Domain\Model\Fakultaet $fakultaet
+     * @dontvalidate $fakultaet
+     */
+    public function newAction(\Subugoe\Standorte\Domain\Model\Fakultaet $fakultaet = null)
+    {
+        $this->view->assign('fakultaet', $fakultaet);
+    }
 
-	/**
-	 * Erstellen der Datenbank
-	 * @param \Subugoe\Standorte\Domain\Model\Fakultaet $fakultaet 
-	 */
-	public function createAction(\Subugoe\Standorte\Domain\Model\Fakultaet $fakultaet) {
+    /**
+     * Erstellen der Datenbank
+     * @param \Subugoe\Standorte\Domain\Model\Fakultaet $fakultaet
+     */
+    public function createAction(\Subugoe\Standorte\Domain\Model\Fakultaet $fakultaet)
+    {
 
-		if ($fakultaet === NULL) {
-			$this->redirect('index');
-		}
-		$this->fakultaetRepository->add($fakultaet);
-	}
+        if ($fakultaet === null) {
+            $this->redirect('index');
+        }
+        $this->fakultaetRepository->add($fakultaet);
+    }
 
-	/**
-	 * Detailansicht einer Fakultaet
-	 */
-	public function detailAction() {
-		$this->view->assign('titel', $this->fakultaetRepository);
-	}
+    /**
+     * Detailansicht einer Fakultaet
+     */
+    public function detailAction()
+    {
+        $this->view->assign('titel', $this->fakultaetRepository);
+    }
 
 }

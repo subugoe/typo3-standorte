@@ -28,92 +28,103 @@ use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 /**
  * Library Controller
  */
-class BibliothekController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
+class BibliothekController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+{
 
-	/**
-	 * @var \Subugoe\Standorte\Domain\Repository\BibliothekRepository
-	 * @inject
-	 */
-	protected $bibliothekenRepository;
+    /**
+     * @var \Subugoe\Standorte\Domain\Repository\BibliothekRepository
+     * @inject
+     */
+    protected $bibliothekenRepository;
 
-	/**
-	 * @var \Subugoe\Standorte\Domain\Repository\FakultaetRepository
-	 * @inject
-	 */
-	protected $fakultaetRepository;
+    /**
+     * @var \Subugoe\Standorte\Domain\Repository\FakultaetRepository
+     * @inject
+     */
+    protected $fakultaetRepository;
 
-	/**
-	 * @var \TYPO3\CMS\Core\Page\PageRenderer $pageRenderer
-	 */
-	protected $pageRenderer;
+    /**
+     * @var \TYPO3\CMS\Core\Page\PageRenderer $pageRenderer
+     */
+    protected $pageRenderer;
 
-	/**
-	 * @var \TYPO3\CMS\Extbase\SignalSlot\Dispatcher
-	 * @inject
-	 */
-	protected $signalSlotDispatcher;
+    /**
+     * @var \TYPO3\CMS\Extbase\SignalSlot\Dispatcher
+     * @inject
+     */
+    protected $signalSlotDispatcher;
 
-	public function initializeAction() {
-		$this->pageRenderer = $GLOBALS['TSFE']->getPageRenderer();
-		$this->pageRenderer->addCssFile(ExtensionManagementUtility::siteRelPath('standorte') . '/Resources/Public/Css/Standorte.css');
-	}
+    public function initializeAction()
+    {
+        $this->pageRenderer = $GLOBALS['TSFE']->getPageRenderer();
+        $this->pageRenderer->addCssFile(ExtensionManagementUtility::siteRelPath('standorte') . '/Resources/Public/Css/Standorte.css');
+    }
 
-	/**
-	 * Index action to list all libraries
-	 */
-	public function indexAction() {
-		$bibliotheken = $this->bibliothekenRepository->findAll();
-		$this->view->assign('bibos', $bibliotheken);
-	}
+    /**
+     * Index action to list all libraries
+     */
+    public function indexAction()
+    {
+        $bibliotheken = $this->bibliothekenRepository->findAll();
+        $this->view->assign('bibos', $bibliotheken);
+    }
 
-	/**
-	 * List all libraries by faculty
-	 * @param \Subugoe\Standorte\Domain\Model\Fakultaet $fakultaetId
-	 */
-	public function listAction(\Subugoe\Standorte\Domain\Model\Fakultaet $fakultaet = NULL) {
+    /**
+     * List all libraries by faculty
+     * @param \Subugoe\Standorte\Domain\Model\Fakultaet $fakultaetId
+     */
+    public function listAction(\Subugoe\Standorte\Domain\Model\Fakultaet $fakultaet = null)
+    {
 
-		$bibliotheken = $this->bibliothekenRepository->findByFakultaet($fakultaet);
+        $this->pageRenderer->addJsFile(ExtensionManagementUtility::siteRelPath('standorte') . '/Resources/Public/JavaScript/leaflet.js');
+        $this->pageRenderer->addCssFile(ExtensionManagementUtility::siteRelPath('standorte') . '/Resources/Public/Css/leaflet.css');
+        $this->pageRenderer->addJsFile(ExtensionManagementUtility::siteRelPath('standorte') . '/Resources/Public/JavaScript/Map.js');
 
-		// new pagetitle
-		$GLOBALS['TSFE']->page['title'] = $fakultaet->getTitel();
+        $bibliotheken = $this->bibliothekenRepository->findByFakultaet($fakultaet);
 
-		$this->view->assign('fakultaet', $fakultaet);
-		$this->view->assign('bibos', $bibliotheken);
-	}
+        // new pagetitle
+        $GLOBALS['TSFE']->page['title'] = $fakultaet->getTitel();
 
-	/**
-	 * get all libraries in other view (only sigel and title)
-	 */
-	public function listSigelTitelAction() {
+        $this->view->assign('fakultaet', $fakultaet);
+        $this->view->assign('bibos', $bibliotheken);
+    }
 
-		$this->pageRenderer->addJsFile(ExtensionManagementUtility::siteRelPath('standorte') . '/Resources/Public/JavaScript/jquery.dataTables.min.js');
-		$this->pageRenderer->addCssFile(ExtensionManagementUtility::siteRelPath('standorte') . '/Resources/Public/Css/dataTables.css');
-		$this->pageRenderer->addJsFile(ExtensionManagementUtility::siteRelPath('standorte') . '/Resources/Public/JavaScript/Table.js');
+    /**
+     * get all libraries in other view (only sigel and title)
+     */
+    public function listSigelTitelAction()
+    {
 
-		$bibliotheken = $this->bibliothekenRepository->findAll();
-		$this->view->assign('bibos', $bibliotheken);
-	}
+        $this->pageRenderer->addJsFile(ExtensionManagementUtility::siteRelPath('standorte') . '/Resources/Public/JavaScript/jquery.dataTables.min.js');
+        $this->pageRenderer->addCssFile(ExtensionManagementUtility::siteRelPath('standorte') . '/Resources/Public/Css/dataTables.css');
+        $this->pageRenderer->addJsFile(ExtensionManagementUtility::siteRelPath('standorte') . '/Resources/Public/JavaScript/Table.js');
 
-	/**
-	 * Single view
-	 * @param \Subugoe\Standorte\Domain\Model\Bibliothek $bibliothek
-	 */
-	public function singleAction(\Subugoe\Standorte\Domain\Model\Bibliothek $bibliothek) {
-		$this->pageRenderer->addJsFile(ExtensionManagementUtility::siteRelPath('standorte') . '/Resources/Public/JavaScript/leaflet.js');
-		$this->pageRenderer->addCssFile(ExtensionManagementUtility::siteRelPath('standorte') . '/Resources/Public/Css/leaflet.css');
-		$this->pageRenderer->addJsFile(ExtensionManagementUtility::siteRelPath('standorte') . '/Resources/Public/JavaScript/Map.js');
+        $bibliotheken = $this->bibliothekenRepository->findAll();
+        $this->view->assign('bibos', $bibliotheken);
+    }
 
-		// Neuer Seitentitel
-		$GLOBALS['TSFE']->page['title'] = $bibliothek->getTitel();
-		$this->view->assign('bibo', $bibliothek);
-	}
+    /**
+     * Single view
+     * @param \Subugoe\Standorte\Domain\Model\Bibliothek $bibliothek
+     */
+    public function singleAction(\Subugoe\Standorte\Domain\Model\Bibliothek $bibliothek)
+    {
+        $this->pageRenderer->addJsFile(ExtensionManagementUtility::siteRelPath('standorte') . '/Resources/Public/JavaScript/leaflet.js');
+        $this->pageRenderer->addCssFile(ExtensionManagementUtility::siteRelPath('standorte') . '/Resources/Public/Css/leaflet.css');
+        $this->pageRenderer->addJsFile(ExtensionManagementUtility::siteRelPath('standorte') . '/Resources/Public/JavaScript/Map.js');
 
-	/**
-	 * Renders a list of all libraries with links
-	 */
-	public function listBibMitLinkAction() {
-		$bibliotheken = $this->bibliothekenRepository->findAll();
-		$this->view->assign('bibos', $bibliotheken);
-	}
+        // Neuer Seitentitel
+        $GLOBALS['TSFE']->page['title'] = $bibliothek->getTitel();
+        $this->view->assign('bibo', $bibliothek);
+    }
+
+    /**
+     * Renders a list of all libraries with links
+     */
+    public function listBibMitLinkAction()
+    {
+        $bibliotheken = $this->bibliothekenRepository->findAll();
+        $this->view->assign('bibos', $bibliotheken);
+    }
 
 }

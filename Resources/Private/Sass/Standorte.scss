@@ -11,82 +11,100 @@ $highlightColor: #dee1e7;
 		}
 	}
 	table#daten {
-		font-family: arial;
-		margin: 10px 0pt 15px;
+		font-family: Arial, 'sans-serif';
+		margin: 10px 0 15px;
 		font-size: 8pt;
 		width: 100%;
 		text-align: left;
-		thead tr th, table.tablesorter tfoot tr th {
+
+		thead tr th,
+		table.tablesorter tfoot tr th {
 			border: 1px solid #FFF;
 			font-size: 8pt;
 			padding: 4px;
 		}
+
 		thead th:first-child {
 			width: 15%;
 		}
+
 		thead tr .header {
 			background-image: url($backgroundImage);
 			background-repeat: no-repeat;
 			background-position: center right;
 			cursor: pointer;
 		}
+
 		tbody td {
 			padding: 4px;
 			vertical-align: top;
 		}
+
 		thead tr .headerSortUp {
-			background-image: url(../img/asc.gif);
+			background-image: url(../Images/asc.gif);
 			color: black;
 		}
+
 		thead tr .headerSortDown {
-			background-image: url(../img/desc.gif);
+			background-image: url(../Images/desc.gif);
 			color: black;
 		}
+
 		thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
 			color: black;
 		}
+
 		tbody tr:hover {
 			background-color: #dadada;
 		}
 	}
+
 	.list {
 		border-bottom: 1px solid $highlightColor;
 		float: left;
 		clear: both;
 		margin: 0 0 8px 0;
 		width: 100.01%;
+
 		dt {
 			float: left;
 			width: 156px;
 			padding: 3px 3px 3px 0;
 		}
+
 		dd {
 			margin-left: 160px;
 			width: 380px;
 			padding: 3px;
 		}
+
 		dl {
 			margin-bottom: 2px;
 			width: auto;
 			clear: both;
 			float: left;
 		}
+
 		.sigel {
 			float: right;
 			font-size: 70%;
 		}
+
 		.open {
 			margin-left: 3px;
 			color: green;
 		}
+
 		.closed {
 			color: red;
 			margin-left: 3px;
 		}
+
 		.wochentag {
 			width: 136px;
 			float: left;
 		}
+
 		.karte {
 			display: none;
 			margin-left: 0;
@@ -94,14 +112,17 @@ $highlightColor: #dee1e7;
 			width: 100.01%;
 			height: 300px;
 		}
+
 		.status {
 			margin-bottom: 4px;
 		}
 	}
+
 	.standorte-infobox {
 		font-size: 0.8em;
 		line-height: 1.5em;
 	}
+
 	.highlight {
 		background-color: $highlightColor;
 	}

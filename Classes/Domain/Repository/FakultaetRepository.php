@@ -27,10 +27,11 @@ namespace Subugoe\Standorte\Domain\Repository;
 /**
  * FakultaetRepository
  */
-class FakultaetRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
+class FakultaetRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
+{
 
-	public $defaultOrderings = array(
-		'titel' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
-	);
+    public $defaultOrderings = array(
+        'titel' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
+    );
 
 }

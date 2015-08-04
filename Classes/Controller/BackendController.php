@@ -27,93 +27,101 @@ namespace Subugoe\Standorte\Controller;
 /**
  * Steuerung des Backendss
  */
-class BackendController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
+class BackendController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+{
 
-	/**
-	 *
-	 * @var \Subugoe\Standorte\Domain\Repository\BibliothekRepository
+    /**
+     *
+     * @var \Subugoe\Standorte\Domain\Repository\BibliothekRepository
      * @inject
-	 */
-	protected $bibliothekenRepository;
-	/**
-	 *
-	 * @var \Subugoe\Standorte\Domain\Repository\FakultaetRepository
+     */
+    protected $bibliothekenRepository;
+    /**
+     *
+     * @var \Subugoe\Standorte\Domain\Repository\FakultaetRepository
      * @inject
-	 */
-	protected $fakultaetRepository;
+     */
+    protected $fakultaetRepository;
 
-	public function initializeAction() {
-		$GLOBALS['TT'] = new \TYPO3\CMS\Core\TimeTracker\NullTimeTracker;
-	}
+    public function initializeAction()
+    {
+        $GLOBALS['TT'] = new \TYPO3\CMS\Core\TimeTracker\NullTimeTracker;
+    }
 
-	/**
-	 * Index Action des Controllers
-	 *
-	 * @return void
-	 */
-	public function indexAction() {
+    /**
+     * Index Action des Controllers
+     *
+     * @return void
+     */
+    public function indexAction()
+    {
 
-		$this->view->assign('backend', 'Standorte');
-		$this->view->assign('fakultaeten', $this->fakultaetRepository->findAll());
-	}
+        $this->view->assign('backend', 'Standorte');
+        $this->view->assign('fakultaeten', $this->fakultaetRepository->findAll());
+    }
 
-	/**
-	 * Auflistung aller Fakultaeten
-	 *
-	 * @return void
-	 */
-	public function listFakultaetenAction() {
-		$fakultaeten = $this->fakultaetRepository->findAll();
-		$this->view->assign('fakultaeten', $fakultaeten);
-		$this->view->assign('backend', 'Fakultäten');
-	}
+    /**
+     * Auflistung aller Fakultaeten
+     *
+     * @return void
+     */
+    public function listFakultaetenAction()
+    {
+        $fakultaeten = $this->fakultaetRepository->findAll();
+        $this->view->assign('fakultaeten', $fakultaeten);
+        $this->view->assign('backend', 'Fakultäten');
+    }
 
-	/**
-	 * Auflistung aller Bibliotheken
-	 *
-	 * @return void
-	 */
-	public function listBibliothekenAction() {
-		$bibliotheken = $this->bibliothekenRepository->findAll();
-		$this->view->assign('bibliotheken', $bibliotheken);
-	}
+    /**
+     * Auflistung aller Bibliotheken
+     *
+     * @return void
+     */
+    public function listBibliothekenAction()
+    {
+        $bibliotheken = $this->bibliothekenRepository->findAll();
+        $this->view->assign('bibliotheken', $bibliotheken);
+    }
 
-	/**
-	 * Auflistung aller Bibliotheken einer bestimmten Fakultaet
-	 *
-	 * @param \Subugoe\Standorte\Domain\Model\Fakultaet $fakultaetUid
-	 * @return void
-	 */
-	public function listBibliothekenByFakultaetAction(\Subugoe\Standorte\Domain\Model\Fakultaet $fakultaetUid) {
+    /**
+     * Auflistung aller Bibliotheken einer bestimmten Fakultaet
+     *
+     * @param \Subugoe\Standorte\Domain\Model\Fakultaet $fakultaetUid
+     * @return void
+     */
+    public function listBibliothekenByFakultaetAction(\Subugoe\Standorte\Domain\Model\Fakultaet $fakultaetUid)
+    {
 
-		$this->view->assign('fakultaet', $fakultaetUid);
-		$bibliotheken = $this->bibliothekenRepository->findByFakultaet($fakultaetUid);
-		$this->view->assign('backend', 'Bibiliotheken');
+        $this->view->assign('fakultaet', $fakultaetUid);
+        $bibliotheken = $this->bibliothekenRepository->findByFakultaet($fakultaetUid);
+        $this->view->assign('backend', 'Bibiliotheken');
 
-		$this->view->assign('bibliotheken', $bibliotheken);
-	}
+        $this->view->assign('bibliotheken', $bibliotheken);
+    }
 
-	/**
-	 * Loeschen einer einzelnen Bibliothek
-	 *
-	 * @param \Subugoe\Standorte\Domain\Model\Bibliothek $bibliothek
-	 * @return void
-	 */
-	public function deleteBibliothekAction(\Subugoe\Standorte\Domain\Model\Bibliothek $bibliothek) {
-		$this->bibliothekenRepository->remove($bibliothek);
-		$this->addFlashMessage('Die Bibliothek ' . $bibliothek->getTitel() . ' wurde erfolgreich geloescht.');
-		$this->redirect('listBibliotheken');
-	}
+    /**
+     * Loeschen einer einzelnen Bibliothek
+     *
+     * @param \Subugoe\Standorte\Domain\Model\Bibliothek $bibliothek
+     * @return void
+     */
+    public function deleteBibliothekAction(\Subugoe\Standorte\Domain\Model\Bibliothek $bibliothek)
+    {
+        $this->bibliothekenRepository->remove($bibliothek);
+        $this->addFlashMessage('Die Bibliothek ' . $bibliothek->getTitel() . ' wurde erfolgreich geloescht.');
+        $this->redirect('listBibliotheken');
+    }
 
-	/**
-	 * Loeschen einer Fakultaet
-	 *
-	 * @param \Subugoe\Standorte\Domain\Model\Fakultaet $fakultaet
-	 * @return void
-	 */
-	public function deleteFakultaetAction(\Subugoe\Standorte\Domain\Model\Fakultaet $fakultaet) {
-		$this->fakultaetRepository->remove($fakultaet);
-		$this->addFlashMessage('Die Fakultaet ' . $fakultaet->getTitel() . ' wurde erfolgreich geloescht.');
-		$this->redirect('listFakultaeten');
-	}
+    /**
+     * Loeschen einer Fakultaet
+     *
+     * @param \Subugoe\Standorte\Domain\Model\Fakultaet $fakultaet
+     * @return void
+     */
+    public function deleteFakultaetAction(\Subugoe\Standorte\Domain\Model\Fakultaet $fakultaet)
+    {
+        $this->fakultaetRepository->remove($fakultaet);
+        $this->addFlashMessage('Die Fakultaet ' . $fakultaet->getTitel() . ' wurde erfolgreich geloescht.');
+        $this->redirect('listFakultaeten');
+    }
 }

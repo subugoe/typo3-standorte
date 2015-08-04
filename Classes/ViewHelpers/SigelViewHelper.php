@@ -27,23 +27,25 @@ namespace Subugoe\Standorte\ViewHelpers;
 /**
  * Description of SigelViewHelper
  */
-class SigelViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
+class SigelViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
+{
 
-	/**
-	 * Rendert ein Sigel- je nachdem wo es hingehoert
-	 *
-	 * @param string $sigel $sigel Das zu ueberpruefende Sigel
-	 * @return string Das formatierte Sigel
-	 */
-	public function render($sigel) {
+    /**
+     * Rendert ein Sigel- je nachdem wo es hingehoert
+     *
+     * @param string $sigel $sigel Das zu ueberpruefende Sigel
+     * @return string Das formatierte Sigel
+     */
+    public function render($sigel)
+    {
 
-		if ((is_numeric($sigel)) && (strlen($sigel) == 3)) {
+        if ((is_numeric($sigel)) && (strlen($sigel) == 3)) {
 
-			//dann nehmen wir mal an, dass es eine goettinger Bibliothek ist ...
-			$sigel = '7/' . $sigel;
-		}
+            //dann nehmen wir mal an, dass es eine goettinger Bibliothek ist ...
+            $sigel = '7/' . $sigel;
+        }
 
-		return $sigel;
-	}
+        return $sigel;
+    }
 
 }

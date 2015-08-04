@@ -25,45 +25,48 @@
 //Unschoen aber laeuft
 require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('standorte') . 'Classes/Domain/Repository/BibliothekRepository.php');
 
-class user_Tx_Standorte_Classes_Hooks_Sidebar {
+class user_Tx_Standorte_Classes_Hooks_Sidebar
+{
 
-	/**
-	 * Bibliothekenrepository
-	 * @var \Subugoe\Standorte\Domain\Repository\BibliothekRepository
-	 * @inject
-	 */
-	public $bibliothekenRepository = NULL;
+    /**
+     * Bibliothekenrepository
+     * @var \Subugoe\Standorte\Domain\Repository\BibliothekRepository
+     * @inject
+     */
+    public $bibliothekenRepository = null;
 
-	function __construct() {
-		/** @var \TYPO3\CMS\Extbase\Object\ObjectManager $objectManager */
-		$objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
-		$this->bibliothekenRepository = $objectManager->get('Subugoe\\Standorte\\Domain\\Repository\\BibliothekRepository');
-	}
+    function __construct()
+    {
+        /** @var \TYPO3\CMS\Extbase\Object\ObjectManager $objectManager */
+        $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
+        $this->bibliothekenRepository = $objectManager->get('Subugoe\\Standorte\\Domain\\Repository\\BibliothekRepository');
+    }
 
-	/**
-	 * Hook fuer die Ausgabe der Seiteninhalte in der Sidebar
-	 * @param string $tmp
-	 * @param object $obj
-	 */
-	public function hookFunc(&$tmp, $obj) {
+    /**
+     * Hook fuer die Ausgabe der Seiteninhalte in der Sidebar
+     * @param string $tmp
+     * @param object $obj
+     */
+    public function hookFunc(&$tmp, $obj)
+    {
 
-		$getPostVar = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('tx_standorte_pi1');
+        $getPostVar = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('tx_standorte_pi1');
 
-		$fakultaet = intval($getPostVar['fakultaet']);
+        $fakultaet = intval($getPostVar['fakultaet']);
 
-		if ($fakultaet > 0) {
-			//leeren der Sidebar
-			$tmp = null;
+        if ($fakultaet > 0) {
+            //leeren der Sidebar
+            $tmp = null;
 
-			$bibliotheken = $this->bibliothekenRepository->findByUidEverywhere($fakultaet);
+            $bibliotheken = $this->bibliothekenRepository->findByUidEverywhere($fakultaet);
 
-			foreach ($bibliotheken as $bibliothek) {
-				$tmp .= '<li><a href="#bibliothek-' . $bibliothek->getUid() . '">';
-				$tmp .= $bibliothek->getTitel();
-				$tmp .= '</a></li>';
-			}
-		}
-	}
+            foreach ($bibliotheken as $bibliothek) {
+                $tmp .= '<li><a href="#bibliothek-' . $bibliothek->getUid() . '">';
+                $tmp .= $bibliothek->getTitel();
+                $tmp .= '</a></li>';
+            }
+        }
+    }
 
 }
 

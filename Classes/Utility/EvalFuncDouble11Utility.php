@@ -27,10 +27,30 @@
 /**
  * Helper-Class add eval-function for double with precision 11
  */
-class tx_standorte_double11 {
+class tx_standorte_double11
+{
 
-	function returnFieldJS() {
-		return "
+    static public function evaluateFieldValue($value, $is_in, &$set)
+    {
+        $theDec = 0;
+        for ($a = strlen($value); $a > 0; $a--) {
+            // Search for the dot '.'|','
+            if (substr($value, $a - 1, 1) == '.' || substr($value, $a - 1, 1) == ',') {
+                $theDec = substr($value, $a);        // Float part
+                $value = substr($value, 0, $a - 1);        // Integer
+                break;
+            }
+        }
+        $theDec = preg_replace('[^0-9]', '',
+                $theDec) . '00000000000';                // Remove all "not" Decimals, append 11*'0'
+        $value = intval(str_replace(' ', '', $value)) . '.' . substr($theDec, 0,
+                11);    // Remove all blanks in Integer-part, cut to float precision=6
+        return $value;
+    }
+
+    function returnFieldJS()
+    {
+        return "
 			var theVal = ''+value;
 			var dec=0;
 			if (!value)    return 0;
@@ -45,22 +65,7 @@ class tx_standorte_double11 {
 			theVal=evalFunc.parseInt(evalFunc.noSpace(theVal))+TS.decimalSign+dec.substr(0,11);
 			return theVal;
 		";
-	}
-
-	static public function evaluateFieldValue($value, $is_in, &$set) {
-		$theDec = 0;
-		for ($a = strlen($value); $a > 0; $a--) {
-			// Search for the dot '.'|','
-			if (substr($value, $a - 1, 1) == '.' || substr($value, $a - 1, 1) == ',') {
-				$theDec = substr($value, $a);        // Float part
-				$value = substr($value, 0, $a - 1);        // Integer
-				break;
-			}
-		}
-		$theDec = preg_replace('[^0-9]', '', $theDec) . '00000000000';                // Remove all "not" Decimals, append 11*'0'
-		$value = intval(str_replace(' ', '', $value)) . '.' . substr($theDec, 0, 11);    // Remove all blanks in Integer-part, cut to float precision=6
-		return $value;
-	}
+    }
 }
 
 ?>

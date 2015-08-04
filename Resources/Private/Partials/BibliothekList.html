@@ -18,7 +18,7 @@
 
 				<dt><f:translate key="anschrift" /></dt>
 				<dd><f:format.html>{bibo.strasse}<br /><f:if condition="{bibo.adresszusatz}"><f:then>{bibo.adresszusatz}<br /></f:then></f:if>{bibo.plz} {bibo.ort}</f:format.html>
-					<f:format.html><a class="map" id="cl-{bibo.uid}" title="{f:translate(key:'maptitle')}"><f:translate key="karte" /></a></f:format.html>
+					<f:format.html><a class="map" lat="{bibo.lat}" lng="{bibo.lon}" head="{bibo.titel}" id="cl-{bibo.uid}" title="{f:translate(key:'maptitle')}"><f:translate key="karte" /></a></f:format.html>
 				<div id="map-{bibo.uid}" class="karte"></div>
 				<f:if condition="{bibo.extlink}">
 					<f:then>
