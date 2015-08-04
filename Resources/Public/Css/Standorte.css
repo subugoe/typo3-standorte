@@ -4,17 +4,15 @@
 .tx-standorte form fieldset legend {
   display: none;
 }
-.tx-standorte-pi1 table thead > tr > th {
-  width: 60px;
-}
-.tx-standorte-pi1 table#daten {
-  font-family: arial;
-  margin: 10px 0pt 15px;
+.tx-standorte table#daten {
+  font-family: Arial, 'sans-serif';
+  margin: 10px 0 15px;
   font-size: 8pt;
   width: 100%;
   text-align: left;
 }
-.tx-standorte table#daten thead tr th, .tx-standorte table#daten table.tablesorter tfoot tr th {
+.tx-standorte table#daten thead tr th,
+.tx-standorte table#daten table.tablesorter tfoot tr th {
   border: 1px solid #FFF;
   font-size: 8pt;
   padding: 4px;
@@ -33,11 +31,11 @@
   vertical-align: top;
 }
 .tx-standorte table#daten thead tr .headerSortUp {
-  background-image: url(../img/asc.gif);
+  background-image: url(../Images/asc.gif);
   color: black;
 }
 .tx-standorte table#daten thead tr .headerSortDown {
-  background-image: url(../img/desc.gif);
+  background-image: url(../Images/desc.gif);
   color: black;
 }
 .tx-standorte table#daten thead tr .headerSortDown, .tx-standorte table#daten table.tablesorter thead tr .headerSortUp {

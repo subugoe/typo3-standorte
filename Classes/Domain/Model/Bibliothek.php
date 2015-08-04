@@ -1,5 +1,6 @@
 <?php
 namespace Subugoe\Standorte\Domain\Model;
+
 /* * *************************************************************
  *  Copyright notice
  *
@@ -27,511 +28,554 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 /**
  * Bibliothek
  */
-class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
+class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+{
 
-	/**
-	 *
-	 * @var int
-	 */
-	protected $uid;
-	/**
-	 *
-	 * @var string
-	 */
-	protected $sigel;
-	/**
-	 *
-	 * @var string
-	 */
-	protected $oeffnungszeiten;
-	/**
-	 *
-	 * @var string
-	 */
-	protected $titel;
+    /**
+     *
+     * @var int
+     */
+    protected $uid;
+    /**
+     *
+     * @var string
+     */
+    protected $sigel;
+    /**
+     *
+     * @var string
+     */
+    protected $oeffnungszeiten;
+    /**
+     *
+     * @var string
+     */
+    protected $titel;
 
-	/**
-	 *
-	 * @var string
-	 */
-	protected $lon;
-	/**
-	 *
-	 * @var string
-	 */
-	protected $lat;
-	/**
-	 *
-	 * @var string
-	 */
-	protected $ansprechpartner;
-	/**
-	 *
-	 * @var string
-	 */
-	protected $bestand;
-	/**
-	 *
-	 * @var string
-	 */
-	protected $strasse;
-	/**
-	 * Adresszusatz (sowas wie "Juridicum, 4. Stock ...)
-	 *
-	 * @var string
-	 */
-	protected $adresszusatz;
-	/**
-	 *
-	 * @var int
-	 */
-	protected $plz;
-	/**
-	 *
-	 * @var string
-	 */
-	protected $ort;
-	/**
-	 *
-	 * @var string
-	 */
-	protected $zusatzinformationen;
-	/**
-	 *
-	 * @var string
-	 */
-	protected $bild;
-	/**
-	 *
-	 * @var \Subugoe\Standorte\Domain\Model\Fakultaet
-	 */
-	protected $fakultaet;
-	/**
-	 * Link zum Katalog
-	 *
-	 * @var string
-	 */
-	protected $katalog;
-	/**
-	 * Wenn der Bestand nur teilweise im GUK enthalten ist
-	 *
-	 * @var boolean
-	 */
-	protected $katalogteilweise;
-	/**
-	 * Link zum Institutskatalog
-	 *
-	 * @var string
-	 */
-	protected $institutskatalog;
-	/**
-	 * Falls die Bibliothek nur einen Link nach extern hat (Sonderfall MPI)
-	 *
-	 * @var string
-	 */
-	protected $extlink;
+    /**
+     *
+     * @var string
+     */
+    protected $lon;
+    /**
+     *
+     * @var string
+     */
+    protected $lat;
+    /**
+     *
+     * @var string
+     */
+    protected $ansprechpartner;
+    /**
+     *
+     * @var string
+     */
+    protected $bestand;
+    /**
+     *
+     * @var string
+     */
+    protected $strasse;
+    /**
+     * Adresszusatz (sowas wie "Juridicum, 4. Stock ...)
+     *
+     * @var string
+     */
+    protected $adresszusatz;
+    /**
+     *
+     * @var int
+     */
+    protected $plz;
+    /**
+     *
+     * @var string
+     */
+    protected $ort;
+    /**
+     *
+     * @var string
+     */
+    protected $zusatzinformationen;
+    /**
+     *
+     * @var string
+     */
+    protected $bild;
+    /**
+     *
+     * @var \Subugoe\Standorte\Domain\Model\Fakultaet
+     */
+    protected $fakultaet;
+    /**
+     * Link zum Katalog
+     *
+     * @var string
+     */
+    protected $katalog;
+    /**
+     * Wenn der Bestand nur teilweise im GUK enthalten ist
+     *
+     * @var boolean
+     */
+    protected $katalogteilweise;
+    /**
+     * Link zum Institutskatalog
+     *
+     * @var string
+     */
+    protected $institutskatalog;
+    /**
+     * Falls die Bibliothek nur einen Link nach extern hat (Sonderfall MPI)
+     *
+     * @var string
+     */
+    protected $extlink;
 
-	/**
-	 *
-	 * Wenn die Bibliothek versteckt ist
-	 * @var boolean
-	 */
-	protected $hidden;
+    /**
+     *
+     * Wenn die Bibliothek versteckt ist
+     * @var boolean
+     */
+    protected $hidden;
 
-	/**
-	 * PizNr for internal use and linking to other services
-	 *
-	 * @var int
-	 */
-	protected $pizNr;
+    /**
+     * PizNr for internal use and linking to other services
+     *
+     * @var int
+     */
+    protected $pizNr;
 
-	/**
-	 *
-	 * @return bool
-	 * @return void
-	 */
-	public function getHidden() {
-		return $this->hidden;
-	}
+    /**
+     *
+     * @return bool
+     * @return void
+     */
+    public function getHidden()
+    {
+        return $this->hidden;
+    }
 
-	/**
-	 *
-	 * @param $hidden
-	 * @return void
-	 */
-	public function setHidden($hidden) {
-		$this->hidden = $hidden;
-	}
+    /**
+     *
+     * @param $hidden
+     * @return void
+     */
+    public function setHidden($hidden)
+    {
+        $this->hidden = $hidden;
+    }
 
-	/**
-	 *
-	 * @return bool
-	 */
-	public function getKatalogteilweise() {
-		return $this->katalogteilweise;
-	}
+    /**
+     *
+     * @return bool
+     */
+    public function getKatalogteilweise()
+    {
+        return $this->katalogteilweise;
+    }
 
-	/**
-	 *
-	 * @param $katalogteilweise
-	 * @return void
-	 */
-	public function setKatalogteilweise($katalogteilweise) {
-		$this->katalogteilweise = $katalogteilweise;
-	}
+    /**
+     *
+     * @param $katalogteilweise
+     * @return void
+     */
+    public function setKatalogteilweise($katalogteilweise)
+    {
+        $this->katalogteilweise = $katalogteilweise;
+    }
 
-	/**
-	 * Getter fuer einen link nach Extern
-	 *
-	 * @return string Link
-	 * @return string
-	 */
-	public function getExtlink() {
-		return $this->extlink;
-	}
+    /**
+     * Getter fuer einen link nach Extern
+     *
+     * @return string Link
+     * @return string
+     */
+    public function getExtlink()
+    {
+        return $this->extlink;
+    }
 
-	/**
-	 * Setter fuer einen Link nach Extern
-	 *
-	 * @param string $extlink
-	 * @return void
-	 */
-	public function setExtlink($extlink) {
-		$this->extlink = $extlink;
-	}
+    /**
+     * Setter fuer einen Link nach Extern
+     *
+     * @param string $extlink
+     * @return void
+     */
+    public function setExtlink($extlink)
+    {
+        $this->extlink = $extlink;
+    }
 
-	/**
-	 * Getter fuer den Institutskatalog
-	 *
-	 * @return string
-	 */
-	public function getInstitutskatalog() {
-		return $this->institutskatalog;
-	}
+    /**
+     * Getter fuer den Institutskatalog
+     *
+     * @return string
+     */
+    public function getInstitutskatalog()
+    {
+        return $this->institutskatalog;
+    }
 
-	/**
-	 * Setter fuer den Institutskatalog
-	 *
-	 * @param string $institutskatalog
-	 * @return void
-	 */
-	public function setInstitutskatalog($institutskatalog) {
-		$this->institutskatalog = $institutskatalog;
-	}
+    /**
+     * Setter fuer den Institutskatalog
+     *
+     * @param string $institutskatalog
+     * @return void
+     */
+    public function setInstitutskatalog($institutskatalog)
+    {
+        $this->institutskatalog = $institutskatalog;
+    }
 
-	/**
-	 * Simpler Getter fuer den Adresszusatz
-	 *
-	 * @return string
-	 * @return void
-	 */
-	public function getAdresszusatz() {
-		return $this->adresszusatz;
-	}
+    /**
+     * Simpler Getter fuer den Adresszusatz
+     *
+     * @return string
+     * @return void
+     */
+    public function getAdresszusatz()
+    {
+        return $this->adresszusatz;
+    }
 
-	/**
-	 * Setter fuer einen Adresszusatz
-	 *
-	 * @param string $adresszusatz
-	 * @return void
-	 */
-	public function setAdresszusatz($adresszusatz) {
-		$this->adresszusatz = $adresszusatz;
-	}
+    /**
+     * Setter fuer einen Adresszusatz
+     *
+     * @param string $adresszusatz
+     * @return void
+     */
+    public function setAdresszusatz($adresszusatz)
+    {
+        $this->adresszusatz = $adresszusatz;
+    }
 
-	/**
-	 * Getter fuer den Katalog
-	 *
-	 * @return string
-	 */
-	public function getKatalog() {
-		return $this->katalog;
-	}
+    /**
+     * Getter fuer den Katalog
+     *
+     * @return string
+     */
+    public function getKatalog()
+    {
+        return $this->katalog;
+    }
 
-	/**
-	 * Link zum Katalog
-	 *
-	 * @param string $katalog
-	 * @return void
-	 */
-	public function setKatalog($katalog) {
-		$this->katalog = $katalog;
-	}
+    /**
+     * Link zum Katalog
+     *
+     * @param string $katalog
+     * @return void
+     */
+    public function setKatalog($katalog)
+    {
+        $this->katalog = $katalog;
+    }
 
-	/**
-	 * Getter fuer Fakultaet
-	 *
-	 * @return \Subugoe\Standorte\Domain\Model\Fakultaet
-	 */
-	public function getFakultaet() {
-		return $this->fakultaet;
-	}
+    /**
+     * Getter fuer Fakultaet
+     *
+     * @return \Subugoe\Standorte\Domain\Model\Fakultaet
+     */
+    public function getFakultaet()
+    {
+        return $this->fakultaet;
+    }
 
-	/**
-	 * Fakultaet der die Bibliothek angehoert
-	 *
-	 * @param \Subugoe\Standorte\Domain\Model\Fakultaet $fakultaet
-	 */
-	public function setFakultaet(\Subugoe\Standorte\Domain\Model\Fakultaet $fakultaet) {
-		$this->fakultaet = $fakultaet;
-	}
+    /**
+     * Fakultaet der die Bibliothek angehoert
+     *
+     * @param \Subugoe\Standorte\Domain\Model\Fakultaet $fakultaet
+     */
+    public function setFakultaet(\Subugoe\Standorte\Domain\Model\Fakultaet $fakultaet)
+    {
+        $this->fakultaet = $fakultaet;
+    }
 
-	/**
-	 *
-	 * @return string
-	 */
-	public function getSigel() {
-		return $this->sigel;
-	}
+    /**
+     *
+     * @return string
+     */
+    public function getSigel()
+    {
+        return $this->sigel;
+    }
 
-	/**
-	 *
-	 * @param $sigel
-	 * @return void
-	 */
-	public function setSigel($sigel) {
-		$this->sigel = $sigel;
-	}
+    /**
+     *
+     * @param $sigel
+     * @return void
+     */
+    public function setSigel($sigel)
+    {
+        $this->sigel = $sigel;
+    }
 
-	/**
-	 * Auslesen der Oeffnungszeiten
-	 *
-	 * @lazy
-	 * @return array
-	 */
-	public function getOeffnungszeiten() {
-		return $this->oeffnungszeiten;
-	}
+    /**
+     * Auslesen der Oeffnungszeiten
+     *
+     * @lazy
+     * @return array
+     */
+    public function getOeffnungszeiten()
+    {
+        return $this->oeffnungszeiten;
+    }
 
-	/**
-	 * Setter fuer die Oeffnungszeiten
-	 *
-	 * @param array $oeffnungszeiten
-	 * @return void
-	 */
-	public function setOeffnungszeiten($oeffnungszeiten) {
-		$this->oeffnungszeiten = $oeffnungszeiten;
-	}
+    /**
+     * Setter fuer die Oeffnungszeiten
+     *
+     * @param array $oeffnungszeiten
+     * @return void
+     */
+    public function setOeffnungszeiten($oeffnungszeiten)
+    {
+        $this->oeffnungszeiten = $oeffnungszeiten;
+    }
 
-	/**
-	 *
-	 * @return string
-	 */
-	public function getTitel() {
-		return $this->titel;
-	}
+    /**
+     *
+     * @return string
+     */
+    public function getTitel()
+    {
+        return $this->titel;
+    }
 
-	/**
-	 *
-	 * @param $titel
-	 * @return void
-	 */
-	public function setTitel($titel) {
-		$this->titel = $titel;
-	}
+    /**
+     *
+     * @param $titel
+     * @return void
+     */
+    public function setTitel($titel)
+    {
+        $this->titel = $titel;
+    }
 
-	/**
-	 *
-	 * @return string
-	 */
-	public function getLon() {
-		if ($this->lon <= '0.00') {
-			$this->lon = $this->geoCode('lon');
-		}
-		return $this->lon;
-	}
+    /**
+     *
+     * @return string
+     */
+    public function getLon()
+    {
+        if ($this->lon <= '0.00') {
+            $this->lon = $this->geoCode('lon');
+        }
+        return $this->lon;
+    }
 
-	/**
-	 *
-	 * @param $lon
-	 * @return void
-	 */
-	public function setLon($lon) {
-		$this->lon = $lon;
-	}
+    /**
+     *
+     * @param $lon
+     * @return void
+     */
+    public function setLon($lon)
+    {
+        $this->lon = $lon;
+    }
 
-	/**
-	 *
-	 * @return string
-	 */
-	public function getLat() {
-		if ($this->lat <= '0.00') {
-			$this->lat = $this->geoCode('lat');
-		}
-		return $this->lat;
-	}
+    /**
+     * Geocoding mit der Google Maps Api v3
+     *
+     * @param string $latlon
+     * @return string
+     */
+    private function geoCode($latlon)
+    {
 
-	/**
-	 *
-	 * @param $lat
-	 * @return void
-	 */
-	public function setLat($lat) {
-		$this->lat = $lat;
-	}
+        $adresse = $this->erzeugeAdresse();
+        $url = 'http://maps.google.com/maps/api/geocode/json?address=' . $adresse . '&sensor=false';
 
-	/**
-	 *
-	 * @return string
-	 */
-	public function getAnsprechpartner() {
-		return $this->ansprechpartner;
-	}
+        $rueckgabe = GeneralUtility::getURL($url);
+        if (!$rueckgabe) {
+            throw new \Exception('Geocoding failed', 1342516484);
+        }
+        $code = json_decode($rueckgabe);
+        $latlon == 'lat' ? $geo = $code->results[0]->geometry->location->lat : $geo = $code->results[0]->geometry->location->lng;
 
-	/**
-	 *
-	 * @param $ansprechpartner
-	 * @return void
-	 */
-	public function setAnsprechpartner($ansprechpartner) {
-		$this->ansprechpartner = $ansprechpartner;
-	}
+        return $geo;
+    }
 
-	/**
-	 *
-	 * @return string
-	 */
-	public function getBestand() {
-		return $this->bestand;
-	}
+    /**
+     * Adresse zum geokodieren aufbereiten
+     *
+     * @return string
+     */
+    private function erzeugeAdresse()
+    {
+        $concat = $this->strasse . ',' . $this->plz . ' ' . $this->ort;
+        return urlencode($concat);
+    }
 
-	/**
-	 *
-	 * @param $bestand
-	 * @return void
-	 */
-	public function setBestand($bestand) {
-		$this->bestand = $bestand;
-	}
+    /**
+     *
+     * @return string
+     */
+    public function getLat()
+    {
+        if ($this->lat <= '0.00') {
+            $this->lat = $this->geoCode('lat');
+        }
+        return $this->lat;
+    }
 
-	/**
-	 *
-	 * @return string
-	 */
-	public function getStrasse() {
-		return $this->strasse;
-	}
+    /**
+     *
+     * @param $lat
+     * @return void
+     */
+    public function setLat($lat)
+    {
+        $this->lat = $lat;
+    }
 
-	/**
-	 *
-	 * @param $strasse
-	 * @return void
-	 */
-	public function setStrasse($strasse) {
-		$this->strasse = $strasse;
-	}
+    /**
+     *
+     * @return string
+     */
+    public function getAnsprechpartner()
+    {
+        return $this->ansprechpartner;
+    }
 
-	/**
-	 *
-	 * @return int
-	 */
-	public function getPlz() {
-		return $this->plz;
-	}
+    /**
+     *
+     * @param $ansprechpartner
+     * @return void
+     */
+    public function setAnsprechpartner($ansprechpartner)
+    {
+        $this->ansprechpartner = $ansprechpartner;
+    }
 
-	/**
-	 *
-	 * @param $plz
-	 * @return void
-	 */
-	public function setPlz($plz) {
-		$this->plz = $plz;
-	}
+    /**
+     *
+     * @return string
+     */
+    public function getBestand()
+    {
+        return $this->bestand;
+    }
 
-	/**
-	 *
-	 * @return string
-	 */
-	public function getOrt() {
-		return $this->ort;
-	}
+    /**
+     *
+     * @param $bestand
+     * @return void
+     */
+    public function setBestand($bestand)
+    {
+        $this->bestand = $bestand;
+    }
 
-	/**
-	 *
-	 * @param string $ort
-	 * @return void
-	 */
-	public function setOrt($ort) {
-		$this->ort = $ort;
-	}
+    /**
+     *
+     * @return string
+     */
+    public function getStrasse()
+    {
+        return $this->strasse;
+    }
 
-	/**
-	 *
-	 * @return string
-	 */
-	public function getZusatzinformationen() {
-		return $this->zusatzinformationen;
-	}
+    /**
+     *
+     * @param $strasse
+     * @return void
+     */
+    public function setStrasse($strasse)
+    {
+        $this->strasse = $strasse;
+    }
 
-	/**
-	 *
-	 * @param string $zusatzinformationen
-	 * @return void
-	 */
-	public function setZusatzinformationen($zusatzinformationen) {
-		$this->zusatzinformationen = $zusatzinformationen;
-	}
+    /**
+     *
+     * @return int
+     */
+    public function getPlz()
+    {
+        return $this->plz;
+    }
 
-	/**
-	 * Existiert ein Bild fuer die aktuelle Bibliothek?
-	 *
-	 * @return string
-	 */
-	public function getBild() {
-		return $this->bild;
-	}
+    /**
+     *
+     * @param $plz
+     * @return void
+     */
+    public function setPlz($plz)
+    {
+        $this->plz = $plz;
+    }
 
-	/**
-	 *
-	 * @param $bild
-	 * @return void
-	 */
-	public function setBild($bild) {
-		$this->bild = $bild;
-	}
+    /**
+     *
+     * @return string
+     */
+    public function getOrt()
+    {
+        return $this->ort;
+    }
 
-	/**
-	 * Geocoding mit der Google Maps Api v3
-	 *
-	 * @param string $latlon
-	 * @return string
-	 */
-	private function geoCode($latlon) {
+    /**
+     *
+     * @param string $ort
+     * @return void
+     */
+    public function setOrt($ort)
+    {
+        $this->ort = $ort;
+    }
 
-		$adresse = $this->erzeugeAdresse();
-		$url = 'http://maps.google.com/maps/api/geocode/json?address=' . $adresse . '&sensor=false';
+    /**
+     *
+     * @return string
+     */
+    public function getZusatzinformationen()
+    {
+        return $this->zusatzinformationen;
+    }
 
-		$rueckgabe = GeneralUtility::getURL($url);
-		if (!$rueckgabe) {
-			throw new \Exception('Geocoding failed', 1342516484);
-		}
-		$code = json_decode($rueckgabe);
-		$latlon == 'lat' ? $geo = $code->results[0]->geometry->location->lat : $geo = $code->results[0]->geometry->location->lng;
+    /**
+     *
+     * @param string $zusatzinformationen
+     * @return void
+     */
+    public function setZusatzinformationen($zusatzinformationen)
+    {
+        $this->zusatzinformationen = $zusatzinformationen;
+    }
 
-		return $geo;
-	}
+    /**
+     * Existiert ein Bild fuer die aktuelle Bibliothek?
+     *
+     * @return string
+     */
+    public function getBild()
+    {
+        return $this->bild;
+    }
 
-	/**
-	 * Adresse zum geokodieren aufbereiten
-	 *
-	 * @return string
-	 */
-	private function erzeugeAdresse() {
-		$concat = $this->strasse . ',' . $this->plz . ' ' . $this->ort;
-		return urlencode($concat);
-	}
+    /**
+     *
+     * @param $bild
+     * @return void
+     */
+    public function setBild($bild)
+    {
+        $this->bild = $bild;
+    }
 
-	/**
-	 * @param int $pizNr
-	 */
-	public function setPizNr($pizNr) {
-		$this->pizNr = $pizNr;
-	}
+    /**
+     * @return int
+     */
+    public function getPizNr()
+    {
+        return $this->pizNr;
+    }
 
-	/**
-	 * @return int
-	 */
-	public function getPizNr() {
-		return $this->pizNr;
-	}
+    /**
+     * @param int $pizNr
+     */
+    public function setPizNr($pizNr)
+    {
+        $this->pizNr = $pizNr;
+    }
 }
