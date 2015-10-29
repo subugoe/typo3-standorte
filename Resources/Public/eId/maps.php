@@ -33,7 +33,7 @@ if (!$_POST['uid']) {
     die('Direktes Aufrufen des Scripts ist nicht erlaubt');
 }
 
-$uid = intval(t3lib_div::_GP('uid'));
+$uid = intval(\TYPO3\CMS\Core\Utility\GeneralUtility::_GP('uid'));
 
 $datenbankname = 'tx_standorte_domain_model_bibliothek';
 

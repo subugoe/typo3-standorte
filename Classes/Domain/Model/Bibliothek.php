@@ -377,6 +377,7 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Geocoding mit der Google Maps Api v3
      *
+     * @throws \Exception
      * @param string $latlon
      * @return string
      */

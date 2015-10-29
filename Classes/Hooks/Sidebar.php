@@ -69,5 +69,3 @@ class user_Tx_Standorte_Classes_Hooks_Sidebar
     }
 
 }
-
-?>

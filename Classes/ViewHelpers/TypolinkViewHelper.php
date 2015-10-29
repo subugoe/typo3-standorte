@@ -23,33 +23,33 @@ namespace Subugoe\Standorte\ViewHelpers;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  * ************************************************************* */
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
 /**
- * View Helper fuer einen TypoLink
- * @todo nicht die alte Api anzapfen
- * $Id$
- * @author ingop
+ * View Helper for a TypoLink
  */
-class TypolinkViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
+class TypolinkViewHelper extends AbstractViewHelper
 {
 
     /**
      * Renders a Typolink with title etc
      *
      * @param string $typolink Typolink to be processes
-     * @param string $linktext Text um den Link
-     * @param string $title Linktitel
+     * @param string $linktext Text around the link
+     * @param string $title link title attribute
      * @return string
      */
     public function render($typolink, $linktext, $title = '')
     {
-        $local_cObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('tslib_cObj');
+        $local_cObj = GeneralUtility::makeInstance(ContentObjectRenderer::class);
 
         $url = $local_cObj->typoLink(
-            $linktext, array(
+            $linktext, [
                 'parameter' => $typolink,
                 'title' => $title
-            )
+            ]
         );
         return $url;
     }

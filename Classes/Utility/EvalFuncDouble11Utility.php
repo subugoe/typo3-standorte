@@ -67,5 +67,3 @@ class tx_standorte_double11
 		";
     }
 }
-
-?>

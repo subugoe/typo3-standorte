@@ -4,80 +4,80 @@ if (!defined('TYPO3_MODE')) {
     die('Access denied.');
 }
 
-$TCA['tx_standorte_domain_model_bibliothek'] = array(
+$TCA['tx_standorte_domain_model_bibliothek'] = [
     'ctrl' => $TCA['tx_standorte_domain_model_bibliothek']['ctrl'],
-    'interface' => array(
+    'interface' => [
         'showRecordFieldList' => 'sys_language_uid,l10n_parent,l10n_diffsource,hidden,sigel,titel,extlink,lat,lon,bestand,katalog,katalogteilweiseinstitutskatalog,strasse,adresszusatz,plz,ort,ansprechpartner,semesterferien,oeffnungszeiten,zusatzinformationen,bild,fakultaet,piz_nr'
-    ),
+    ],
     'feInterface' => $TCA['tx_standorte_domain_model_bibliothek']['feInterface'],
-    'columns' => array(
-        'sys_language_uid' => array(
+    'columns' => [
+        'sys_language_uid' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:lang/locallang_general.xml:LGL.language',
-            'config' => array(
+            'config' => [
                 'type' => 'select',
                 'foreign_table' => 'sys_language',
                 'foreign_table_where' => 'ORDER BY sys_language.title',
-                'items' => array(
-                    array('LLL:EXT:lang/locallang_general.xml:LGL.allLanguages', -1),
-                    array('LLL:EXT:lang/locallang_general.xml:LGL.default_value', 0)
-                )
-            )
-        ),
-        'l10n_parent' => array(
+                'items' => [
+                    ['LLL:EXT:lang/locallang_general.xml:LGL.allLanguages', -1],
+                    ['LLL:EXT:lang/locallang_general.xml:LGL.default_value', 0]
+                ]
+            ]
+        ],
+        'l10n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
             'exclude' => 1,
             'label' => 'LLL:EXT:lang/locallang_general.xml:LGL.l18n_parent',
-            'config' => array(
+            'config' => [
                 'type' => 'select',
-                'items' => array(
-                    array('', 0),
-                ),
+                'items' => [
+                    ['', 0],
+                ],
                 'foreign_table' => 'tx_standorte_domain_model_bibliothek',
                 'foreign_table_where' => 'AND tx_standorte_domain_model_bibliothek.pid=###CURRENT_PID### AND tx_standorte_domain_model_bibliothek.sys_language_uid IN (-1,0)',
-            )
-        ),
-        'l10n_diffsource' => array(
-            'config' => array(
+            ]
+        ],
+        'l10n_diffsource' => [
+            'config' => [
                 'type' => 'passthrough'
-            )
-        ),
-        't3ver_label' => array(
+            ]
+        ],
+        't3ver_label' => [
             'label' => 'LLL:EXT:lang/locallang_general.xml:LGL.versionLabel',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => '30',
                 'max' => '30',
-            )
-        ),
-        'hidden' => array(
+            ]
+        ],
+        'hidden' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:lang/locallang_general.xml:LGL.hidden',
-            'config' => array(
+            'config' => [
                 'type' => 'check',
                 'default' => '0'
-            )
-        ),
-        'sigel' => array(
+            ]
+        ],
+        'sigel' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.sigel',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => '8',
                 'max' => '20',
                 'eval' => 'trim',
-            )
-        ),
-        'titel' => array(
+            ]
+        ],
+        'titel' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.titel',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => '30',
                 'eval' => 'required,trim',
-            )
-        ),
-        'lat' => array(
+            ]
+        ],
+        'lat' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.lat',
             // 'config' => array(
@@ -85,143 +85,143 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
             // 	'size' => '30',
             // 	'eval' => 'tx_standorte_double11, nospace', //'double2, nospace'
             // )
-            'config' => array(
+            'config' => [
                 'type' => 'user',
                 'size' => '30',
                 'userFunc' => 'EXT:standorte/Classes/Utility/DisabledInputFieldUtility.php:Tx_Standorte_Utility_DisabledInputFieldUtility->disabledInputField',
-                'parameters' => array(
+                'parameters' => [
                     'disabled' => 'true'
-                ),
-            )
-        ),
-        'lon' => array(
+                ],
+            ]
+        ],
+        'lon' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.lon',
-            'config' => array(
+            'config' => [
                 'type' => 'user',
                 'size' => '30',
                 'eval' => 'tx_standorte_double11, nospace', //double2,
                 'userFunc' => 'EXT:standorte/Classes/Utility/DisabledInputFieldUtility.php:Tx_Standorte_Utility_DisabledInputFieldUtility->disabledInputField',
-                'parameters' => array(
+                'parameters' => [
                     'disabled' => 'true'
-                ),
-            )
-        ),
-        'bestand' => array(
+                ],
+            ]
+        ],
+        'bestand' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.bestand',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => '30',
-            )
-        ),
-        'strasse' => array(
+            ]
+        ],
+        'strasse' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.strasse',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => '30',
                 'eval' => 'trim',
-            )
-        ),
-        'adresszusatz' => array(
+            ]
+        ],
+        'adresszusatz' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.adresszusatz',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => '30',
                 'eval' => 'trim',
-            )
-        ),
-        'plz' => array(
+            ]
+        ],
+        'plz' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.plz',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => '5',
                 'max' => '5',
                 'eval' => 'int',
                 'checkbox' => '0',
-                'range' => array(
+                'range' => [
                     'upper' => '99999',
                     'lower' => '10000'
-                ),
+                ],
                 'default' => 0
-            )
-        ),
-        'ort' => array(
+            ]
+        ],
+        'ort' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.ort',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => '30',
                 'eval' => 'trim',
-            )
-        ),
-        'ansprechpartner' => array(
+            ]
+        ],
+        'ansprechpartner' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.ansprechpartner',
-            'config' => array(
+            'config' => [
                 'type' => 'text',
                 'cols' => '30',
                 'rows' => '5',
-                'wizards' => array(
+                'wizards' => [
                     '_PADDING' => 2,
-                    'RTE' => array(
+                    'RTE' => [
                         'notNewRecords' => 1,
                         'RTEonly' => 1,
                         'type' => 'script',
                         'title' => 'Full screen Rich Text Editing|Formatteret redigering i hele vinduet',
                         'icon' => 'wizard_rte2.gif',
                         'script' => 'wizard_rte.php',
-                    ),
-                ),
-            )
-        ),
-        'zusatzinformationen' => array(
+                    ],
+                ],
+            ]
+        ],
+        'zusatzinformationen' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.zusatzinformationen',
-            'config' => array(
+            'config' => [
                 'type' => 'text',
                 'cols' => '30',
                 'rows' => '5',
-                'wizards' => array(
+                'wizards' => [
                     '_PADDING' => 2,
-                    'RTE' => array(
+                    'RTE' => [
                         'notNewRecords' => 1,
                         'RTEonly' => 1,
                         'type' => 'script',
                         'title' => 'Full screen Rich Text Editing|Formatteret redigering i hele vinduet',
                         'icon' => 'wizard_rte2.gif',
                         'script' => 'wizard_rte.php',
-                    ),
-                ),
-            )
-        ),
-        'oeffnungszeiten' => array(
+                    ],
+                ],
+            ]
+        ],
+        'oeffnungszeiten' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.oeffnungszeiten',
-            'config' => array(
+            'config' => [
                 'type' => 'text',
                 'cols' => '30',
                 'rows' => '5',
-                'wizards' => array(
+                'wizards' => [
                     '_PADDING' => 2,
-                    'RTE' => array(
+                    'RTE' => [
                         'notNewRecords' => 1,
                         'RTEonly' => 1,
                         'type' => 'script',
                         'title' => 'Full screen Rich Text Editing|Formatteret redigering i hele vinduet',
                         'icon' => 'wizard_rte2.gif',
                         'script' => 'wizard_rte.php',
-                    ),
-                ),
-            )
-        ),
-        'bild' => array(
+                    ],
+                ],
+            ]
+        ],
+        'bild' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.bild',
-            'config' => array(
+            'config' => [
                 'type' => 'group',
                 'internal_type' => 'file',
                 'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
@@ -231,12 +231,12 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
                 'size' => 1,
                 'minitems' => 0,
                 'maxitems' => 1,
-            )
-        ),
-        'fakultaet' => array(
+            ]
+        ],
+        'fakultaet' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.fakultaet',
-            'config' => array(
+            'config' => [
                 'type' => 'select',
                 'loadingStrategy' => 'eager',
                 'foreign_table' => 'tx_standorte_domain_model_fakultaet',
@@ -244,94 +244,93 @@ $TCA['tx_standorte_domain_model_bibliothek'] = array(
                 'size' => 1,
                 'minitems' => 1,
                 'maxitems' => 1
-            )
-        ),
-        'katalog' => array(
+            ]
+        ],
+        'katalog' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.katalog',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => '15',
                 'max' => '255',
                 'checkbox' => '',
                 'eval' => 'trim',
-                'wizards' => array(
+                'wizards' => [
                     '_PADDING' => 2,
-                    'link' => array(
+                    'link' => [
                         'type' => 'popup',
                         'title' => 'Link',
                         'icon' => 'link_popup.gif',
                         'script' => 'browse_links.php?mode=wizard',
                         'JSopenParams' => 'height=300,width=500,status=0,menubar=0,scrollbars=1'
-                    )
-                )
-            )
-        ),
-        'katalogteilweise' => array(
+                    ]
+                ]
+            ]
+        ],
+        'katalogteilweise' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.katalogteilweise',
-            'config' => array(
+            'config' => [
                 'type' => 'check',
                 'cols' => 1
-            )
-        ),
-        'institutskatalog' => array(
+            ]
+        ],
+        'institutskatalog' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.institutskatalog',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => '15',
                 'max' => '255',
                 'checkbox' => '',
                 'eval' => 'trim',
-                'wizards' => array(
+                'wizards' => [
                     '_PADDING' => 2,
-                    'link' => array(
+                    'link' => [
                         'type' => 'popup',
                         'title' => 'Link',
                         'icon' => 'link_popup.gif',
                         'script' => 'browse_links.php?mode=wizard',
                         'JSopenParams' => 'height=300,width=500,status=0,menubar=0,scrollbars=1'
-                    )
-                )
-            )
-        ),
-        'extlink' => array(
+                    ]
+                ]
+            ]
+        ],
+        'extlink' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_fakultaet.extlink',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => '15',
                 'max' => '255',
                 'checkbox' => '',
                 'eval' => 'trim',
-                'wizards' => array(
+                'wizards' => [
                     '_PADDING' => 2,
-                    'link' => array(
+                    'link' => [
                         'type' => 'popup',
                         'title' => 'Link',
                         'icon' => 'link_popup.gif',
                         'script' => 'browse_links.php?mode=wizard',
                         'JSopenParams' => 'height=300,width=500,status=0,menubar=0,scrollbars=1'
-                    )
-                )
-            )
-        ),
-        'piz_nr' => array(
+                    ]
+                ]
+            ]
+        ],
+        'piz_nr' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.pizNr',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => '10',
                 'eval' => 'trim',
-            )
-        ),
-    ),
-    'types' => array(
-        '0' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1,sigel, titel, extlink, lat, lon, bestand, katalog,katalogteilweise, institutskatalog, strasse, adresszusatz, plz, ort, ansprechpartner;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_standorte/rte/], semesterferien, oeffnungszeiten;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_standorte/rte/], zusatzinformationen;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_standorte/rte/], bild, fakultaet, piz_nr'),
-    ),
-    'palettes' => array(
-        '1' => array('showitem' => '')
-    )
-);
-?>
+            ]
+        ],
+    ],
+    'types' => [
+        '0' => ['showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1,sigel, titel, extlink, lat, lon, bestand, katalog,katalogteilweise, institutskatalog, strasse, adresszusatz, plz, ort, ansprechpartner;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_standorte/rte/], semesterferien, oeffnungszeiten;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_standorte/rte/], zusatzinformationen;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_standorte/rte/], bild, fakultaet, piz_nr'],
+    ],
+    'palettes' => [
+        '1' => ['showitem' => '']
+    ]
+];

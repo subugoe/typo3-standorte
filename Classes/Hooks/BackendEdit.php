@@ -48,8 +48,8 @@ class user_Tx_Standorte_Classes_Hooks_BackendEdit
 
         if ($table == 'tx_standorte_domain_model_bibliothek') {
             // Check modified fields of interest
-            $field_list = array('strasse', 'plz', 'ort');
-            $fields = array();
+            $field_list = ['strasse', 'plz', 'ort'];
+            $fields = [];
             foreach (array_keys($incomingFieldArray) as $field) {
                 if (in_array($field, $field_list)) {
                     $fields[] = $field;
@@ -66,10 +66,10 @@ class user_Tx_Standorte_Classes_Hooks_BackendEdit
                     $address = $incomingFieldArray["strasse"] . ", " . $incomingFieldArray["plz"] . ", " . $incomingFieldArray["ort"];
                     $geo = $nkwlib->geocodeAddress($address);
                     \TYPO3\CMS\Core\Utility\GeneralUtility::devLog('processDatamap: Request coordinates from Google Maps API',
-                        'standorte', -1, array($geo));
+                        'standorte', -1, [$geo]);
                     if ($geo["status"] == "OK") {
                         \TYPO3\CMS\Core\Utility\GeneralUtility::devLog('processDatamap: Status OK', 'standorte', -1,
-                            array());
+                            []);
                         // If values differ take new ones ...
                         if ($incomingFieldArray['lat'] != ($lat = floatval($geo["results"][0]["geometry"]["location"]["lat"]))) {
                             $incomingFieldArray['lat'] = \tx_standorte_double11::evaluateFieldValue($lat, '', $pObj);
@@ -78,14 +78,14 @@ class user_Tx_Standorte_Classes_Hooks_BackendEdit
                             $incomingFieldArray['lon'] = \tx_standorte_double11::evaluateFieldValue($lon, '', $pObj);
                         }
                         \TYPO3\CMS\Core\Utility\GeneralUtility::devLog('processDatamap: Actualized FieldArray',
-                            'standorte', -1, array($incomingFieldArray));
+                            'standorte', -1, [$incomingFieldArray]);
                     } else {
                         \TYPO3\CMS\Core\Utility\GeneralUtility::devLog('processDatamap: Request failed', 'standorte', 3,
-                            array($geo));
+                            [$geo]);
                     }
                 } else {
                     \TYPO3\CMS\Core\Utility\GeneralUtility::devLog('processDatamap: No address field was modified',
-                        'standorte', 0, array($geo));
+                        'standorte', 0);
                 }
             }
         }

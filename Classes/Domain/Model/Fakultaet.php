@@ -26,9 +26,7 @@ namespace Subugoe\Standorte\Domain\Model;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
- * Description of Fakultaet
- * $Id$
- * @author ingop
+ * Fakultaet
  */
 class Fakultaet extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {

@@ -71,7 +71,7 @@ class BibliothekController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContr
 
     /**
      * List all libraries by faculty
-     * @param \Subugoe\Standorte\Domain\Model\Fakultaet $fakultaetId
+     * @param \Subugoe\Standorte\Domain\Model\Fakultaet $fakultaet
      */
     public function listAction(\Subugoe\Standorte\Domain\Model\Fakultaet $fakultaet = null)
     {

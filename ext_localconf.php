@@ -10,37 +10,36 @@ if (!defined('TYPO3_MODE')) {
  * the user input (default settings, FlexForm, URL etc.)
  */
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'Subugoe.' . $_EXTKEY, // The extension name (in UpperCamelCase) or the extension key (in lower_underscore)
-    'Pi1', // A unique name of the plugin in UpperCamelCase
-    array(// An array holding the controller-action-combinations that are accessible
+    'Subugoe.' . $_EXTKEY,
+    'Pi1',
+    [
         'Fakultaet' => 'index,list',
         'Bibliothek' => 'list,listSigelTitel,single,listBibMitLink'
-        // The first controller and its first action will be the default
-    ),
-    array(
+    ],
+    [
         'Fakultaet' => 'index,list',
         'Bibliothek' => 'list,listSigelTitel,single,listBibMitLink'
-    )
+    ]
 );
 
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'Subugoe.' . $_EXTKEY, // The extension name (in UpperCamelCase) or the extension key (in lower_underscore)
-    'Pi2', // A unique name of the plugin in UpperCamelCase
-    array(// An array holding the controller-action-combinations that are accessible
-        'Bibliothek' => 'listSigelTitel,single' // The first controller and its first action will be the default
-    ),
-    array(
+    'Subugoe.' . $_EXTKEY,
+    'Pi2',
+    [
         'Bibliothek' => 'listSigelTitel,single'
-    )
+    ],
+    [
+        'Bibliothek' => 'listSigelTitel,single'
+    ]
 );
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'Subugoe.' . $_EXTKEY, // The extension name (in UpperCamelCase) or the extension key (in lower_underscore)
-    'showLibrary', // A unique name of the plugin in UpperCamelCase
-    array(// An array holding the controller-action-combinations that are accessible
-        'Bibliothek' => 'single' // The first controller and its first action will be the default
-    )
+    'Subugoe.' . $_EXTKEY,
+    'showLibrary',
+    [
+        'Bibliothek' => 'single'
+    ]
 );
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('

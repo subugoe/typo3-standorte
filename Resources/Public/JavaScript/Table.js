@@ -1,9 +1,9 @@
 $(document).ready(function() {
 
-	function splitte(uid) {
+	var splitte = function(uid) {
 		id = uid.split('-');
 		return id[1];
-	}
+	};
 
 	if ($('table#daten').length > 0) {
 		$('table#daten').DataTable(

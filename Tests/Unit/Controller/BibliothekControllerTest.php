@@ -56,7 +56,7 @@ class BibliothekControllerTest extends BaseTestCase
         $this->fixture = new \Subugoe\Standorte\Controller\BibliothekController();
 
         $this->bibliothekRepository = $this->getMock(
-            'Subugoe\\Standorte\\Domain\\Repository\\BibliothekRepository', array(), array(), '', false
+            'Subugoe\\Standorte\\Domain\\Repository\\BibliothekRepository', [], [], '', false
         );
     }
 
