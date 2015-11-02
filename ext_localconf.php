@@ -70,7 +70,7 @@ RTE.config.tx_standorte_domain_model_bibliothek.oeffnungszeiten {
 ');
 
 // Added Hooks
-$TYPO3_CONF_VARS['EXTCONF']['nkwsubmenu']['extendTOC'][$_EXTKEY] = 'EXT:standorte/Classes/Hooks/Sidebar.php:user_Tx_Standorte_Classes_Hooks_Sidebar->hookFunc';
+$TYPO3_CONF_VARS['EXTCONF']['nkwsubmenu']['extendTOC'][$_EXTKEY] = 'EXT:standorte/Classes/Hooks/Sidebar.php:Subugoe\Standorte\Hooks\Sidebar->hookFunc';
 $TYPO3_CONF_VARS['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][] = 'EXT:standorte/Classes/Hooks/BackendEdit.php:&user_Tx_Standorte_Classes_Hooks_BackendEdit';
 // Evaluation functions for Backend edit form (coordinate precision)
 $TYPO3_CONF_VARS['SC_OPTIONS']['tce']['formevals']['tx_standorte_double6'] = 'EXT:standorte/Classes/Utility/EvalFuncDouble6Utility.php';

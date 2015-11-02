@@ -44,7 +44,6 @@ class user_Tx_Standorte_Classes_Hooks_BackendEdit
     {
 
         $modified = false;
-        $nkwlib = new \tx_nkwlib();
 
         if ($table == 'tx_standorte_domain_model_bibliothek') {
             // Check modified fields of interest
@@ -64,7 +63,7 @@ class user_Tx_Standorte_Classes_Hooks_BackendEdit
                 }
                 if ($modified) {
                     $address = $incomingFieldArray["strasse"] . ", " . $incomingFieldArray["plz"] . ", " . $incomingFieldArray["ort"];
-                    $geo = $nkwlib->geocodeAddress($address);
+                    $geo = $this->geocodeAddress($address);
                     \TYPO3\CMS\Core\Utility\GeneralUtility::devLog('processDatamap: Request coordinates from Google Maps API',
                         'standorte', -1, [$geo]);
                     if ($geo["status"] == "OK") {
@@ -89,6 +88,19 @@ class user_Tx_Standorte_Classes_Hooks_BackendEdit
                 }
             }
         }
+    }
+
+    /**
+     * Geocode an address using the Google Maps API
+     *
+     * @param string $str
+     * @return string
+     */
+    protected  function geocodeAddress($str)
+    {
+        $getThis = 'http://maps.google.com/maps/api/geocode/json?address=' . urlencode($str) . '&sensor=false';
+        $json = \TYPO3\CMS\Core\Utility\GeneralUtility::getUrl($getThis);
+        return json_decode($json, TRUE);
     }
 
 }

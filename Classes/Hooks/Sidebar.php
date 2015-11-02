@@ -1,5 +1,7 @@
 <?php
 
+namespace Subugoe\Standorte\Hooks;
+
 /* * *************************************************************
  *  Copyright notice
  *
@@ -22,10 +24,8 @@
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  * ************************************************************* */
-//Unschoen aber laeuft
-require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('standorte') . 'Classes/Domain/Repository/BibliothekRepository.php');
 
-class user_Tx_Standorte_Classes_Hooks_Sidebar
+class Sidebar
 {
 
     /**
@@ -35,11 +35,11 @@ class user_Tx_Standorte_Classes_Hooks_Sidebar
      */
     public $bibliothekenRepository = null;
 
-    function __construct()
+    public function __construct()
     {
         /** @var \TYPO3\CMS\Extbase\Object\ObjectManager $objectManager */
-        $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
-        $this->bibliothekenRepository = $objectManager->get('Subugoe\\Standorte\\Domain\\Repository\\BibliothekRepository');
+        $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\Object\ObjectManager::class);
+        $this->bibliothekenRepository = $objectManager->get(\Subugoe\Standorte\Domain\Repository\BibliothekRepository::class);
     }
 
     /**
@@ -60,6 +60,7 @@ class user_Tx_Standorte_Classes_Hooks_Sidebar
 
             $bibliotheken = $this->bibliothekenRepository->findByUidEverywhere($fakultaet);
 
+            /** @var \Subugoe\Standorte\Domain\Model\Bibliothek $bibliothek */
             foreach ($bibliotheken as $bibliothek) {
                 $tmp .= '<li><a href="#bibliothek-' . $bibliothek->getUid() . '">';
                 $tmp .= $bibliothek->getTitel();
