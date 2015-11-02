@@ -24,7 +24,6 @@ namespace Subugoe\Standorte\Hooks;
  *  This copyright notice MUST APPEAR in all copies of the script!
  * ************************************************************* */
 
-require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('nkwlib') . 'class.tx_nkwlib.php');
 require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('standorte') . '/Classes/Utility/EvalFuncDouble11Utility.php');
 
 /**
