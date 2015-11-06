@@ -16,6 +16,7 @@ $TCA['tx_standorte_domain_model_fakultaet'] = [
             'label' => 'LLL:EXT:lang/locallang_general.xml:LGL.language',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectSingle',
                 'foreign_table' => 'sys_language',
                 'foreign_table_where' => 'ORDER BY sys_language.title',
                 'items' => [
@@ -30,6 +31,7 @@ $TCA['tx_standorte_domain_model_fakultaet'] = [
             'label' => 'LLL:EXT:lang/locallang_general.xml:LGL.l18n_parent',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectSingle',
                 'items' => [
                     ['', 0],
                 ],
@@ -82,7 +84,12 @@ $TCA['tx_standorte_domain_model_fakultaet'] = [
                         'type' => 'popup',
                         'title' => 'Link',
                         'icon' => 'link_popup.gif',
-                        'script' => 'browse_links.php?mode=wizard',
+                        'module' => [
+                            'name' => 'wizard_element_browser',
+                            'urlParameters' => [
+                                'mode' => 'wizard'
+                            ]
+                        ],
                         'JSopenParams' => 'height=300,width=500,status=0,menubar=0,scrollbars=1'
                     ]
                 ]

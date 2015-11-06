@@ -13,14 +13,15 @@ $TCA['tx_standorte_domain_model_bibliothek'] = [
     'columns' => [
         'sys_language_uid' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:lang/locallang_general.xml:LGL.language',
+            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectSingle',
                 'foreign_table' => 'sys_language',
                 'foreign_table_where' => 'ORDER BY sys_language.title',
                 'items' => [
-                    ['LLL:EXT:lang/locallang_general.xml:LGL.allLanguages', -1],
-                    ['LLL:EXT:lang/locallang_general.xml:LGL.default_value', 0]
+                    ['LLL:EXT:lang/locallang_general.xlf:LGL.allLanguages', -1],
+                    ['LLL:EXT:lang/locallang_general.xlf:LGL.default_value', 0]
                 ]
             ]
         ],
@@ -30,6 +31,7 @@ $TCA['tx_standorte_domain_model_bibliothek'] = [
             'label' => 'LLL:EXT:lang/locallang_general.xml:LGL.l18n_parent',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectSingle',
                 'items' => [
                     ['', 0],
                 ],
@@ -80,11 +82,6 @@ $TCA['tx_standorte_domain_model_bibliothek'] = [
         'lat' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.lat',
-            // 'config' => array(
-            // 	'type' => 'input',
-            // 	'size' => '30',
-            // 	'eval' => 'tx_standorte_double11, nospace', //'double2, nospace'
-            // )
             'config' => [
                 'type' => 'user',
                 'size' => '30',
@@ -100,7 +97,7 @@ $TCA['tx_standorte_domain_model_bibliothek'] = [
             'config' => [
                 'type' => 'user',
                 'size' => '30',
-                'eval' => 'tx_standorte_double11, nospace', //double2,
+                'eval' => 'tx_standorte_double11, nospace',
                 'userFunc' => 'EXT:standorte/Classes/Utility/DisabledInputFieldUtility.php:Tx_Standorte_Utility_DisabledInputFieldUtility->disabledInputField',
                 'parameters' => [
                     'disabled' => 'true'
@@ -161,6 +158,7 @@ $TCA['tx_standorte_domain_model_bibliothek'] = [
         'ansprechpartner' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.ansprechpartner',
+            'defaultExtras' => 'richtext[]:rte_transform[flag=rte_enabled]',
             'config' => [
                 'type' => 'text',
                 'cols' => '30',
@@ -173,7 +171,9 @@ $TCA['tx_standorte_domain_model_bibliothek'] = [
                         'type' => 'script',
                         'title' => 'Full screen Rich Text Editing|Formatteret redigering i hele vinduet',
                         'icon' => 'wizard_rte2.gif',
-                        'script' => 'wizard_rte.php',
+                        'module' => [
+                            'name' => 'wizard_rte'
+                        ]
                     ],
                 ],
             ]
@@ -193,14 +193,18 @@ $TCA['tx_standorte_domain_model_bibliothek'] = [
                         'type' => 'script',
                         'title' => 'Full screen Rich Text Editing|Formatteret redigering i hele vinduet',
                         'icon' => 'wizard_rte2.gif',
-                        'script' => 'wizard_rte.php',
+                        'module' => [
+                            'name' => 'wizard_rte'
+                        ]
                     ],
                 ],
-            ]
+            ],
+            'defaultExtras' => 'richtext[]:rte_transform[flag=rte_enabled]'
         ],
         'oeffnungszeiten' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.oeffnungszeiten',
+            'defaultExtras' => 'richtext[]:rte_transform[flag=rte_enabled]',
             'config' => [
                 'type' => 'text',
                 'cols' => '30',
@@ -213,7 +217,9 @@ $TCA['tx_standorte_domain_model_bibliothek'] = [
                         'type' => 'script',
                         'title' => 'Full screen Rich Text Editing|Formatteret redigering i hele vinduet',
                         'icon' => 'wizard_rte2.gif',
-                        'script' => 'wizard_rte.php',
+                        'module' => [
+                            'name' => 'wizard_rte'
+                        ]
                     ],
                 ],
             ]
@@ -238,9 +244,9 @@ $TCA['tx_standorte_domain_model_bibliothek'] = [
             'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.fakultaet',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectSingle',
                 'loadingStrategy' => 'eager',
                 'foreign_table' => 'tx_standorte_domain_model_fakultaet',
-//				'foreign_field' => 'titel',
                 'size' => 1,
                 'minitems' => 1,
                 'maxitems' => 1
@@ -261,7 +267,12 @@ $TCA['tx_standorte_domain_model_bibliothek'] = [
                         'type' => 'popup',
                         'title' => 'Link',
                         'icon' => 'link_popup.gif',
-                        'script' => 'browse_links.php?mode=wizard',
+                        'module' => [
+                            'name' => 'wizard_element_browser',
+                            'urlParameters' => [
+                                'mode' => 'wizard'
+                            ]
+                        ],
                         'JSopenParams' => 'height=300,width=500,status=0,menubar=0,scrollbars=1'
                     ]
                 ]
@@ -290,8 +301,13 @@ $TCA['tx_standorte_domain_model_bibliothek'] = [
                         'type' => 'popup',
                         'title' => 'Link',
                         'icon' => 'link_popup.gif',
-                        'script' => 'browse_links.php?mode=wizard',
-                        'JSopenParams' => 'height=300,width=500,status=0,menubar=0,scrollbars=1'
+                        'JSopenParams' => 'height=300,width=500,status=0,menubar=0,scrollbars=1',
+                        'module' => [
+                            'name' => 'wizard_element_browser',
+                            'urlParameters' => [
+                                'mode' => 'wizard'
+                            ]
+                        ],
                     ]
                 ]
             ]
@@ -311,7 +327,12 @@ $TCA['tx_standorte_domain_model_bibliothek'] = [
                         'type' => 'popup',
                         'title' => 'Link',
                         'icon' => 'link_popup.gif',
-                        'script' => 'browse_links.php?mode=wizard',
+                        'module' => [
+                            'name' => 'wizard_element_browser',
+                            'urlParameters' => [
+                                'mode' => 'wizard'
+                            ]
+                        ],
                         'JSopenParams' => 'height=300,width=500,status=0,menubar=0,scrollbars=1'
                     ]
                 ]
