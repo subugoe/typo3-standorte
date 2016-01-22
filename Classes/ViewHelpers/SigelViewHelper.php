@@ -38,7 +38,6 @@ class SigelViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelpe
      */
     public function render($sigel)
     {
-
         if ((is_numeric($sigel)) && (strlen($sigel) == 3)) {
 
             //dann nehmen wir mal an, dass es eine goettinger Bibliothek ist ...
@@ -47,5 +46,4 @@ class SigelViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelpe
 
         return $sigel;
     }
-
 }

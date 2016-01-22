@@ -29,7 +29,7 @@ require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('stando
 /**
  * Hooks
  */
-class user_Tx_Standorte_Classes_Hooks_BackendEdit
+class BackendEdit
 {
 
     /**
@@ -41,7 +41,6 @@ class user_Tx_Standorte_Classes_Hooks_BackendEdit
      */
     public function processDatamap_preProcessFieldArray(&$incomingFieldArray, $table, $id, &$pObj)
     {
-
         $modified = false;
 
         if ($table == 'tx_standorte_domain_model_bibliothek') {
@@ -95,11 +94,10 @@ class user_Tx_Standorte_Classes_Hooks_BackendEdit
      * @param string $str
      * @return string
      */
-    protected  function geocodeAddress($str)
+    protected function geocodeAddress($str)
     {
         $getThis = 'http://maps.google.com/maps/api/geocode/json?address=' . urlencode($str) . '&sensor=false';
         $json = \TYPO3\CMS\Core\Utility\GeneralUtility::getUrl($getThis);
-        return json_decode($json, TRUE);
+        return json_decode($json, true);
     }
-
 }

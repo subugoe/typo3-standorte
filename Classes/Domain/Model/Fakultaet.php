@@ -86,5 +86,4 @@ class Fakultaet extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->titel = $titel;
     }
-
 }

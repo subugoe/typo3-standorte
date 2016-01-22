@@ -30,7 +30,7 @@
 class tx_standorte_double11
 {
 
-    static public function evaluateFieldValue($value, $is_in, &$set)
+    public static function evaluateFieldValue($value, $is_in, &$set)
     {
         $theDec = 0;
         for ($a = strlen($value); $a > 0; $a--) {
@@ -48,7 +48,7 @@ class tx_standorte_double11
         return $value;
     }
 
-    function returnFieldJS()
+    public function returnFieldJS()
     {
         return "
 			var theVal = ''+value;

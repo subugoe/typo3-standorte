@@ -52,7 +52,6 @@ class FakultaetController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContro
      */
     public function indexAction()
     {
-
         $fakultaeten = $this->fakultaetRepository->findAll();
         $this->view->assign('fakultaeten', $fakultaeten);
     }
@@ -73,7 +72,6 @@ class FakultaetController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContro
      */
     public function createAction(\Subugoe\Standorte\Domain\Model\Fakultaet $fakultaet)
     {
-
         if ($fakultaet === null) {
             $this->redirect('index');
         }
@@ -87,5 +85,4 @@ class FakultaetController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContro
     {
         $this->view->assign('titel', $this->fakultaetRepository);
     }
-
 }

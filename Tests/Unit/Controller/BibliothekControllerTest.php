@@ -28,8 +28,6 @@ use TYPO3\CMS\Core\Tests\BaseTestCase;
 /**
  * Testcase for the Tx_Standorte_Controller_BibliothekController class.
  *
- * @package TYPO3
- * @subpackage tx_standorte
  *
  * @author Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
  */
@@ -49,7 +47,6 @@ class BibliothekControllerTest extends BaseTestCase
     /**
      * Set up framework
      *
-     * @return void
      */
     public function setUp()
     {
@@ -59,5 +56,4 @@ class BibliothekControllerTest extends BaseTestCase
             'Subugoe\\Standorte\\Domain\\Repository\\BibliothekRepository', [], [], '', false
         );
     }
-
 }

@@ -49,7 +49,6 @@ class Sidebar
      */
     public function hookFunc(&$tmp, $obj)
     {
-
         $getPostVar = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('tx_standorte_pi1');
 
         $fakultaet = intval($getPostVar['fakultaet']);
@@ -68,5 +67,4 @@ class Sidebar
             }
         }
     }
-
 }

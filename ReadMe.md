@@ -1,8 +1,8 @@
-=STANDORTE=
+# STANDORTE
 
 Eingabe der Standorte im Backend
 
-==RealURL==
+## RealURL
 'fakultaet' => array(
 					array(
 						'GETvar' => 'tx_standorte_pi1[fakultaetUid]',
@@ -27,9 +27,9 @@ Eingabe der Standorte im Backend
 					),
 				),
 
-==TypoScript==
+## TypoScript
 
 * Storage Folder anlegen
 * In Constants des TS:
-	tx_schulungen.persistence.storagePid = 
+	tx_schulungen.persistence.storagePid =
 * Im Setup das mitgelieferte TypoScript einbinden

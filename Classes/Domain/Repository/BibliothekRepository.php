@@ -42,7 +42,6 @@ class BibliothekRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
      */
     public function findByUidEverywhere($fakultaet)
     {
-
         $query = $this->createQuery();
 
         $query->getQuerySettings()
@@ -56,5 +55,4 @@ class BibliothekRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 
         return $result;
     }
-
 }

@@ -53,5 +53,4 @@ class TypolinkViewHelper extends AbstractViewHelper
         );
         return $url;
     }
-
 }

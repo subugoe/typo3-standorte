@@ -33,5 +33,4 @@ class FakultaetRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
     public $defaultOrderings = [
         'titel' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
     ];
-
 }

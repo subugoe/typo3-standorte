@@ -23,6 +23,7 @@ namespace Subugoe\Standorte\Controller;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  * ************************************************************* */
+use TYPO3\CMS\Core\Page\PageRenderer;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 /**
@@ -56,7 +57,7 @@ class BibliothekController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContr
 
     public function initializeAction()
     {
-        $this->pageRenderer = $GLOBALS['TSFE']->getPageRenderer();
+        $this->pageRenderer = $this->objectManager->get(PageRenderer::class);
         $this->pageRenderer->addCssFile(ExtensionManagementUtility::siteRelPath('standorte') . '/Resources/Public/Css/Standorte.css');
     }
 
@@ -75,7 +76,6 @@ class BibliothekController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContr
      */
     public function listAction(\Subugoe\Standorte\Domain\Model\Fakultaet $fakultaet = null)
     {
-
         $this->pageRenderer->addJsFile(ExtensionManagementUtility::siteRelPath('standorte') . '/Resources/Public/JavaScript/leaflet.js');
         $this->pageRenderer->addCssFile(ExtensionManagementUtility::siteRelPath('standorte') . '/Resources/Public/Css/leaflet.css');
         $this->pageRenderer->addJsFile(ExtensionManagementUtility::siteRelPath('standorte') . '/Resources/Public/JavaScript/Map.js');
@@ -94,7 +94,6 @@ class BibliothekController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContr
      */
     public function listSigelTitelAction()
     {
-
         $this->pageRenderer->addJsFile(ExtensionManagementUtility::siteRelPath('standorte') . '/Resources/Public/JavaScript/jquery.dataTables.min.js');
         $this->pageRenderer->addCssFile(ExtensionManagementUtility::siteRelPath('standorte') . '/Resources/Public/Css/dataTables.css');
         $this->pageRenderer->addJsFile(ExtensionManagementUtility::siteRelPath('standorte') . '/Resources/Public/JavaScript/Table.js');
@@ -126,5 +125,4 @@ class BibliothekController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContr
         $bibliotheken = $this->bibliothekenRepository->findAll();
         $this->view->assign('bibos', $bibliotheken);
     }
-
 }

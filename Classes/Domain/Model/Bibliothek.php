@@ -117,7 +117,7 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Wenn der Bestand nur teilweise im GUK enthalten ist
      *
-     * @var boolean
+     * @var bool
      */
     protected $katalogteilweise;
     /**
@@ -136,7 +136,7 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      *
      * Wenn die Bibliothek versteckt ist
-     * @var boolean
+     * @var bool
      */
     protected $hidden;
 
@@ -150,7 +150,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      *
      * @return bool
-     * @return void
      */
     public function getHidden()
     {
@@ -160,7 +159,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      *
      * @param $hidden
-     * @return void
      */
     public function setHidden($hidden)
     {
@@ -179,7 +177,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      *
      * @param $katalogteilweise
-     * @return void
      */
     public function setKatalogteilweise($katalogteilweise)
     {
@@ -201,7 +198,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Setter fuer einen Link nach Extern
      *
      * @param string $extlink
-     * @return void
      */
     public function setExtlink($extlink)
     {
@@ -222,7 +218,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Setter fuer den Institutskatalog
      *
      * @param string $institutskatalog
-     * @return void
      */
     public function setInstitutskatalog($institutskatalog)
     {
@@ -233,7 +228,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Simpler Getter fuer den Adresszusatz
      *
      * @return string
-     * @return void
      */
     public function getAdresszusatz()
     {
@@ -244,7 +238,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Setter fuer einen Adresszusatz
      *
      * @param string $adresszusatz
-     * @return void
      */
     public function setAdresszusatz($adresszusatz)
     {
@@ -265,7 +258,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Link zum Katalog
      *
      * @param string $katalog
-     * @return void
      */
     public function setKatalog($katalog)
     {
@@ -304,7 +296,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      *
      * @param $sigel
-     * @return void
      */
     public function setSigel($sigel)
     {
@@ -326,7 +317,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Setter fuer die Oeffnungszeiten
      *
      * @param array $oeffnungszeiten
-     * @return void
      */
     public function setOeffnungszeiten($oeffnungszeiten)
     {
@@ -345,7 +335,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      *
      * @param $titel
-     * @return void
      */
     public function setTitel($titel)
     {
@@ -367,7 +356,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      *
      * @param $lon
-     * @return void
      */
     public function setLon($lon)
     {
@@ -383,7 +371,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     private function geoCode($latlon)
     {
-
         $adresse = $this->erzeugeAdresse();
         $url = 'http://maps.google.com/maps/api/geocode/json?address=' . $adresse . '&sensor=false';
 
@@ -423,7 +410,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      *
      * @param $lat
-     * @return void
      */
     public function setLat($lat)
     {
@@ -442,7 +428,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      *
      * @param $ansprechpartner
-     * @return void
      */
     public function setAnsprechpartner($ansprechpartner)
     {
@@ -461,7 +446,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      *
      * @param $bestand
-     * @return void
      */
     public function setBestand($bestand)
     {
@@ -480,7 +464,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      *
      * @param $strasse
-     * @return void
      */
     public function setStrasse($strasse)
     {
@@ -499,7 +482,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      *
      * @param $plz
-     * @return void
      */
     public function setPlz($plz)
     {
@@ -518,7 +500,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      *
      * @param string $ort
-     * @return void
      */
     public function setOrt($ort)
     {
@@ -537,7 +518,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      *
      * @param string $zusatzinformationen
-     * @return void
      */
     public function setZusatzinformationen($zusatzinformationen)
     {
@@ -557,7 +537,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      *
      * @param $bild
-     * @return void
      */
     public function setBild($bild)
     {

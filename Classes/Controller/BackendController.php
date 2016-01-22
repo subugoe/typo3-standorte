@@ -51,11 +51,9 @@ class BackendController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     /**
      * Index Action des Controllers
      *
-     * @return void
      */
     public function indexAction()
     {
-
         $this->view->assign('backend', 'Standorte');
         $this->view->assign('fakultaeten', $this->fakultaetRepository->findAll());
     }
@@ -63,7 +61,6 @@ class BackendController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     /**
      * Auflistung aller Fakultaeten
      *
-     * @return void
      */
     public function listFakultaetenAction()
     {
@@ -75,7 +72,6 @@ class BackendController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     /**
      * Auflistung aller Bibliotheken
      *
-     * @return void
      */
     public function listBibliothekenAction()
     {
@@ -87,11 +83,9 @@ class BackendController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      * Auflistung aller Bibliotheken einer bestimmten Fakultaet
      *
      * @param \Subugoe\Standorte\Domain\Model\Fakultaet $fakultaetUid
-     * @return void
      */
     public function listBibliothekenByFakultaetAction(\Subugoe\Standorte\Domain\Model\Fakultaet $fakultaetUid)
     {
-
         $this->view->assign('fakultaet', $fakultaetUid);
         $bibliotheken = $this->bibliothekenRepository->findByFakultaet($fakultaetUid);
         $this->view->assign('backend', 'Bibiliotheken');
@@ -103,7 +97,6 @@ class BackendController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      * Loeschen einer einzelnen Bibliothek
      *
      * @param \Subugoe\Standorte\Domain\Model\Bibliothek $bibliothek
-     * @return void
      */
     public function deleteBibliothekAction(\Subugoe\Standorte\Domain\Model\Bibliothek $bibliothek)
     {
@@ -116,7 +109,6 @@ class BackendController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      * Loeschen einer Fakultaet
      *
      * @param \Subugoe\Standorte\Domain\Model\Fakultaet $fakultaet
-     * @return void
      */
     public function deleteFakultaetAction(\Subugoe\Standorte\Domain\Model\Fakultaet $fakultaet)
     {

@@ -30,9 +30,8 @@
 class Tx_Standorte_Utility_DisabledInputFieldUtility
 {
 
-    function disabledInputField($PA, $fObj)
+    public function disabledInputField($PA, $fObj)
     {
-
         $disabled = (isset($PA['parameters']['disabled']) && $PA['parameters']['disabled'] == 'true') ? ' disabled="disabled"' : '';
         $formField = '<span class="t3-tceforms-input-wrapper">';
         $formField .= '<span tag="a" class="t3-icon t3-icon-actions t3-icon-actions-input t3-icon-input-clear t3-tceforms-input-clearer">&nbsp;</span>';
@@ -48,5 +47,4 @@ class Tx_Standorte_Utility_DisabledInputFieldUtility
 
         return $formField;
     }
-
 }
