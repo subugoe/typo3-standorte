@@ -55,7 +55,8 @@ $highlightColor: #dee1e7;
 			color: black;
 		}
 
-		thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+		thead tr .headerSortDown,
+		table.tablesorter thead tr .headerSortUp {
 			color: black;
 		}
 
@@ -64,30 +65,30 @@ $highlightColor: #dee1e7;
 		}
 	}
 
+	.location-detail {
+		display: table-row;
+	}
+
+
 	.list {
+		display: table;
 		border-bottom: 1px solid $highlightColor;
-		float: left;
-		clear: both;
 		margin: 0 0 8px 0;
-		width: 100.01%;
+		width: 100%;
 
 		dt {
-			float: left;
-			width: 156px;
+			display: table-cell;
 			padding: 3px 3px 3px 0;
+			width: 15em;
 		}
 
 		dd {
-			margin-left: 160px;
-			width: 380px;
+			display: table-cell;
 			padding: 3px;
 		}
 
 		dl {
 			margin-bottom: 2px;
-			width: auto;
-			clear: both;
-			float: left;
 		}
 
 		.sigel {
