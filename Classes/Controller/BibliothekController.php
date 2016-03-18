@@ -58,7 +58,7 @@ class BibliothekController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContr
     public function initializeAction()
     {
         $this->pageRenderer = $this->objectManager->get(PageRenderer::class);
-        $this->pageRenderer->addCssFile(ExtensionManagementUtility::siteRelPath('standorte') . '/Resources/Public/Css/Standorte.css');
+        // $this->pageRenderer->addCssFile(ExtensionManagementUtility::siteRelPath('standorte') . '/Resources/Public/Css/Standorte.css');
     }
 
     /**

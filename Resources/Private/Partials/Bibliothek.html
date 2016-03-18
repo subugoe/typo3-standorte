@@ -2,7 +2,6 @@
 
 <div class="singleLibrary">
 	<article class="details" id="c{bibo.uid}">
-
 		<h2>{bibo.titel}</h2>
 
 		<!-- Anschrift -->
@@ -33,7 +32,7 @@
 		<f:if condition="{bibo.bestand}">
 			<h6><f:translate key="bestand" /></h6>
 			<p class="bodytext">{bibo.bestand}
-			<f:render partial="bestand" arguments="{institutskatalog:bibo.institutskatalog, katalog:bibo.katalog, katalogteilweise:bibo.katalogteilweise}"/>
+				<f:render partial="bestand" arguments="{institutskatalog:bibo.institutskatalog, katalog:bibo.katalog, katalogteilweise:bibo.katalogteilweise}"/>
 			</p>
 		</f:if>
 		<!-- /Bestand -->
