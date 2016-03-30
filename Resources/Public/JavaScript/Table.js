@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
 	var splitte = function(uid) {
 		id = uid.split('-');
 		return id[1];

@@ -29,7 +29,7 @@
 		</languageKey>
 		<languageKey index="de" type="array">
 			<label index="oeffnung">Öffnungszeiten</label>
-			<label index="bibliothekssigel">Bibliothekssigel</label>
+			<label index="bibliothekssigel">Bibliotheks&amp;shy;sigel</label>
 			<label index="fakultaet">Fakultät</label>
 			<label index="anschrift">Anschrift</label>
 			<label index="kontakt">Kontakt</label>
