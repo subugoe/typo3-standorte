@@ -8,6 +8,7 @@ plugin.tx_standorte {
 	features {
 		skipDefaultArguments = 1
 	}
+	mvc.callDefaultActionIfActionCantBeResolved = 1
 }
 module.tx_standorte.persistence.storagePid =  {$plugin.tx_standorte.persistence.storagePid}
 
