@@ -3,8 +3,7 @@
 <f:if condition="{institutskatalog}">
 	<f:then>
 		<br />
-		<standorte:typolink typolink="{institutskatalog}" linktext="{f:translate(key:'institutskatalog')}" title="{f:translate(key:'institutstitle')}" />
-
+		<f:link.typolink parameter="{institutskatalog}" title="{f:translate(key:'institutstitle')}">{f:translate(key:'institutskatalog')}</f:link.typolink>
 	</f:then>
 </f:if>
 <f:if condition="{katalog}">
@@ -18,7 +17,7 @@
 				<f:translate key="bestandenthalten" />
 			</f:else>
 		</f:if>
-		<standorte:typolink typolink="{katalog}" linktext="GUK" title="{f:translate(key:'guktitle')}" />
+		<f:link.typolink parameter="{katalog}" title="{f:translate(key:'guktitle')}">GUK</f:link.typolink>
 		<f:translate key="enthalten" />
 	</f:then>
 </f:if>
