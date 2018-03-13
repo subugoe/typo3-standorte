@@ -3,29 +3,29 @@
     <h2>{bibo.titel}</h2>
     <dl>
         <f:if condition="{bibo.sigel}">
-            <dt><f:translate key="bibliothekssigel" /></dt>
+            <dt><f:format.raw><f:translate key="bibliothekssigel" /></f:format.raw></dt>
             <dd><f:render partial="sigel" arguments="{sigel: bibo.sigel}"/></dd>
         </f:if>
         <f:if condition="{bibo.strasse}">
             <dt><f:translate key="anschrift" /></dt>
             <dd>
-                <f:format.html>{bibo.strasse}<br><f:if condition="{bibo.adresszusatz}"><f:then>{bibo.adresszusatz}<br></f:then></f:if>{bibo.plz} {bibo.ort}</f:format.html>
-                <f:format.html><a class="map" lat="{bibo.lat}" lng="{bibo.lon}" head="{bibo.titel}" id="cl-{bibo.uid}" title="{f:translate(key:'maptitle')}"><f:translate key="karte" /></a></f:format.html>
+                <f:format.raw>{bibo.strasse}<br><f:if condition="{bibo.adresszusatz}"><f:then>{bibo.adresszusatz}<br></f:then></f:if>{bibo.plz} {bibo.ort}</f:format.raw>
+                <f:format.raw><a class="map" lat="{bibo.lat}" lng="{bibo.lon}" head="{bibo.titel}" id="cl-{bibo.uid}" title="{f:translate(key:'maptitle')}"><f:translate key="karte" /></a></f:format.raw>
                 <div id="map-{bibo.uid}" class="karte"></div>
                 <f:if condition="{bibo.extlink}">
                     <f:then>
-                        <f:format.html><f:link.external uri="{bibo.extlink}" title="{f:translate(key:'biblink')} {bibo.titel}">{bibo.titel}</f:link.external></f:format.html>
+                        <f:format.raw><f:link.external uri="{bibo.extlink}" title="{f:translate(key:'biblink')} {bibo.titel}">{bibo.titel}</f:link.external></f:format.raw>
                     </f:then>
                 </f:if>
             </dd>
         </f:if>
         <f:if condition="{bibo.oeffnungszeiten}">
             <dt><f:translate key="oeffnung" /></dt>
-            <dd><f:format.html>{bibo.oeffnungszeiten}</f:format.html></dd>
+            <dd><f:format.raw>{bibo.oeffnungszeiten}</f:format.raw></dd>
         </f:if>
         <f:if condition="{bibo.ansprechpartner}">
             <dt><f:translate key="kontakt" /></dt>
-            <dd><f:format.html>{bibo.ansprechpartner}</f:format.html></dd>
+            <dd><f:format.raw>{bibo.ansprechpartner -> f:format.raw()}</f:format.raw></dd>
         </f:if>
         <f:if condition="{bibo.bestand}">
             <dt><f:translate key="bestand" /></dt>
@@ -33,7 +33,7 @@
         </f:if>
         <f:if condition="{bibo.zusatzinformationen}">
             <dt><f:translate key="zusatzinformationen" /></dt>
-            <dd><f:format.html>{bibo.zusatzinformationen}</f:format.html></dd>
+            <dd><f:format.raw>{bibo.zusatzinformationen}</f:format.raw></dd>
         </f:if>
     </dl>
 </div>

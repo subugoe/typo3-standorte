@@ -4,12 +4,29 @@ if (!defined('TYPO3_MODE')) {
     die('Access denied.');
 }
 
-$TCA['tx_standorte_domain_model_bibliothek'] = [
-    'ctrl' => $TCA['tx_standorte_domain_model_bibliothek']['ctrl'],
+return [
+    'ctrl' => [
+        'title' => 'Bibliotheken',
+        'label' => 'titel',
+        'tstamp' => 'tstamp',
+        'crdate' => 'crdate',
+        'cruser_id' => 'cruser_id',
+        'languageField' => 'sys_language_uid',
+        'transOrigPointerField' => 'l10n_parent',
+        'transOrigDiffSourceField' => 'l10n_diffsource',
+        'default_sortby' => 'ORDER BY sigel',
+        'delete' => 'deleted',
+        'enablecolumns' => [
+            'disabled' => 'hidden',
+        ],
+        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('standorte') . '/Resources/Public/img/icon_tx_standorte_domain_model_bibliothek.png',
+        'searchFields' => 'titel, sigel, strasse',
+        'versioningWS' => true,
+        'origUid' => 't3_origuid',
+    ],
     'interface' => [
         'showRecordFieldList' => 'sys_language_uid,l10n_parent,l10n_diffsource,hidden,sigel,titel,extlink,lat,lon,bestand,katalog,katalogteilweiseinstitutskatalog,strasse,adresszusatz,plz,ort,ansprechpartner,semesterferien,oeffnungszeiten,zusatzinformationen,bild,fakultaet,piz_nr'
     ],
-    'feInterface' => $TCA['tx_standorte_domain_model_bibliothek']['feInterface'],
     'columns' => [
         'sys_language_uid' => [
             'exclude' => 1,
@@ -28,7 +45,7 @@ $TCA['tx_standorte_domain_model_bibliothek'] = [
         'l10n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
             'exclude' => 1,
-            'label' => 'LLL:EXT:lang/locallang_general.xml:LGL.l18n_parent',
+            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -45,16 +62,16 @@ $TCA['tx_standorte_domain_model_bibliothek'] = [
             ]
         ],
         't3ver_label' => [
-            'label' => 'LLL:EXT:lang/locallang_general.xml:LGL.versionLabel',
+            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.versionLabel',
             'config' => [
                 'type' => 'input',
-                'size' => '30',
-                'max' => '30',
+                'size' => 30,
+                'max' => 30,
             ]
         ],
         'hidden' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:lang/locallang_general.xml:LGL.hidden',
+            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
             'config' => [
                 'type' => 'check',
                 'default' => '0'
@@ -65,8 +82,8 @@ $TCA['tx_standorte_domain_model_bibliothek'] = [
             'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.sigel',
             'config' => [
                 'type' => 'input',
-                'size' => '8',
-                'max' => '20',
+                'size' => 8,
+                'max' => 20,
                 'eval' => 'trim',
             ]
         ],
@@ -75,7 +92,7 @@ $TCA['tx_standorte_domain_model_bibliothek'] = [
             'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.titel',
             'config' => [
                 'type' => 'input',
-                'size' => '30',
+                'size' => 30,
                 'eval' => 'required,trim',
             ]
         ],
@@ -84,7 +101,7 @@ $TCA['tx_standorte_domain_model_bibliothek'] = [
             'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.lat',
             'config' => [
                 'type' => 'user',
-                'size' => '30',
+                'size' => 30,
                 'userFunc' => 'EXT:standorte/Classes/Utility/DisabledInputFieldUtility.php:Tx_Standorte_Utility_DisabledInputFieldUtility->disabledInputField',
                 'parameters' => [
                     'disabled' => 'true'
@@ -96,7 +113,7 @@ $TCA['tx_standorte_domain_model_bibliothek'] = [
             'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.lon',
             'config' => [
                 'type' => 'user',
-                'size' => '30',
+                'size' => 30,
                 'eval' => 'tx_standorte_double11, nospace',
                 'userFunc' => 'EXT:standorte/Classes/Utility/DisabledInputFieldUtility.php:Tx_Standorte_Utility_DisabledInputFieldUtility->disabledInputField',
                 'parameters' => [
@@ -109,7 +126,7 @@ $TCA['tx_standorte_domain_model_bibliothek'] = [
             'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.bestand',
             'config' => [
                 'type' => 'input',
-                'size' => '30',
+                'size' => 30,
             ]
         ],
         'strasse' => [
@@ -117,7 +134,7 @@ $TCA['tx_standorte_domain_model_bibliothek'] = [
             'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.strasse',
             'config' => [
                 'type' => 'input',
-                'size' => '30',
+                'size' => 30,
                 'eval' => 'trim',
             ]
         ],
@@ -126,7 +143,7 @@ $TCA['tx_standorte_domain_model_bibliothek'] = [
             'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.adresszusatz',
             'config' => [
                 'type' => 'input',
-                'size' => '30',
+                'size' => 30,
                 'eval' => 'trim',
             ]
         ],
@@ -135,8 +152,8 @@ $TCA['tx_standorte_domain_model_bibliothek'] = [
             'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.plz',
             'config' => [
                 'type' => 'input',
-                'size' => '5',
-                'max' => '5',
+                'size' => 5,
+                'max' => 5,
                 'eval' => 'int',
                 'checkbox' => '0',
                 'range' => [
@@ -151,7 +168,7 @@ $TCA['tx_standorte_domain_model_bibliothek'] = [
             'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.ort',
             'config' => [
                 'type' => 'input',
-                'size' => '30',
+                'size' => 30,
                 'eval' => 'trim',
             ]
         ],
@@ -161,8 +178,8 @@ $TCA['tx_standorte_domain_model_bibliothek'] = [
             'defaultExtras' => 'richtext[]:rte_transform[flag=rte_enabled]',
             'config' => [
                 'type' => 'text',
-                'cols' => '30',
-                'rows' => '5',
+                'cols' => 30,
+                'rows' => 5,
                 'wizards' => [
                     '_PADDING' => 2,
                     'RTE' => [
@@ -183,8 +200,8 @@ $TCA['tx_standorte_domain_model_bibliothek'] = [
             'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.zusatzinformationen',
             'config' => [
                 'type' => 'text',
-                'cols' => '30',
-                'rows' => '5',
+                'cols' => 30,
+                'rows' => 5,
                 'wizards' => [
                     '_PADDING' => 2,
                     'RTE' => [
@@ -207,8 +224,8 @@ $TCA['tx_standorte_domain_model_bibliothek'] = [
             'defaultExtras' => 'richtext[]:rte_transform[flag=rte_enabled]',
             'config' => [
                 'type' => 'text',
-                'cols' => '30',
-                'rows' => '5',
+                'cols' => 30,
+                'rows' => 5,
                 'wizards' => [
                     '_PADDING' => 2,
                     'RTE' => [
@@ -257,8 +274,8 @@ $TCA['tx_standorte_domain_model_bibliothek'] = [
             'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.katalog',
             'config' => [
                 'type' => 'input',
-                'size' => '15',
-                'max' => '255',
+                'size' => 15,
+                'max' => 255,
                 'checkbox' => '',
                 'eval' => 'trim',
                 'wizards' => [
@@ -291,8 +308,8 @@ $TCA['tx_standorte_domain_model_bibliothek'] = [
             'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.institutskatalog',
             'config' => [
                 'type' => 'input',
-                'size' => '15',
-                'max' => '255',
+                'size' => 15,
+                'max' => 255,
                 'checkbox' => '',
                 'eval' => 'trim',
                 'wizards' => [
@@ -317,8 +334,8 @@ $TCA['tx_standorte_domain_model_bibliothek'] = [
             'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_fakultaet.extlink',
             'config' => [
                 'type' => 'input',
-                'size' => '15',
-                'max' => '255',
+                'size' => 15,
+                'max' => 255,
                 'checkbox' => '',
                 'eval' => 'trim',
                 'wizards' => [
@@ -343,7 +360,7 @@ $TCA['tx_standorte_domain_model_bibliothek'] = [
             'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.pizNr',
             'config' => [
                 'type' => 'input',
-                'size' => '10',
+                'size' => 10,
                 'eval' => 'trim',
             ]
         ],

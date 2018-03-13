@@ -25,10 +25,7 @@
 
 /**
  * Ajax Funktion fuer das bedarfsorientierte Nachladen der Maps
- * $Id$
- * @author Ingo Pfennigstorf <pfennigstorf@sub.uni-goettingen.de>
  */
-
 if (!$_POST['uid']) {
     die('Direktes Aufrufen des Scripts ist nicht erlaubt');
 }
@@ -37,15 +34,14 @@ $uid = intval(\TYPO3\CMS\Core\Utility\GeneralUtility::_GP('uid'));
 
 $datenbankname = 'tx_standorte_domain_model_bibliothek';
 
-$res = $GLOBALS["TYPO3_DB"]->exec_SELECTquery(
-    "lat,lon, titel, strasse, plz, ort", // SELECT ...
-    $datenbankname, // FROM ...
-    "uid=" . $uid, // WHERE...
-    "", // GROUP BY...
-    "", // ORDER BY...
-    "1"// LIMIT ...
+$res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(
+    'lat,lon, titel, strasse, plz, ort', // SELECT ...
+    $datenbankname,
+    'uid=' . $uid,
+    '',
+    '',
+    1
 );
-
 
 if ($res) {
     while ($row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res)) {
@@ -61,7 +57,7 @@ if ($res) {
 }
 
 /**
- * Adresse erstellen
+ * Create address
  * @param <type> $titel
  * @param <type> $strasse
  * @param <type> $plz

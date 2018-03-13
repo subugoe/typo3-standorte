@@ -40,7 +40,7 @@ class SigelViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelpe
     {
         if ((is_numeric($sigel)) && (strlen($sigel) == 3)) {
 
-            //dann nehmen wir mal an, dass es eine goettinger Bibliothek ist ...
+            // Assune the libray is located in Göttingen with sigel 7
             $sigel = '7/' . $sigel;
         }
 

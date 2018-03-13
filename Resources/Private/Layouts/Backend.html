@@ -1,25 +1,24 @@
 <f:be.container pageTitle="Standorte">
-	<f:base />
-	<link href="{f:uri.resource(path:'css/backend.css')}" rel="stylesheet" />
+    <f:base/>
+    <link href="{f:uri.resource(path:'css/backend.css')}" rel="stylesheet"/>
 
-	<div style="padding:10px">
-		<div>
-			<f:be.pageInfo /> -
-			<f:be.pagePath />
-		</div>
-		<f:render partial="backendJs" />
+    <div style="padding:10px">
+        <div>
+            <f:be.pageInfo/>
+            -
+            <f:be.pagePath/>
+        </div>
+        <f:render partial="backendJs"/>
 
-		<h1 style="text-align: left;margin-bottom:10px">{backend}</h1>
-		<div style="margin-bottom:10px;float:right">
-			<f:be.menus.actionMenu>
-				<f:be.menus.actionMenuItem label="&Uuml;bersicht" controller="Backend" action="index" />
-				<f:be.menus.actionMenuItem label="Fakult&auml;ten" controller="Backend" action="listFakultaeten" />
-				<f:be.menus.actionMenuItem label="Bibliotheken" controller="Backend" action="listBibliotheken" />
-			</f:be.menus.actionMenu>
-		</div>
+        <h1 style="text-align: left;margin-bottom:10px">{backend}</h1>
+        <div style="margin-bottom:10px;float:right">
+            <f:be.menus.actionMenu>
+                <f:be.menus.actionMenuItem label="&Uuml;bersicht" controller="Backend" action="index"/>
+                <f:be.menus.actionMenuItem label="Fakult&auml;ten" controller="Backend" action="listFakultaeten"/>
+                <f:be.menus.actionMenuItem label="Bibliotheken" controller="Backend" action="listBibliotheken"/>
+            </f:be.menus.actionMenu>
+        </div>
 
-		<f:flashMessages renderMode="div" style="padding: 12px; border:1px solid #ffcc00; background-color: lightyellow" />
-
-		<f:render section="backend" />
-	</div>
+        <f:render section="backend"/>
+    </div>
 </f:be.container>

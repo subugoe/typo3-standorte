@@ -1,56 +1,76 @@
 {namespace sub=Subugoe\TmplSub\ViewHelpers}
 
 <div class="singleLibrary">
-	<article class="details" id="c{bibo.uid}">
-		<h2>{bibo.titel}</h2>
+    <article class="details" id="c{bibo.uid}">
+        <h2>{bibo.titel}</h2>
 
-		<!-- Anschrift -->
-		<f:if condition="{bibo.strasse}">
-			<f:format.html>{bibo.strasse}<br /><f:if condition="{bibo.adresszusatz}"><f:then>{bibo.adresszusatz}<br /></f:then></f:if>{bibo.plz} {bibo.ort}</f:format.html>
-			<div id="map" class="kartea" lat="{bibo.lat}" lng="{bibo.lon}" zoom="16"></div>
-			<f:if condition="{bibo.extlink}">
-				<f:format.html><f:link.external uri="{bibo.extlink}" title="{f:translate(key:'biblink')} {bibo.titel}">{bibo.titel}</f:link.external></f:format.html>
-			</f:if>
-		</f:if>
-		<!-- /Anschrift -->
+        <!-- Anschrift -->
+        <f:if condition="{bibo.strasse}">
+            <f:format.raw>{bibo.strasse}<br/>
+                <f:if condition="{bibo.adresszusatz}">
+                    <f:then>{bibo.adresszusatz -> f:format.htmlentitiesDecode()}<br/></f:then>
+                </f:if>
+                {bibo.raw} {bibo.ort}
+            </f:format.raw>
+            <div id="map" class="kartea" lat="{bibo.lat}" lng="{bibo.lon}" zoom="16"></div>
+            <f:if condition="{bibo.extlink}">
+                <f:format.raw>
+                    <f:link.external uri="{bibo.extlink}" title="{f:translate(key:'biblink')} {bibo.titel}">
+                        {bibo.titel}
+                    </f:link.external>
+                </f:format.raw>
+            </f:if>
+        </f:if>
+        <!-- /Anschrift -->
 
-		<f:if condition="{bibo.oeffnungszeiten}">
-			<!--Oeffnungszeiten-->
-			<h3><f:translate key="oeffnung" /></h3>
-			<f:format.html>{bibo.oeffnungszeiten}</f:format.html>
-			<!--/Oeffnungszeiten-->
-		</f:if>
-	</article>
+        <f:if condition="{bibo.oeffnungszeiten}">
+            <!--Oeffnungszeiten-->
+            <h3>
+                <f:translate key="oeffnung"/>
+            </h3>
+            <f:format.raw>{bibo.oeffnungszeiten}</f:format.raw>
+            <!--/Oeffnungszeiten-->
+        </f:if>
+    </article>
 
-	<aside class="infocontent">
-		<!-- Kontakt -->
-		<h6><f:translate key="kontakt" /></h6>
-		<f:format.html>{bibo.ansprechpartner}</f:format.html>
-		<!-- /Kontakt -->
+    <aside class="infocontent">
+        <!-- Kontakt -->
+        <h6>
+            <f:translate key="kontakt"/>
+        </h6>
+        <f:format.raw>{bibo.ansprechpartner}</f:format.raw>
+        <!-- /Kontakt -->
 
-		<!-- Bestand -->
-		<f:if condition="{bibo.bestand}">
-			<h6><f:translate key="bestand" /></h6>
-			<p class="bodytext">{bibo.bestand}
-				<f:render partial="bestand" arguments="{institutskatalog:bibo.institutskatalog, katalog:bibo.katalog, katalogteilweise:bibo.katalogteilweise}"/>
-			</p>
-		</f:if>
-		<!-- /Bestand -->
+        <!-- Bestand -->
+        <f:if condition="{bibo.bestand}">
+            <h6>
+                <f:translate key="bestand"/>
+            </h6>
+            <p class="bodytext">{bibo.bestand}
+                <f:render partial="bestand"
+                          arguments="{institutskatalog:bibo.institutskatalog, katalog:bibo.katalog, katalogteilweise:bibo.katalogteilweise}"/>
+            </p>
+        </f:if>
+        <!-- /Bestand -->
 
-		<!-- Zusatzinformationen -->
-		<f:if condition="{bibo.zusatzinformationen}">
-			<h6><f:translate key="zusatzinformationen" /></h6>
-			<f:format.html>{bibo.zusatzinformationen}</f:format.html>
-		</f:if>
-		<!-- /Zusatzinformationen -->
+        <!-- Zusatzinformationen -->
+        <f:if condition="{bibo.zusatzinformationen}">
+            <h6>
+                <f:translate key="zusatzinformationen"/>
+            </h6>
+            <f:format.raw>{bibo.zusatzinformationen}</f:format.raw>
+        </f:if>
+        <!-- /Zusatzinformationen -->
 
-		<!-- Sigel -->
-		<f:if condition="{bibo.sigel}">
-			<h6><f:translate key="bibliothekssigel" /></h6>
-			<p>
-				<f:render partial="sigel" arguments="{sigel: bibo.sigel}"/>
-			</p>
-		</f:if>
-		<!-- /Sigel -->
-	</aside>
+        <!-- Sigel -->
+        <f:if condition="{bibo.sigel}">
+            <h6>
+                <f:translate key="bibliothekssigel"/>
+            </h6>
+            <p>
+                <f:render partial="sigel" arguments="{sigel: bibo.sigel}"/>
+            </p>
+        </f:if>
+        <!-- /Sigel -->
+    </aside>
 </div>

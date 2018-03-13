@@ -29,7 +29,6 @@
  */
 class Tx_Standorte_Utility_DisabledInputFieldUtility
 {
-
     public function disabledInputField($PA, $fObj)
     {
         $disabled = (isset($PA['parameters']['disabled']) && $PA['parameters']['disabled'] == 'true') ? ' disabled="disabled"' : '';

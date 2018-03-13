@@ -31,27 +31,27 @@ class BackendController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 {
 
     /**
-     *
      * @var \Subugoe\Standorte\Domain\Repository\BibliothekRepository
-     * @inject
      */
     protected $bibliothekenRepository;
     /**
-     *
      * @var \Subugoe\Standorte\Domain\Repository\FakultaetRepository
-     * @inject
      */
     protected $fakultaetRepository;
+
+    public function __construct(\Subugoe\Standorte\Domain\Repository\FakultaetRepository $fakultaetRepository, \Subugoe\Standorte\Domain\Repository\BibliothekRepository $bibliothekRepository)
+    {
+        parent::__construct();
+
+        $this->fakultaetRepository = $fakultaetRepository;
+        $this->bibliothekenRepository = $bibliothekRepository;
+    }
 
     public function initializeAction()
     {
         $GLOBALS['TT'] = new \TYPO3\CMS\Core\TimeTracker\NullTimeTracker;
     }
 
-    /**
-     * Index Action des Controllers
-     *
-     */
     public function indexAction()
     {
         $this->view->assign('backend', 'Standorte');
@@ -59,8 +59,7 @@ class BackendController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     }
 
     /**
-     * Auflistung aller Fakultaeten
-     *
+     * List all faculties
      */
     public function listFakultaetenAction()
     {
@@ -70,8 +69,7 @@ class BackendController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     }
 
     /**
-     * Auflistung aller Bibliotheken
-     *
+     * List all libraries
      */
     public function listBibliothekenAction()
     {
@@ -80,7 +78,7 @@ class BackendController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     }
 
     /**
-     * Auflistung aller Bibliotheken einer bestimmten Fakultaet
+     * List all libraries belonging to a specific faculty
      *
      * @param \Subugoe\Standorte\Domain\Model\Fakultaet $fakultaetUid
      */
@@ -94,7 +92,7 @@ class BackendController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     }
 
     /**
-     * Loeschen einer einzelnen Bibliothek
+     * Delete a single library
      *
      * @param \Subugoe\Standorte\Domain\Model\Bibliothek $bibliothek
      */
@@ -106,7 +104,7 @@ class BackendController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     }
 
     /**
-     * Loeschen einer Fakultaet
+     * Delete a faculty
      *
      * @param \Subugoe\Standorte\Domain\Model\Fakultaet $fakultaet
      */

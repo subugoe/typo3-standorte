@@ -1,10 +1,16 @@
-<f:layout name="Default" />
+<f:layout name="Default"/>
 <f:section name="bibos">
-	<h1><f:translate key="facultyTitle" /></h1>
+    <h1>
+        <f:translate key="facultyTitle"/>
+    </h1>
 
-	<ul>
-		<f:for each="{fakultaeten}" as="fakultaet">
-			<li><f:link.action action="list" controller="Bibliothek" arguments="{fakultaet: fakultaet}">{fakultaet.titel}</f:link.action></li>
-		</f:for>
-	</ul>
+    <ul>
+        <f:for each="{fakultaeten}" as="fakultaet">
+            <li>
+                <f:link.action action="list" controller="Bibliothek" arguments="{fakultaet: fakultaet}">
+                    {fakultaet.titel}
+                </f:link.action>
+            </li>
+        </f:for>
+    </ul>
 </f:section>

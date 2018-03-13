@@ -23,7 +23,9 @@ namespace Subugoe\Standorte\Domain\Model;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  * ************************************************************* */
+use Subugoe\Standorte\Domain\Repository\BibliothekRepository;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Object\ObjectManager;
 
 /**
  * Fakultaet
@@ -49,7 +51,8 @@ class Fakultaet extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     public function getAnzahlBibliotheken()
     {
-        $bibliothek = GeneralUtility::makeInstance('Subugoe\\Standorte\\Domain\\Repository\\BibliothekRepository');
+        $bibliothek = GeneralUtility::makeInstance(ObjectManager::class);
+        $bibliothek = $bibliothek->get(BibliothekRepository::class);
         $ergebnis = $bibliothek->countByFakultaet($this->uid);
         return $ergebnis;
     }

@@ -1,9 +1,9 @@
-<f:layout name="Default" />
+<f:layout name="Default"/>
 <f:section name="bibos">
 
-	<h1>{fakultaet.titel}</h1>
+    <h1>{fakultaet.titel}</h1>
 
-	<f:for each="{bibos}" as="bibo">
-		<f:render partial="BibliothekList" arguments="{_all}" />
-	</f:for>
+    <f:for each="{bibos}" as="bibo">
+        <f:render partial="BibliothekList" arguments="{_all}"/>
+    </f:for>
 </f:section>

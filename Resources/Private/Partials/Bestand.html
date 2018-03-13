@@ -1,0 +1,25 @@
+{namespace standorte=Subugoe\Standorte\ViewHelpers}
+
+<f:if condition="{institutskatalog}">
+    <f:then>
+        <br/>
+        <f:link.typolink parameter="{institutskatalog}" title="{f:translate(key:'institutstitle')}">
+            {f:translate(key:'institutskatalog')}
+        </f:link.typolink>
+    </f:then>
+</f:if>
+<f:if condition="{katalog}">
+    <f:then>
+        <br/>
+        <f:if condition="{katalogteilweise}">
+            <f:then>
+                <f:translate key="katalogteilweise"/>
+            </f:then>
+            <f:else>
+                <f:translate key="bestandenthalten"/>
+            </f:else>
+        </f:if>
+        <f:link.typolink parameter="{katalog}" title="{f:translate(key:'guktitle')}">GUK</f:link.typolink>
+        <f:translate key="enthalten"/>
+    </f:then>
+</f:if>

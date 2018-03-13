@@ -2,3 +2,4 @@
 Build/code-browser
 Build/logs
 Build/pdepend
+/.php_cs.cache

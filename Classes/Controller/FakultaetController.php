@@ -31,19 +31,14 @@ class FakultaetController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContro
 {
 
     /**
-     *
      * @var \Subugoe\Standorte\Domain\Repository\FakultaetRepository
      */
     protected $fakultaetRepository;
 
-    /**
-     * Initialisiert das Repository
-     *
-     * @param \Subugoe\Standorte\Domain\Repository\FakultaetRepository $fakultaetRepository
-     */
-    public function injectFakultaetRepository(
-        \Subugoe\Standorte\Domain\Repository\FakultaetRepository $fakultaetRepository
-    ) {
+    public function __construct(\Subugoe\Standorte\Domain\Repository\FakultaetRepository $fakultaetRepository)
+    {
+        parent::__construct();
+
         $this->fakultaetRepository = $fakultaetRepository;
     }
 

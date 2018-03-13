@@ -29,7 +29,6 @@
  */
 class tx_standorte_double6
 {
-
     public function returnFieldJS()
     {
         return "
@@ -60,10 +59,16 @@ class tx_standorte_double6
                 break;
             }
         }
-        $theDec = preg_replace('[^0-9]', '',
-                $theDec) . '000000';                    // Remove all "not" Decimals, append 6*'0'
-        $value = intval(str_replace(' ', '', $value)) . '.' . substr($theDec, 0,
-                6);    // Remove all blanks in Integer-part, cut to float precision=6
+        $theDec = preg_replace(
+            '[^0-9]',
+            '',
+                $theDec
+        ) . '000000';                    // Remove all "not" Decimals, append 6*'0'
+        $value = intval(str_replace(' ', '', $value)) . '.' . substr(
+            $theDec,
+            0,
+                6
+        );    // Remove all blanks in Integer-part, cut to float precision=6
         return $value;
     }
 }

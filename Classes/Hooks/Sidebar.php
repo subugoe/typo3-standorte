@@ -29,17 +29,13 @@ class Sidebar
 {
 
     /**
-     * Bibliothekenrepository
      * @var \Subugoe\Standorte\Domain\Repository\BibliothekRepository
-     * @inject
      */
-    public $bibliothekenRepository = null;
+    public $bibliothekenRepository;
 
-    public function __construct()
+    public function __construct(\Subugoe\Standorte\Domain\Repository\BibliothekRepository $bibliothekRepository)
     {
-        /** @var \TYPO3\CMS\Extbase\Object\ObjectManager $objectManager */
-        $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\Object\ObjectManager::class);
-        $this->bibliothekenRepository = $objectManager->get(\Subugoe\Standorte\Domain\Repository\BibliothekRepository::class);
+        $this->bibliothekenRepository = $bibliothekRepository;
     }
 
     /**

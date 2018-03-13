@@ -29,7 +29,6 @@
  */
 class tx_standorte_double11
 {
-
     public static function evaluateFieldValue($value, $is_in, &$set)
     {
         $theDec = 0;
@@ -41,10 +40,16 @@ class tx_standorte_double11
                 break;
             }
         }
-        $theDec = preg_replace('[^0-9]', '',
-                $theDec) . '00000000000';                // Remove all "not" Decimals, append 11*'0'
-        $value = intval(str_replace(' ', '', $value)) . '.' . substr($theDec, 0,
-                11);    // Remove all blanks in Integer-part, cut to float precision=6
+        $theDec = preg_replace(
+            '[^0-9]',
+            '',
+                $theDec
+        ) . '00000000000';                // Remove all "not" Decimals, append 11*'0'
+        $value = intval(str_replace(' ', '', $value)) . '.' . substr(
+            $theDec,
+            0,
+                11
+        );    // Remove all blanks in Integer-part, cut to float precision=6
         return $value;
     }
 

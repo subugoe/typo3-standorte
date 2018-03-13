@@ -29,7 +29,6 @@ namespace Subugoe\Standorte\Domain\Repository;
  */
 class BibliothekRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
-
     public $defaultOrderings = [
         'sigel' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING,
         'titel' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING

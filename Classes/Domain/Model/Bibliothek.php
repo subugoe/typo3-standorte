@@ -32,48 +32,39 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
 
     /**
-     *
      * @var int
      */
     protected $uid;
     /**
-     *
      * @var string
      */
     protected $sigel;
     /**
-     *
      * @var string
      */
     protected $oeffnungszeiten;
     /**
-     *
      * @var string
      */
     protected $titel;
 
     /**
-     *
      * @var string
      */
     protected $lon;
     /**
-     *
      * @var string
      */
     protected $lat;
     /**
-     *
      * @var string
      */
     protected $ansprechpartner;
     /**
-     *
      * @var string
      */
     protected $bestand;
     /**
-     *
      * @var string
      */
     protected $strasse;
@@ -84,27 +75,22 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     protected $adresszusatz;
     /**
-     *
      * @var int
      */
     protected $plz;
     /**
-     *
      * @var string
      */
     protected $ort;
     /**
-     *
      * @var string
      */
     protected $zusatzinformationen;
     /**
-     *
      * @var string
      */
     protected $bild;
     /**
-     *
      * @var \Subugoe\Standorte\Domain\Model\Fakultaet
      */
     protected $fakultaet;
@@ -134,7 +120,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $extlink;
 
     /**
-     *
      * Wenn die Bibliothek versteckt ist
      * @var bool
      */
@@ -148,7 +133,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $pizNr;
 
     /**
-     *
      * @return bool
      */
     public function getHidden()
@@ -157,7 +141,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     *
      * @param $hidden
      */
     public function setHidden($hidden)
@@ -166,7 +149,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     *
      * @return bool
      */
     public function getKatalogteilweise()
@@ -175,7 +157,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     *
      * @param $katalogteilweise
      */
     public function setKatalogteilweise($katalogteilweise)
@@ -285,7 +266,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     *
      * @return string
      */
     public function getSigel()
@@ -294,7 +274,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     *
      * @param $sigel
      */
     public function setSigel($sigel)
@@ -324,7 +303,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     *
      * @return string
      */
     public function getTitel()
@@ -333,7 +311,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     *
      * @param $titel
      */
     public function setTitel($titel)
@@ -342,7 +319,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     *
      * @return string
      */
     public function getLon()
@@ -354,7 +330,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     *
      * @param $lon
      */
     public function setLon($lon)
@@ -396,7 +371,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     *
      * @return string
      */
     public function getLat()
@@ -408,7 +382,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     *
      * @param $lat
      */
     public function setLat($lat)
@@ -417,7 +390,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     *
      * @return string
      */
     public function getAnsprechpartner()
@@ -426,7 +398,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     *
      * @param $ansprechpartner
      */
     public function setAnsprechpartner($ansprechpartner)
@@ -435,7 +406,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     *
      * @return string
      */
     public function getBestand()
@@ -444,7 +414,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     *
      * @param $bestand
      */
     public function setBestand($bestand)
@@ -453,7 +422,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     *
      * @return string
      */
     public function getStrasse()
@@ -462,7 +430,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     *
      * @param $strasse
      */
     public function setStrasse($strasse)
@@ -471,7 +438,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     *
      * @return int
      */
     public function getPlz()
@@ -480,7 +446,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     *
      * @param $plz
      */
     public function setPlz($plz)
@@ -489,7 +454,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     *
      * @return string
      */
     public function getOrt()
@@ -498,7 +462,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     *
      * @param string $ort
      */
     public function setOrt($ort)
@@ -507,7 +470,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     *
      * @return string
      */
     public function getZusatzinformationen()
@@ -516,7 +478,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     *
      * @param string $zusatzinformationen
      */
     public function setZusatzinformationen($zusatzinformationen)
@@ -535,7 +496,6 @@ class Bibliothek extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     *
      * @param $bild
      */
     public function setBild($bild)

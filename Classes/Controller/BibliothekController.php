@@ -34,13 +34,11 @@ class BibliothekController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContr
 
     /**
      * @var \Subugoe\Standorte\Domain\Repository\BibliothekRepository
-     * @inject
      */
     protected $bibliothekenRepository;
 
     /**
      * @var \Subugoe\Standorte\Domain\Repository\FakultaetRepository
-     * @inject
      */
     protected $fakultaetRepository;
 
@@ -51,14 +49,21 @@ class BibliothekController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContr
 
     /**
      * @var \TYPO3\CMS\Extbase\SignalSlot\Dispatcher
-     * @inject
      */
     protected $signalSlotDispatcher;
+
+    public function __construct(\TYPO3\CMS\Extbase\SignalSlot\Dispatcher $dispatcher, \Subugoe\Standorte\Domain\Repository\FakultaetRepository $fakultaetRepository, \Subugoe\Standorte\Domain\Repository\BibliothekRepository $bibliothekRepository)
+    {
+        parent::__construct();
+
+        $this->bibliothekenRepository = $bibliothekRepository;
+        $this->fakultaetRepository = $fakultaetRepository;
+        $this->signalSlotDispatcher = $dispatcher;
+    }
 
     public function initializeAction()
     {
         $this->pageRenderer = $this->objectManager->get(PageRenderer::class);
-        // $this->pageRenderer->addCssFile(ExtensionManagementUtility::siteRelPath('standorte') . '/Resources/Public/Css/Standorte.css');
     }
 
     /**

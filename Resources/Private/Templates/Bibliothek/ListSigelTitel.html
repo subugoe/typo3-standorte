@@ -1,28 +1,31 @@
-<f:layout name="Default" />
+<f:layout name="Default"/>
 
 <f:section name="bibos">
-	<table id="daten" class="daten">
-		<thead>
-			<tr>
-				<th><f:translate key="bibliothekssigel" /></th>
-				<th>Name</th>
-			</tr>
-		</thead>
-		<tbody>
-		<f:for each="{bibos}" as="bibo">
-			<tr>
-				<td>
-					<f:if condition="{bibo.sigel}">
-						<f:then>
-							7/{bibo.sigel}
-						</f:then>
-					</f:if>
-				</td>
-				<td>
-					<f:link.action pluginName="Pi1" action="single" arguments="{bibliothek:bibo}">{bibo.titel}</f:link.action>
-				</td>
-			</tr>
-		</f:for>
-		</tbody>
-	</table>
+    <table id="daten" class="daten">
+        <thead>
+        <tr>
+            <th>
+                <f:translate key="bibliothekssigel"/>
+            </th>
+            <th>Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <f:for each="{bibos}" as="bibo">
+            <tr>
+                <td>
+                    <f:if condition="{bibo.sigel}">
+                        <f:then>
+                            7/{bibo.sigel}
+                        </f:then>
+                    </f:if>
+                </td>
+                <td>
+                    <f:link.action pluginName="Pi1" action="single" arguments="{bibliothek:bibo}">{bibo.titel}
+                    </f:link.action>
+                </td>
+            </tr>
+        </f:for>
+        </tbody>
+    </table>
 </f:section>
