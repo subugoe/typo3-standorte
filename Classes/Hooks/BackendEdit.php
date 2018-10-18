@@ -61,7 +61,12 @@ class BackendEdit
                 }
                 if ($modified) {
                     $address = $incomingFieldArray["strasse"] . ", " . $incomingFieldArray["plz"] . ", " . $incomingFieldArray["ort"];
-                    $geo = $this->geocodeAddress($address);
+                    try {
+                        $geo = $this->geocodeAddress($address);
+                    } catch (\Exception $e) {
+                        $geo = [];
+                        $geo['status'] = 'error';
+                    }
                     \TYPO3\CMS\Core\Utility\GeneralUtility::devLog('processDatamap: Request coordinates from Google Maps API',
                         'standorte', -1, [$geo]);
                     if ($geo["status"] == "OK") {

@@ -83,25 +83,16 @@ $TCA['tx_standorte_domain_model_bibliothek'] = [
             'exclude' => 0,
             'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.lat',
             'config' => [
-                'type' => 'user',
+                'type' => 'input',
                 'size' => '30',
-                'userFunc' => 'EXT:standorte/Classes/Utility/DisabledInputFieldUtility.php:Tx_Standorte_Utility_DisabledInputFieldUtility->disabledInputField',
-                'parameters' => [
-                    'disabled' => 'true'
-                ],
             ]
         ],
         'lon' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:standorte/Resources/Private/Language/locallang_db.xml:tx_standorte_domain_model_bibliothek.lon',
             'config' => [
-                'type' => 'user',
+                'type' => 'input',
                 'size' => '30',
-                'eval' => 'tx_standorte_double11, nospace',
-                'userFunc' => 'EXT:standorte/Classes/Utility/DisabledInputFieldUtility.php:Tx_Standorte_Utility_DisabledInputFieldUtility->disabledInputField',
-                'parameters' => [
-                    'disabled' => 'true'
-                ],
             ]
         ],
         'bestand' => [
